@@ -1,13 +1,17 @@
 package com.thexfactor117.ascension.blocks;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.world.World;
+
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 
 public class BlockFieryNetherrack extends Block
 {
@@ -20,6 +24,18 @@ public class BlockFieryNetherrack extends Block
 		setResistance(6.0F);
 		setHarvestLevel("shovel", 1);
 	}
+	
+	/**
+	 * Sets the player on fire when walked upon.
+	 */
+	@Override
+    public void onEntityWalking(World world, int x, int y, int z, Entity entity)
+    {
+		if (!world.isRemote)
+		{
+			if (!(entity instanceof EntityItem)) entity.setFire(5);
+		}
+    }
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister par1IconRegister)

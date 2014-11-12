@@ -9,8 +9,11 @@ import com.thexfactor117.ascension.items.ItemOmegaAxe;
 import com.thexfactor117.ascension.items.ItemOmegaPickaxe;
 import com.thexfactor117.ascension.items.ItemOmegaShovel;
 import com.thexfactor117.ascension.items.ItemOmegaSword;
+import com.thexfactor117.ascension.items.ItemSteelArmor;
+import com.thexfactor117.ascension.items.ItemTitaniumArmor;
+import com.thexfactor117.ascension.items.ItemVeconiteArmor;
 
-public class ModTools 
+public class ModArmory 
 {
 	//Tool Materials
 	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 3, 1957, 10.0F, 4.0F, 7);
@@ -53,14 +56,18 @@ public class ModTools
 	
 	
 	//Armor
-	/*public static Item titaniumHelm = new ItemTitaniumArmor(ATITANIUM, 0, "titaniumHelm");
+	public static Item titaniumHelm = new ItemTitaniumArmor(ATITANIUM, 0, "titaniumHelm");
 	public static Item titaniumPlate = new ItemTitaniumArmor(ATITANIUM, 1, "titaniumPlate");
 	public static Item titaniumPants = new ItemTitaniumArmor(ATITANIUM, 2, "titaniumPants");
 	public static Item titaniumBoots = new ItemTitaniumArmor(ATITANIUM, 3, "titaniumBoots");
 	public static Item steelHelm = new ItemSteelArmor(ASTEEL, 0, "steelHelm");
 	public static Item steelPlate = new ItemSteelArmor(ASTEEL, 1, "steelPlate");
 	public static Item steelPants = new ItemSteelArmor(ASTEEL, 2, "steelPants");
-	public static Item steelBoots = new ItemSteelArmor(ASTEEL, 3, "steelBoots");*/
+	public static Item steelBoots = new ItemSteelArmor(ASTEEL, 3, "steelBoots");
+	public static Item veconiteHelm = new ItemVeconiteArmor(ASTEEL, 0, "veconiteHelm");
+	public static Item veconitePlate = new ItemVeconiteArmor(ASTEEL, 1, "veconitePlate");
+	public static Item veconitePants = new ItemVeconiteArmor(ASTEEL, 2, "veconitePants");
+	public static Item veconiteBoots = new ItemVeconiteArmor(ASTEEL, 3, "veconiteBoots");
 	
 	public static void init()
 	{
@@ -82,13 +89,17 @@ public class ModTools
 		RegisterHelper.registerItem(vexalSword);
 		RegisterHelper.registerItem(infusedVeconiteSword);
 		
-		/*RegisterHelper.registerItem(titaniumHelm);
+		RegisterHelper.registerItem(titaniumHelm);
 		RegisterHelper.registerItem(titaniumPlate);
 		RegisterHelper.registerItem(titaniumPants);
 		RegisterHelper.registerItem(titaniumBoots);
 		RegisterHelper.registerItem(steelHelm);
 		RegisterHelper.registerItem(steelPlate);
 		RegisterHelper.registerItem(steelPants);
-		RegisterHelper.registerItem(steelBoots);*/
+		RegisterHelper.registerItem(steelBoots);
+		RegisterHelper.registerItem(veconiteHelm);
+		RegisterHelper.registerItem(veconitePlate);
+		RegisterHelper.registerItem(veconitePants);
+		RegisterHelper.registerItem(veconiteBoots);
 	}
 }

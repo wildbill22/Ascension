@@ -1,9 +1,13 @@
 /**
  * Copyright 2014 TheXFactor117
+ * 
+ * TO-DO LIST
+ *    * Go back and fix hardness / resistance / harvest level for blocks
  */
 
 package com.thexfactor117.ascension;
 
+import com.thexfactor117.ascension.generation.AscensionWorldGeneration;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.init.ModItems;
@@ -15,6 +19,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 public class Ascension 
@@ -25,7 +30,7 @@ public class Ascension
 	@Instance(Reference.MODID)
 	public static Ascension instance;
 	
-	//AscensionWorldGeneration eventWorldGen = new AscensionWorldGeneration();
+	AscensionWorldGeneration eventWorldGen = new AscensionWorldGeneration();
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -33,7 +38,7 @@ public class Ascension
 		ModItems.init();
 		ModBlocks.init();
 		
-		//GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
+		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 		
 		//FMLCommonHandler.instance().bus().register(new AscensionEvent());
 	}
