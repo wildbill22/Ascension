@@ -1,0 +1,10 @@
+/forge/.classpath
+/forge/.gradle
+/forge/.settings
+/forge/.project
+/forge/bin
+/forge/build.gradle
+/forge/eclipse
+/forge/gradle
+/forge/gradlew
+/forge/gradlew.bat
