@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
+  "modid": "thexfactor117_ascension",
+  "name": "Ascension",
+  "description": "A Skyrim inspired RPG adventure awaits...",
+  "version": "pre-a1.0.0",
+  "mcversion": "1.7.10",
+  "url": "http://omega-mod.weebly.com",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["TheXFactor117 and Resnov981 (textures)"],
+  "credits": "Mojang, Forge, and all my supporters!",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

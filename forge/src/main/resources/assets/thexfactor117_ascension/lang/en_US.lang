@@ -1,0 +1,69 @@
+tile.titaniumOre.name=Titanium Ore
+tile.vexalOre.name=Vexal Ore
+tile.limestone.name=Limestone
+tile.limestoneBricks.name=Limestone Bricks
+
+tile.fieryNetherrack.name=Fiery Netherrack
+
+tile.endStoneBricks.name=End Stone Bricks
+
+tile.abyssStone.name=Abyss Stone
+tile.abyssCobblestone.name=Abyss Cobblestone
+tile.abyssStoneBricks.name=Abyss Stone Bricks
+tile.abyssOre.name=Abyss Ore
+tile.ash.name=Ash
+
+item.eclipse.name=Eclipse
+item.nova.name=Nova
+item.mythic.name=Mythic
+item.inheritance.name=Inheritance
+item.omega.name=Omega
+
+item.titaniumIngot.name=Titanium Ingot
+item.steelIngot.name=Steel Ingot
+item.vexalIngot.name=Vexal Ingot
+item.veconiteIngot.name=Veconite Ingot
+item.infusedVeconiteIngot.name=Infused Veconite Ingot
+item.iceGem.name=Ice Gem
+item.blazeGem.name=Blaze Gem
+
+item.rawVenison.name=Raw Venison
+item.cookedVenison.name=Cooked Venison
+
+item.antlers.name=Antlers
+item.sharkTeeth.name=Shark Teeth
+item.coldBlazeRod.name=Cold Blaze Rod
+item.smallRock.name=Small Rock
+
+item.titaniumSword.name=Titanium Sword
+item.titaniumPick.name=Titanium Pickaxe
+item.titaniumShovel.name=Titanium Shovel
+item.titaniumAxe.name=Titanium Axe
+item.steelSword.name=Steel Sword
+item.steelPick.name=Steel Pickaxe
+item.steelShovel.name=Steel Shovel
+item.steelAxe.name=Steel Axe
+item.veconiteSword.name=Veconite Sword
+item.veconitePick.name=Veconite Pickaxe
+item.veconiteShovel.name=Veconite Shovel
+item.veconiteAxe.name=Veconite Axe
+
+item.iceSword.name=Ice Sword
+item.blazeSword.name=Blaze Sword
+item.vexalSword.name=Vexal Sword
+item.infusedVeconiteSword.name=Infused Veconite Sword
+
+item.titaniumHelm.name=Titanium Helmet
+item.titaniumPlate.name=Titanium Chestplate
+item.titaniumPants.name=Titanium Leggings
+item.titaniumBoots.name=Titanium boots
+item.steelHelm.name=Steel Helmet
+item.steelPlate.name=Steel Chestplate
+item.steelPants.name=Steel Leggings
+item.steelBoots.name=Steel Boots
+item.veconiteHelm.name=Veconite Helmet
+item.veconitePlate.name=Veconite Chestplate
+item.veconitePants.name=Veconite Leggings
+item.veconiteBoots.name=Veconite Boots
+
+itemGroup.tabAscension=Ascension
