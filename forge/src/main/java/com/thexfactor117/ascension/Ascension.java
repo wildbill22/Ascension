@@ -46,6 +46,7 @@ public class Ascension
 	@Mod.EventHandler
 	public void Init(FMLInitializationEvent event)
 	{
+		
 	}
 	
 	@Mod.EventHandler
