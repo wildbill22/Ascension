@@ -21,7 +21,7 @@ public class ModBlocks
 	public static Block limestone = new BlockLimestone().setBlockName("limestone");
 	public static Block limestoneBricks = new BlockLimestoneBricks().setBlockName("limestoneBricks");
 	
-	public static Block fieryNetherrack = new BlockFieryNetherrack().setBlockName("fieryNetherrack");
+	public static Block fieryNetherrack = new BlockFieryNetherrack();
 	
 	public static Block endStoneBricks = new BlockEndStoneBricks().setBlockName("endStoneBricks");
 	
