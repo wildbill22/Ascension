@@ -18,6 +18,8 @@ public class BlockFieryNetherrack extends Block
 	public BlockFieryNetherrack()
 	{
 		super(Material.grass);
+		setBlockName("fieryNetherrack");
+		setBlockTextureName(Reference.MODID + ":" + getUnlocalizedName().substring(5));
 		setCreativeTab(ModTabs.tabAscension);
 		setStepSound(soundTypeGlass);
 		setHardness(4.0F);
@@ -36,10 +38,4 @@ public class BlockFieryNetherrack extends Block
 			if (!(entity instanceof EntityItem)) entity.setFire(5);
 		}
     }
-	
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister par1IconRegister)
-	{
-		blockIcon = par1IconRegister.registerIcon(Reference.MODID + ":" + getUnlocalizedName().substring(5));
-	}
 }

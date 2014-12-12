@@ -14,16 +14,12 @@ public class BlockAbyssCobblestone extends Block
 	public BlockAbyssCobblestone()
 	{
 		super(Material.iron);
+		setBlockName("abyssCobblestone");
+		setBlockTextureName(Reference.MODID + ":" + getUnlocalizedName().substring(5));
 		setCreativeTab(ModTabs.tabAscension);
 		setStepSound(soundTypeStone);
 		setHardness(4.0F);
 		setResistance(6.0F);
 		setHarvestLevel("pickaxe", 2);
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister par1IconRegister)
-	{
-		blockIcon = par1IconRegister.registerIcon(Reference.MODID + ":" + getUnlocalizedName().substring(5));
 	}
 }

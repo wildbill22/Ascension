@@ -15,16 +15,12 @@ public class BlockVexalOre extends Block
 	public BlockVexalOre()
 	{
 		super(Material.iron);
+		setBlockName("vexalOre");
+		setBlockTextureName(Reference.MODID + ":" + getUnlocalizedName().substring(5));
 		setCreativeTab(ModTabs.tabAscension);
 		setStepSound(soundTypeStone);
 		setHardness(4.0F);
 		setResistance(6.0F);
 		setHarvestLevel("pickaxe", 3);
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister par1IconRegister)
-	{
-		blockIcon = par1IconRegister.registerIcon(Reference.MODID + ":" + getUnlocalizedName().substring(5));
 	}
 }
