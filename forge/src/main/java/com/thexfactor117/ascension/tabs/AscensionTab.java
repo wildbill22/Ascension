@@ -1,6 +1,7 @@
 package com.thexfactor117.ascension.tabs;
 
 import com.thexfactor117.ascension.init.ModBlocks;
+import com.thexfactor117.ascension.init.ModItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,9 +24,9 @@ public class AscensionTab extends CreativeTabs
 	{
 		if (this.name == "tabAscension") 
 		{
-			return Items.apple;
+			return ModItems.omega;
 		}
-		System.out.println("Mariah, I love you, but why crash?");
+		System.out.println("Love ya Mariah!");
 		return null;
 	}
 }
