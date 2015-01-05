@@ -66,4 +66,6 @@ item.veconitePlate.name=Veconite Chestplate
 item.veconitePants.name=Veconite Leggings
 item.veconiteBoots.name=Veconite Boots
 
+item.spawnAbandonedHouse.name= Spawn Abandoned House
+
 itemGroup.tabAscension=Ascension

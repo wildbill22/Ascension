@@ -8,6 +8,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.thexfactor117.ascension.init.ModBlocks;
+import com.thexfactor117.ascension.items.SpawnAbandonedHouse;
+import com.thexfactor117.ascension.structures.StructureGenAbandonedHouse;
 
 import cpw.mods.fml.common.IWorldGenerator;
 
@@ -30,6 +32,7 @@ public class AscensionWorldGeneration implements IWorldGenerator
 	{
 		addOreSpawn(ModBlocks.titaniumOre, world, random, x, z, 16, 16, 2 + random.nextInt(2), 7, 0, 32);
 		addOreSpawn(ModBlocks.limestone, world, random, x, z, 16, 16, 20 + random.nextInt(20), 15, 32, 128);
+		addStructures(world, random, x, z);
 	}
 
 	private void generateNether(World world, Random random, int x, int z)
@@ -51,5 +54,35 @@ public class AscensionWorldGeneration implements IWorldGenerator
 			int posZ = blockZPos + random.nextInt(maxZ);
 			new WorldGenMinable(block, maxVeinSize).generate(world, random, posX, posY, posZ);
 		}
+	}
+	
+	private void addStructures(World world, Random random, int x, int z){
+		int chance = random.nextInt(1000);
+		boolean generatedStructure = false; // needed when a 2nd structure is added
+		int spawnChance = 0;
+		
+		spawnChance += StructureGenAbandonedHouse.spawnChance; 
+		if (chance < spawnChance)
+		{
+			// Create abandoned house
+			int posX = x + random.nextInt(16);
+			int posZ = z + random.nextInt(16);
+			// Check where entrance is (look in structure class for location of stairs):
+			int posY = world.getHeightValue(posX + 2, posZ + 6); 
+			StructureGenAbandonedHouse house = new StructureGenAbandonedHouse();
+			generatedStructure = house.generate(world, random, posX, posY, posZ);
+		}
+
+		// Code below for second structure is designed to not place it if first is placed
+		// 2nd structure would go here like so:
+//		spawnChance += StructureGenAbandonedHouse.spawnChance; 
+//		if (generatedStructure == false && chance < spawnChance) {
+//			int posX = x + random.nextInt(16);
+//			int posZ = z + random.nextInt(16);
+//			// Check where entrance is:
+//			int posY = world.getHeightValue(posX + 11, posZ + 1);
+//			StructureGenAbandonedHouse house = new StructureGenAbandonedHouse();
+//			generatedStructure = house.generate(world, random, posX, posY, posZ);
+//		}
 	}
 }
