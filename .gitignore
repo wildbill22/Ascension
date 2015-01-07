@@ -8,3 +8,6 @@
 /forge/gradle
 /forge/gradlew
 /forge/gradlew.bat
+/bin/
+.project
+.classpath
