@@ -1,6 +1,8 @@
 package com.thexfactor117.ascension.init;
 
 import com.thexfactor117.ascension.entities.EntityBarbarian;
+import com.thexfactor117.ascension.entities.EntityBear;
+import com.thexfactor117.ascension.entities.EntityGhost;
 import com.thexfactor117.ascension.entities.EntityGoblin;
 import com.thexfactor117.ascension.entities.EntityGolem;
 import com.thexfactor117.ascension.entities.EntityMummy;
@@ -19,5 +21,8 @@ public class ModEntities
 		EntityHandler.registerMonsters(EntityGoblin.class, "Goblin");
 		EntityHandler.registerMonsters(EntityBarbarian.class, "Barbarian");
 		EntityHandler.registerMonsters(EntitySnowBlaze.class, "Snow Blaze");
+		EntityHandler.registerMonsters(EntityBear.class, "Bear");
+		//EntityHandler.registerMonsters(EntityShark.class, "Shark");
+		EntityHandler.registerMonsters(EntityGhost.class, "Ghost");
 	}
 }
