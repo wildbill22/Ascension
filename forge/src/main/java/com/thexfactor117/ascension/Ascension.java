@@ -9,7 +9,9 @@ package com.thexfactor117.ascension;
 
 import com.thexfactor117.ascension.generation.AscensionWorldGeneration;
 import com.thexfactor117.ascension.help.Reference;
+import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModBlocks;
+import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.proxies.CommonProxy;
 
@@ -37,6 +39,8 @@ public class Ascension
 	{		
 		ModItems.init();
 		ModBlocks.init();
+		ModArmory.init();
+		ModEntities.init();
 		
 		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 		
