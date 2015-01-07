@@ -17,6 +17,8 @@ public class EntityGhost extends EntityMob
 	public EntityGhost(World world) 
 	{
 		super(world);
+		this.getNavigator().setCanSwim(true);
+		this.experienceValue = 20;
 		this.setSize(1.5F, 1.0F); //sets how big the hit box is *** TEST THIS ***
 		this.tasks.addTask(0, new EntityAIWander(this, 0.5D)); //speed at which mob wanders
 		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false)); // attacks player once collided

@@ -13,6 +13,8 @@ public class EntityBear extends EntityMob
 	public EntityBear(World world) 
 	{
 		super(world);
+		this.getNavigator().setCanSwim(true);
+		this.experienceValue = 15;
 		this.setSize(1.5F, 1.0F); //sets how big the hit box is *** TEST THIS ***
 		this.tasks.addTask(0, new EntityAIWander(this, 0.75D)); //speed at which mob wanders
 		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false)); // attacks player once collided
