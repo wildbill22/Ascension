@@ -30,7 +30,7 @@ public class EntityHandler
 		int primaryColor = random.nextInt() * 627424;
 		int secondaryColor = random.nextInt() * 627424;
 		
-		//EntityRegistry.registerGlobalEntityID(entityClass, name, entityId);
-		//EntityRegistry.registerModEntity(entityClass, name, entityId, Ascension.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(entityClass, name, entityId);
+		EntityRegistry.registerModEntity(entityClass, name, entityId, Ascension.instance, 64, 1, true);
 	}
 }
