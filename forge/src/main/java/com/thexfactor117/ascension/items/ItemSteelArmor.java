@@ -23,11 +23,11 @@ public class ItemSteelArmor extends ItemArmor
 	{
 		if (stack.getItem() == ModArmory.steelHelm || stack.getItem() == ModArmory.steelPlate || stack.getItem() == ModArmory.steelBoots)
 		{
-			return Reference.MODID + ":models/armor/steelArmor1.png";
+			return Reference.MODID + ":models/armor/steel_layer1.png";
 		}
 		else if (stack.getItem() == ModArmory.steelPants)
 		{
-			return Reference.MODID + ":models/armor/steelArmor2.png";
+			return Reference.MODID + ":models/armor/steel_layer2.png";
 		}
 		else
 		{

@@ -11,25 +11,21 @@ import com.thexfactor117.ascension.items.ItemOmegaShovel;
 import com.thexfactor117.ascension.items.ItemOmegaSword;
 import com.thexfactor117.ascension.items.ItemSteelArmor;
 import com.thexfactor117.ascension.items.ItemTitaniumArmor;
-import com.thexfactor117.ascension.items.ItemVeconiteArmor;
 
 public class ModArmory 
 {
 	//Tool Materials
 	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 3, 1957, 10.0F, 4.0F, 7);
 	static Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 3, 2256, 11.0F, 4.5F, 5);
-	static Item.ToolMaterial VECONITE = EnumHelper.addToolMaterial("VECONITE", 3, 768, 12.0F, 5, 13);
 	
 	//Weapon Materials
 	static Item.ToolMaterial ICE = EnumHelper.addToolMaterial("ICE", 3, 1561, 8.0F, 3.0F, 10);
 	static Item.ToolMaterial BLAZE = EnumHelper.addToolMaterial("BLAZE", 3, 1561, 8.0F, 3.0F, 10);
 	static Item.ToolMaterial VEXAL = EnumHelper.addToolMaterial("VEXAL", 3, 2073, 8.0F, 2.5F, 15);
-	static Item.ToolMaterial INFUSEDVECONITE = EnumHelper.addToolMaterial("INFUSEDVECONITE", 0, 1028, 10.0F, 6F, 10);
 	
 	//Armor Materials
 	static ArmorMaterial ATITANIUM = EnumHelper.addArmorMaterial("ATITANIUM", 38, new int[]{4, 9, 7, 3}, 7);
 	static ArmorMaterial ASTEEL = EnumHelper.addArmorMaterial("ASTEEL", 42, new int[]{5, 10, 8, 4}, 5);
-	static ArmorMaterial AVECONITE = EnumHelper.addArmorMaterial("AVECONITE", 42, new int[]{5,  10, 8, 4}, 5);
 	
 	
 	
@@ -42,16 +38,11 @@ public class ModArmory
 	public static Item steelPick = new ItemOmegaPickaxe(STEEL).setUnlocalizedName("steelPick");
 	public static Item steelShovel = new ItemOmegaShovel(STEEL).setUnlocalizedName("steelShovel");
 	public static Item steelAxe = new ItemOmegaAxe(STEEL).setUnlocalizedName("steelAxe");
-	public static Item veconiteSword = new ItemOmegaSword(VECONITE).setUnlocalizedName("veconiteSword");
-	public static Item veconitePick = new ItemOmegaPickaxe(VECONITE).setUnlocalizedName("veconitePick");
-	public static Item veconiteShovel = new ItemOmegaShovel(VECONITE).setUnlocalizedName("veconiteShovel");
-	public static Item veconiteAxe = new ItemOmegaAxe(VECONITE).setUnlocalizedName("veconiteAxe");
 	
 	//Weapons
 	public static Item iceSword = new ItemOmegaSword(ICE).setUnlocalizedName("iceSword");
 	public static Item blazeSword = new ItemOmegaSword(BLAZE).setUnlocalizedName("blazeSword");
 	public static Item vexalSword = new ItemOmegaSword(VEXAL).setUnlocalizedName("vexalSword");
-	public static Item infusedVeconiteSword = new ItemOmegaSword(INFUSEDVECONITE).setUnlocalizedName("infusedVeconiteSword");
 	
 	
 	
@@ -64,11 +55,7 @@ public class ModArmory
 	public static Item steelPlate = new ItemSteelArmor(ASTEEL, 1, "steelPlate");
 	public static Item steelPants = new ItemSteelArmor(ASTEEL, 2, "steelPants");
 	public static Item steelBoots = new ItemSteelArmor(ASTEEL, 3, "steelBoots");
-	public static Item veconiteHelm = new ItemVeconiteArmor(ASTEEL, 0, "veconiteHelm");
-	public static Item veconitePlate = new ItemVeconiteArmor(ASTEEL, 1, "veconitePlate");
-	public static Item veconitePants = new ItemVeconiteArmor(ASTEEL, 2, "veconitePants");
-	public static Item veconiteBoots = new ItemVeconiteArmor(ASTEEL, 3, "veconiteBoots");
-	
+
 	public static void init()
 	{
 		RegisterHelper.registerItem(titaniumSword);
@@ -79,15 +66,10 @@ public class ModArmory
 		RegisterHelper.registerItem(steelPick);
 		RegisterHelper.registerItem(steelShovel);
 		RegisterHelper.registerItem(steelAxe);
-		RegisterHelper.registerItem(veconiteSword);
-		RegisterHelper.registerItem(veconitePick);
-		RegisterHelper.registerItem(veconiteShovel);
-		RegisterHelper.registerItem(veconiteAxe);
 		
 		RegisterHelper.registerItem(iceSword);
 		RegisterHelper.registerItem(blazeSword);
 		RegisterHelper.registerItem(vexalSword);
-		RegisterHelper.registerItem(infusedVeconiteSword);
 		
 		RegisterHelper.registerItem(titaniumHelm);
 		RegisterHelper.registerItem(titaniumPlate);
@@ -97,9 +79,5 @@ public class ModArmory
 		RegisterHelper.registerItem(steelPlate);
 		RegisterHelper.registerItem(steelPants);
 		RegisterHelper.registerItem(steelBoots);
-		RegisterHelper.registerItem(veconiteHelm);
-		RegisterHelper.registerItem(veconitePlate);
-		RegisterHelper.registerItem(veconitePants);
-		RegisterHelper.registerItem(veconiteBoots);
 	}
 }

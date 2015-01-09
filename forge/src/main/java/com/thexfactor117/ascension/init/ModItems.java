@@ -10,18 +10,12 @@ import com.thexfactor117.ascension.items.SpawnAbandonedHouse;
 public class ModItems 
 {
 	//Artifacts
-	public static Item eclipse = new ItemAscension().setUnlocalizedName("eclipse");
-	public static Item nova = new ItemAscension().setUnlocalizedName("nova");
-	public static Item mythic = new ItemAscension().setUnlocalizedName("mythic");
-	public static Item inheritance = new ItemAscension().setUnlocalizedName("inheritance");
 	public static Item omega = new ItemAscension().setUnlocalizedName("omega");
 
 	//Valuables
 	public static Item titaniumIngot = new ItemAscension().setUnlocalizedName("titaniumIngot");
 	public static Item steelIngot = new ItemAscension().setUnlocalizedName("steelIngot");
 	public static Item vexalIngot = new ItemAscension().setUnlocalizedName("vexalIngot");
-	public static Item veconiteIngot = new ItemAscension().setUnlocalizedName("veconiteIngot");
-	public static Item infusedVeconiteIngot = new ItemAscension().setUnlocalizedName("infusedVeconiteIngot");
 	public static Item iceGem = new ItemAscension().setUnlocalizedName("iceGem");
 	public static Item blazeGem = new ItemAscension().setUnlocalizedName("blazeGem");
 	
@@ -40,17 +34,11 @@ public class ModItems
 	
 	public static void init()
 	{
-	RegisterHelper.registerItem(eclipse);
-	RegisterHelper.registerItem(nova);
-	RegisterHelper.registerItem(mythic);
-	RegisterHelper.registerItem(inheritance);
 	RegisterHelper.registerItem(omega);
 	
 	RegisterHelper.registerItem(titaniumIngot);
 	RegisterHelper.registerItem(steelIngot);
 	RegisterHelper.registerItem(vexalIngot);
-	RegisterHelper.registerItem(veconiteIngot);
-	RegisterHelper.registerItem(infusedVeconiteIngot);
 	RegisterHelper.registerItem(blazeGem);
 	RegisterHelper.registerItem(iceGem);
 	

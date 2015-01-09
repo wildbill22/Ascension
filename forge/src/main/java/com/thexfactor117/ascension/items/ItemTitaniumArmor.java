@@ -22,11 +22,11 @@ public class ItemTitaniumArmor extends ItemArmor
 	{
 		if (stack.getItem() == ModArmory.titaniumHelm || stack.getItem() == ModArmory.titaniumPlate || stack.getItem() == ModArmory.titaniumBoots)
 		{
-			return Reference.MODID + ":models/armor/titaniumArmor1.png";
+			return Reference.MODID + ":models/armor/titanium_layer1.png";
 		}
 		else if (stack.getItem() == ModArmory.titaniumPants)
 		{
-			return Reference.MODID + ":models/armor/titaniumArmor2.png";
+			return Reference.MODID + ":models/armor/titanium_layer2.png";
 		}
 		else
 		{
