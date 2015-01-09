@@ -6,6 +6,8 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class EntityBarbarian extends EntityMob
@@ -34,5 +36,11 @@ public class EntityBarbarian extends EntityMob
 	public boolean isAIEnabled()
 	{
 		return true;
+	}
+	
+	@Override
+	protected void dropFewItems(boolean par1, int par2)
+	{
+		this.dropItem(Items.iron_sword, 1);
 	}
 }

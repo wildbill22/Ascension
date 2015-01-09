@@ -1,15 +1,20 @@
 package com.thexfactor117.ascension.entities;
 
+import com.thexfactor117.ascension.init.ModItems;
+
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 public class EntityBear extends EntityMob
 {
+	int itemsDropped = 3;
+	
 	public EntityBear(World world) 
 	{
 		super(world);
@@ -34,5 +39,11 @@ public class EntityBear extends EntityMob
 	public boolean isAIEnabled()
 	{
 		return true;
+	}
+	
+	@Override
+	protected void dropFewItems(boolean par1, int par2)
+	{
+		this.dropItem(ModItems.rawVenison, 1);
 	}
 }

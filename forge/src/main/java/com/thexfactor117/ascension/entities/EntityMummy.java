@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 public class EntityMummy extends EntityMob
@@ -40,5 +41,11 @@ public class EntityMummy extends EntityMob
 	public boolean isAIEnabled()
 	{
 		return true;
+	}
+	
+	@Override
+	protected void dropFewItems(boolean par1, int par2)
+	{
+		this.dropItem(Items.gold_ingot, 2);
 	}
 }
