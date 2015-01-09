@@ -15,11 +15,19 @@ TheXFactor117 -- Creator and Lead-Developer
 
 wildbill02 -- Developer (generation)
 
+If you wish to be a contributor, please contact TheXFactor117 on Skype (thexfactor117).
+
+Team Members
+============
 Resnov -- Texture Artist
 
-Dracosity -- SFX, Music, and Builder
+DesHex -- Texture Artist / Modeler
 
-If you wish to be a contributor, please contact TheXFactor117 on Skype (thexfactor117).
+baddaspig -- Texture Artist
+
+dom123048 -- Modeler
+
+Dracosity -- SFX, Music, Builder
 
 Contributing
 ============
