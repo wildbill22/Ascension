@@ -1,8 +1,5 @@
 /**
  * Copyright 2014 TheXFactor117
- * 
- * TO-DO LIST
- *    * Go back and fix hardness / resistance / harvest level for blocks
  */
 
 package com.thexfactor117.ascension;
@@ -26,8 +23,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 public class Ascension 
 {
-	//@SidedProxy(clientSide = "com.thexfactor117.omega.proxies.ClientProxy", serverSide = "com.thexfactor117.omega.proxies.CommonProxies")
-	//public static CommonProxy ascensionProxy;
+	@SidedProxy(clientSide = "com.thexfactor117.ascension.proxies.ClientProxy", serverSide = "com.thexfactor117.ascension.proxies.CommonProxies")
+	public static CommonProxy ascensionProxy;
 	
 	@Instance(Reference.MODID)
 	public static Ascension instance;
