@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.help.LogHelper;
@@ -13,14 +14,17 @@ public class StructureGenAbandonedHouse extends AbandonedStructure
 	// Variables for configuration
 	public static int missingBlockChance = 10;    // Set this to about 1/10 number of blocks
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
-	public static int spawnChance = 10;           // chance n/1000
+	public static int spawnChance = 100;           // chance n/1000
 	
 	public StructureGenAbandonedHouse() 
 	{
 		structureMissingBlockChance = missingBlockChance;
-		sturctureSpawnHeightTolerance = spawnHeightTolerance;
-		sturctureSpawnChance = spawnChance;
+		structureSpawnHeightTolerance = spawnHeightTolerance;
+		structureSpawnChance = spawnChance;
 		validSpawnBlocks = getValidSpawnBlocks();
+		// Add these in order of low to high probability:
+		addRandomChestItem(Items.arrow, 1, 3, 10);
+		addRandomChestItem(Items.apple, 1, 3, 20);
 	}
 
 	protected Block[] getValidSpawnBlocks() 
@@ -42,6 +46,7 @@ public class StructureGenAbandonedHouse extends AbandonedStructure
 		}
 		LogHelper.info("Generating an Abandoned House at " + x + "," + y + "," + z + "!");
 		generateStructure(world, random, x, y, z);
+		generateStructureBase(world, random, x, y, z, Blocks.cobblestone);
 		
 		return true;
 	}
