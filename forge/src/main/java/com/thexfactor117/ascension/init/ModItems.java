@@ -34,22 +34,22 @@ public class ModItems
 	
 	public static void init()
 	{
-	RegisterHelper.registerItem(omega);
+		RegisterHelper.registerItem(omega);
 	
-	RegisterHelper.registerItem(titaniumIngot);
-	RegisterHelper.registerItem(steelIngot);
-	RegisterHelper.registerItem(vexalIngot);
-	RegisterHelper.registerItem(blazeGem);
-	RegisterHelper.registerItem(iceGem);
+		RegisterHelper.registerItem(titaniumIngot);
+		RegisterHelper.registerItem(steelIngot);
+		RegisterHelper.registerItem(vexalIngot);
+		RegisterHelper.registerItem(blazeGem);
+		RegisterHelper.registerItem(iceGem);
 	
-	RegisterHelper.registerItem(rawVenison);
-	RegisterHelper.registerItem(cookedVenison);
+		RegisterHelper.registerItem(rawVenison);
+		RegisterHelper.registerItem(cookedVenison);
 	
-	RegisterHelper.registerItem(antlers);
-	RegisterHelper.registerItem(sharkTeeth);
-	RegisterHelper.registerItem(coldBlazeRod);
-	RegisterHelper.registerItem(smallRock);
+		RegisterHelper.registerItem(antlers);
+		RegisterHelper.registerItem(sharkTeeth);
+		RegisterHelper.registerItem(coldBlazeRod);
+		RegisterHelper.registerItem(smallRock);
 	
-	RegisterHelper.registerItem(spawnAbandonedHouse);
+		RegisterHelper.registerItem(spawnAbandonedHouse);
 	}
 }

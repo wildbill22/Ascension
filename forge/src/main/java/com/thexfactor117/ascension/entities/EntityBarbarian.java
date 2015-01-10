@@ -22,7 +22,7 @@ public class EntityBarbarian extends EntityMob
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 10;
 		this.setSize(1.5F, 1.0F); //sets how big the hit box is *** TEST THIS ***
-		this.tasks.addTask(0, new EntityAIWander(this, 1.25D)); //speed at which mob wanders
+		this.tasks.addTask(0, new EntityAIWander(this, 0.75D)); //speed at which mob wanders
 		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false)); // attacks player once collided
 		this.tasks.addTask(2, new EntityAISwimming(this));
 	}
@@ -33,7 +33,7 @@ public class EntityBarbarian extends EntityMob
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(24.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.5D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.75D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
 	}
 	

@@ -21,7 +21,7 @@ public class EntityGolem extends EntityMob
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 30;
 		this.setSize(1.5F, 1.0F); //sets how big the hit box is *** TEST THIS ***
-		this.tasks.addTask(0, new EntityAIWander(this, 0.5D)); //speed at which mob wanders
+		this.tasks.addTask(0, new EntityAIWander(this, 0.3D)); //speed at which mob wanders
 		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false)); // attacks player once collided
 		this.tasks.addTask(2, new EntityAISwimming(this));
 	}

@@ -2,13 +2,16 @@ package com.thexfactor117.ascension.entities;
 
 import java.util.Random;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.init.Items;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.init.ModItems;
@@ -24,7 +27,7 @@ public class EntitySnowBlaze extends EntityMob
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 20;
 		this.setSize(1.5F, 1.0F); //sets how big the hit box is *** TEST THIS ***
-		this.tasks.addTask(0, new EntityAIWander(this, 1.25D)); //speed at which mob wanders
+		this.tasks.addTask(0, new EntityAIWander(this, 0.6D)); //speed at which mob wanders
 		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false)); // attacks player once collided
 		this.tasks.addTask(2, new EntityAISwimming(this));
 	}
@@ -35,13 +38,18 @@ public class EntitySnowBlaze extends EntityMob
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(20.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.5D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.6D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(35.0D);
 	}
 	
 	public boolean isAIEnabled()
 	{
 		return true;
+	}
+	
+	public float getBrightness(float par1)
+	{
+		return 1.0F;
 	}
 	
 	@Override
