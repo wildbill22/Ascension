@@ -1,12 +1,17 @@
 package com.thexfactor117.ascension.entities;
 
+import java.util.Random;
+
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.world.World;
+
+import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityGoblin extends EntityMob
 {
@@ -34,5 +39,36 @@ public class EntityGoblin extends EntityMob
 	public boolean isAIEnabled()
 	{
 		return true;
+	}
+	
+	@Override
+	protected void dropFewItems(boolean par1, int par2)
+	{
+		int var1 = this.rand.nextInt(4);
+		
+		if (var1 == 0)
+		{
+			dropItem(Items.gold_nugget, 2);
+		}
+		if (var1 == 1)
+		{
+			dropItem(Items.gold_nugget, 4);
+		}
+		if (var1 == 3)
+		{
+			dropItem(ModItems.titaniumIngot, 1);
+		}
+	}
+	
+	@Override
+	protected void dropRareDrop(int par1)
+	{
+		Random rand = new Random();
+		int random = rand.nextInt(2);
+		
+		if (random == 0)
+		{
+			dropItem(Items.gold_ingot, 1);
+		}
 	}
 }

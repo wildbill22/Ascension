@@ -1,6 +1,6 @@
 package com.thexfactor117.ascension.entities;
 
-import com.thexfactor117.ascension.init.ModItems;
+import java.util.Random;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -8,8 +8,9 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.world.World;
+
+import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityBear extends EntityMob
 {
@@ -44,6 +45,27 @@ public class EntityBear extends EntityMob
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
 	{
-		this.dropItem(ModItems.rawVenison, 1);
+		int var1 = this.rand.nextInt(4);
+		
+		if (var1 == 0)
+		{
+			dropItem(ModItems.rawVenison, 1);
+		}
+		if (var1 == 2)
+		{
+			dropItem(ModItems.rawVenison, 2);
+		}
+	}
+	
+	@Override
+	protected void dropRareDrop(int par1)
+	{
+		Random rand = new Random();
+		int random = rand.nextInt(2);
+		
+		if (random == 0)
+		{
+			dropItem(ModItems.rawVenison, 3);
+		}
 	}
 }

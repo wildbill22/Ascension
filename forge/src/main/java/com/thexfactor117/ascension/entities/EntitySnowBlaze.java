@@ -1,6 +1,6 @@
 package com.thexfactor117.ascension.entities;
 
-import com.thexfactor117.ascension.init.ModItems;
+import java.util.Random;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -10,6 +10,8 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
+
+import com.thexfactor117.ascension.init.ModItems;
 
 public class EntitySnowBlaze extends EntityMob
 {
@@ -45,6 +47,31 @@ public class EntitySnowBlaze extends EntityMob
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
 	{
-		this.dropItem(ModItems.coldBlazeRod, 1);
+		int var1 = this.rand.nextInt(4);
+		
+		if (var1 == 0)
+		{
+			dropItem(ModItems.coldBlazeRod, 1);
+		}
+		if (var1 == 2)
+		{
+			dropItem(Items.snowball, 1);
+		}
+		if (var1 == 3)
+		{
+			dropItem(Items.snowball, 3);
+		}
+	}
+	
+	@Override
+	protected void dropRareDrop(int par1)
+	{
+		Random rand = new Random();
+		int random = rand.nextInt(2);
+		
+		if (random == 0)
+		{
+			dropItem(ModItems.iceGem, 1);
+		}
 	}
 }
