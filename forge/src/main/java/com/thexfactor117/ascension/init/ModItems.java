@@ -41,18 +41,9 @@ public class ModItems
 		RegisterHelper.registerItem(rawVenison);
 		RegisterHelper.registerItem(cookedVenison);
 	
-<<<<<<< HEAD
 		RegisterHelper.registerItem(antlers);
 		RegisterHelper.registerItem(sharkTeeth);
 		RegisterHelper.registerItem(coldBlazeRod);
 		RegisterHelper.registerItem(smallRock);
-	
-		RegisterHelper.registerItem(spawnAbandonedHouse);
-=======
-	RegisterHelper.registerItem(antlers);
-	RegisterHelper.registerItem(sharkTeeth);
-	RegisterHelper.registerItem(coldBlazeRod);
-	RegisterHelper.registerItem(smallRock);
->>>>>>> wildbill22-master
 	}
 }

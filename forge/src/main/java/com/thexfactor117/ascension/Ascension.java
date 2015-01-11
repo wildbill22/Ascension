@@ -24,12 +24,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 public class Ascension 
 {
-<<<<<<< HEAD
 	@SidedProxy(clientSide = "com.thexfactor117.ascension.proxies.ClientProxy", serverSide = "com.thexfactor117.ascension.proxies.CommonProxies")
-=======
-	@SidedProxy(clientSide = "com.thexfactor117.ascension.proxies.ClientProxy", 
-			serverSide = "com.thexfactor117.ascension.proxies.CommonProxies")
->>>>>>> wildbill22-master
 	public static CommonProxy ascensionProxy;
 	
 	@Instance(Reference.MODID)
