@@ -10,6 +10,7 @@ import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
+import com.thexfactor117.ascension.init.ModStructureItems;
 import com.thexfactor117.ascension.proxies.CommonProxy;
 
 import cpw.mods.fml.common.Mod;
@@ -23,7 +24,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 public class Ascension 
 {
+<<<<<<< HEAD
 	@SidedProxy(clientSide = "com.thexfactor117.ascension.proxies.ClientProxy", serverSide = "com.thexfactor117.ascension.proxies.CommonProxies")
+=======
+	@SidedProxy(clientSide = "com.thexfactor117.ascension.proxies.ClientProxy", 
+			serverSide = "com.thexfactor117.ascension.proxies.CommonProxies")
+>>>>>>> wildbill22-master
 	public static CommonProxy ascensionProxy;
 	
 	@Instance(Reference.MODID)
@@ -38,6 +44,7 @@ public class Ascension
 		ModBlocks.init();
 		ModArmory.init();
 		ModEntities.init();
+		ModStructureItems.init(); // Comment out for releases
 		
 		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 		

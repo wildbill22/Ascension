@@ -5,7 +5,6 @@ import net.minecraft.item.Item;
 import com.thexfactor117.ascension.help.RegisterHelper;
 import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.items.ItemAscensionFood;
-import com.thexfactor117.ascension.items.SpawnAbandonedHouse;
 
 public class ModItems 
 {
@@ -28,10 +27,7 @@ public class ModItems
 	public static Item sharkTeeth = new ItemAscension().setUnlocalizedName("sharkTeeth");
 	public static Item smallRock = new ItemAscension().setUnlocalizedName("smallRock");
 	public static Item coldBlazeRod = new ItemAscension().setUnlocalizedName("coldBlazeRod");
-	
-	//Spawn
-	public static Item spawnAbandonedHouse = new SpawnAbandonedHouse().setUnlocalizedName("spawnAbandonedHouse");
-	
+		
 	public static void init()
 	{
 		RegisterHelper.registerItem(omega);
@@ -45,11 +41,18 @@ public class ModItems
 		RegisterHelper.registerItem(rawVenison);
 		RegisterHelper.registerItem(cookedVenison);
 	
+<<<<<<< HEAD
 		RegisterHelper.registerItem(antlers);
 		RegisterHelper.registerItem(sharkTeeth);
 		RegisterHelper.registerItem(coldBlazeRod);
 		RegisterHelper.registerItem(smallRock);
 	
 		RegisterHelper.registerItem(spawnAbandonedHouse);
+=======
+	RegisterHelper.registerItem(antlers);
+	RegisterHelper.registerItem(sharkTeeth);
+	RegisterHelper.registerItem(coldBlazeRod);
+	RegisterHelper.registerItem(smallRock);
+>>>>>>> wildbill22-master
 	}
 }

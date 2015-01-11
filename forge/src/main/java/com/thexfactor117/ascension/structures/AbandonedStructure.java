@@ -26,7 +26,7 @@ import com.thexfactor117.ascension.help.LogHelper;
  * 7) Edit the code, using the Abandoned house as a template.
  * 8) Add generating structure in AscensionWorldGeneration, setting the location of the entrance
 */ 
-public abstract  class AbandonedStructure extends WorldGenerator implements Runnable
+public abstract class AbandonedStructure extends WorldGenerator implements Runnable
 {
 	protected int structureMissingBlockChance = 10;  // Set this to about 1/10 number of blocks
 	protected int structureSpawnHeightTolerance = 3;
@@ -54,7 +54,7 @@ public abstract  class AbandonedStructure extends WorldGenerator implements Runn
 	public void run() 
 	{
 		if (threadWorld == null)
-			LogHelper.error("Call initThread first!");
+			LogHelper.error("Call generateStructureInThread first!");
 		generateStructure(threadWorld, threadRandom, threadX, threadY, threadZ);	
 	}
 
@@ -166,6 +166,8 @@ public abstract  class AbandonedStructure extends WorldGenerator implements Runn
 	}
 	
 	protected void addRandomChestItem(Item item, int min, int max, int probability) {
+		if (randomChestItems == null)
+			randomChestItems = new ArrayList<RandomChestItems>();
 		randomChestItems.add(new RandomChestItems(item, min, max, probability));
 	}
 	
@@ -258,7 +260,7 @@ public abstract  class AbandonedStructure extends WorldGenerator implements Runn
 	protected void setBlock(World world, Random random, int x, int y, int z, Block block, int metadata, int flag)
 	{
 		// Don't place some blocks that are above floor level
-		if(block == Blocks.air || block == Blocks.chest || y == floorLevel || random.nextInt(structureMissingBlockChance) > 0)
+		if(block == Blocks.air || block == Blocks.chest || y == floorLevel || random.nextInt(structureMissingBlockChance) < 1)
 			world.setBlock(x, y, z, block, metadata, flag);
 	}
 }

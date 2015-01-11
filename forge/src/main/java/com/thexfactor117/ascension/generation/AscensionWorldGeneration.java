@@ -8,7 +8,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.thexfactor117.ascension.init.ModBlocks;
-import com.thexfactor117.ascension.items.SpawnAbandonedHouse;
+import com.thexfactor117.ascension.items.structures.SpawnAbandonedHouse;
+import com.thexfactor117.ascension.structures.SkyrimStyleHouse0;
 import com.thexfactor117.ascension.structures.StructureGenAbandonedHouse;
 
 import cpw.mods.fml.common.IWorldGenerator;
@@ -75,14 +76,14 @@ public class AscensionWorldGeneration implements IWorldGenerator
 
 		// Code below for second structure is designed to not place it if first is placed
 		// 2nd structure would go here like so:
-//		spawnChance += StructureGenAbandonedHouse.spawnChance; 
-//		if (generatedStructure == false && chance < spawnChance) {
-//			int posX = x + random.nextInt(16);
-//			int posZ = z + random.nextInt(16);
-//			// Check where entrance is:
-//			int posY = world.getHeightValue(posX + 11, posZ + 1);
-//			StructureGenAbandonedHouse house = new StructureGenAbandonedHouse();
-//			generatedStructure = house.generate(world, random, posX, posY, posZ);
-//		}
+		spawnChance += SkyrimStyleHouse0.spawnChance; 
+		if (generatedStructure == false && chance < spawnChance) {
+			int posX = x + random.nextInt(16);
+			int posZ = z + random.nextInt(16);
+			// Check where entrance is:
+			int posY = world.getHeightValue(posX + 9, posZ + 16);
+			SkyrimStyleHouse0 house = new SkyrimStyleHouse0();
+			generatedStructure = house.generate(world, random, posX, posY, posZ);
+		}
 	}
 }
