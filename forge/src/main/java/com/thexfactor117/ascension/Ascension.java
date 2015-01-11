@@ -4,6 +4,9 @@
 
 package com.thexfactor117.ascension;
 
+import com.thexfactor117.ascension.crafting.ModArmorRecipes;
+import com.thexfactor117.ascension.crafting.ModRecipes;
+import com.thexfactor117.ascension.crafting.ModWeaponRecipes;
 import com.thexfactor117.ascension.generation.AscensionWorldGeneration;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
@@ -49,7 +52,9 @@ public class Ascension
 	@Mod.EventHandler
 	public void Init(FMLInitializationEvent event)
 	{
-		
+		ModRecipes.init();
+		ModWeaponRecipes.init();
+		ModArmorRecipes.init();
 	}
 	
 	@Mod.EventHandler
