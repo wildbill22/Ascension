@@ -67,5 +67,7 @@ item.veconitePants.name=Veconite Leggings
 item.veconiteBoots.name=Veconite Boots
 
 item.spawnAbandonedHouse.name= Spawn Abandoned House
+item.spawnSkyrimStyleHouse.name= Spawn Skyrim Style House
+
 
 itemGroup.tabAscension=Ascension

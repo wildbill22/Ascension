@@ -12,9 +12,9 @@ import com.thexfactor117.ascension.help.LogHelper;
 public class StructureGenAbandonedHouse extends AbandonedStructure
 {
 	// Variables for configuration
-	public static int missingBlockChance = 10;    // Set this to about 1/10 number of blocks
+	public static int missingBlockChance = 11;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
-	public static int spawnChance = 100;           // chance n/1000
+	public static int spawnChance = 10;           // chance n/1000
 	
 	public StructureGenAbandonedHouse() 
 	{

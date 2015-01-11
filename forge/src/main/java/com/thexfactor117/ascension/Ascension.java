@@ -13,6 +13,7 @@ import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
+import com.thexfactor117.ascension.init.ModStructureItems;
 import com.thexfactor117.ascension.proxies.CommonProxy;
 
 import cpw.mods.fml.common.Mod;
@@ -41,6 +42,7 @@ public class Ascension
 		ModBlocks.init();
 		ModArmory.init();
 		ModEntities.init();
+		ModStructureItems.init(); // Comment out for releases
 		
 		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 		
