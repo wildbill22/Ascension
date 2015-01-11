@@ -8,12 +8,14 @@ import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.structures.StructureGenAbandonedHouse;
+import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class SpawnAbandonedHouse extends ItemAscension 
 {
 	public SpawnAbandonedHouse() 
 	{
 		super();
+		this.setCreativeTab(ModTabs.tabAscensionTest);
 	}
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)

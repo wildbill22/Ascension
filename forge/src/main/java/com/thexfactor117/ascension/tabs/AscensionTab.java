@@ -2,6 +2,7 @@ package com.thexfactor117.ascension.tabs;
 
 import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.init.ModItems;
+import com.thexfactor117.ascension.init.ModStructureItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -26,7 +27,11 @@ public class AscensionTab extends CreativeTabs
 		{
 			return ModItems.omega;
 		}
-		System.out.println("Love ya Mariah!");
+		else if (this.name == "tabAscensionTest")
+		{
+			return ModStructureItems.spawnAbandonedHouse;
+		}
+		System.out.println("Love you, Mariah");
 		return null;
 	}
 }

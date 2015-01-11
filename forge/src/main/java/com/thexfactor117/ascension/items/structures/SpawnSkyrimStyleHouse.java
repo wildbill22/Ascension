@@ -8,11 +8,13 @@ import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.structures.SkyrimStyleHouse0;
+import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class SpawnSkyrimStyleHouse extends ItemAscension {
 	public SpawnSkyrimStyleHouse() 
 	{
 		super();
+		this.setCreativeTab(ModTabs.tabAscensionTest);
 	}
 	
 	@Override
