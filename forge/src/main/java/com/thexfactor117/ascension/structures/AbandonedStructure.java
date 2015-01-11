@@ -1,5 +1,6 @@
 package com.thexfactor117.ascension.structures;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -25,13 +26,20 @@ import com.thexfactor117.ascension.help.LogHelper;
  * 7) Edit the code, using the Abandoned house as a template.
  * 8) Add generating structure in AscensionWorldGeneration, setting the location of the entrance
 */ 
-public abstract  class AbandonedStructure extends WorldGenerator implements Runnable
+public abstract class AbandonedStructure extends WorldGenerator implements Runnable
 {
 	protected int structureMissingBlockChance = 10;  // Set this to about 1/10 number of blocks
-	protected int sturctureSpawnHeightTolerance = 3;
-	protected int sturctureSpawnChance = 10; // chance n/1000
+	protected int structureSpawnHeightTolerance = 3;
+	protected int structureSpawnChance = 10; // chance n/1000
 	protected Block[] validSpawnBlocks;
+	protected Block[] validBaseBlocks = { Blocks.bedrock, Blocks.clay, Blocks.coal_ore, Blocks.cobblestone,
+			Blocks.diamond_ore, Blocks.dirt, Blocks.emerald_ore, Blocks.end_stone, Blocks.glass,
+			Blocks.glowstone, Blocks.gold_ore, Blocks.gravel, Blocks.hardened_clay, Blocks.ice, Blocks.iron_ore,
+			Blocks.lapis_ore, Blocks.mossy_cobblestone, Blocks.netherrack, Blocks.obsidian, 
+			Blocks.quartz_ore, Blocks.redstone_ore, Blocks.sandstone, Blocks.soul_sand, Blocks.stone,
+			Blocks.wool, Blocks.sand };
 	protected int floorLevel;
+	protected ArrayList<RandomChestItems> randomChestItems;
 
 	// Variables used when using a separate thread to generate structure
 	World threadWorld = null;
@@ -41,15 +49,45 @@ public abstract  class AbandonedStructure extends WorldGenerator implements Runn
 	int threadZ;
 	static boolean running = false;
 
+	// Used when generateStructureInThread is used instead of generateStructure
 	@Override
 	public void run() 
 	{
 		if (threadWorld == null)
-			LogHelper.error("Call initThread first!");
+			LogHelper.error("Call generateStructureInThread first!");
 		generateStructure(threadWorld, threadRandom, threadX, threadY, threadZ);	
 	}
 
+	// Instantiate in class that implements this abstract class
 	public abstract void generateStructure(World world, Random random, int x, int y, int z);	
+
+	// Put blocks under structure so it isn't floating in air
+	protected void generateStructureBase(World world, Random random, int x,	int y, int z, Block block) {
+		for (int baseX = 0; baseX <= x; baseX++) {
+			for (int baseZ = 0; baseZ <= z; baseZ++) {
+				for (int baseY = y - 1; baseY >= y - structureSpawnHeightTolerance; baseY--) {
+					if (!isValidBaseBlock(world, baseX, baseY, baseZ)) {
+						world.setBlock(x, y, z, block);
+					}
+					else
+						break; // Just the top one needs to be valid
+				}
+			}
+		}
+	}
+
+	// Checks that block under structure is a valid block (mostly just not air)
+	protected boolean isValidBaseBlock(World world, int x, int y, int z)
+	{
+		Block block = world.getBlock(x, y, z);
+		for (Block spawnBlock : validBaseBlocks){
+			if (block == spawnBlock)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 
 	// To use this:
 	// 1) Add "if (running) return false;" in generate, to avoid too many threads
@@ -118,11 +156,33 @@ public abstract  class AbandonedStructure extends WorldGenerator implements Runn
 			world.setTileEntity(x, y, z, chestEntity);
 			// item, min to add, max to add, chance N/100
 			// Add items with lowest chance first
-			setRandomSlots(chestEntity, Items.arrow, 1, 3, 10);
-			setRandomSlots(chestEntity, Items.apple, 1, 3, 20);
+			for (int i = 0; i < randomChestItems.size(); i++) {
+				setRandomSlots(chestEntity, randomChestItems.get(i).item, randomChestItems.get(i).min,
+						randomChestItems.get(i).max, randomChestItems.get(i).probability);				
+			}
 			return true;
 		}		
 		return generated;
+	}
+	
+	protected void addRandomChestItem(Item item, int min, int max, int probability) {
+		if (randomChestItems == null)
+			randomChestItems = new ArrayList<RandomChestItems>();
+		randomChestItems.add(new RandomChestItems(item, min, max, probability));
+	}
+	
+	protected class RandomChestItems {
+		Item item;
+		int min;
+		int max;
+		int probability;
+		
+		protected RandomChestItems(Item item, int min, int max, int probability) {
+			this.item = item;
+			this.min = min;
+			this.max = max;
+			this.probability = probability;
+		}
 	}
 	
 	// Checks that chunk has been created and meets the spawn requirements
@@ -140,7 +200,7 @@ public abstract  class AbandonedStructure extends WorldGenerator implements Runn
 		return false;
 	}
 	
-	// Tries 4 locations around selected spawn point to avoid placing in a chunck not yet created
+	// Tries 4 locations around selected spawn point to avoid placing in a chunk not yet created
 	protected boolean isValidSpawnCorners(World world, int x, int y, int z, int xMax, int zMax)
 	{
 		if (spawnedAtLocation(world, x, y, z, xMax, zMax))
@@ -168,7 +228,7 @@ public abstract  class AbandonedStructure extends WorldGenerator implements Runn
 		int distanceToAir = 0;
 		Block check = world.getBlock(x, y, z);
 		while (check != Blocks.air){
-			if (distanceToAir > sturctureSpawnHeightTolerance)
+			if (distanceToAir > structureSpawnHeightTolerance)
 			{
 				return false;
 			}
@@ -200,7 +260,7 @@ public abstract  class AbandonedStructure extends WorldGenerator implements Runn
 	protected void setBlock(World world, Random random, int x, int y, int z, Block block, int metadata, int flag)
 	{
 		// Don't place some blocks that are above floor level
-		if(block == Blocks.air || block == Blocks.chest || y == floorLevel || random.nextInt(structureMissingBlockChance) > 0)
+		if(block == Blocks.air || block == Blocks.chest || y == floorLevel || random.nextInt(structureMissingBlockChance) < 1)
 			world.setBlock(x, y, z, block, metadata, flag);
 	}
 }

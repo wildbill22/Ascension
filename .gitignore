@@ -11,3 +11,9 @@
 /bin/
 .project
 .classpath
+/config
+/crash-reports
+/logs
+/saves
+options.txt
+usernamecache.json
