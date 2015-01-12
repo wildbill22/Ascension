@@ -9,6 +9,8 @@ import com.thexfactor117.ascension.items.ItemAscensionAxe;
 import com.thexfactor117.ascension.items.ItemAscensionPickaxe;
 import com.thexfactor117.ascension.items.ItemAscensionShovel;
 import com.thexfactor117.ascension.items.ItemAscensionSword;
+import com.thexfactor117.ascension.items.ItemBlazeSword;
+import com.thexfactor117.ascension.items.ItemIceSword;
 import com.thexfactor117.ascension.items.ItemSteelArmor;
 import com.thexfactor117.ascension.items.ItemTitaniumArmor;
 
@@ -40,8 +42,8 @@ public class ModArmory
 	public static Item steelAxe = new ItemAscensionAxe(STEEL).setUnlocalizedName("steelAxe");
 	
 	//Weapons
-	public static Item iceSword = new ItemAscensionSword(ICE).setUnlocalizedName("iceSword");
-	public static Item blazeSword = new ItemAscensionSword(BLAZE).setUnlocalizedName("blazeSword");
+	public static Item iceSword = new ItemIceSword(ICE).setUnlocalizedName("iceSword");
+	public static Item blazeSword = new ItemBlazeSword(BLAZE).setUnlocalizedName("blazeSword");
 	public static Item vexalSword = new ItemAscensionSword(VEXAL).setUnlocalizedName("vexalSword");
 	
 	
