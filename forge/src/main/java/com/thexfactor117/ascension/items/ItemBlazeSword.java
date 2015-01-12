@@ -1,19 +1,21 @@
 package com.thexfactor117.ascension.items;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemSpade;
-import net.minecraft.item.Item.ToolMaterial;
 
-public class ItemOmegaShovel extends ItemSpade
+public class ItemBlazeSword extends ItemSword
 {
 	public final ToolMaterial toolMaterial;
 	
-	public ItemOmegaShovel(ToolMaterial EnumToolMaterial)
+	public ItemBlazeSword(ToolMaterial EnumToolMaterial)
 	{
 		super(EnumToolMaterial);
 		toolMaterial = EnumToolMaterial;

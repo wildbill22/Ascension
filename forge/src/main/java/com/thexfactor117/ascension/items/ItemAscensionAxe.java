@@ -9,11 +9,11 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.Item.ToolMaterial;
 
-public class ItemOmegaAxe extends ItemAxe
+public class ItemAscensionAxe extends ItemAxe
 {
 	public final ToolMaterial toolMaterial;
 	
-	public ItemOmegaAxe(ToolMaterial EnumToolMaterial)
+	public ItemAscensionAxe(ToolMaterial EnumToolMaterial)
 	{
 		super(EnumToolMaterial);
 		toolMaterial = EnumToolMaterial;

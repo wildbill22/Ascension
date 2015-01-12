@@ -5,10 +5,10 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.thexfactor117.ascension.help.RegisterHelper;
-import com.thexfactor117.ascension.items.ItemOmegaAxe;
-import com.thexfactor117.ascension.items.ItemOmegaPickaxe;
-import com.thexfactor117.ascension.items.ItemOmegaShovel;
-import com.thexfactor117.ascension.items.ItemOmegaSword;
+import com.thexfactor117.ascension.items.ItemAscensionAxe;
+import com.thexfactor117.ascension.items.ItemAscensionPickaxe;
+import com.thexfactor117.ascension.items.ItemAscensionShovel;
+import com.thexfactor117.ascension.items.ItemAscensionSword;
 import com.thexfactor117.ascension.items.ItemSteelArmor;
 import com.thexfactor117.ascension.items.ItemTitaniumArmor;
 
@@ -30,19 +30,19 @@ public class ModArmory
 	
 	
 	//Tools
-	public static Item titaniumSword = new ItemOmegaSword(TITANIUM).setUnlocalizedName("titaniumSword");
-	public static Item titaniumPick = new ItemOmegaPickaxe(TITANIUM).setUnlocalizedName("titaniumPick");
-	public static Item titaniumShovel = new ItemOmegaShovel(TITANIUM).setUnlocalizedName("titaniumShovel");
-	public static Item titaniumAxe = new ItemOmegaAxe(TITANIUM).setUnlocalizedName("titaniumAxe");
-	public static Item steelSword = new ItemOmegaSword(STEEL).setUnlocalizedName("steelSword");
-	public static Item steelPick = new ItemOmegaPickaxe(STEEL).setUnlocalizedName("steelPick");
-	public static Item steelShovel = new ItemOmegaShovel(STEEL).setUnlocalizedName("steelShovel");
-	public static Item steelAxe = new ItemOmegaAxe(STEEL).setUnlocalizedName("steelAxe");
+	public static Item titaniumSword = new ItemAscensionSword(TITANIUM).setUnlocalizedName("titaniumSword");
+	public static Item titaniumPick = new ItemAscensionPickaxe(TITANIUM).setUnlocalizedName("titaniumPick");
+	public static Item titaniumShovel = new ItemAscensionShovel(TITANIUM).setUnlocalizedName("titaniumShovel");
+	public static Item titaniumAxe = new ItemAscensionAxe(TITANIUM).setUnlocalizedName("titaniumAxe");
+	public static Item steelSword = new ItemAscensionSword(STEEL).setUnlocalizedName("steelSword");
+	public static Item steelPick = new ItemAscensionPickaxe(STEEL).setUnlocalizedName("steelPick");
+	public static Item steelShovel = new ItemAscensionShovel(STEEL).setUnlocalizedName("steelShovel");
+	public static Item steelAxe = new ItemAscensionAxe(STEEL).setUnlocalizedName("steelAxe");
 	
 	//Weapons
-	public static Item iceSword = new ItemOmegaSword(ICE).setUnlocalizedName("iceSword");
-	public static Item blazeSword = new ItemOmegaSword(BLAZE).setUnlocalizedName("blazeSword");
-	public static Item vexalSword = new ItemOmegaSword(VEXAL).setUnlocalizedName("vexalSword");
+	public static Item iceSword = new ItemAscensionSword(ICE).setUnlocalizedName("iceSword");
+	public static Item blazeSword = new ItemAscensionSword(BLAZE).setUnlocalizedName("blazeSword");
+	public static Item vexalSword = new ItemAscensionSword(VEXAL).setUnlocalizedName("vexalSword");
 	
 	
 	

@@ -1,7 +1,7 @@
 package com.thexfactor117.ascension.items;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSword;
 
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
@@ -9,11 +9,11 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemOmegaPickaxe extends ItemPickaxe
+public class ItemAscensionSword extends ItemSword
 {
 	public final ToolMaterial toolMaterial;
 	
-	public ItemOmegaPickaxe(ToolMaterial EnumToolMaterial)
+	public ItemAscensionSword(ToolMaterial EnumToolMaterial)
 	{
 		super(EnumToolMaterial);
 		toolMaterial = EnumToolMaterial;
