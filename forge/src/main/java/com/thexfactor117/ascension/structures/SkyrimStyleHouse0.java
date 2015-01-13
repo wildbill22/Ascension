@@ -63,10 +63,8 @@ public class SkyrimStyleHouse0 extends AbandonedStructure
 		}
 		LogHelper.info("Generating a Skyrim Style House at " + x + "," + y + "," + z + "!");
 
-		// Alternate way to create a large structure in a separate thread
-		generateStructureInThread(world, random, x, y, z);
-		// Set to y - 1, this structure has an offset
-		generateStructureBase(world, random, x, y - 1, z, Blocks.cobblestone);
+		// Alternate way to create a large structure in a separate thread (with base)
+		generateStructureInThread(world, random, x, y, z, 3, 3, 18, 18, true);
 		
 		return true;
 	}

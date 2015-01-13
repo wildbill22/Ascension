@@ -40,7 +40,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			Blocks.lapis_ore, Blocks.mossy_cobblestone, Blocks.netherrack, Blocks.obsidian, 
 			Blocks.quartz_ore, Blocks.redstone_ore, Blocks.sandstone, Blocks.soul_sand, Blocks.stone,
 			Blocks.wool, Blocks.sand };
-	protected int floorLevel;
+	protected int floorLevel = 0;
 	protected ArrayList<RandomChestItems> randomChestItems;
 
 	// Variables used when using a separate thread to generate structure
@@ -49,7 +49,15 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	int threadX;
 	int threadY;
 	int threadZ;
+	int threadXBase;
+	int threadZBase;
+	int threadXBaseMax;
+	int threadZBaseMax;
+	private boolean generateBase;
 	static boolean running = false;
+
+	// Instantiate in class that implements this abstract class
+	public abstract void generateStructure(World world, Random random, int x, int y, int z);	
 
 	// Used when generateStructureInThread is used instead of generateStructure
 	@Override
@@ -57,22 +65,63 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	{
 		if (threadWorld == null)
 			LogHelper.error("Call generateStructureInThread first!");
-		generateStructure(threadWorld, threadRandom, threadX, threadY, threadZ);	
+		generateStructure(threadWorld, threadRandom, threadX, threadY, threadZ);
+		if (generateBase)
+			generateStructureBase(threadWorld, threadRandom, threadXBase, threadZBase, threadXBaseMax, threadZBaseMax, Blocks.cobblestone);
 	}
 
-	// Instantiate in class that implements this abstract class
-	public abstract void generateStructure(World world, Random random, int x, int y, int z);	
+	// To use this:
+	// 1) Add "if (running) return false;" in generate, to avoid too many threads
+	// 2) Call generateStructureInThread(...); instead of: generateStructure(...);
+	// 3) Put preventLag() in generateStructure function every 100 lines
+	// 4) Set "running" to false at end of last generateStructureX() call 
+	public void generateStructureInThread(World world, Random random, int x, int y, int z, int xBase, int zBase, int xBaseMax, int zBaseMax, boolean generateBase) 
+	{
+		threadWorld = world;
+		threadRandom = random;
+		threadX = x;
+		threadY = y;
+		threadZ = z;
+		// These are for the base. First two are same as x and y, but maybe a offset for a structure with smaller base than top
+		// xBaseMax & zBaseMax are the size of the structure at the base 
+		threadXBase = xBase;
+		threadZBase = zBase;
+		threadXBaseMax = xBaseMax;
+		threadZBaseMax = zBaseMax;
+		this.generateBase = generateBase;
+		running = true;
+		Thread thread = new Thread(this);
+		thread.start();
+	}
+
+	protected void preventLag()
+	{
+		try           
+		{              
+			Thread.sleep(300);            
+		}          
+		catch (InterruptedException interruptedException)          
+		{              
+			LogHelper.error("generateStructure interrupted while sleeping! " + interruptedException);
+		}  
+	}
 
 	// Put blocks under structure so it isn't floating in air
-	protected void generateStructureBase(World world, Random random, int x,	int y, int z, Block block) {
-		for (int baseX = 0; baseX <= x; baseX++) {
-			for (int baseZ = 0; baseZ <= z; baseZ++) {
-				for (int baseY = y - 1; baseY >= y - structureSpawnHeightTolerance; baseY--) {
+	public void generateStructureBase(World world, Random random, int x, int z, int xMax, int zMax, Block block) {
+		if (floorLevel == 0) {
+			LogHelper.error("Set floorLevel in generateStructure method!!!!!");
+			return;
+		}
+		LogHelper.info("Generating base of structure at: " + x + "," + floorLevel + "," + z + "!");
+		boolean placedBlock = true;
+		for (int baseY = floorLevel - 1; baseY >= floorLevel - structureSpawnHeightTolerance && placedBlock == true; baseY--) {
+			placedBlock = false;
+			for (int baseX = x; baseX <= x + xMax; baseX++) {
+				for (int baseZ = z; baseZ <= z + zMax; baseZ++) {
 					if (!isValidBaseBlock(world, baseX, baseY, baseZ)) {
-						world.setBlock(x, y, z, block);
+						world.setBlock(baseX, baseY, baseZ, block);
+						placedBlock = true;
 					}
-					else
-						break; // Just the top one needs to be valid
 				}
 			}
 		}
@@ -89,35 +138,6 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			}
 		}
 		return false;
-	}
-
-	// To use this:
-	// 1) Add "if (running) return false;" in generate, to avoid too many threads
-	// 2) Call generateStructureInThread(...); instead of: generateStructure(...);
-	// 3) Put preventLag() in generateStructure function every 100 lines
-	// 4) Set "running" to false at end of last generateStructureX() call 
-	public void generateStructureInThread(World world, Random random, int x, int y, int z) 
-	{
-		threadWorld = world;
-		threadRandom = random;
-		threadX = x;
-		threadY = y;
-		threadZ = z;
-		running = true;
-		Thread thread = new Thread(this);
-		thread.start();
-	}
-
-	protected void preventLag()
-	{
-		try           
-		{              
-			Thread.sleep(300);            
-		}          
-		catch (InterruptedException interruptedException)          
-		{              
-			LogHelper.error("generateStructure interrupted while sleeping! " + interruptedException);
-		}  
 	}
 
 	// Generates some random loot in the chest
@@ -261,8 +281,9 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	// This is where the "abandonded" look of the building is created. Some blocks are not placed.
 	protected void setBlock(World world, Random random, int x, int y, int z, Block block, int metadata, int flag)
 	{
+		int chance = random.nextInt(structureMissingBlockChance); // put here, doesn't work in if block (weird bug)
 		// Don't place some blocks that are above floor level
-		if(block == Blocks.air || block == Blocks.chest || y == floorLevel || random.nextInt(structureMissingBlockChance) < 1)
+		if(block == Blocks.air || block == Blocks.chest || y == floorLevel || block == Blocks.wooden_door || structureMissingBlockChance == 1 || chance > 0)
 			world.setBlock(x, y, z, block, metadata, flag);
 	}
 }

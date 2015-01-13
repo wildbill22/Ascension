@@ -49,9 +49,8 @@ public class StructureGenAbandonedHouse extends AbandonedStructure
 		{
 			return false;
 		}
-		LogHelper.info("Generating an Abandoned House at " + x + "," + y + "," + z + "!");
 		generateStructure(world, random, x, y, z);
-		generateStructureBase(world, random, x, y, z, Blocks.cobblestone);
+		generateStructureBase(world, random, x, z, 4, 5, Blocks.cobblestone);
 		
 		return true;
 	}
@@ -62,6 +61,9 @@ public class StructureGenAbandonedHouse extends AbandonedStructure
 	{
 		floorLevel = y;
 		
+		
+		
+		LogHelper.info("Generating an Abandoned House at " + x + "," + y + "," + z + "!");
 		setBlock(world, random, x + 0, y + 0, z + 0, Blocks.cobblestone, 0, 2);
 		setBlock(world, random, x + 0, y + 0, z + 1, Blocks.cobblestone, 0, 2);
 		setBlock(world, random, x + 0, y + 0, z + 2, Blocks.cobblestone, 0, 2);
