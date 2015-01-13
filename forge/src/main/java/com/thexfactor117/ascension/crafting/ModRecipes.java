@@ -24,5 +24,6 @@ public class ModRecipes
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.blazeGem), new Object[] {"ABA", "BCB", "ABA", 'A', Items.blaze_rod, 'B', Items.flint, 'C', Items.diamond});
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.cobblestone, 4), new Object[] {new ItemStack(ModItems.smallRock), ModItems.smallRock, ModItems.smallRock, ModItems.smallRock});
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.steelIngot), new Object[] {new ItemStack(ModItems.titaniumIngot), Items.iron_ingot});
 	}
 }

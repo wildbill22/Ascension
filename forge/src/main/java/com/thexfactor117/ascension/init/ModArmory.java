@@ -17,17 +17,17 @@ import com.thexfactor117.ascension.items.ItemTitaniumArmor;
 public class ModArmory 
 {
 	//Tool Materials
-	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 3, 1957, 10.0F, 4.0F, 7);
-	static Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 3, 2256, 11.0F, 4.5F, 5);
+	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 3, 1049, 7.0F, 2.5F, 7);
+	static Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 3, 1811, 8.5F, 3.5F, 2);
 	
 	//Weapon Materials
-	static Item.ToolMaterial ICE = EnumHelper.addToolMaterial("ICE", 3, 1561, 8.0F, 3.0F, 10);
-	static Item.ToolMaterial BLAZE = EnumHelper.addToolMaterial("BLAZE", 3, 1561, 8.0F, 3.0F, 10);
-	static Item.ToolMaterial VEXAL = EnumHelper.addToolMaterial("VEXAL", 3, 2073, 8.0F, 2.5F, 15);
+	static Item.ToolMaterial ICE = EnumHelper.addToolMaterial("ICE", 3, 192, 7.0F, 2.5F, 15);
+	static Item.ToolMaterial BLAZE = EnumHelper.addToolMaterial("BLAZE", 3, 192, 7.0F, 2.5F, 15);
+	static Item.ToolMaterial VEXAL = EnumHelper.addToolMaterial("VEXAL", 3, 256, 6.0F, 2.0F, 25);
 	
 	//Armor Materials
-	static ArmorMaterial ATITANIUM = EnumHelper.addArmorMaterial("ATITANIUM", 38, new int[]{4, 9, 7, 3}, 7);
-	static ArmorMaterial ASTEEL = EnumHelper.addArmorMaterial("ASTEEL", 42, new int[]{5, 10, 8, 4}, 5);
+	static ArmorMaterial ATITANIUM = EnumHelper.addArmorMaterial("ATITANIUM", 28, new int[]{2, 7, 5, 3}, 7);
+	static ArmorMaterial ASTEEL = EnumHelper.addArmorMaterial("ASTEEL", 36, new int[]{4, 8, 7, 3}, 2);
 	
 	
 	
