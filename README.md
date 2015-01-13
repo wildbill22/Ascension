@@ -15,6 +15,8 @@ TheXFactor117 -- Creator and Lead-Developer
 
 wildbill02 -- Developer (generation)
 
+Megmachunian -- Developer
+
 If you wish to be a contributor, please contact TheXFactor117 on Skype (thexfactor117).
 
 Team Members
