@@ -1,7 +1,7 @@
 package com.thexfactor117.ascension.items;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
@@ -31,11 +31,11 @@ public class ItemIceSword extends ItemSword
 		this.itemIcon = par1IconRegister.registerIcon(Reference.MODID + ":" + getUnlocalizedName().substring(5));
 	}
 	
-	public boolean hitEntity(ItemStack par1ItemStack, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving)
+	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
 	{
-		par1ItemStack.damageItem(1, par3EntityLiving);
+		par1ItemStack.damageItem(1, par3EntityLivingBase);
 		
-		par2EntityLiving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 200, 1));
+		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 40, 2));
 		
 		return true;
 	}
