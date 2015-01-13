@@ -11,6 +11,11 @@ import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.help.LogHelper;
 
+/**
+ * 
+ * @author WILLIAM
+ *
+ */
 public class SkyrimStyleHouse0 extends AbandonedStructure
 {
 	// Variables for configuration

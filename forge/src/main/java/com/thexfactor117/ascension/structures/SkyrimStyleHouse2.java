@@ -7,6 +7,11 @@ import com.thexfactor117.ascension.help.LogHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author WILLIAM
+ *
+ */
 public class SkyrimStyleHouse2 extends SkyrimStyleHouse0
 {
 	public void generateStructure3(World world, Random rand, int x, int y, int z)

@@ -25,6 +25,8 @@ import com.thexfactor117.ascension.help.LogHelper;
  * 6) Add the Java file to the structures package. 
  * 7) Edit the code, using the Abandoned house as a template.
  * 8) Add generating structure in AscensionWorldGeneration, setting the location of the entrance
+ * 
+ * @author WILLIAM
 */ 
 public abstract class AbandonedStructure extends WorldGenerator implements Runnable
 {

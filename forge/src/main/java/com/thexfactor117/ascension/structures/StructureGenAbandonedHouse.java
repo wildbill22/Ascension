@@ -9,6 +9,11 @@ import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.help.LogHelper;
 
+/**
+ * 
+ * @author WILLIAM
+ *
+ */
 public class StructureGenAbandonedHouse extends AbandonedStructure
 {
 	// Variables for configuration
