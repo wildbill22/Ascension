@@ -49,48 +49,29 @@ public class EntityValkyrie extends EntityMob
 	
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
-	{
-		int var1 = this.rand.nextInt(6);
-		
+	{	
+		int var1 = this.rand.nextInt(5);
 		if (var1 == 0)
 		{
 			this.dropItem(Items.iron_ingot, 1);
 		}
-		if (var1 == 1)
+		
+		int var2 = this.rand.nextInt(5);
+		if (var2 == 0)
 		{
-			this.dropItem(Items.iron_ingot, 2);
+			this.dropItem(Items.iron_ingot, 3);
 		}
-		if (var1 == 2)
-		{
-			this.dropItem(Items.iron_sword, 1);
-		}
-		if (var1 == 3)
+		
+		int var3 = this.rand.nextInt(5);
+		if (var3 == 0)
 		{
 			this.dropItem(ModItems.titaniumIngot, 1);
 		}
-		if (var1 == 4)
-		{
-			this.dropItem(Items.iron_helmet, 1);
-		}
-		if (var1 == 5)
-		{
-			this.dropItem(Items.iron_boots, 1);
-		}
-	}
-	
-	@Override
-	protected void dropRareDrop(int par1)
-	{
-		Random rand = new Random();
-		int random = rand.nextInt(5);
 		
-		if (random == 0)
+		int var4 = this.rand.nextInt(10);
+		if (var4 == 0)
 		{
 			this.dropItem(ModItems.steelIngot, 1);
-		}
-		if (random == 5)
-		{
-			this.dropItem(ModItems.titaniumIngot, 3);
 		}
 	}
 }
