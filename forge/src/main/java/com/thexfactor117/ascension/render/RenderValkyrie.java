@@ -12,16 +12,17 @@ import com.thexfactor117.ascension.models.ModelValkyrie;
 
 public class RenderValkyrie extends RenderLiving
 {
-	private static final ResourceLocation texture = new ResourceLocation(Reference.MODID + ":" + "textures/models/Valkyrie.png");
+	private static final ResourceLocation valkyrieTexture = new ResourceLocation(Reference.MODID + ":textures/models/Valkyrie.png");
 	
-	protected ModelValkyrie modelEntity;
+	//protected ModelValkyrie modelEntity;
 	
 	public RenderValkyrie(ModelBase par1ModelBase, float par2) 
 	{
 		super(par1ModelBase, par2);
-		modelEntity = ((ModelValkyrie) mainModel);
+		//modelEntity = ((ModelValkyrie) mainModel);
 	}
 	
+	/*
 	public void renderValkyrie(EntityValkyrie entity, double x, double y, double z, float u, float v)
 	{
 		super.doRender(entity, x, y, z, u, v);
@@ -36,11 +37,15 @@ public class RenderValkyrie extends RenderLiving
 	{
 		renderValkyrie((EntityValkyrie) entity, x, y, z, u, v);
 	}
+	*/
 
-	@Override
-	protected ResourceLocation getEntityTexture(Entity var1) 
+	protected ResourceLocation getEntityTexture(EntityValkyrie entity) 
 	{
-		return texture;
+		return valkyrieTexture;
 	}
 	
+	protected ResourceLocation getEntityTexture(Entity entity)
+	{
+		return this.getEntityTexture((EntityValkyrie) entity);
+	}
 }

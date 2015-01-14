@@ -11,7 +11,7 @@ public class ClientProxy extends CommonProxy
 	public void registerRenderer() 
 	{
 		//Entities
-		RenderingRegistry.registerEntityRenderingHandler(EntityValkyrie.class, new RenderValkyrie(new ModelValkyrie(), 0.3F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityValkyrie.class, new RenderValkyrie(new ModelValkyrie(), 0));
 	}
 	
 	public void registerTileEntitySpecialRenderer() 

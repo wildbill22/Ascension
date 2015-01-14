@@ -14,6 +14,7 @@ import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.init.ModStructureItems;
+import com.thexfactor117.ascension.proxies.ClientProxy;
 import com.thexfactor117.ascension.proxies.CommonProxy;
 
 import cpw.mods.fml.common.Mod;
@@ -45,6 +46,8 @@ public class Ascension
 		ModStructureItems.init(); // Comment out for releases
 		
 		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
+		
+		ascensionProxy.registerRenderer();
 		
 		//FMLCommonHandler.instance().bus().register(new AscensionEvent());
 	}
