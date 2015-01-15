@@ -68,7 +68,7 @@ public class ModelDoe extends ModelBase
       Neck.mirror = true;
       setRotation(Neck, 0.2792527F, 0F, 0F);
       Head = new ModelRenderer(this, 0, 0);
-      Head.addBox(-3F, -3F, 0F, 6, 6, 6);
+      Head.addBox(-2F, -6F, -3F, 6, 6, 6);
       Head.setRotationPoint(0F, 4F, -9F);
       Head.setTextureSize(64, 32);
       Head.mirror = true;
