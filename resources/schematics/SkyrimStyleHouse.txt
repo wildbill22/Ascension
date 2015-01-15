@@ -1,0 +1,8 @@
+This house came from:
+http://www.planetminecraft.com/project/skyrim-houses/
+
+It has 4 chests placed on the upper floor (two story house). Only one should be placed randomly.
+
+The roof has overhangs, so the base has 3 blocks of air around it. Would have been better to capture this in a 2 parts, with just the base (12 x 12) and 3 or 4 levels up, and then a 2nd wider (18 x 18) upper part. If it is every redone, it should be done that way.
+
+Entrance is at: 9, -1, 16 (has a -1 offset). There is a door in the entrance.

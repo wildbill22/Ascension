@@ -1,0 +1,7 @@
+This house came from: Minecraft flat world in a village. Modified slightly to be bigger.
+
+It has 1 chest. Only one should be placed randomly.
+
+It is 5 x 6.
+
+Entrance is at: 2, 0, 6.
