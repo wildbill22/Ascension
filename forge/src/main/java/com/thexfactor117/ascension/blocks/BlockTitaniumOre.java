@@ -19,8 +19,8 @@ public class BlockTitaniumOre extends Block
 		setBlockTextureName(Reference.MODID + ":" + getUnlocalizedName().substring(5));
 		setCreativeTab(ModTabs.tabAscension);
 		setStepSound(soundTypeStone);
-		setHardness(4.0F);
-		setResistance(6.0F);
+		setHardness(3.0F);
+		setResistance(5.0F);
 		setHarvestLevel("pickaxe", 2);
 	}
 }

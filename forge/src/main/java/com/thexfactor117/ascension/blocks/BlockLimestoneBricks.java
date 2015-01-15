@@ -18,8 +18,8 @@ public class BlockLimestoneBricks extends Block
 		setBlockTextureName(Reference.MODID + ":" + getUnlocalizedName().substring(5));
 		setCreativeTab(ModTabs.tabAscension);
 		setStepSound(soundTypeStone);
-		setHardness(4.0F);
-		setResistance(6.0F);
-		setHarvestLevel("pickaxe", 2);
+		setHardness(1.5F);
+		setResistance(10.0F);
+		setHarvestLevel("pickaxe", 1);
 	}
 }
