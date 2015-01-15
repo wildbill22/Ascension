@@ -5,6 +5,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 import com.thexfactor117.ascension.entities.EntityBarbarian;
 import com.thexfactor117.ascension.entities.EntityBear;
+import com.thexfactor117.ascension.entities.EntityDoe;
 import com.thexfactor117.ascension.entities.EntityGhost;
 import com.thexfactor117.ascension.entities.EntityGoblin;
 import com.thexfactor117.ascension.entities.EntityGolem;
@@ -30,11 +31,14 @@ public class ModEntities
 		//EntityHandler.registerMonsters(EntityShark.class, "Shark");
 		EntityHandler.registerMonsters(EntityGhost.class, "Ghost");
 		
+		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
+		
 		addMobSpawns();
 	}
 	
 	public static void addMobSpawns()
 	{
+		//Overworld
 		EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.monster, BiomeGenBase.desert, BiomeGenBase.desertHills);
 		EntityRegistry.addSpawn(EntityValkyrie.class, 100, 2, 6, EnumCreatureType.monster, BiomeGenBase.forest, BiomeGenBase.birchForest, BiomeGenBase.birchForestHills, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleEdge, BiomeGenBase.jungleHills, BiomeGenBase.roofedForest);
 		EntityRegistry.addSpawn(EntityGolem.class, 25, 1, 2, EnumCreatureType.monster, BiomeGenBase.stoneBeach, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.extremeHillsPlus);
@@ -44,5 +48,7 @@ public class ModEntities
 		EntityRegistry.addSpawn(EntityBear.class, 50, 2, 4, EnumCreatureType.monster, BiomeGenBase.forest, BiomeGenBase.birchForest, BiomeGenBase.birchForestHills, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleEdge, BiomeGenBase.jungleHills, BiomeGenBase.roofedForest, BiomeGenBase.taiga, BiomeGenBase.taigaHills);
 		//EntityRegistry.addSpawn(EntityShark.class, 1, 1, 2, EnumCreatureType.monster, BiomeGenBase.ocean);
 		//EntityRegistry.addSpawn(EntityGhost.class, 1, 1, 1, EnumCreatureType.monster, BiomeGenBase.jungle);
+		
+		EntityRegistry.addSpawn(EntityDoe.class, 75, 2, 4, EnumCreatureType.creature, BiomeGenBase.forest, BiomeGenBase.birchForest, BiomeGenBase.birchForestHills, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleEdge, BiomeGenBase.jungleHills, BiomeGenBase.roofedForest);
 	}
 }
