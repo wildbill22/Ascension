@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 TheXFactor117
+ * Copyright 2014-2015 TheXFactor117
  */
 
 package com.thexfactor117.ascension;
