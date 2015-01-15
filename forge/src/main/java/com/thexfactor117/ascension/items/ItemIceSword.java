@@ -35,7 +35,7 @@ public class ItemIceSword extends ItemSword
 	{
 		par1ItemStack.damageItem(1, par3EntityLivingBase);
 		
-		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 40, 2));
+		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*3, 2));
 		
 		return true;
 	}

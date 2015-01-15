@@ -22,6 +22,7 @@ public class EntityValkyrie extends EntityMob
 	public EntityValkyrie(World world) 
 	{
 		super(world);
+		this.setSize(1F, 2F);
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 20;
 		this.tasks.addTask(0, new EntityAIWander(this, 1.0D)); //speed at which mob wanders
@@ -36,10 +37,10 @@ public class EntityValkyrie extends EntityMob
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(32.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
 	}
 
 	public boolean isAIEnabled()

@@ -35,7 +35,7 @@ public class ItemBlazeSword extends ItemSword
 	{
 		par1ItemStack.damageItem(1, par3EntityLivingBase);
 		
-		par2EntityLivingBase.setFire(2);
+		par2EntityLivingBase.setFire(3);
 		
 		return true;
 	}

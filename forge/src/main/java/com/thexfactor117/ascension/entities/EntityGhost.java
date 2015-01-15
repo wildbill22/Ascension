@@ -42,8 +42,10 @@ public class EntityGhost extends EntityMob
 	
 	public boolean hitEntity(ItemStack item, EntityLivingBase target, EntityLivingBase attacker)
 	{
-		target.addPotionEffect(new PotionEffect(Potion.invisibility.id, 1, 5*20));
+		item.damageItem(1, attacker);
 		
-		return hasAttacked;
+		target.addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*5, 2));
+		
+		return true;
 	}
 }

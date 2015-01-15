@@ -22,7 +22,7 @@ public class EntityMummy extends EntityMob
 		super(world);
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 25;
-		this.setSize(1.5F, 1.0F); //sets how big the hit box is *** TEST THIS ***
+		this.setSize(1.5F, 1.0F); //sets how big the hit box is
 		this.tasks.addTask(0, new EntityAIWander(this, 1.0D)); //speed at which mob wanders
 		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true)); // attacks player once collided
 		this.tasks.addTask(2, new EntityAISwimming(this));
@@ -35,8 +35,8 @@ public class EntityMummy extends EntityMob
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(7.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(24.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.15D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0D);
 	}
