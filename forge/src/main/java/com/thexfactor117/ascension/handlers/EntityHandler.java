@@ -32,5 +32,6 @@ public class EntityHandler
 		
 		EntityRegistry.registerGlobalEntityID(entityClass, name, entityId);
 		EntityRegistry.registerModEntity(entityClass, name, entityId, Ascension.instance, 64, 1, true);
+		EntityList.entityEggs.put(Integer.valueOf(entityId), new EntityList.EntityEggInfo(entityId, primaryColor, secondaryColor));
 	}
 }
