@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.entities;
+package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Random;
 

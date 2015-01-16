@@ -1,7 +1,7 @@
 package com.thexfactor117.ascension.proxies;
 
-import com.thexfactor117.ascension.entities.EntityDoe;
-import com.thexfactor117.ascension.entities.EntityValkyrie;
+import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
+import com.thexfactor117.ascension.entities.passive.EntityDoe;
 import com.thexfactor117.ascension.models.ModelDoe;
 import com.thexfactor117.ascension.models.ModelValkyrie;
 import com.thexfactor117.ascension.render.RenderDoe;

@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.items;
+package com.thexfactor117.ascension.items.armor;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;

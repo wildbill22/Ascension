@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.entities;
+package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Random;
 
@@ -11,18 +11,19 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
-public class EntityMummy extends EntityMob
+import com.thexfactor117.ascension.init.ModItems;
+
+public class EntityGolem extends EntityMob
 {
-	public EntityMummy(World world) 
+	public EntityGolem(World world) 
 	{
 		super(world);
 		this.getNavigator().setCanSwim(true);
-		this.experienceValue = 25;
-		this.setSize(1.5F, 1.0F); //sets how big the hit box is
+		this.experienceValue = 30;
+		this.setSize(1.5F, 1.0F); //sets how big the hit box is *** TEST THIS ***
 		this.tasks.addTask(0, new EntityAIWander(this, 1.0D)); //speed at which mob wanders
 		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true)); // attacks player once collided
 		this.tasks.addTask(2, new EntityAISwimming(this));
@@ -35,10 +36,10 @@ public class EntityMummy extends EntityMob
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(7.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(24.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.15D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(16.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.1D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(75.0D);
 	}
 	
 	public boolean isAIEnabled()
@@ -52,33 +53,45 @@ public class EntityMummy extends EntityMob
 		int var1 = this.rand.nextInt(3);
 		if (var1 == 0)
 		{
-			this.dropItem(Items.rotten_flesh, 1);
+			this.dropItem(ModItems.smallRock, 1);
 		}
 		if (var1 == 1)
 		{
-			this.dropItem(Items.paper, 1);
+			this.dropItem(ModItems.smallRock, 3);
 		}
 		
-		int var2 = this.rand.nextInt(3);
+		int var2 = this.rand.nextInt(5);
 		if (var2 == 0)
 		{
-			this.dropItem(Items.gold_nugget, 2);
+			this.dropItem(Items.iron_ingot, 1);
 		}
 		
-		int var3 = this.rand.nextInt(5);
+		int var3 = this.rand.nextInt(7);
 		if (var3 == 0)
 		{
-			this.dropItem(Items.gold_ingot, 1);
+			this.dropItem(Items.iron_ingot, 2);
 		}
 		
 		int var4 = this.rand.nextInt(7);
 		if (var4 == 0)
 		{
-			this.dropItem(Items.emerald, 1);
+			this.dropItem(ModItems.titaniumIngot, 1);
 		}
 		
 		int var5 = this.rand.nextInt(10);
 		if (var5 == 0)
+		{
+			this.dropItem(ModItems.titaniumIngot, 2);
+		}
+		
+		int var6 = this.rand.nextInt(10);
+		if (var6 == 0)
+		{
+			this.dropItem(ModItems.steelIngot, 1);
+		}
+		
+		int var7 = this.rand.nextInt(10);
+		if (var7 == 0)
 		{
 			this.dropItem(Items.diamond, 1);
 		}

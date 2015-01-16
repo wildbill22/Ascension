@@ -9,10 +9,10 @@ import com.thexfactor117.ascension.items.ItemAscensionAxe;
 import com.thexfactor117.ascension.items.ItemAscensionPickaxe;
 import com.thexfactor117.ascension.items.ItemAscensionShovel;
 import com.thexfactor117.ascension.items.ItemAscensionSword;
-import com.thexfactor117.ascension.items.ItemBlazeSword;
-import com.thexfactor117.ascension.items.ItemIceSword;
-import com.thexfactor117.ascension.items.ItemSteelArmor;
-import com.thexfactor117.ascension.items.ItemTitaniumArmor;
+import com.thexfactor117.ascension.items.armor.ItemSteelArmor;
+import com.thexfactor117.ascension.items.armor.ItemTitaniumArmor;
+import com.thexfactor117.ascension.items.weapons.ItemBlazeSword;
+import com.thexfactor117.ascension.items.weapons.ItemIceSword;
 
 public class ModArmory 
 {

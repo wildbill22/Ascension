@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.entities;
+package com.thexfactor117.ascension.entities.hostile;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;

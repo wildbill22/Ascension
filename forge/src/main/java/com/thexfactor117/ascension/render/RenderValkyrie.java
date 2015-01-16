@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
-import com.thexfactor117.ascension.entities.EntityValkyrie;
+import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.models.ModelValkyrie;
 

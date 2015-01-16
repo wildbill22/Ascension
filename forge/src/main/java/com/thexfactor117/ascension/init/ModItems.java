@@ -5,11 +5,12 @@ import net.minecraft.item.Item;
 import com.thexfactor117.ascension.help.RegisterHelper;
 import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.items.ItemAscensionFood;
+import com.thexfactor117.ascension.items.artifacts.ItemOmega;
 
 public class ModItems 
 {
 	//Artifacts
-	public static Item omega = new ItemAscension().setUnlocalizedName("omega");
+	public static Item omega = new ItemOmega().setUnlocalizedName("omega");
 
 	//Valuables
 	public static Item titaniumIngot = new ItemAscension().setUnlocalizedName("titaniumIngot");
@@ -21,6 +22,9 @@ public class ModItems
 	//Food
 	public static Item rawVenison = new ItemAscensionFood(3, 0.5F, true).setUnlocalizedName("rawVenison");
 	public static Item cookedVenison = new ItemAscensionFood(8, 3.0F, true).setUnlocalizedName("cookedVenison");
+	public static Item strawberry = new ItemAscensionFood(2, 1.0F, false).setUnlocalizedName("strawberry");
+	public static Item raspberry = new ItemAscensionFood(1, 0.75F, false).setUnlocalizedName("raspberry");
+	public static Item blueberry = new ItemAscensionFood(1, 0.75F, false).setUnlocalizedName("blueberry");
 	
 	//Miscellaneous
 	public static Item antlers = new ItemAscension().setUnlocalizedName("antlers");
@@ -40,6 +44,9 @@ public class ModItems
 	
 		RegisterHelper.registerItem(rawVenison);
 		RegisterHelper.registerItem(cookedVenison);
+		RegisterHelper.registerItem(strawberry);
+		RegisterHelper.registerItem(raspberry);
+		RegisterHelper.registerItem(blueberry);
 	
 		RegisterHelper.registerItem(antlers);
 		RegisterHelper.registerItem(sharkTeeth);

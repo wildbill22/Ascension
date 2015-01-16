@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.items;
+package com.thexfactor117.ascension.items.armor;
 
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;

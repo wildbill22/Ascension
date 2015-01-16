@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.items;
+package com.thexfactor117.ascension.items.weapons;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;

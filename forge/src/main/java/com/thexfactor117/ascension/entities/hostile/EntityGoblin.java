@@ -1,27 +1,21 @@
-package com.thexfactor117.ascension.entities;
+package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Random;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.init.Items;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.init.ModItems;
 
-public class EntitySnowBlaze extends EntityMob
+public class EntityGoblin extends EntityMob
 {
-	/**
-	 * !!!Come back later to add blaze properties!!!
-	 */
-	public EntitySnowBlaze(World world) 
+	public EntityGoblin(World world) 
 	{
 		super(world);
 		this.getNavigator().setCanSwim(true);
@@ -36,20 +30,15 @@ public class EntitySnowBlaze extends EntityMob
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(20.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(35.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.5D);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0D);
 	}
 	
 	public boolean isAIEnabled()
 	{
 		return true;
-	}
-	
-	public float getBrightness(float par1)
-	{
-		return 1.0F;
 	}
 	
 	@Override
@@ -59,15 +48,15 @@ public class EntitySnowBlaze extends EntityMob
 		
 		if (var1 == 0)
 		{
-			dropItem(ModItems.coldBlazeRod, 1);
+			dropItem(Items.gold_nugget, 2);
 		}
-		if (var1 == 2)
+		if (var1 == 1)
 		{
-			dropItem(Items.snowball, 1);
+			dropItem(Items.gold_nugget, 4);
 		}
 		if (var1 == 3)
 		{
-			dropItem(Items.snowball, 3);
+			dropItem(ModItems.titaniumIngot, 1);
 		}
 	}
 	
@@ -79,7 +68,7 @@ public class EntitySnowBlaze extends EntityMob
 		
 		if (random == 0)
 		{
-			dropItem(ModItems.iceGem, 1);
+			dropItem(Items.gold_ingot, 1);
 		}
 	}
 }

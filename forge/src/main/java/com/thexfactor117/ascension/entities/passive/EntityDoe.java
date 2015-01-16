@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.entities;
+package com.thexfactor117.ascension.entities.passive;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;

@@ -3,15 +3,15 @@ package com.thexfactor117.ascension.init;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 
-import com.thexfactor117.ascension.entities.EntityBarbarian;
-import com.thexfactor117.ascension.entities.EntityBear;
-import com.thexfactor117.ascension.entities.EntityDoe;
-import com.thexfactor117.ascension.entities.EntityGhost;
-import com.thexfactor117.ascension.entities.EntityGoblin;
-import com.thexfactor117.ascension.entities.EntityGolem;
-import com.thexfactor117.ascension.entities.EntityMummy;
-import com.thexfactor117.ascension.entities.EntitySnowBlaze;
-import com.thexfactor117.ascension.entities.EntityValkyrie;
+import com.thexfactor117.ascension.entities.hostile.EntityBarbarian;
+import com.thexfactor117.ascension.entities.hostile.EntityBear;
+import com.thexfactor117.ascension.entities.hostile.EntityGhost;
+import com.thexfactor117.ascension.entities.hostile.EntityGoblin;
+import com.thexfactor117.ascension.entities.hostile.EntityGolem;
+import com.thexfactor117.ascension.entities.hostile.EntityMummy;
+import com.thexfactor117.ascension.entities.hostile.EntitySnowBlaze;
+import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
+import com.thexfactor117.ascension.entities.passive.EntityDoe;
 import com.thexfactor117.ascension.handlers.EntityHandler;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
