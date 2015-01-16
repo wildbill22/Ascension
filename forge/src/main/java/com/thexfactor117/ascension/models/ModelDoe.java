@@ -77,19 +77,22 @@ public class ModelDoe extends ModelBase
       Head.mirror = true;
       setRotation(Head, 1.570796F, 0F, 0F);
       Snout = new ModelRenderer(this, 14, 12);
-      Snout.addBox(-2F, -4F, -3F, 4, 3, 3);
+      //Snout.addBox(-2F, -4F, -3F, 4, 3, 3);
+      Snout.addBox(-2F, 6F, -1F, 4, 3, 3);
       Snout.setRotationPoint(0F, 1F, -11F);
       Snout.setTextureSize(64, 32);
       Snout.mirror = true;
       setRotation(Snout, 1.762782F, 0F, 0F);
       Ear1 = new ModelRenderer(this, 50, 0);
-      Ear1.addBox(0F, 0F, 2F, 3, 1, 4);
+      //Ear1.addBox(0F, 0F, 2F, 3, 1, 4);
+      Ear1.addBox(-2F, 9F, 5.5F, 3, 1, 4);
       Ear1.setRotationPoint(0F, 0F, -9F);
       Ear1.setTextureSize(64, 32);
       Ear1.mirror = true;
       setRotation(Ear1, 1.570796F, 0F, 0.4014257F);
       Ear2 = new ModelRenderer(this, 50, 0);
-      Ear2.addBox(-3F, 0F, 2F, 3, 1, 4);
+      //Ear2.addBox(-3F, 0F, 2F, 3, 1, 4);
+      Ear2.addBox(-1F, 9F, 5.5F, 3, 1, 4);
       Ear2.setRotationPoint(0F, 0F, -9F);
       Ear2.setTextureSize(64, 32);
       Ear2.mirror = true;
@@ -104,6 +107,8 @@ public class ModelDoe extends ModelBase
       setRotation(Piece2, 0F, 0F, 0F);
       Piece2.mirror = true;
       Head.addChild(Snout);
+      Head.addChild(Ear1);
+      Head.addChild(Ear2);
   }
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
@@ -118,9 +123,9 @@ public class ModelDoe extends ModelBase
     Tail.render(f5);
     Neck.render(f5);
     Head.render(f5);
-    Snout.render(f5);
-    Ear1.render(f5);
-    Ear2.render(f5);
+    //Snout.render(f5);
+    //Ear1.render(f5);
+    //Ear2.render(f5);
     Piece1.render(f5);
     Piece2.render(f5);
   }
