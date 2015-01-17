@@ -18,7 +18,7 @@ public class SmallAbandonedHouse extends AbandonedStructure {
 	// Variables for configuration
 	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
-	public static int spawnChance = 100;           // chance n/1000
+	public static int spawnChance = 50;           // chance n/1000
 
 	public SmallAbandonedHouse() 
 	{

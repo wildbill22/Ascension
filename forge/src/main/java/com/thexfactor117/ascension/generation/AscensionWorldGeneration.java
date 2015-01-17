@@ -8,12 +8,18 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.thexfactor117.ascension.init.ModBlocks;
+import com.thexfactor117.ascension.structures.MediumAbandonedHouse;
 import com.thexfactor117.ascension.structures.SkyrimStyleHouse0;
 import com.thexfactor117.ascension.structures.SmallAbandonedHouse;
 import com.thexfactor117.ascension.structures.StructureGenAbandonedHouse;
 
 import cpw.mods.fml.common.IWorldGenerator;
 
+/**
+ * 
+ * @author WILLIAM
+ *
+ */
 public class AscensionWorldGeneration implements IWorldGenerator
 {
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
@@ -63,6 +69,18 @@ public class AscensionWorldGeneration implements IWorldGenerator
 		boolean generatedStructure = false; // needed when a 2nd structure is added
 		int spawnChance = 0;
 		
+		spawnChance += MediumAbandonedHouse.spawnChance; 
+		if (generatedStructure == false && chance < spawnChance)
+		{
+			// Create abandoned house
+			int posX = x + random.nextInt(16);
+			int posZ = z + random.nextInt(16);
+			// Check where entrance is (look in structure class for location of stairs):
+			int posY = world.getHeightValue(posX + 3, posZ + 0); 
+			MediumAbandonedHouse house = new MediumAbandonedHouse();
+			generatedStructure = house.generate(world, random, posX, posY - 1, posZ);
+		}
+
 		spawnChance += SmallAbandonedHouse.spawnChance; 
 		if (generatedStructure == false && chance < spawnChance)
 		{
