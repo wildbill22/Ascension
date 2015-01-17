@@ -16,14 +16,17 @@ import com.thexfactor117.ascension.items.weapons.ItemIceSword;
 
 public class ModArmory 
 {
+	/**
+	 * Overworld
+	 */
 	//Tool Materials
-	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 3, 500, 7.0F, 2.5F, 10);
-	static Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 3, 1811, 8.5F, 3.5F, 2);
+	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 3, 512, 6.0F, 2.5F, 10);
+	static Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 3, 728, 7.0F, 3.0F, 5);
 	
 	//Weapon Materials
-	static Item.ToolMaterial ICE = EnumHelper.addToolMaterial("ICE", 3, 192, 7.0F, 2.5F, 15);
-	static Item.ToolMaterial BLAZE = EnumHelper.addToolMaterial("BLAZE", 3, 192, 7.0F, 2.5F, 15);
-	static Item.ToolMaterial VEXAL = EnumHelper.addToolMaterial("VEXAL", 3, 256, 6.0F, 2.0F, 25);
+	static Item.ToolMaterial ICE = EnumHelper.addToolMaterial("ICE", 3, 192, 6.0F, 2.5F, 15);
+	static Item.ToolMaterial BLAZE = EnumHelper.addToolMaterial("BLAZE", 3, 192, 6.0F, 2.5F, 15);
+	static Item.ToolMaterial VEXAL = EnumHelper.addToolMaterial("VEXAL", 3, 256, 5.0F, 2.0F, 20);
 	
 	//Armor Materials
 	static ArmorMaterial ATITANIUM = EnumHelper.addArmorMaterial("ATITANIUM", 20, new int[]{2, 7, 5, 3}, 10);
