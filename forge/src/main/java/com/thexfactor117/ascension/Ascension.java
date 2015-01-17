@@ -37,8 +37,7 @@ public class Ascension
 	AscensionWorldGeneration eventWorldGen = new AscensionWorldGeneration();
 	
 	@Mod.EventHandler
-	public void preInit
-	(FMLPreInitializationEvent event)
+	public void preInit(FMLPreInitializationEvent event)
 	{		
 		ModItems.init();
 		ModBlocks.init();
