@@ -19,7 +19,7 @@ public class StructureGenAbandonedHouse extends AbandonedStructure
 	// Variables for configuration
 	public static int missingBlockChance = 11;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
-	public static int spawnChance = 10;           // chance n/1000
+	public static int spawnChance = 5;           // chance n/1000
 	
 	public StructureGenAbandonedHouse() 
 	{
@@ -60,8 +60,6 @@ public class StructureGenAbandonedHouse extends AbandonedStructure
 	public void generateStructure(World world, Random random, int x, int y, int z) 
 	{
 		floorLevel = y;
-		
-		
 		
 		LogHelper.info("Generating an Abandoned House at " + x + "," + y + "," + z + "!");
 		setBlock(world, random, x + 0, y + 0, z + 0, Blocks.cobblestone, 0, 2);

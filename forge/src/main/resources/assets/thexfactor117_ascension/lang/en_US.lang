@@ -66,8 +66,9 @@ item.veconitePlate.name=Veconite Chestplate
 item.veconitePants.name=Veconite Leggings
 item.veconiteBoots.name=Veconite Boots
 
-item.spawnAbandonedHouse.name= Spawn Abandoned House
-item.spawnSkyrimStyleHouse.name= Spawn Skyrim Style House
+item.spawnAbandonedHouse.name=Spawn Abandoned House
+item.spawnSkyrimStyleHouse.name=Spawn Skyrim Style House
+item.spawnSmallAbandonedHouse.name=Spawn Small Abandoned House
 
 itemGroup.tabAscension=Ascension
 itemGroup.tabAscensionTest=Ascension Test Items
