@@ -38,7 +38,7 @@ public class EntityGolem extends EntityMob
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(16.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.1D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.15D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(75.0D);
 	}
 	
