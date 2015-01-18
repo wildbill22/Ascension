@@ -70,6 +70,7 @@ item.spawnAbandonedHouse.name=Spawn Abandoned House
 item.spawnSkyrimStyleHouse.name=Spawn Skyrim Style House
 item.spawnSmallAbandonedHouse.name=Spawn Small Abandoned House
 item.spawnMediumAbandonedHouse.name=Spawn Medium Abandoned House
+item.spawnLandWatchtower.name=Spawn Land Watchtower
 
 itemGroup.tabAscension=Ascension
 itemGroup.tabAscensionTest=Ascension Test Items

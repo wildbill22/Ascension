@@ -8,6 +8,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.thexfactor117.ascension.init.ModBlocks;
+import com.thexfactor117.ascension.structures.LandWatchtowerPart1;
 import com.thexfactor117.ascension.structures.MediumAbandonedHouse;
 import com.thexfactor117.ascension.structures.SkyrimStyleHouse0;
 import com.thexfactor117.ascension.structures.SmallAbandonedHouse;
@@ -69,6 +70,18 @@ public class AscensionWorldGeneration implements IWorldGenerator
 		boolean generatedStructure = false; // needed when a 2nd structure is added
 		int spawnChance = 0;
 		
+		spawnChance += LandWatchtowerPart1.spawnChance; 
+		if (generatedStructure == false && chance < spawnChance)
+		{
+			// Create Land Watch Tower
+			int posX = x + random.nextInt(16);
+			int posZ = z + random.nextInt(16);
+			// Check where entrance is (look in structure class for location of stairs):
+			int posY = world.getHeightValue(posX + 3, posZ + 0); 
+			LandWatchtowerPart1 tower = new LandWatchtowerPart1();
+			generatedStructure = tower.generate(world, random, posX, posY - 1, posZ);
+		}
+
 		spawnChance += MediumAbandonedHouse.spawnChance; 
 		if (generatedStructure == false && chance < spawnChance)
 		{

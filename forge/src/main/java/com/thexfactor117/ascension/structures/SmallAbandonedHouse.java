@@ -16,9 +16,9 @@ import net.minecraft.world.World;
  */
 public class SmallAbandonedHouse extends AbandonedStructure {
 	// Variables for configuration
-	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
+	public static int missingBlockChance = 15;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
-	public static int spawnChance = 50;           // chance n/1000
+	public static int spawnChance = 30;           // chance n/1000
 
 	public SmallAbandonedHouse() 
 	{
@@ -123,7 +123,7 @@ public class SmallAbandonedHouse extends AbandonedStructure {
 		setBlock(world, random, x + 0, y + 1, z + 5, Blocks.cobblestone, 0, 3);
 		setBlock(world, random, x + 1, y + 1, z + 5, Blocks.air, 0, 3);
 		setBlock(world, random, x + 2, y + 1, z + 5, Blocks.air, 0, 3);
-		setBlock(world, random, x + 3, y + 1, z + 5, Blocks.chest, 4, 3);
+//		setBlock(world, random, x + 3, y + 1, z + 5, Blocks.chest, 4, 3);
 		setBlock(world, random, x + 4, y + 1, z + 5, Blocks.cobblestone, 0, 3);
 		setBlock(world, random, x + 0, y + 1, z + 6, Blocks.log, 0, 3);
 		setBlock(world, random, x + 1, y + 1, z + 6, Blocks.cobblestone, 0, 3);

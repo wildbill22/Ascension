@@ -16,9 +16,9 @@ import net.minecraft.world.World;
  */
 public class MediumAbandonedHouse extends AbandonedStructure {
 	// Variables for configuration
-	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
+	public static int missingBlockChance = 15;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
-	public static int spawnChance = 80;           // chance n/1000
+	public static int spawnChance = 30;           // chance n/1000
 
 	public MediumAbandonedHouse() 
 	{
@@ -181,7 +181,7 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 		setBlock(world, random, x + 1, y + 1, z + 7, Blocks.air, 0, 3);
 		setBlock(world, random, x + 2, y + 1, z + 7, Blocks.air, 0, 3);
 		setBlock(world, random, x + 3, y + 1, z + 7, Blocks.air, 0, 3);
-		setBlock(world, random, x + 4, y + 1, z + 7, Blocks.chest, 2, 3);
+//		setBlock(world, random, x + 4, y + 1, z + 7, Blocks.chest, 2, 3);
 		setBlock(world, random, x + 5, y + 1, z + 7, Blocks.air, 0, 3);
 		setBlock(world, random, x + 6, y + 1, z + 7, Blocks.log, 0, 3);
 		setBlock(world, random, x + 0, y + 1, z + 8, Blocks.air, 0, 3);
@@ -530,7 +530,7 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 		setBlock(world, random, x + 8, y + 2, z + 2, Blocks.oak_stairs, 1, 3);
 		setBlock(world, random, x + 0, y + 2, z + 3, Blocks.oak_stairs, 0, 3);
 		setBlock(world, random, x + 1, y + 2, z + 3, Blocks.planks, 0, 3);
-		setBlock(world, random, x + 2, y + 2, z + 3, Blocks.chest, 5, 3);
+//		setBlock(world, random, x + 2, y + 2, z + 3, Blocks.chest, 5, 3);
 		setBlock(world, random, x + 3, y + 2, z + 3, Blocks.air, 0, 3);
 		setBlock(world, random, x + 4, y + 2, z + 3, Blocks.air, 0, 3);
 		setBlock(world, random, x + 5, y + 2, z + 3, Blocks.air, 0, 3);
