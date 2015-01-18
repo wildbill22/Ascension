@@ -3,6 +3,8 @@ package com.thexfactor117.ascension.structures;
 import java.util.Random;
 
 import com.thexfactor117.ascension.help.LogHelper;
+import com.thexfactor117.ascension.init.ModArmory;
+import com.thexfactor117.ascension.init.ModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -26,9 +28,25 @@ public class SmallAbandonedHouse extends AbandonedStructure {
 		structureSpawnHeightTolerance = spawnHeightTolerance;
 		structureSpawnChance = spawnChance;
 		validSpawnBlocks = getValidSpawnBlocks();
+
 		// Add these in order of low to high probability:
-		addRandomChestItem(Items.arrow, 1, 3, 10);
-		addRandomChestItem(Items.apple, 1, 3, 20);
+		// Rareness - 3
+		addRandomChestItem(ModArmory.divineRapier, 1, 1, 2);
+		addRandomChestItem(ModArmory.voidHammer, 1, 1, 2);
+
+		// Rareness - 2
+		addRandomChestItem(ModArmory.crystallizedSword, 1, 1, 5);
+		addRandomChestItem(ModArmory.gyroMace, 1, 1, 5);
+		addRandomChestItem(ModArmory.shadowBlade, 1, 1, 5);
+		addRandomChestItem(ModArmory.etherealBlade, 1, 1, 5);
+
+		// Rareness - 1 (least)
+		addRandomChestItem(ModItems.strawberry, 1, 3, 40);
+		addRandomChestItem(ModArmory.titaniumSword, 1, 1, 10);
+		addRandomChestItem(ModArmory.steelSword, 1, 1, 10);
+		addRandomChestItem(ModArmory.blazeSword, 1, 1, 10);
+		addRandomChestItem(ModArmory.iceSword, 1, 1, 10);
+		addRandomChestItem(ModArmory.razorSword, 1, 1, 10);
 	}
 
 	protected Block[] getValidSpawnBlocks() 

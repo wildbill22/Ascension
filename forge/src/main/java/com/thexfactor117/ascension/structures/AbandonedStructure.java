@@ -147,7 +147,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		// Normally 27 slots
 		for (int slot = 0; slot < chestEntity.getSizeInventory(); slot++) 
 		{
-			int randomChance = rand.nextInt(100);
+			int randomChance = rand.nextInt(1000);
 			if (chestEntity.getStackInSlot(slot) == null && chance > randomChance)
 			{
 				int randomQty = rand.nextInt(max - min + 1) + min;
@@ -176,7 +176,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			setBlock(world, random, x, y, z, Blocks.chest, metaData, 2);
 			TileEntityChest chestEntity = new TileEntityChest();
 			world.setTileEntity(x, y, z, chestEntity);
-			// item, min to add, max to add, chance N/100
+			// item, min to add, max to add, chance N/1000
 			// Add items with lowest chance first
 			for (int i = 0; i < randomChestItems.size(); i++) {
 				setRandomSlots(chestEntity, randomChestItems.get(i).item, randomChestItems.get(i).min,
@@ -187,6 +187,13 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		return generated;
 	}
 	
+	/**
+	 * Replace a setBlock for a chest with this function with all the parameters, and a few extra 
+	 * @param item item to add randomly to chest 
+	 * @param min minimum to add to a slot (0 - 64)
+	 * @param max maximum to add to a slot (1 - 64)
+	 * @param probability n/1000 chance of any one slot having this item
+	 */
 	protected void addRandomChestItem(Item item, int min, int max, int probability) {
 		if (randomChestItems == null)
 			randomChestItems = new ArrayList<RandomChestItems>();
