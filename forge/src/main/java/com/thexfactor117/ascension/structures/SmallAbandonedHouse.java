@@ -8,7 +8,6 @@ import com.thexfactor117.ascension.init.ModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 /**
@@ -28,6 +27,7 @@ public class SmallAbandonedHouse extends AbandonedStructure {
 		structureSpawnHeightTolerance = spawnHeightTolerance;
 		structureSpawnChance = spawnChance;
 		validSpawnBlocks = getValidSpawnBlocks();
+		mobsToSpawn = getMobsToSpawn();
 
 		// Add these in order of low to high probability:
 		// Rareness - 3
@@ -49,6 +49,10 @@ public class SmallAbandonedHouse extends AbandonedStructure {
 		addRandomChestItem(ModArmory.razorSword, 1, 1, 10);
 	}
 
+	protected String[] getMobsToSpawn() {
+		return new String[] { "Ghost" };
+	}
+	
 	protected Block[] getValidSpawnBlocks() 
 	{
 		return new Block[] { Blocks.grass, Blocks.dirt, Blocks.sand, Blocks.cobblestone };
@@ -189,7 +193,10 @@ public class SmallAbandonedHouse extends AbandonedStructure {
 		//adding a chest with random stuff
 		// If just one chest, set last two parameters to 1 and false
 		generateChest(world, random, x + 3, y + 1, z + 5, 0, 1, false);	
-
+		
+		// Mob spawner
+		generateMobSpawner(world, random, x + 1, y + 1, z + 5, 0);
+		
 		// Door
 		setBlock(world, random, x + 2, y + 1, z + 0, Blocks.wooden_door, 3, 3);
 		setBlock(world, random, x + 2, y + 2, z + 0, Blocks.wooden_door, 8, 3);

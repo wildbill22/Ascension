@@ -9,6 +9,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -42,6 +43,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			Blocks.wool, Blocks.sand };
 	protected int floorLevel = 0;
 	protected ArrayList<RandomChestItems> randomChestItems;
+	protected String[] mobsToSpawn;
 
 	// Variables used when using a separate thread to generate structure
 	World threadWorld = null;
@@ -198,6 +200,32 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		if (randomChestItems == null)
 			randomChestItems = new ArrayList<RandomChestItems>();
 		randomChestItems.add(new RandomChestItems(item, min, max, probability));
+	}
+	
+	/**
+	 * Replace a setBlock for a mob_spawner with this function with all the parameters, and a few extra 
+	 * @param world 
+	 * @param random
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param metaData
+	 */
+	protected void generateMobSpawner(World world, Random random, int x, int y, int z, int metaData){
+		boolean setEntity = false;
+		
+		setBlock(world, random, x, y, z, Blocks.mob_spawner, 0, 3);
+		TileEntityMobSpawner spawner = (TileEntityMobSpawner) world.getTileEntity(x, y, z);
+
+		// Set to a random entity from an array of possible mobs
+		for (int i = 0; i < mobsToSpawn.length && setEntity == false; i++) {
+			if (random.nextInt(mobsToSpawn.length) == 0) {
+				spawner.func_145881_a().setEntityName(mobsToSpawn[i]);
+			}				
+		}
+		if (setEntity == false) {
+			spawner.func_145881_a().setEntityName(mobsToSpawn[0]);			
+		}
 	}
 	
 	protected class RandomChestItems {
