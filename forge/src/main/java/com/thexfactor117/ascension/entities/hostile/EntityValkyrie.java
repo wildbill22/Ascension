@@ -1,9 +1,6 @@
 package com.thexfactor117.ascension.entities.hostile;
 
-import java.util.Random;
-
-import com.thexfactor117.ascension.init.ModItems;
-
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -12,10 +9,11 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
+
+import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityValkyrie extends EntityMob
 {
@@ -25,12 +23,6 @@ public class EntityValkyrie extends EntityMob
 		this.setSize(1F, 2F);
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 20;
-		this.tasks.addTask(0, new EntityAIWander(this, 1.0D)); //speed at which mob wanders
-		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true)); // attacks player once collided
-		this.tasks.addTask(2, new EntityAISwimming(this));
-        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 	}
 	
 	@Override
@@ -43,10 +35,28 @@ public class EntityValkyrie extends EntityMob
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
 	}
 
+	@Override
 	public boolean isAIEnabled()
 	{
 		return true;
 	}
+	
+	protected void clearAITasks()
+	{
+		tasks.taskEntries.clear();
+		targetTasks.taskEntries.clear();
+	}
+	
+	/**
+	 * Testing purposes. Entities are having trouble attacking
+	 * players; hopefully this will help out.
+	 */
+    @Override
+	protected Entity findPlayerToAttack()
+    {
+        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 32.0D);
+        return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
+    }
 	
 	@Override
 	protected void dropFewItems(boolean par1, int par2)

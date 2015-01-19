@@ -2,6 +2,7 @@ package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Random;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -22,13 +23,14 @@ public class EntityMummy extends EntityMob
 		super(world);
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 25;
-		this.setSize(1.5F, 1.0F); //sets how big the hit box is
-		this.tasks.addTask(0, new EntityAIWander(this, 1.0D)); //speed at which mob wanders
-		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true)); // attacks player once collided
-		this.tasks.addTask(2, new EntityAISwimming(this));
+		this.setSize(1.5F, 1.0F);
+		this.clearAITasks();
+		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
         this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(4, new EntityAIWander(this, 1.0D));
+		this.tasks.addTask(5, new EntityAISwimming(this));
+        this.targetTasks.addTask(0, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 	}
 	
 	@Override
@@ -41,10 +43,28 @@ public class EntityMummy extends EntityMob
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0D);
 	}
 	
+	@Override
 	public boolean isAIEnabled()
 	{
 		return true;
 	}
+	
+	protected void clearAITasks()
+	{
+		tasks.taskEntries.clear();
+		targetTasks.taskEntries.clear();
+	}
+	
+	/**
+	 * Testing purposes. Entities are having trouble attacking
+	 * players; hopefully this will help out.
+	 */
+    @Override
+	protected Entity findPlayerToAttack()
+    {
+        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 24.0D);
+        return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
+    }
 	
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
