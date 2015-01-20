@@ -36,6 +36,7 @@ public class ModArmory
 	static Item.ToolMaterial GYRO = EnumHelper.addToolMaterial("GYRO", 3, 192, 8.0F, 2.0F, 10);
 	static Item.ToolMaterial SHADOW = EnumHelper.addToolMaterial("SHADOW", 3, 256, 7.0F, 2.0F, 25);
 	static Item.ToolMaterial ETHEREAL = EnumHelper.addToolMaterial("ETHEREAL", 3, 192, 7.0F, 2.0F, 25);
+	static Item.ToolMaterial WINGED = EnumHelper.addToolMaterial("WINGED", 3, 256, 7.0F, 2.0F, 25);
 	static Item.ToolMaterial VOID = EnumHelper.addToolMaterial("VOID", 3, 256, 8.0F, 2.0F, 15);
 	static Item.ToolMaterial DIVINERAPIER = EnumHelper.addToolMaterial("DIVINERAPIER", 3, 256, 8.0F, 2.0F, 15);
 	static Item.ToolMaterial ALACRITY = EnumHelper.addToolMaterial("ALACRITY", 3, 512, 10.0F, 2.0F, 30);
@@ -68,6 +69,7 @@ public class ModArmory
 	public static Item gyroMace = new ItemAscensionSword(GYRO).setUnlocalizedName("gyroMace");
 	public static Item shadowBlade = new ItemAscensionSword(SHADOW).setUnlocalizedName("shadowBlade");
 	public static Item etherealBlade = new ItemEtherealBlade(ETHEREAL).setUnlocalizedName("etherealBlade");
+	public static Item wingedBlade = new ItemAscensionSword(WINGED).setUnlocalizedName("wingedBlade");
 	public static Item voidHammer = new ItemAscensionSword(VOID).setUnlocalizedName("voidHammer");
 	public static Item divineRapier = new ItemDivineRapier(DIVINERAPIER).setUnlocalizedName("divineRapier");
 	public static Item bladeOfAlacrity = new ItemAscensionSword(ALACRITY).setUnlocalizedName("bladeOfAlacrity");
@@ -82,6 +84,10 @@ public class ModArmory
 	public static Item steelPlate = new ItemSteelArmor(ASTEEL, 1, "steelPlate");
 	public static Item steelPants = new ItemSteelArmor(ASTEEL, 2, "steelPants");
 	public static Item steelBoots = new ItemSteelArmor(ASTEEL, 3, "steelBoots");
+	public static Item fleroviumHelm = new ItemSteelArmor(AFLEROVIUM, 0, "fleroviumHelm");
+	public static Item fleroviumPlate = new ItemSteelArmor(AFLEROVIUM, 1, "fleroviumPlate");
+	public static Item fleroviumPants = new ItemSteelArmor(AFLEROVIUM, 2, "fleroviumPants");
+	public static Item fleroviumBoots = new ItemSteelArmor(AFLEROVIUM, 3, "fleroviumBoots");
 
 	public static void init()
 	{
@@ -103,6 +109,7 @@ public class ModArmory
 		RegisterHelper.registerItem(gyroMace);
 		RegisterHelper.registerItem(shadowBlade);
 		RegisterHelper.registerItem(etherealBlade);
+		RegisterHelper.registerItem(wingedBlade);
 		RegisterHelper.registerItem(voidHammer);
 		RegisterHelper.registerItem(divineRapier);
 		RegisterHelper.registerItem(bladeOfAlacrity);
