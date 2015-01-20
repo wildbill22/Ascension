@@ -28,11 +28,19 @@ public class ItemInfernoStaff extends Item
 		this.itemIcon = par1IconRegister.registerIcon(Reference.MODID + ":" + getUnlocalizedName().substring(5));
 	}
 	
-	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int i, int j, int k, int l)
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
-		EntityInferno inferno = new EntityInferno(par3World, par2EntityPlayer, i, j, k);
-		par3World.spawnEntityInWorld(inferno);
-
-		return true;
+		if(par3EntityPlayer.capabilities.isCreativeMode) 
+		{
+			//DEBUG
+			System.out.println("RightClick is working");
+			
+			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+			if (!par2World.isRemote)
+		    {
+		        par2World.spawnEntityInWorld(new EntityInferno(par2World, par3EntityPlayer));
+		    }
+		}	            
+	    return par1ItemStack;
 	}
 }

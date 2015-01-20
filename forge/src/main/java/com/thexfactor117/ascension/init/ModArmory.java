@@ -9,6 +9,7 @@ import com.thexfactor117.ascension.items.ItemAscensionAxe;
 import com.thexfactor117.ascension.items.ItemAscensionPickaxe;
 import com.thexfactor117.ascension.items.ItemAscensionShovel;
 import com.thexfactor117.ascension.items.ItemAscensionSword;
+import com.thexfactor117.ascension.items.armor.ItemGyroPlate;
 import com.thexfactor117.ascension.items.armor.ItemSteelArmor;
 import com.thexfactor117.ascension.items.armor.ItemTitaniumArmor;
 import com.thexfactor117.ascension.items.weapons.ItemBlazeSword;
@@ -38,6 +39,8 @@ public class ModArmory
 	static Item.ToolMaterial SHADOW = EnumHelper.addToolMaterial("SHADOW", 3, 256, 7.0F, 2.0F, 25);
 	static Item.ToolMaterial ETHEREAL = EnumHelper.addToolMaterial("ETHEREAL", 3, 192, 7.0F, 2.0F, 25);
 	static Item.ToolMaterial WINGED = EnumHelper.addToolMaterial("WINGED", 3, 256, 7.0F, 2.0F, 25);
+	static Item.ToolMaterial NIGHTSEDGE = EnumHelper.addToolMaterial("NIGHTSEDGE", 3, 256, 8.0F, 2.0F, 20);
+	static Item.ToolMaterial LIGHTSBANE = EnumHelper.addToolMaterial("LIGHTSBANE", 3, 256, 8.0F, 2.0F, 20);
 	static Item.ToolMaterial VOID = EnumHelper.addToolMaterial("VOID", 3, 256, 8.0F, 2.0F, 15);
 	static Item.ToolMaterial DIVINERAPIER = EnumHelper.addToolMaterial("DIVINERAPIER", 3, 256, 8.0F, 2.0F, 15);
 	static Item.ToolMaterial ALACRITY = EnumHelper.addToolMaterial("ALACRITY", 3, 512, 10.0F, 2.0F, 30);
@@ -47,6 +50,8 @@ public class ModArmory
 	static ArmorMaterial ATITANIUM = EnumHelper.addArmorMaterial("ATITANIUM", 20, new int[]{2, 7, 5, 3}, 10);
 	static ArmorMaterial ASTEEL = EnumHelper.addArmorMaterial("ASTEEL", 30, new int[]{4, 8, 7, 3}, 2);
 	static ArmorMaterial AFLEROVIUM = EnumHelper.addArmorMaterial("AFLEROVIUM", 35, new int[]{4, 9, 8, 4}, 20);
+	
+	static ArmorMaterial AGYROCHESTPLATE = EnumHelper.addArmorMaterial("AGYROCHESTPLATE", 40, new int[]{3, 7, 5, 3}, 15);
 	
 	
 	
@@ -71,6 +76,8 @@ public class ModArmory
 	public static Item shadowBlade = new ItemAscensionSword(SHADOW).setUnlocalizedName("shadowBlade");
 	public static Item etherealBlade = new ItemEtherealBlade(ETHEREAL).setUnlocalizedName("etherealBlade");
 	public static Item wingedBlade = new ItemAscensionSword(WINGED).setUnlocalizedName("wingedBlade");
+	public static Item nightsEdge = new ItemAscensionSword(NIGHTSEDGE).setUnlocalizedName("nightsEdge");
+	public static Item lightsBane = new ItemAscensionSword(LIGHTSBANE).setUnlocalizedName("lightsBane");
 	public static Item voidHammer = new ItemAscensionSword(VOID).setUnlocalizedName("voidHammer");
 	public static Item divineRapier = new ItemDivineRapier(DIVINERAPIER).setUnlocalizedName("divineRapier");
 	public static Item bladeOfAlacrity = new ItemAscensionSword(ALACRITY).setUnlocalizedName("bladeOfAlacrity");
@@ -91,6 +98,8 @@ public class ModArmory
 	public static Item fleroviumPlate = new ItemSteelArmor(AFLEROVIUM, 1, "fleroviumPlate");
 	public static Item fleroviumPants = new ItemSteelArmor(AFLEROVIUM, 2, "fleroviumPants");
 	public static Item fleroviumBoots = new ItemSteelArmor(AFLEROVIUM, 3, "fleroviumBoots");
+	
+	public static Item gyroPlate = new ItemGyroPlate(AGYROCHESTPLATE, 1, "gyroPlate");
 
 	public static void init()
 	{
@@ -113,6 +122,8 @@ public class ModArmory
 		RegisterHelper.registerItem(shadowBlade);
 		RegisterHelper.registerItem(etherealBlade);
 		RegisterHelper.registerItem(wingedBlade);
+		RegisterHelper.registerItem(nightsEdge);
+		RegisterHelper.registerItem(lightsBane);
 		RegisterHelper.registerItem(voidHammer);
 		RegisterHelper.registerItem(divineRapier);
 		RegisterHelper.registerItem(bladeOfAlacrity);
@@ -128,5 +139,7 @@ public class ModArmory
 		RegisterHelper.registerItem(steelPlate);
 		RegisterHelper.registerItem(steelPants);
 		RegisterHelper.registerItem(steelBoots);
+		
+		RegisterHelper.registerItem(gyroPlate);
 	}
 }
