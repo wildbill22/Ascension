@@ -16,6 +16,7 @@ import com.thexfactor117.ascension.items.weapons.ItemDivineRapier;
 import com.thexfactor117.ascension.items.weapons.ItemEtherealBlade;
 import com.thexfactor117.ascension.items.weapons.ItemFleroviumSword;
 import com.thexfactor117.ascension.items.weapons.ItemIceSword;
+import com.thexfactor117.ascension.items.weapons.ItemInfernoStaff;
 
 public class ModArmory 
 {
@@ -75,6 +76,8 @@ public class ModArmory
 	public static Item bladeOfAlacrity = new ItemAscensionSword(ALACRITY).setUnlocalizedName("bladeOfAlacrity");
 	public static Item fleroviumSword = new ItemFleroviumSword(FLEROVIUM).setUnlocalizedName("fleroviumSword");
 	
+	public static Item infernoStaff = new ItemInfernoStaff().setUnlocalizedName("infernoStaff");
+	
 	//Armor
 	public static Item titaniumHelm = new ItemTitaniumArmor(ATITANIUM, 0, "titaniumHelm");
 	public static Item titaniumPlate = new ItemTitaniumArmor(ATITANIUM, 1, "titaniumPlate");
@@ -114,6 +117,8 @@ public class ModArmory
 		RegisterHelper.registerItem(divineRapier);
 		RegisterHelper.registerItem(bladeOfAlacrity);
 		RegisterHelper.registerItem(fleroviumSword);
+		
+		RegisterHelper.registerItem(infernoStaff);
 		
 		RegisterHelper.registerItem(titaniumHelm);
 		RegisterHelper.registerItem(titaniumPlate);
