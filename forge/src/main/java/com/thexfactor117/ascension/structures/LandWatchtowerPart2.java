@@ -5,6 +5,11 @@ import java.util.Random;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author WILLIAM
+ *
+ */
 public class LandWatchtowerPart2 extends LandWatchtowerPart1 {
 	
 	public void generate_r01(World world, Random random, int x, int y, int z) {

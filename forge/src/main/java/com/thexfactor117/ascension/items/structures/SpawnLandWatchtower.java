@@ -11,6 +11,11 @@ import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.structures.LandWatchtowerPart1;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
+/**
+ * 
+ * @author WILLIAM
+ *
+ */
 public class SpawnLandWatchtower extends ItemAscension {
 	public SpawnLandWatchtower() {
 		super();

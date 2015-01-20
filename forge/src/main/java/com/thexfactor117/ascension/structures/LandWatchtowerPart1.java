@@ -11,6 +11,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author WILLIAM
+ *
+ */
 public class LandWatchtowerPart1 extends AbandonedStructure {
 	// Variables for configuration
 	public static int missingBlockChance = 1;     // 1/n chance of setting block, set not less than 1, to 1 to set all blocks

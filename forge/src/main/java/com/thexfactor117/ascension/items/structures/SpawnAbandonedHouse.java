@@ -11,6 +11,11 @@ import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.structures.StructureGenAbandonedHouse;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
+/**
+ * 
+ * @author WILLIAM
+ *
+ */
 public class SpawnAbandonedHouse extends ItemAscension 
 {
 	public SpawnAbandonedHouse() 
