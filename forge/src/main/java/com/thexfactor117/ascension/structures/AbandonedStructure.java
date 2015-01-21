@@ -143,19 +143,15 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	}
 
 	// Generates some random loot in the chest
-	public void setRandomSlots(TileEntityChest chestEntity, Item item, int min, int max, int chance) 
+	private void setRandomSlots(TileEntityChest chestEntity, int slot, Item item, int min, int max, int chance) 
 	{
 		Random rand = new Random();
-		// Normally 27 slots
-		for (int slot = 0; slot < chestEntity.getSizeInventory(); slot++) 
+		int randomChance = rand.nextInt(100);
+		if (chestEntity.getStackInSlot(slot) == null && chance > randomChance)
 		{
-			int randomChance = rand.nextInt(1000);
-			if (chestEntity.getStackInSlot(slot) == null && chance > randomChance)
-			{
-				int randomQty = rand.nextInt(max - min + 1) + min;
-				ItemStack items = new ItemStack(item, randomQty);
-				chestEntity.setInventorySlotContents(slot, items);
-			}
+			int randomQty = rand.nextInt(max - min + 1) + min;
+			ItemStack items = new ItemStack(item, randomQty);
+			chestEntity.setInventorySlotContents(slot, items);
 		}
 	}
 
@@ -181,7 +177,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			// item, min to add, max to add, chance N/1000
 			// Add items with lowest chance first
 			for (int i = 0; i < randomChestItems.size(); i++) {
-				setRandomSlots(chestEntity, randomChestItems.get(i).item, randomChestItems.get(i).min,
+				setRandomSlots(chestEntity, randomChestItems.get(i).slot, randomChestItems.get(i).item, randomChestItems.get(i).min,
 						randomChestItems.get(i).max, randomChestItems.get(i).probability);				
 			}
 			return true;
@@ -191,15 +187,19 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	
 	/**
 	 * Replace a setBlock for a chest with this function with all the parameters, and a few extra 
+	 * @param slot slot where the item will randomly appear
 	 * @param item item to add randomly to chest 
 	 * @param min minimum to add to a slot (0 - 64)
 	 * @param max maximum to add to a slot (1 - 64)
 	 * @param probability n/1000 chance of any one slot having this item
 	 */
-	protected void addRandomChestItem(Item item, int min, int max, int probability) {
+	protected void addRandomChestItem(int slot, Item item, int min, int max, int probability) {
 		if (randomChestItems == null)
 			randomChestItems = new ArrayList<RandomChestItems>();
-		randomChestItems.add(new RandomChestItems(item, min, max, probability));
+		if (min <= max && max <= 64 && slot < 27 && probability >= 0 && probability <= 100)
+			randomChestItems.add(new RandomChestItems(slot, item, min, max, probability));
+		else
+			LogHelper.error("One of the parameters for adding " + item.getUnlocalizedName() + " to chest is wrong!");
 	}
 	
 	/**
@@ -229,12 +229,14 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	}
 	
 	protected class RandomChestItems {
+		int slot;
 		Item item;
 		int min;
 		int max;
 		int probability;
 		
-		protected RandomChestItems(Item item, int min, int max, int probability) {
+		protected RandomChestItems(int slot, Item item, int min, int max, int probability) {
+			this.slot = slot;
 			this.item = item;
 			this.min = min;
 			this.max = max;

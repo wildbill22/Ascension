@@ -28,8 +28,8 @@ public class StructureGenAbandonedHouse extends AbandonedStructure
 		structureSpawnChance = spawnChance;
 		validSpawnBlocks = getValidSpawnBlocks();
 		// Add these in order of low to high probability:
-		addRandomChestItem(Items.arrow, 1, 3, 10);
-		addRandomChestItem(Items.apple, 1, 3, 20);
+//		addRandomChestItem(Items.arrow, 1, 3, 10);
+//		addRandomChestItem(Items.apple, 1, 3, 20);
 	}
 
 	protected Block[] getValidSpawnBlocks() 

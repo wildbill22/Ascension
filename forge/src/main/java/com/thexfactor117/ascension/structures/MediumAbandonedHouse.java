@@ -28,25 +28,30 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 		structureSpawnHeightTolerance = spawnHeightTolerance;
 		structureSpawnChance = spawnChance;
 		validSpawnBlocks = getValidSpawnBlocks();
+		mobsToSpawn = getMobsToSpawn();
 
 		// Add these in order of low to high probability:
 		// Rareness - 3
-		addRandomChestItem(ModArmory.divineRapier, 1, 1, 2);
-		addRandomChestItem(ModArmory.voidHammer, 1, 1, 2);
+		addRandomChestItem(0, ModArmory.divineRapier, 1, 1, 2);
+		addRandomChestItem(1, ModArmory.voidHammer, 1, 1, 2);
 
 		// Rareness - 2
-		addRandomChestItem(ModArmory.crystallizedSword, 1, 1, 5);
-		addRandomChestItem(ModArmory.gyroMace, 1, 1, 5);
-		addRandomChestItem(ModArmory.shadowBlade, 1, 1, 5);
-		addRandomChestItem(ModArmory.etherealBlade, 1, 1, 5);
+		addRandomChestItem(2, ModArmory.crystallizedSword, 1, 1, 5);
+		addRandomChestItem(3, ModArmory.gyroMace, 1, 1, 5);
+		addRandomChestItem(4, ModArmory.shadowBlade, 1, 1, 5);
+		addRandomChestItem(5, ModArmory.etherealBlade, 1, 1, 5);
 
 		// Rareness - 1 (least)
-		addRandomChestItem(ModItems.strawberry, 1, 3, 40);
-		addRandomChestItem(ModArmory.titaniumSword, 1, 1, 10);
-		addRandomChestItem(ModArmory.steelSword, 1, 1, 10);
-		addRandomChestItem(ModArmory.blazeSword, 1, 1, 10);
-		addRandomChestItem(ModArmory.iceSword, 1, 1, 10);
-		addRandomChestItem(ModArmory.razorSword, 1, 1, 10);
+		addRandomChestItem(6, ModItems.strawberry, 1, 3, 40);
+		addRandomChestItem(7, ModArmory.titaniumSword, 1, 1, 10);
+		addRandomChestItem(8, ModArmory.steelSword, 1, 1, 10);
+		addRandomChestItem(9, ModArmory.blazeSword, 1, 1, 10);
+		addRandomChestItem(10, ModArmory.iceSword, 1, 1, 10);
+		addRandomChestItem(11, ModArmory.razorSword, 1, 1, 10);
+	}
+
+	protected String[] getMobsToSpawn() {
+		return new String[] { "Ghost" };
 	}
 
 	protected Block[] getValidSpawnBlocks() 
