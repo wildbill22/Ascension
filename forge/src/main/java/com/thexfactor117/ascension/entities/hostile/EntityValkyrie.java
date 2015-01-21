@@ -20,9 +20,16 @@ public class EntityValkyrie extends EntityMob
 	public EntityValkyrie(World world) 
 	{
 		super(world);
-		this.setSize(1F, 2F);
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 20;
+		this.setSize(1F, 2F);
+		this.clearAITasks();
+		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
+        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(4, new EntityAIWander(this, 1.0D));
+		this.tasks.addTask(5, new EntityAISwimming(this));
+        this.targetTasks.addTask(0, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 	}
 	
 	@Override
@@ -31,7 +38,7 @@ public class EntityValkyrie extends EntityMob
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(32.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.275D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
 	}
 
