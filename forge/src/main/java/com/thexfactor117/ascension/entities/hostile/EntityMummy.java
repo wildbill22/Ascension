@@ -39,16 +39,23 @@ public class EntityMummy extends EntityMob
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(7.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(24.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.15D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.175D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0D);
 	}
 	
+	/**
+	 * Overrides to make sure the AI is enabled
+	 */
 	@Override
 	public boolean isAIEnabled()
 	{
 		return true;
 	}
 	
+	/**
+	 * Clears previous AI Tasks, so the ones defined above will
+	 * actually perform.
+	 */
 	protected void clearAITasks()
 	{
 		tasks.taskEntries.clear();
@@ -66,6 +73,11 @@ public class EntityMummy extends EntityMob
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
 	
+    /**
+     * Drops a select amount of items.
+     * 
+     * this.rand.nextInt(x) -- x is basically the chance of spawning.
+     */
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
 	{
