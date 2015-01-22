@@ -1,0 +1,7 @@
+Easy Mob Dungeon (variant 1) by TheXFactor117
+
+3 Chests throughout structure; one on bottom, two on top. Only generate 2/3 chests (at random if possible).
+
+A wide, tower-like structure; two stories tall. With a 13x13 base, extending 8 blocks up (including floor), makes it a rather small dungeon, yet common dungeon. Loot-wise, I wouldn’t expect anything above rarity 2 items, but maybe you are a lucky person. Also included in the structure is 3 mob spawners (hopefully will be randomized).
+
+Entrance: not available at the moment.
