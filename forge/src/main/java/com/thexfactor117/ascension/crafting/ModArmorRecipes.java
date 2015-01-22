@@ -20,6 +20,12 @@ public class ModArmorRecipes
 		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.steelHelm), new Object[] {"AAA", "A A", 'A', ModItems.steelIngot});
     	GameRegistry.addShapedRecipe(new ItemStack(ModArmory.steelPlate), new Object[] {"A A", "AAA", "AAA", 'A', ModItems.steelIngot});
     	GameRegistry.addShapedRecipe(new ItemStack(ModArmory.steelPants), new Object[] {"AAA", "A A", "A A", 'A', ModItems.steelIngot});
-    	GameRegistry.addShapedRecipe(new ItemStack(ModArmory.steelBoots), new Object[] {"A A", "A A", 'A', ModItems.steelIngot});	
+    	GameRegistry.addShapedRecipe(new ItemStack(ModArmory.steelBoots), new Object[] {"A A", "A A", 'A', ModItems.steelIngot});
+		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.fleroviumHelm), new Object[] {"AAA", "A A", 'A', ModItems.fleroviumIngot});
+    	GameRegistry.addShapedRecipe(new ItemStack(ModArmory.fleroviumPlate), new Object[] {"A A", "AAA", "AAA", 'A', ModItems.fleroviumIngot});
+    	GameRegistry.addShapedRecipe(new ItemStack(ModArmory.fleroviumPants), new Object[] {"AAA", "A A", "A A", 'A', ModItems.fleroviumIngot});
+    	GameRegistry.addShapedRecipe(new ItemStack(ModArmory.fleroviumBoots), new Object[] {"A A", "A A", 'A', ModItems.fleroviumIngot});
+	
+    	GameRegistry.addShapedRecipe(new ItemStack(ModArmory.gyroPlate), new Object[] {"A A", "AAA", "AAA", 'A', ModItems.golemGyro});
 	}
 }

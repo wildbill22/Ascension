@@ -25,5 +25,10 @@ public class ModWeaponRecipes
 		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.vexalSword), new Object[] {" A ", " A ", " B ", 'A', ModItems.vexalIngot, 'B', Items.stick});
 		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.blazeSword), new Object[] {" A ", " A ", " B ", 'A', ModItems.blazeGem, 'B', Items.blaze_rod});
 		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.iceSword), new Object[] {" A ", " A ", " B ", 'A', ModItems.iceGem, 'B', ModItems.coldBlazeRod});
+		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.infusedVexalSword), new Object[] {" A ", " A ", " B ", 'A', ModItems.infusedVexalIngot, 'B', Items.stick});
+		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.razorSword), new Object[] {"AAA", "ABA", "AAA", 'A', ModItems.sharkTeeth, 'B', Items.iron_sword});
+		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.crystallizedSword), new Object[] {" A ", " A ", " B ", 'A', ModItems.crystal, 'B', Items.stick});
+		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.gyroMace), new Object[] {" A ", "ABA", " B ", 'A', ModItems.golemGyro, 'B', Items.stick});
+		GameRegistry.addShapedRecipe(new ItemStack(ModArmory.fleroviumSword), new Object[] {" A ", " A ", " B ", 'A', ModItems.fleroviumIngot, 'B', Items.stick});
 	}
 }
