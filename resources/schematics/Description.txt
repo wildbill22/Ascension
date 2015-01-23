@@ -1,0 +1,14 @@
+This adds in a camp structure that spawns throughout your world. The structure includes tents, a campfire, loot chests, crafting table and
+furnace, and some decor to tweak it off. 
+
+The chests include armor, weapons, tools, resources, and food supply. All tools and armor will be
+either iron, diamond, or a special sword from the mod. resources will be iron, leather, obsidian (rare), diamond (rare), and saplings. Foods
+will be apples, bread, or other special foods from the mod. The chests will sometimes add potions.
+
+Sometime, we should have mobs like thieves to invade the camps, but that's a future plan. Remember that not many things have been added quite yet
+
+
+	~Dracosity
+
+
+
