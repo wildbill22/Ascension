@@ -11,13 +11,18 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class EntityGhost extends EntityMob
 {
+	protected EntityGhost ghost;
+	private EntityLivingBase attackTarget;
+    private long nextTry = 0L;
+    private final static long cool = 10000L;
+    
 	public EntityGhost(World world) 
 	{
 		super(world);
@@ -43,9 +48,6 @@ public class EntityGhost extends EntityMob
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
 	}
 	
-	/**
-	 * Overrides to make sure the AI is enabled
-	 */
 	@Override
 	public boolean isAIEnabled()
 	{
@@ -72,21 +74,14 @@ public class EntityGhost extends EntityMob
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 24.0D);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
-	
+
     /**
-     * Ghost turns invisible once hit for a period of 2 or so seconds.
-     * 
-     * @param item
-     * @param target
-     * @param attacker
-     * @return
+     * Entity becomes invisible (5 sec) after being damaged.
      */
-    public boolean hitEntity(ItemStack item, EntityLivingBase target, EntityLivingBase attacker)
-	{
-		item.damageItem(1, attacker);
-		
-		target.addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*5, 2));
-		
-		return true;
-	}
+    public boolean attackEntityFrom(DamageSource source, float par2)
+    {
+    	addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*5, 1));
+    	
+    	return true;
+    }
 }
