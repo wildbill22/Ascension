@@ -18,11 +18,6 @@ import net.minecraft.world.World;
 
 public class EntityGhost extends EntityMob
 {
-	protected EntityGhost ghost;
-	private EntityLivingBase attackTarget;
-    private long nextTry = 0L;
-    private final static long cool = 10000L;
-    
 	public EntityGhost(World world) 
 	{
 		super(world);
@@ -63,7 +58,6 @@ public class EntityGhost extends EntityMob
 		tasks.taskEntries.clear();
 		targetTasks.taskEntries.clear();
 	}
-	
 	/**
 	 * Testing purposes. Entities are having trouble attacking
 	 * players; hopefully this will help out.
