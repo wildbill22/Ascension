@@ -23,7 +23,7 @@ public class EntityGhost extends EntityMob
 		super(world);
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 20;
-		this.setSize(1.5F, 1.0F);
+		this.setSize(0.8F, 2.0F);
 		this.clearAITasks();
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
         this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -74,8 +74,14 @@ public class EntityGhost extends EntityMob
      */
     public boolean attackEntityFrom(DamageSource source, float par2)
     {
-    	addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*5, 1));
-    	
+    	if (!super.attackEntityFrom(source, par2))
+    	{
+    		return false;
+    	}
+    	else
+    	{
+        	addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*5, 1));
+    	}
     	return true;
     }
 }
