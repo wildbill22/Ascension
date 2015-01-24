@@ -174,11 +174,13 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			setBlock(world, random, x, y, z, Blocks.chest, metaData, 2);
 			TileEntityChest chestEntity = new TileEntityChest();
 			world.setTileEntity(x, y, z, chestEntity);
-			// item, min to add, max to add, chance N/1000
-			// Add items with lowest chance first
-			for (int i = 0; i < randomChestItems.size(); i++) {
-				setRandomSlots(chestEntity, randomChestItems.get(i).slot, randomChestItems.get(i).item, randomChestItems.get(i).min,
-						randomChestItems.get(i).max, randomChestItems.get(i).probability);				
+			if (randomChestItems != null) {
+				// item, min to add, max to add, chance N/1000
+				// Add items with lowest chance first
+				for (int i = 0; i < randomChestItems.size(); i++) {
+					setRandomSlots(chestEntity, randomChestItems.get(i).slot, randomChestItems.get(i).item, randomChestItems.get(i).min,
+							randomChestItems.get(i).max, randomChestItems.get(i).probability);				
+				}
 			}
 			return true;
 		}		
