@@ -25,27 +25,27 @@ public class ModArmory
 	 * Overworld
 	 */
 	//Tool Materials
-	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 512, 6.0F, 2.5F, 10);
-	static Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 3, 728, 7.0F, 3.0F, 5);
+	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 512, 2.5F, 1.0F, 10);
+	static Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 3, 728, 3.0F, 2.0F, 5);
 	
 	//Weapon Materials
-	static Item.ToolMaterial VEXAL = EnumHelper.addToolMaterial("VEXAL", 3, 256, 5.0F, 2.0F, 20);
-	static Item.ToolMaterial ICE = EnumHelper.addToolMaterial("ICE", 3, 192, 6.0F, 2.5F, 15);
-	static Item.ToolMaterial BLAZE = EnumHelper.addToolMaterial("BLAZE", 3, 192, 6.0F, 2.5F, 15);
-	static Item.ToolMaterial INFUSEDVEXAL = EnumHelper.addToolMaterial("INFUSEDVEXAL", 3, 728, 8.0F, 2.0F, 20);
-	static Item.ToolMaterial RAZOR = EnumHelper.addToolMaterial("RAZOR", 3, 256, 5.0F, 2.0F, 25);
-	static Item.ToolMaterial CRYSTAL = EnumHelper.addToolMaterial("CRYSTAL", 3, 512, 6.0F, 2.0F, 15);
-	static Item.ToolMaterial GYRO = EnumHelper.addToolMaterial("GYRO", 3, 192, 8.0F, 2.0F, 10);
-	static Item.ToolMaterial SHADOW = EnumHelper.addToolMaterial("SHADOW", 3, 256, 7.0F, 2.0F, 25);
-	static Item.ToolMaterial ETHEREAL = EnumHelper.addToolMaterial("ETHEREAL", 3, 192, 7.0F, 2.0F, 25);
-	static Item.ToolMaterial WINGED = EnumHelper.addToolMaterial("WINGED", 3, 256, 7.0F, 2.0F, 25);
-	static Item.ToolMaterial NIGHTSEDGE = EnumHelper.addToolMaterial("NIGHTSEDGE", 3, 256, 8.0F, 2.0F, 20);
-	static Item.ToolMaterial LIGHTSBANE = EnumHelper.addToolMaterial("LIGHTSBANE", 3, 256, 8.0F, 2.0F, 20);
-	static Item.ToolMaterial VOID = EnumHelper.addToolMaterial("VOID", 3, 256, 8.0F, 2.0F, 15);
-	static Item.ToolMaterial DIVINERAPIER = EnumHelper.addToolMaterial("DIVINERAPIER", 3, 256, 8.0F, 2.0F, 15);
-	static Item.ToolMaterial ALACRITY = EnumHelper.addToolMaterial("ALACRITY", 3, 512, 10.0F, 2.0F, 30);
-	static Item.ToolMaterial FLEROVIUM = EnumHelper.addToolMaterial("FLEROVIUM", 3, 256, 9.0F, 2.0F, 20);
-	
+	static Item.ToolMaterial VEXAL = EnumHelper.addToolMaterial("VEXAL", 3, 256, 2.0F, 1.0F, 20);
+	static Item.ToolMaterial ICE = EnumHelper.addToolMaterial("ICE", 3, 192, 2.0F, 2.0F, 15);
+	static Item.ToolMaterial BLAZE = EnumHelper.addToolMaterial("BLAZE", 3, 192, 2.0F, 2.0F, 15);
+	static Item.ToolMaterial INFUSEDVEXAL = EnumHelper.addToolMaterial("INFUSEDVEXAL", 3, 728, 2.0F, 6.0F, 20);
+	static Item.ToolMaterial RAZOR = EnumHelper.addToolMaterial("RAZOR", 3, 256, 2.0F, 2.0F, 25);
+	static Item.ToolMaterial CRYSTAL = EnumHelper.addToolMaterial("CRYSTAL", 3, 512, 2.0F, 3.0F, 15);
+	static Item.ToolMaterial GYRO = EnumHelper.addToolMaterial("GYRO", 3, 192, 2.0F, 5.0F, 10);
+	static Item.ToolMaterial SHADOW = EnumHelper.addToolMaterial("SHADOW", 3, 256, 2.0F, 4.0F, 25);
+	static Item.ToolMaterial ETHEREAL = EnumHelper.addToolMaterial("ETHEREAL", 3, 192, 2.0F, 4.0F, 25);
+	static Item.ToolMaterial WINGED = EnumHelper.addToolMaterial("WINGED", 3, 256, 2.0F, 4.0F, 25);
+	static Item.ToolMaterial NIGHTSEDGE = EnumHelper.addToolMaterial("NIGHTSEDGE", 3, 256, 2.0F, 5.0F, 20);
+	static Item.ToolMaterial LIGHTSBANE = EnumHelper.addToolMaterial("LIGHTSBANE", 3, 256, 2.0F, 5.0F, 20);
+	static Item.ToolMaterial VOID = EnumHelper.addToolMaterial("VOID", 3, 256, 2.0F, 6.0F, 15);
+	static Item.ToolMaterial DIVINERAPIER = EnumHelper.addToolMaterial("DIVINERAPIER", 3, 256, 2.0F, 6.0F, 15);
+	static Item.ToolMaterial ALACRITY = EnumHelper.addToolMaterial("ALACRITY", 3, 512, 10.0F, 8.0F, 30);
+	static Item.ToolMaterial FLEROVIUM = EnumHelper.addToolMaterial("FLEROVIUM", 3, 256, 4.0F, 7.0F, 20);
+		
 	//Armor Materials
 	static ArmorMaterial ATITANIUM = EnumHelper.addArmorMaterial("ATITANIUM", 20, new int[]{2, 7, 5, 3}, 10);
 	static ArmorMaterial ASTEEL = EnumHelper.addArmorMaterial("ASTEEL", 30, new int[]{4, 8, 7, 3}, 2);
