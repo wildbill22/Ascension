@@ -35,11 +35,15 @@ public class AscensionWorldGeneration implements IWorldGenerator
     			generateEnd(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}
-
+	
+	/**
+	 * addOreSpawn(block, world, random, x, z, 16, 16, amount per vein, spawn chance, minY, maxY)
+	 */
 	private void generateSurface(World world, Random random, int x, int z)
 	{
 		addOreSpawn(ModBlocks.titaniumOre, world, random, x, z, 16, 16, 1 + random.nextInt(3), 7, 0, 25);
 		addOreSpawn(ModBlocks.vexalOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), 7, 0, 32);
+		addOreSpawn(ModBlocks.fleroviumOre, world, random, x, z, 16, 16, 1, 1, 0, 10);
 		addOreSpawn(ModBlocks.limestone, world, random, x, z, 16, 16, 20 + random.nextInt(20), 15, 32, 128);
 		addStructures(world, random, x, z);
 	}

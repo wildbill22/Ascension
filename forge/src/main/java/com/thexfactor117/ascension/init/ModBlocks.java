@@ -2,6 +2,7 @@ package com.thexfactor117.ascension.init;
 
 import net.minecraft.block.Block;
 
+import com.thexfactor117.ascension.blocks.BlockFleroviumOre;
 import com.thexfactor117.ascension.blocks.BlockLimestone;
 import com.thexfactor117.ascension.blocks.BlockLimestoneBricks;
 import com.thexfactor117.ascension.blocks.BlockTitaniumOre;
@@ -12,6 +13,7 @@ public class ModBlocks
 {
 	public static Block titaniumOre = new BlockTitaniumOre();
 	public static Block vexalOre = new BlockVexalOre();
+	public static Block fleroviumOre = new BlockFleroviumOre();
 	public static Block limestone = new BlockLimestone();
 	public static Block limestoneBricks = new BlockLimestoneBricks();
 	
@@ -19,6 +21,7 @@ public class ModBlocks
 	{
 		RegisterHelper.registerBlock(titaniumOre);
 		RegisterHelper.registerBlock(vexalOre);
+		RegisterHelper.registerBlock(fleroviumOre);
 		RegisterHelper.registerBlock(limestone);
 		RegisterHelper.registerBlock(limestoneBricks);
 	}

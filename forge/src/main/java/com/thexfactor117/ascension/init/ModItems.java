@@ -36,10 +36,6 @@ public class ModItems
 	public static Item smallRock = new ItemAscension().setUnlocalizedName("smallRock");
 	public static Item coldBlazeRod = new ItemAscension().setUnlocalizedName("coldBlazeRod");
 	public static Item golemGyro = new ItemAscension().setUnlocalizedName("golemGyro");
-	
-	//Miscellaneous
-	public static Item bottleOfFlerovium = new ItemBottleOfFlerovium().setUnlocalizedName("bottleOfFlerovium");
-	public static Item meltedVexalIngot = new ItemAscension().setUnlocalizedName("meltedVexalIngot");
 		
 	public static void init()
 	{
@@ -65,7 +61,5 @@ public class ModItems
 		RegisterHelper.registerItem(coldBlazeRod);
 		RegisterHelper.registerItem(smallRock);
 		RegisterHelper.registerItem(golemGyro);
-		
-		RegisterHelper.registerItem(bottleOfFlerovium);
 	}
 }
