@@ -27,8 +27,6 @@ DesHex -- Texture Artist / Modeler
 
 baddaspig -- Texture Artist
 
-dom123048 -- Modeler
-
 Dracosity -- SFX, Music, Builder
 
 Contributing
