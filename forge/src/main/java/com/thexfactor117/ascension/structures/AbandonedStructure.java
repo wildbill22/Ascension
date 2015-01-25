@@ -44,6 +44,9 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	protected int floorLevel = 0;
 	protected ArrayList<RandomChestItems> randomChestItems;
 	protected String[] mobsToSpawn;
+	
+	// For generating chests (if more than one)
+	protected int numGenerated = 0;
 
 	// Variables used when using a separate thread to generate structure
 	World threadWorld = null;
@@ -189,6 +192,38 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	
 	/**
 	 * Replace a setBlock for a chest with this function with all the parameters, and a few extra 
+	 * @param world 
+	 * @param random
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param metaData
+	 * @param chance 1/n chance that the chest will be created at the x, y, z location (set to 1 generate chest)
+	 * @param numToGenerate set to the number of chests to generate
+	 * @return true if chest is generated
+	 */
+	protected boolean generateChest(World world, Random random, int x, int y, int z, int metaData, int chance, int numToGenerate){
+		if (this.numGenerated < numToGenerate && random.nextInt(chance) == 0)
+		{			
+			//adding a chest with random stuff
+			setBlock(world, random, x, y, z, Blocks.chest, metaData, 2);
+			TileEntityChest chestEntity = new TileEntityChest();
+			world.setTileEntity(x, y, z, chestEntity);
+			if (randomChestItems != null) {
+				// item, min to add, max to add, chance N/1000
+				// Add items with lowest chance first
+				for (int i = 0; i < randomChestItems.size(); i++) {
+					setRandomSlots(chestEntity, randomChestItems.get(i).slot, randomChestItems.get(i).item, randomChestItems.get(i).min,
+							randomChestItems.get(i).max, randomChestItems.get(i).probability);				
+				}
+			}
+			return true;
+		}		
+		return false;
+	}
+
+	/**
+	 * Replace a setBlock for a chest with this function with all the parameters, and a few extra 
 	 * @param slot slot where the item will randomly appear
 	 * @param item item to add randomly to chest 
 	 * @param min minimum to add to a slot (0 - 64)
@@ -215,13 +250,18 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	 */
 	protected void generateMobSpawner(World world, Random random, int x, int y, int z, int metaData){
 		boolean setEntity = false;
+
+		if (mobsToSpawn == null || mobsToSpawn.length == 0)
+			return;
 		
 		setBlock(world, random, x, y, z, Blocks.mob_spawner, 0, 3);
-		TileEntityMobSpawner spawner = (TileEntityMobSpawner) world.getTileEntity(x, y, z);
+		TileEntityMobSpawner spawner = new TileEntityMobSpawner();
+		world.setTileEntity(x, y, z, spawner);
 
 		// Set to a random entity from an array of possible mobs
 		for (int i = 0; i < mobsToSpawn.length && setEntity == false; i++) {
 			if (random.nextInt(mobsToSpawn.length) == 0) {
+				LogHelper.info("Generating a mob spawner with " + mobsToSpawn[i]);
 				spawner.func_145881_a().setEntityName(mobsToSpawn[i]);
 			}				
 		}

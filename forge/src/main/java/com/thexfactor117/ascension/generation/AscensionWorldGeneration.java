@@ -4,10 +4,12 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.thexfactor117.ascension.init.ModBlocks;
+import com.thexfactor117.ascension.structures.EasyMobDungeon1;
 import com.thexfactor117.ascension.structures.LandWatchtowerPart1;
 import com.thexfactor117.ascension.structures.MediumAbandonedHouse;
 import com.thexfactor117.ascension.structures.SkyrimStyleHouse0;
@@ -73,6 +75,7 @@ public class AscensionWorldGeneration implements IWorldGenerator
 		int chance = random.nextInt(1000);
 		boolean generatedStructure = false; // needed when a 2nd structure is added
 		int spawnChance = 0;
+		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 		
 		spawnChance += LandWatchtowerPart1.spawnChance; 
 		if (generatedStructure == false && chance < spawnChance)
@@ -110,28 +113,46 @@ public class AscensionWorldGeneration implements IWorldGenerator
 			generatedStructure = house.generate(world, random, posX, posY - 1, posZ);
 		}
 
-		spawnChance += StructureGenAbandonedHouse.spawnChance; 
+		spawnChance += EasyMobDungeon1.spawnChance; 
 		if (generatedStructure == false && chance < spawnChance)
 		{
-			// Create abandoned house
-			int posX = x + random.nextInt(16);
-			int posZ = z + random.nextInt(16);
-			// Check where entrance is (look in structure class for location of stairs):
-			int posY = world.getHeightValue(posX + 2, posZ + 6); 
-			StructureGenAbandonedHouse house = new StructureGenAbandonedHouse();
-			generatedStructure = house.generate(world, random, posX, posY, posZ);
+			if (biome != BiomeGenBase.birchForest && biome != BiomeGenBase.birchForestHills &&
+					biome != BiomeGenBase.forest && biome != BiomeGenBase.forestHills &&
+					biome != BiomeGenBase.jungle && biome != BiomeGenBase.jungleHills &&
+					biome != BiomeGenBase.taiga && biome != BiomeGenBase.taigaHills &&
+					biome != BiomeGenBase.roofedForest) {
+				// Create dungeon
+				int posX = x + random.nextInt(16);
+				int posZ = z + random.nextInt(16);
+				// Check where entrance is (look in structure class for location of stairs):
+				int posY = world.getHeightValue(posX + 5, posZ + 0); 
+				EasyMobDungeon1 dungeon = new EasyMobDungeon1();
+				generatedStructure = dungeon.generate(world, random, posX, posY - 1, posZ);
+			}
 		}
 
-		// Code below for second structure is designed to not place it if first is placed
-		// 2nd structure would go here like so:
-		spawnChance += SkyrimStyleHouse0.spawnChance; 
-		if (generatedStructure == false && chance < spawnChance) {
-			int posX = x + random.nextInt(16);
-			int posZ = z + random.nextInt(16);
-			// Check where entrance is:
-			int posY = world.getHeightValue(posX + 9, posZ + 16);
-			SkyrimStyleHouse0 house = new SkyrimStyleHouse0();
-			generatedStructure = house.generate(world, random, posX, posY, posZ);
-		}
+//		spawnChance += StructureGenAbandonedHouse.spawnChance; 
+//		if (generatedStructure == false && chance < spawnChance)
+//		{
+//			// Create abandoned house
+//			int posX = x + random.nextInt(16);
+//			int posZ = z + random.nextInt(16);
+//			// Check where entrance is (look in structure class for location of stairs):
+//			int posY = world.getHeightValue(posX + 2, posZ + 6); 
+//			StructureGenAbandonedHouse house = new StructureGenAbandonedHouse();
+//			generatedStructure = house.generate(world, random, posX, posY, posZ);
+//		}
+//
+//		// Code below for second structure is designed to not place it if first is placed
+//		// 2nd structure would go here like so:
+//		spawnChance += SkyrimStyleHouse0.spawnChance; 
+//		if (generatedStructure == false && chance < spawnChance) {
+//			int posX = x + random.nextInt(16);
+//			int posZ = z + random.nextInt(16);
+//			// Check where entrance is:
+//			int posY = world.getHeightValue(posX + 9, posZ + 16);
+//			SkyrimStyleHouse0 house = new SkyrimStyleHouse0();
+//			generatedStructure = house.generate(world, random, posX, posY, posZ);
+//		}
 	}
 }
