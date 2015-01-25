@@ -1,14 +1,14 @@
 package com.thexfactor117.ascension.blocks;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.Item;
 
 import com.thexfactor117.ascension.help.Reference;
+import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.tabs.ModTabs;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockVexalOre extends Block
 {
@@ -22,5 +22,11 @@ public class BlockVexalOre extends Block
 		setHardness(3.0F);
 		setResistance(5.0F);
 		setHarvestLevel("pickaxe", 2);
+	}
+	
+	@Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
+	{
+		return ModItems.vexalIngot;
 	}
 }

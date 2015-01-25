@@ -22,7 +22,7 @@ public class EntityValkyrie extends EntityMob
 		super(world);
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 20;
-		this.setSize(1F, 2F);
+		this.setSize(1.0F, 2.0F);
 		this.clearAITasks();
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
         this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));

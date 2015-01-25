@@ -24,8 +24,12 @@ public class ModRecipes
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.iceGem), new Object[] {"ABA", "BCB", "ABA", 'A', ModItems.coldBlazeRod, 'B', Items.snowball, 'C', Items.diamond});
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.blazeGem), new Object[] {"ABA", "BCB", "ABA", 'A', Items.blaze_rod, 'B', Items.flint, 'C', Items.diamond});
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.coldBlazeRod), new Object[] {"AAA", "ABA", "AAA", 'A', Items.snowball, 'B', Items.blaze_rod});
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.crystal), new Object[] {"AAA", "AAA", "AAA", 'A', ModItems.crystalShard});
+		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.limestoneBricks), new Object[] {"AA", "AA", 'A', ModBlocks.limestone});
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.cobblestone, 4), new Object[] {new ItemStack(ModItems.smallRock), ModItems.smallRock, ModItems.smallRock, ModItems.smallRock});
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.steelIngot), new Object[] {new ItemStack(ModItems.titaniumIngot), Items.iron_ingot});
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.crystal), new Object[] {new ItemStack(ModItems.vexalIngot), Items.diamond});
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.infusedVexalIngot), new Object[] {new ItemStack(ModItems.vexalIngot), Items.diamond, ModItems.fleroviumShard});
 	}
 }

@@ -24,7 +24,7 @@ public class EntityGolem extends EntityMob
 		super(world);
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 30;
-		this.setSize(1.5F, 1.0F);
+		this.setSize(1.75F, 3.0F);
 		this.clearAITasks();
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
         this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));

@@ -21,7 +21,9 @@ public class ModItems
 	public static Item iceGem = new ItemAscension().setUnlocalizedName("iceGem");
 	public static Item blazeGem = new ItemAscension().setUnlocalizedName("blazeGem");
 	public static Item crystal = new ItemAscension().setUnlocalizedName("crystal");
+	public static Item crystalShard = new ItemAscension().setUnlocalizedName("crystalShard");
 	public static Item fleroviumIngot = new ItemAscension().setUnlocalizedName("fleroviumIngot");
+	public static Item fleroviumShard = new ItemAscension().setUnlocalizedName("fleroviumShard");
 	
 	//Food
 	public static Item rawVenison = new ItemAscensionFood(3, 0.5F, true).setUnlocalizedName("rawVenison");
@@ -48,7 +50,9 @@ public class ModItems
 		RegisterHelper.registerItem(blazeGem);
 		RegisterHelper.registerItem(iceGem);
 		RegisterHelper.registerItem(crystal);
+		RegisterHelper.registerItem(crystalShard);
 		RegisterHelper.registerItem(fleroviumIngot);
+		RegisterHelper.registerItem(fleroviumShard);
 	
 		RegisterHelper.registerItem(rawVenison);
 		RegisterHelper.registerItem(cookedVenison);

@@ -23,7 +23,7 @@ public class EntityMummy extends EntityMob
 		super(world);
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 25;
-		this.setSize(1.5F, 1.0F);
+		this.setSize(1.0F, 2.0F);
 		this.clearAITasks();
 		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
         this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
