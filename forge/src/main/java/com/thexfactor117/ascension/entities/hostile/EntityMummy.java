@@ -52,6 +52,12 @@ public class EntityMummy extends EntityMob
 		return true;
 	}
 	
+	@Override
+	public boolean canDespawn()
+	{
+		return true;
+	}
+	
 	/**
 	 * Clears previous AI Tasks, so the ones defined above will
 	 * actually perform.

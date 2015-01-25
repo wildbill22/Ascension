@@ -50,6 +50,12 @@ public class EntityGolem extends EntityMob
 		return true;
 	}
 	
+	@Override
+	public boolean canDespawn()
+	{
+		return true;
+	}
+	
 	protected void clearAITasks()
 	{
 		tasks.taskEntries.clear();
