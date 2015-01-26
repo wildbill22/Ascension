@@ -1,5 +1,6 @@
 tile.titaniumOre.name=Titanium Ore
 tile.vexalOre.name=Vexal Ore
+tile.fleroviumOre.name=Flerovium Ore
 tile.limestone.name=Limestone
 tile.limestoneBricks.name=Limestone Bricks
 
@@ -20,20 +21,27 @@ item.inheritance.name=Inheritance
 item.omega.name=Omega
 
 item.titaniumIngot.name=§4Titanium Ingot§r
-item.steelIngot.name=Steel Ingot
-item.vexalIngot.name=Vexal Ingot
-item.veconiteIngot.name=Veconite Ingot
-item.infusedVeconiteIngot.name=Infused Veconite Ingot
+item.steelIngot.name=§6Steel Ingot§r
+item.vexalIngot.name=§2Vexal Ingot§r
+item.infusedVexalIngot.name=§bInfused Vexal Ingot§r
+item.fleroviumIngot.name=§6§lFlerovium Ingot§r
+item.fleroviumShard.name=§dFlerovium Shard§r
 item.iceGem.name=Ice Gem
 item.blazeGem.name=Blaze Gem
+item.crystal.name=Crystal
+item.crystalShard.name=Crystal Shard
 
 item.rawVenison.name=Raw Venison
 item.cookedVenison.name=Cooked Venison
+item.strawberry.name=Strawberry
+item.raspberry.name=Raspberry
+item.blueberry.name=Blueberry
 
 item.antlers.name=Antlers
 item.sharkTeeth.name=Shark Teeth
 item.coldBlazeRod.name=Cold Blaze Rod
 item.smallRock.name=Small Rock
+item.golemGyro.name=Golem Gyro
 
 item.titaniumSword.name=Titanium Sword
 item.titaniumPick.name=Titanium Pickaxe
@@ -53,11 +61,13 @@ item.blazeSword.name=Blaze Sword
 item.vexalSword.name=Vexal Sword
 item.infusedVeconiteSword.name=Infused Veconite Sword
 item.razorSword.name=Razor Sword
-item.crystallizedSowrd.name=Crystallized Sword
+item.crystallizedSword.name=Crystallized Sword
 item.gyroMace.name=Gyro Mace
 item.shadowBlade.name=Shadow Blade
 item.etherealBlade.name=Ethereal Blade
 item.wingedBlade.name=Winged Blade
+item.nightsEdge.name=Night's Edge
+item.lightsBane.name=Light's Bane
 item.voidHammer.name=Void Hammer
 item.divineRapier.name=Divine Rapier
 item.bladeOfAlacrity.name=Blade of Alacrity
@@ -76,6 +86,8 @@ item.fleroviumPlate.name=Flerovium Chestplate
 item.fleroviumPants.name=Flerovium Leggings
 item.fleroviumBoots.name=Flerovium Boots
 
+item.gyroPlate.name=Gyro Chestplate
+
 item.spawnAbandonedHouse.name=Spawn Abandoned House
 item.spawnSkyrimStyleHouse.name=Spawn Skyrim Style House
 item.spawnSmallAbandonedHouse.name=Spawn Small Abandoned House
@@ -83,6 +95,15 @@ item.spawnMediumAbandonedHouse.name=Spawn Medium Abandoned House
 item.spawnLandWatchtower.name=Spawn Land Watchtower
 item.spawnEasyMobDungeon1.name=Spawn Easy Mob Dungeon 1
 item.spawnCamp.name=Spawn Camp
+
+entity.Mummy.name=Mummy
+entity.Valkyrie.name=Valkyrie
+entity.Golem.name=Golem
+entity.Barbarian.name=Barbarian
+entity.Ghost.name=Ghost
+entity.Banshee.name=Banshee
+
+entity.Doe.name=Doe
 
 itemGroup.tabAscension=Ascension
 itemGroup.tabAscensionTest=Ascension Test Items
