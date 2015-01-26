@@ -76,7 +76,7 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 //		generateStructureBase(world, random, x, z, 10, 10, Blocks.cobblestone);
 
 		// Alternate way to create a large structure in a separate thread (with base)
-		return generateStructureInThread(world, random, x, y, z, x, y, 10, 10, true);		
+		return generateStructureInThread(world, random, x, y, z, x, z, 10, 10, true);		
 	}
 
 	@Override

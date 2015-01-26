@@ -76,7 +76,7 @@ public class Camp_000 extends AbandonedStructure {
 		}
 
 		// Alternate way to create a large structure in a separate thread (with base)
-		return generateStructureInThread(world, random, x, y, z, x, y, 32, 32, true);
+		return generateStructureInThread(world, random, x, y, z, x, z, 32, 32, true);
 	}
 
 	@Override
@@ -1331,10 +1331,10 @@ public class Camp_000 extends AbandonedStructure {
 		running = false; // All built, let another thread start now
 
 		// Add two furnaces
-		generateFurnace(world, random, x + 11, y + 1, z + 13, 3); // Left one
-		generateFurnace(world, random, x + 12, y + 1, z + 13, 3); // Right one
-//		world.setBlock(x + 11, y + 1, z + 13, Blocks.furnace, 3, 3);
-//		world.setBlock(x + 12, y + 1, z + 13, Blocks.furnace, 3, 3);
+//		generateFurnace(world, random, x + 11, y + 1, z + 13, 3);
+//		generateFurnace(world, random, x + 12, y + 1, z + 13, 3);
+		world.setBlock(x + 11, y + 1, z + 13, Blocks.furnace, 2, 3); // right one
+		world.setBlock(x + 12, y + 1, z + 13, Blocks.furnace, 3, 3); // left one
 
 		//adding a chest with random stuff
 		// If just one chest, set last two parameters to 1 and false (or here, we want them both)
