@@ -98,6 +98,7 @@ public class ModelValkyrie extends ModelBase
       body1.setTextureSize(128, 64);
       body1.mirror = true;
       setRotation(body1, 0F, 0F, 0F);
+      headmid.addChild(Hair);
   }
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
@@ -111,7 +112,6 @@ public class ModelValkyrie extends ModelBase
     rightleg.render(f5);
     leftleg.render(f5);
     chest.render(f5);
-    Hair.render(f5);
     Wing1.render(f5);
     Wing2.render(f5);
     bodytop.render(f5);
