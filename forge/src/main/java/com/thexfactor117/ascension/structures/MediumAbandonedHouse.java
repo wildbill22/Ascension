@@ -8,7 +8,6 @@ import com.thexfactor117.ascension.init.ModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 /**
@@ -20,7 +19,7 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 	// Variables for configuration
 	public static int missingBlockChance = 15;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
-	public static int spawnChance = 15;           // chance n/1000
+	public static int spawnChance = 10;           // chance n/1000
 
 	public MediumAbandonedHouse() 
 	{
@@ -72,6 +71,7 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 		}
 		generateStructure(world, random, x, y, z);
 		generateStructureBase(world, random, x, z, 6, 8, Blocks.cobblestone);
+		generatedCenterAt(x + 5, y, z + 5);
 		
 		return true;
 	}

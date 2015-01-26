@@ -81,6 +81,8 @@ item.spawnSkyrimStyleHouse.name=Spawn Skyrim Style House
 item.spawnSmallAbandonedHouse.name=Spawn Small Abandoned House
 item.spawnMediumAbandonedHouse.name=Spawn Medium Abandoned House
 item.spawnLandWatchtower.name=Spawn Land Watchtower
+item.spawnEasyMobDungeon1.name=Spawn Easy Mob Dungeon 1
+item.spawnCamp.name=Spawn Camp
 
 itemGroup.tabAscension=Ascension
 itemGroup.tabAscensionTest=Ascension Test Items

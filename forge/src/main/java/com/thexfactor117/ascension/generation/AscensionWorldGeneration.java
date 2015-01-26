@@ -9,6 +9,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.thexfactor117.ascension.init.ModBlocks;
+import com.thexfactor117.ascension.structures.AbandonedStructure;
+import com.thexfactor117.ascension.structures.Camp_000;
 import com.thexfactor117.ascension.structures.EasyMobDungeon1;
 import com.thexfactor117.ascension.structures.LandWatchtowerPart1;
 import com.thexfactor117.ascension.structures.MediumAbandonedHouse;
@@ -77,6 +79,19 @@ public class AscensionWorldGeneration implements IWorldGenerator
 		int spawnChance = 0;
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 		
+		spawnChance += Camp_000.spawnChance; 
+		if (generatedStructure == false && chance < spawnChance)
+		{
+			// Create Camp
+			int posX = x + random.nextInt(16);
+			int posZ = z + random.nextInt(16);
+			// Check where center of camp is (camp fire):
+			int posY = world.getHeightValue(posX + 16, posZ + 16); 
+			Camp_000 camp = new Camp_000();
+			generatedStructure = camp.generate(world, random, posX, posY - 1, posZ);
+		}
+		spawnChance = 0; // The camp will spawn rarely, so don't increase chance of next structure spawning
+
 		spawnChance += LandWatchtowerPart1.spawnChance; 
 		if (generatedStructure == false && chance < spawnChance)
 		{

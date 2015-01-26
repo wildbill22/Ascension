@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 
 import com.thexfactor117.ascension.help.RegisterHelper;
 import com.thexfactor117.ascension.items.structures.SpawnAbandonedHouse;
+import com.thexfactor117.ascension.items.structures.SpawnCamp;
 import com.thexfactor117.ascension.items.structures.SpawnEasyMobDungeon1;
 import com.thexfactor117.ascension.items.structures.SpawnLandWatchtower;
 import com.thexfactor117.ascension.items.structures.SpawnMediumAbandonedHouse;
@@ -23,6 +24,7 @@ public class ModStructureItems {
 	public static Item spawnMediumAbandonedHouse = new SpawnMediumAbandonedHouse().setUnlocalizedName("spawnMediumAbandonedHouse");
 	public static Item spawnLandWatchtower = new SpawnLandWatchtower().setUnlocalizedName("spawnLandWatchtower");
 	public static Item spawnEasyMobDungeon1 = new SpawnEasyMobDungeon1().setUnlocalizedName("spawnEasyMobDungeon1");
+	public static Item spawnCamp = new SpawnCamp().setUnlocalizedName("spawnCamp");
 
 	public static void init()
 	{
@@ -32,5 +34,6 @@ public class ModStructureItems {
 		RegisterHelper.registerItem(spawnMediumAbandonedHouse);
 		RegisterHelper.registerItem(spawnLandWatchtower);
 		RegisterHelper.registerItem(spawnEasyMobDungeon1);
+		RegisterHelper.registerItem(spawnCamp);
 	}
 }

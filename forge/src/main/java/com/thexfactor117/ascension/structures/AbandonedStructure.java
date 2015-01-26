@@ -1,6 +1,7 @@
 package com.thexfactor117.ascension.structures;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -9,7 +10,9 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.tileentity.TileEntityMobSpawner;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -60,6 +63,31 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	int threadZBaseMax;
 	private boolean generateBase;
 	static boolean running = false;
+	protected Block baseBlock; 
+
+	// Code to find nearest already generated structure (in a thread, so just the largest ones)
+	protected static ArrayList<ChunkCoordinates> structureList = new ArrayList<ChunkCoordinates>();
+    
+	public static void generatedCenterAt(int posX, int posY, int posZ) {
+		ChunkCoordinates center = new ChunkCoordinates(posX, posY, posZ);
+		structureList.add(center);
+	}
+	
+	public static double findNearestStructure(int posX, int posY, int posZ) {
+		double nearest = 2000;
+		double distance = 2000;
+        Iterator<ChunkCoordinates> iterator = structureList.iterator();
+        
+        while (iterator.hasNext()) {
+        	ChunkCoordinates campCenter = iterator.next();
+        	distance = Math.sqrt(campCenter.getDistanceSquared(posZ, posY, posZ));
+        	if (distance < nearest) {
+        		nearest = distance;
+        	}
+        }
+
+        return nearest;
+	}
 
 	// Instantiate in class that implements this abstract class
 	public abstract void generateStructure(World world, Random random, int x, int y, int z);	
@@ -71,8 +99,14 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		if (threadWorld == null)
 			LogHelper.error("Call generateStructureInThread first!");
 		generateStructure(threadWorld, threadRandom, threadX, threadY, threadZ);
-		if (generateBase)
-			generateStructureBase(threadWorld, threadRandom, threadXBase, threadZBase, threadXBaseMax, threadZBaseMax, Blocks.cobblestone);
+		
+		if (generateBase) {
+			if (baseBlock == null)
+				baseBlock = Blocks.cobblestone;
+				
+			generateStructureBase(threadWorld, threadRandom, 
+					threadXBase, threadZBase, threadXBaseMax, threadZBaseMax, baseBlock);
+		}
 	}
 
 	// To use this:
@@ -80,8 +114,12 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	// 2) Call generateStructureInThread(...); instead of: generateStructure(...);
 	// 3) Put preventLag() in generateStructure function every 100 lines
 	// 4) Set "running" to false at end of last generateStructureX() call 
-	public void generateStructureInThread(World world, Random random, int x, int y, int z, int xBase, int zBase, int xBaseMax, int zBaseMax, boolean generateBase) 
+	public boolean generateStructureInThread(World world, Random random, int x, int y, int z, int xBase, int zBase, int xBaseMax, int zBaseMax, boolean generateBase) 
 	{
+		if (AbandonedStructure.findNearestStructure(x + xBaseMax / 2, y, z + zBaseMax / 2) < 64)
+			return false;
+		generatedCenterAt(x + xBaseMax / 2, y, z + zBaseMax / 2);
+
 		threadWorld = world;
 		threadRandom = random;
 		threadX = x;
@@ -97,6 +135,8 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		running = true;
 		Thread thread = new Thread(this);
 		thread.start();
+		
+		return true;
 	}
 
 	protected void preventLag()
@@ -268,6 +308,21 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		if (setEntity == false) {
 			spawner.func_145881_a().setEntityName(mobsToSpawn[0]);			
 		}
+	}
+	
+	/**
+	 * Replace a setBlock for a mob_spawner with this function with all the parameters, and a few extra 
+	 * @param world 
+	 * @param random
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param metaData
+	 */
+	protected void generateFurnace(World world, Random random, int x, int y, int z, int metaData) {
+		world.setBlock(x, y, z, Blocks.furnace, metaData, 3);
+		TileEntityFurnace furnace = new TileEntityFurnace();
+		world.setTileEntity(x, y, z, furnace);		
 	}
 	
 	protected class RandomChestItems {

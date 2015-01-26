@@ -19,7 +19,7 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 	// Variables for configuration
 	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 4;   // Set larger for bigger structures
-	public static int spawnChance = 15;           // chance n/1000
+	public static int spawnChance = 10;           // chance n/1000
 
 	public EasyMobDungeon1() 
 	{
@@ -76,9 +76,7 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 //		generateStructureBase(world, random, x, z, 10, 10, Blocks.cobblestone);
 
 		// Alternate way to create a large structure in a separate thread (with base)
-		generateStructureInThread(world, random, x, y, z, 3, 3, 18, 18, true);
-		
-		return true;
+		return generateStructureInThread(world, random, x, y, z, x, y, 10, 10, true);		
 	}
 
 	@Override
