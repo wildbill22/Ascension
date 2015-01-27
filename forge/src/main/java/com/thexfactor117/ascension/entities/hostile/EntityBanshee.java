@@ -1,5 +1,7 @@
 package com.thexfactor117.ascension.entities.hostile;
 
+import java.util.Calendar;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -13,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityBanshee extends EntityMob
@@ -88,5 +91,50 @@ public class EntityBanshee extends EntityMob
         	addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*10, 1));
     	}
     	return true;
+    }
+    
+    /**
+     * Spawns them only under a certain Y value.
+     */
+    @Override
+    public boolean getCanSpawnHere()
+    {
+    	return super.getCanSpawnHere() && entitySpawnUnderground();
+    }
+    
+    /**
+     * Sets a certain Y-value in which mobs can spawn. In this case,
+     * the Banshee can spawn anywhere under Y-50.
+     */
+    public boolean entitySpawnUnderground()
+    {
+        int i = MathHelper.floor_double(this.boundingBox.minY);
+
+        if (i >= 50)
+        {
+            return false;
+        }
+        else
+        {
+            int j = MathHelper.floor_double(this.posX);
+            int k = MathHelper.floor_double(this.posZ);
+            int l = this.worldObj.getBlockLightValue(j, i, k);
+            byte b0 = 4;
+            Calendar calendar = this.worldObj.getCurrentDate();
+
+            if ((calendar.get(2) + 1 != 10 || calendar.get(5) < 20) && (calendar.get(2) + 1 != 11 || calendar.get(5) > 3))
+            {
+                if (this.rand.nextBoolean())
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                b0 = 7;
+            }
+
+            return l > this.rand.nextInt(b0) ? false : super.getCanSpawnHere();
+        }
     }
 }
