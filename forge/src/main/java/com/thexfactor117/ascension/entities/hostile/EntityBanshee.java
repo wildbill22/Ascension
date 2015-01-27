@@ -116,25 +116,7 @@ public class EntityBanshee extends EntityMob
         }
         else
         {
-            int j = MathHelper.floor_double(this.posX);
-            int k = MathHelper.floor_double(this.posZ);
-            int l = this.worldObj.getBlockLightValue(j, i, k);
-            byte b0 = 4;
-            Calendar calendar = this.worldObj.getCurrentDate();
-
-            if ((calendar.get(2) + 1 != 10 || calendar.get(5) < 20) && (calendar.get(2) + 1 != 11 || calendar.get(5) > 3))
-            {
-                if (this.rand.nextBoolean())
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                b0 = 7;
-            }
-
-            return l > this.rand.nextInt(b0) ? false : super.getCanSpawnHere();
+        	return true;
         }
     }
 }
