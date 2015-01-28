@@ -2,6 +2,9 @@ package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Random;
 
+import com.thexfactor117.ascension.init.ModArmory;
+import com.thexfactor117.ascension.init.ModItems;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -87,38 +90,62 @@ public class EntityMummy extends EntityMob
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
 	{
-		int var1 = this.rand.nextInt(3);
-		if (var1 == 0)
+		int var = this.rand.nextInt(3);
+		if (var == 0)
 		{
 			this.dropItem(Items.rotten_flesh, 1);
 		}
-		if (var1 == 1)
+		if (var == 1)
 		{
 			this.dropItem(Items.paper, 1);
 		}
 		
-		int var2 = this.rand.nextInt(3);
-		if (var2 == 0)
+		int var1 = this.rand.nextInt(5);
+		if (var1 == 0)
 		{
 			this.dropItem(Items.gold_nugget, 2);
 		}
 		
-		int var3 = this.rand.nextInt(5);
-		if (var3 == 0)
+		int var2 = this.rand.nextInt(10);
+		if (var2 == 0)
 		{
 			this.dropItem(Items.gold_ingot, 1);
 		}
 		
-		int var4 = this.rand.nextInt(7);
+		int var3 = this.rand.nextInt(10);
+		if (var3 == 0)
+		{
+			this.dropItem(ModItems.soulFragment, 1);
+		}
+		
+		int var4 = this.rand.nextInt(10);
 		if (var4 == 0)
+		{
+			this.dropItem(ModItems.crystalShard, 1);
+		}
+		
+		int var5 = this.rand.nextInt(19);
+		if (var5 == 0)
 		{
 			this.dropItem(Items.emerald, 1);
 		}
 		
-		int var5 = this.rand.nextInt(10);
-		if (var5 == 0)
+		int var6 = this.rand.nextInt(19);
+		if (var6 == 0)
 		{
 			this.dropItem(Items.diamond, 1);
+		}
+		
+		int var7 = this.rand.nextInt(100);
+		if (var7 == 0)
+		{
+			this.dropItem(ModItems.fleroviumShard, 1);
+		}
+		
+		int var8 = this.rand.nextInt(100);
+		if (var8 == 0)
+		{
+			this.dropItem(ModArmory.etherealBlade, 1);
 		}
 	}
 }

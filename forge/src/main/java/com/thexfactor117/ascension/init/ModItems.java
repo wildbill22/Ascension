@@ -38,6 +38,10 @@ public class ModItems
 	public static Item smallRock = new ItemAscension().setUnlocalizedName("smallRock");
 	public static Item coldBlazeRod = new ItemAscension().setUnlocalizedName("coldBlazeRod");
 	public static Item golemGyro = new ItemAscension().setUnlocalizedName("golemGyro");
+	
+	//Magical Items
+	public static Item soulFragment = new ItemAscension().setUnlocalizedName("soulFragment");
+	public static Item soulGem = new ItemAscension().setUnlocalizedName("soulGem");
 		
 	public static void init()
 	{
@@ -65,5 +69,8 @@ public class ModItems
 		RegisterHelper.registerItem(coldBlazeRod);
 		RegisterHelper.registerItem(smallRock);
 		RegisterHelper.registerItem(golemGyro);
+		
+		RegisterHelper.registerItem(soulFragment);
+		RegisterHelper.registerItem(soulGem);
 	}
 }

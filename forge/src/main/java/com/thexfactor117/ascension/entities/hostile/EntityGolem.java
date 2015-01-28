@@ -15,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
+import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityGolem extends EntityMob
@@ -76,50 +77,68 @@ public class EntityGolem extends EntityMob
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
 	{
-		int var1 = this.rand.nextInt(3);
-		if (var1 == 0)
+		int var = this.rand.nextInt(5);
+		if (var == 0)
 		{
 			this.dropItem(ModItems.smallRock, 1);
 		}
-		if (var1 == 1)
+		if (var == 1)
 		{
 			this.dropItem(ModItems.smallRock, 3);
 		}
 		
-		int var2 = this.rand.nextInt(5);
-		if (var2 == 0)
+		int var1 = this.rand.nextInt(5);
+		if (var1 == 0)
 		{
 			this.dropItem(Items.iron_ingot, 1);
 		}
 		
-		int var3 = this.rand.nextInt(7);
-		if (var3 == 0)
+		int var2 = this.rand.nextInt(10);
+		if (var2 == 0)
 		{
-			this.dropItem(Items.iron_ingot, 2);
+			this.dropItem(ModItems.steelIngot, 1);
 		}
 		
-		int var4 = this.rand.nextInt(7);
+		int var3 = this.rand.nextInt(10);
+		if (var3 == 0)
+		{
+			this.dropItem(ModItems.soulFragment, 1);
+		}
+		
+		int var4 = this.rand.nextInt(10);
 		if (var4 == 0)
 		{
-			this.dropItem(ModItems.titaniumIngot, 1);
+			this.dropItem(ModItems.crystalShard, 1);
 		}
 		
 		int var5 = this.rand.nextInt(10);
 		if (var5 == 0)
 		{
-			this.dropItem(ModItems.titaniumIngot, 2);
+			this.dropItem(ModItems.golemGyro, 1);
 		}
 		
-		int var6 = this.rand.nextInt(10);
+		int var6 = this.rand.nextInt(19);
 		if (var6 == 0)
 		{
-			this.dropItem(ModItems.steelIngot, 1);
+			this.dropItem(ModItems.fleroviumShard, 1);
 		}
 		
-		int var7 = this.rand.nextInt(10);
+		int var7 = this.rand.nextInt(100);
 		if (var7 == 0)
 		{
-			this.dropItem(Items.diamond, 1);
+			this.dropItem(ModArmory.gyroMace, 1);
+		}
+		
+		int var8 = this.rand.nextInt(100);
+		if (var8 == 0)
+		{
+			this.dropItem(ModArmory.gyroPlate, 1);
+		}
+		
+		int var9 = this.rand.nextInt(100);
+		if (var9 == 0)
+		{
+			this.dropItem(ModArmory.divineRapier, 1);
 		}
 	}
 }

@@ -2,6 +2,9 @@ package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Calendar;
 
+import com.thexfactor117.ascension.init.ModArmory;
+import com.thexfactor117.ascension.init.ModItems;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -12,6 +15,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -118,5 +122,63 @@ public class EntityBanshee extends EntityMob
         {
         	return true;
         }
+    }
+    
+    @Override
+    protected void dropFewItems(boolean par1, int par2)
+    {
+		int var = this.rand.nextInt(5);
+		if (var == 0)
+		{
+			this.dropItem(Items.iron_ingot, 1);
+		}
+		
+		int var1 = this.rand.nextInt(10);
+		if (var1 == 0)
+		{
+			this.dropItem(ModItems.steelIngot, 1);
+		}
+		
+		int var2 = this.rand.nextInt(10);
+		if (var2 == 0)
+		{
+			this.dropItem(ModItems.crystalShard, 1);
+		}
+		
+		int var3 = this.rand.nextInt(10);
+		if (var3 == 0)
+		{
+			this.dropItem(ModItems.soulFragment, 1);
+		}
+		
+		int var4 = this.rand.nextInt(19);
+		if (var4 == 0)
+		{
+			this.dropItem(ModItems.crystalShard, 2);
+		}
+		
+		int var5 = this.rand.nextInt(19);
+		if (var5 == 0)
+		{
+			this.dropItem(ModItems.fleroviumShard, 1);
+		}
+		
+		int var6 = this.rand.nextInt(100);
+		if (var6 == 0)
+		{
+			this.dropItem(ModItems.soulGem, 1);
+		}
+		
+		int var7 = this.rand.nextInt(100);
+		if (var7 == 0)
+		{
+			this.dropItem(ModArmory.shadowBlade, 1);
+		}
+		
+		int var8 = this.rand.nextInt(100);
+		if (var8 == 0)
+		{
+			this.dropItem(ModArmory.voidHammer, 1);
+		}
     }
 }

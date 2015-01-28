@@ -2,6 +2,7 @@ package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Random;
 
+import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
 import net.minecraft.entity.Entity;
@@ -77,28 +78,46 @@ public class EntityBarbarian extends EntityMob
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
 	{
-		int var1 = this.rand.nextInt(5);
-		if (var1 == 0)
+		int var = this.rand.nextInt(5);
+		if (var == 0)
 		{
 			this.dropItem(Items.iron_ingot, 1);
 		}
 		
-		int var2 = this.rand.nextInt(5);
+		int var1 = this.rand.nextInt(10);
+		if (var1 == 0)
+		{
+			this.dropItem(ModItems.soulFragment, 1);
+		}
+		
+		int var2 = this.rand.nextInt(19);
 		if (var2 == 0)
 		{
-			this.dropItem(Items.iron_ingot, 3);
+			this.dropItem(ModItems.steelIngot, 1);
 		}
 		
-		int var3 = this.rand.nextInt(5);
+		int var3 = this.rand.nextInt(19);
 		if (var3 == 0)
 		{
-			this.dropItem(ModItems.titaniumIngot, 1);
+			this.dropItem(ModItems.crystalShard, 1);
 		}
 		
-		int var4 = this.rand.nextInt(10);
+		int var4 = this.rand.nextInt(19);
 		if (var4 == 0)
 		{
-			this.dropItem(ModItems.steelIngot, 1);
+			this.dropItem(ModArmory.razorSword, 1);
+		}
+		
+		int var5 = this.rand.nextInt(100);
+		if (var5 == 0)
+		{
+			this.dropItem(ModItems.fleroviumShard, 1);
+		}
+		
+		int var6 = this.rand.nextInt(100);
+		if (var6 == 0)
+		{
+			this.dropItem(ModArmory.crystallizedSword, 1);
 		}
 	}
 }

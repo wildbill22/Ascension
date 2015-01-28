@@ -1,5 +1,8 @@
 package com.thexfactor117.ascension.entities.hostile;
 
+import com.thexfactor117.ascension.init.ModArmory;
+import com.thexfactor117.ascension.init.ModItems;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -11,6 +14,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -89,5 +93,45 @@ public class EntityGhost extends EntityMob
         	addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*5, 1));
     	}
     	return true;
+    }
+    
+    @Override
+    protected void dropFewItems(boolean par1, int par2)
+    {
+		int var = this.rand.nextInt(5);
+		if (var == 0)
+		{
+			this.dropItem(Items.iron_ingot, 1);
+		}
+		
+		int var1 = this.rand.nextInt(10);
+		if (var1 == 0)
+		{
+			this.dropItem(ModItems.crystalShard, 1);
+		}
+		
+		int var2 = this.rand.nextInt(10);
+		if (var2 == 0)
+		{
+			this.dropItem(ModItems.soulFragment, 1);
+		}
+
+		int var3 = this.rand.nextInt(100);
+		if (var3 == 0)
+		{
+			this.dropItem(ModItems.fleroviumShard, 1);
+		}
+		
+		int var4 = this.rand.nextInt(100);
+		if (var4 == 0)
+		{
+			this.dropItem(ModItems.soulGem, 1);
+		}
+		
+		int var5 = this.rand.nextInt(100);
+		if (var5 == 0)
+		{
+			this.dropItem(ModArmory.shadowBlade, 1);
+		}
     }
 }
