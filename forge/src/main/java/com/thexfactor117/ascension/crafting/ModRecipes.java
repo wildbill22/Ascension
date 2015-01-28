@@ -12,9 +12,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ModRecipes 
 {
 	public static void init()
-	{
-		ItemStack smallRockItemStack = new ItemStack(ModItems.smallRock);
-		
+	{		
 		// Overworld
 		GameRegistry.addSmelting(ModBlocks.titaniumOre, new ItemStack(ModItems.titaniumIngot), 0.8F);
 		GameRegistry.addSmelting(ModBlocks.vexalOre, new ItemStack(ModItems.vexalIngot), 0.8F);
@@ -27,7 +25,6 @@ public class ModRecipes
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.crystal), new Object[] {"AAA", "AAA", "AAA", 'A', ModItems.crystalShard});
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.limestoneBricks), new Object[] {"AA", "AA", 'A', ModBlocks.limestone});
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.cobblestone, 4), new Object[] {new ItemStack(ModItems.smallRock), ModItems.smallRock, ModItems.smallRock, ModItems.smallRock});
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.steelIngot), new Object[] {new ItemStack(ModItems.titaniumIngot), Items.iron_ingot});
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.crystal), new Object[] {new ItemStack(ModItems.vexalIngot), Items.diamond});
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.infusedVexalIngot), new Object[] {new ItemStack(ModItems.vexalIngot), Items.diamond, ModItems.fleroviumShard});

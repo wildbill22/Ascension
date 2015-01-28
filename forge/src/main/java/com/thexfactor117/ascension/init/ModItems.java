@@ -28,14 +28,10 @@ public class ModItems
 	//Food
 	public static Item rawVenison = new ItemAscensionFood(3, 0.5F, true).setUnlocalizedName("rawVenison");
 	public static Item cookedVenison = new ItemAscensionFood(8, 3.0F, true).setUnlocalizedName("cookedVenison");
-	public static Item strawberry = new ItemAscensionFood(2, 1.0F, false).setUnlocalizedName("strawberry");
-	public static Item raspberry = new ItemAscensionFood(1, 0.75F, false).setUnlocalizedName("raspberry");
-	public static Item blueberry = new ItemAscensionFood(1, 0.75F, false).setUnlocalizedName("blueberry");
 	
 	//Mob Drops
 	public static Item antlers = new ItemAscension().setUnlocalizedName("antlers");
 	public static Item sharkTeeth = new ItemAscension().setUnlocalizedName("sharkTeeth");
-	public static Item smallRock = new ItemAscension().setUnlocalizedName("smallRock");
 	public static Item coldBlazeRod = new ItemAscension().setUnlocalizedName("coldBlazeRod");
 	public static Item golemGyro = new ItemAscension().setUnlocalizedName("golemGyro");
 	
@@ -60,14 +56,10 @@ public class ModItems
 	
 		RegisterHelper.registerItem(rawVenison);
 		RegisterHelper.registerItem(cookedVenison);
-		RegisterHelper.registerItem(strawberry);
-		RegisterHelper.registerItem(raspberry);
-		RegisterHelper.registerItem(blueberry);
 	
 		RegisterHelper.registerItem(antlers);
 		RegisterHelper.registerItem(sharkTeeth);
 		RegisterHelper.registerItem(coldBlazeRod);
-		RegisterHelper.registerItem(smallRock);
 		RegisterHelper.registerItem(golemGyro);
 		
 		RegisterHelper.registerItem(soulFragment);
