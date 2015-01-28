@@ -53,6 +53,12 @@ public class EntityBarbarian extends EntityMob
 	}
 	
 	@Override
+	public boolean isValidLightLevel()
+	{
+		return true;
+	}
+	
+	@Override
 	public boolean canDespawn()
 	{
 		return true;

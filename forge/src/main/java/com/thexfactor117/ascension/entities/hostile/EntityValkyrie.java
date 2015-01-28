@@ -52,6 +52,12 @@ public class EntityValkyrie extends EntityMob
 	}
 	
 	@Override
+	public boolean isValidLightLevel()
+	{
+		return true;
+	}
+	
+	@Override
 	public boolean canDespawn()
 	{
 		return true;
@@ -72,28 +78,6 @@ public class EntityValkyrie extends EntityMob
     {
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 32.0D);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
-    }
-	
-    @Override
-    public boolean getCanSpawnHere()
-    {
-    	return super.getCanSpawnHere() && entityValidLightLevel();
-    }
-    
-    public boolean entityValidLightLevel()
-    {
-        int i = MathHelper.floor_double(this.posX);
-        int j = MathHelper.floor_double(this.boundingBox.minY);
-        int k = MathHelper.floor_double(this.posZ);
-        
-        if (this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k) < 0)
-        {
-        	return false;
-        }
-        else
-        {
-        	return true;
-        }
     }
     
 	@Override
