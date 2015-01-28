@@ -19,7 +19,7 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 	// Variables for configuration
 	public static int missingBlockChance = 15;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
-	public static int spawnChance = 10;           // chance n/1000
+	public static int spawnChance = 30;           // chance n/100
 
 	public MediumAbandonedHouse() 
 	{
@@ -29,28 +29,12 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 		validSpawnBlocks = getValidSpawnBlocks();
 		mobsToSpawn = getMobsToSpawn();
 
-		// Add these in order of low to high probability:
-		// Rareness - 3
-		addRandomChestItem(0, ModArmory.divineRapier, 1, 1, 2);
-		addRandomChestItem(1, ModArmory.voidHammer, 1, 1, 2);
-
-		// Rareness - 2
-		addRandomChestItem(2, ModArmory.crystallizedSword, 1, 1, 5);
-		addRandomChestItem(3, ModArmory.gyroMace, 1, 1, 5);
-		addRandomChestItem(4, ModArmory.shadowBlade, 1, 1, 5);
-		addRandomChestItem(5, ModArmory.etherealBlade, 1, 1, 5);
-
-		// Rareness - 1 (least)
-		addRandomChestItem(6, ModItems.strawberry, 1, 3, 40);
-		addRandomChestItem(7, ModArmory.titaniumSword, 1, 1, 10);
-		addRandomChestItem(8, ModArmory.steelSword, 1, 1, 10);
-		addRandomChestItem(9, ModArmory.blazeSword, 1, 1, 10);
-		addRandomChestItem(10, ModArmory.iceSword, 1, 1, 10);
-		addRandomChestItem(11, ModArmory.razorSword, 1, 1, 10);
+		int i = 0;
+		addItemsForAllChests(i);		
 	}
 
 	protected String[] getMobsToSpawn() {
-		return new String[] { "Ghost" };
+		return new String[] { "Ghost", "Barbarian", "Valkyrie" };
 	}
 
 	protected Block[] getValidSpawnBlocks() 

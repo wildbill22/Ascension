@@ -19,7 +19,7 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 	// Variables for configuration
 	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 4;   // Set larger for bigger structures
-	public static int spawnChance = 10;           // chance n/1000
+	public static int spawnChance = 8;           // chance n/100
 
 	public EasyMobDungeon1() 
 	{
@@ -29,28 +29,13 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 		validSpawnBlocks = getValidSpawnBlocks();
 		mobsToSpawn = getMobsToSpawn();
 
-		// Add these in order of low to high probability:
-		// Rareness - 3
-		addRandomChestItem(0, ModArmory.divineRapier, 1, 1, 2);
-		addRandomChestItem(1, ModArmory.voidHammer, 1, 1, 2);
-
-		// Rareness - 2
-		addRandomChestItem(2, ModArmory.crystallizedSword, 1, 1, 5);
-		addRandomChestItem(3, ModArmory.gyroMace, 1, 1, 5);
-		addRandomChestItem(4, ModArmory.shadowBlade, 1, 1, 5);
-		addRandomChestItem(5, ModArmory.etherealBlade, 1, 1, 5);
-
-		// Rareness - 1 (least)
-		addRandomChestItem(6, ModItems.strawberry, 1, 3, 40);
-		addRandomChestItem(7, ModArmory.titaniumSword, 1, 1, 10);
-		addRandomChestItem(8, ModArmory.steelSword, 1, 1, 10);
-		addRandomChestItem(9, ModArmory.blazeSword, 1, 1, 10);
-		addRandomChestItem(10, ModArmory.iceSword, 1, 1, 10);
-		addRandomChestItem(11, ModArmory.razorSword, 1, 1, 10);
+		int i = 0;
+		i = addItemsForAllChests(i);
+		i = addItemsForAllDungeons(i);				
 	}
 
 	protected String[] getMobsToSpawn() {
-		return new String[] { "Ghost" };
+		return new String[] { "Ghost", "Barbarian", "Valkyrie" };
 	}
 	
 	protected Block[] getValidSpawnBlocks() 
@@ -64,17 +49,11 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 		// Add this line to prevent more than one being built at a time
 		if (running) return false; 
 
-		//check that each corner is one of the valid spawn blocks
-		if(!locationIsValidSpawn(world, x, y, z) 
-				|| !locationIsValidSpawn(world, x + 10, y, z) 
-				|| !locationIsValidSpawn(world, x + 10, y, z + 10) 
-				|| !locationIsValidSpawn(world, x, y, z + 10))
-		{
+		// check that each corner is one of the valid spawn blocks
+		// This is better for large structures (one chunk size or larger)
+		if (!isValidSpawnCorners(world, x, y, z, 10, 10)){
 			return false;
 		}
-//		generateStructure(world, random, x, y, z);
-//		generateStructureBase(world, random, x, z, 10, 10, Blocks.cobblestone);
-
 		// Alternate way to create a large structure in a separate thread (with base)
 		return generateStructureInThread(world, random, x, y, z, x, z, 10, 10, true);		
 	}

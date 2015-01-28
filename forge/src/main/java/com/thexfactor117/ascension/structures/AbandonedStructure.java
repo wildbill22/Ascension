@@ -17,6 +17,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import com.thexfactor117.ascension.help.LogHelper;
+import com.thexfactor117.ascension.init.ModArmory;
+import com.thexfactor117.ascension.init.ModItems;
 
 /**
  * All structures extend this class. The steps to add a structure:
@@ -34,9 +36,9 @@ import com.thexfactor117.ascension.help.LogHelper;
 */ 
 public abstract class AbandonedStructure extends WorldGenerator implements Runnable
 {
-	protected int structureMissingBlockChance = 10;  // Set this to about 1/10 number of blocks
+	protected int structureMissingBlockChance = 15;  // Set this to about 1/10 number of blocks
 	protected int structureSpawnHeightTolerance = 3;
-	protected int structureSpawnChance = 10; // chance n/1000
+	public int structureSpawnChance = 200; // chance n/200
 	protected Block[] validSpawnBlocks;
 	protected Block[] validBaseBlocks = { Blocks.bedrock, Blocks.clay, Blocks.coal_ore, Blocks.cobblestone,
 			Blocks.diamond_ore, Blocks.dirt, Blocks.emerald_ore, Blocks.end_stone, Blocks.glass,
@@ -221,8 +223,12 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 				// item, min to add, max to add, chance N/1000
 				// Add items with lowest chance first
 				for (int i = 0; i < randomChestItems.size(); i++) {
+					if (i > 26) {
+						LogHelper.error("Too many items assigned to spawn in chest!");
+						break;
+					}
 					setRandomSlots(chestEntity, randomChestItems.get(i).slot, randomChestItems.get(i).item, randomChestItems.get(i).min,
-							randomChestItems.get(i).max, randomChestItems.get(i).probability);				
+							randomChestItems.get(i).max, randomChestItems.get(i).probability);
 				}
 			}
 			return true;
@@ -268,7 +274,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	 * @param item item to add randomly to chest 
 	 * @param min minimum to add to a slot (0 - 64)
 	 * @param max maximum to add to a slot (1 - 64)
-	 * @param probability n/1000 chance of any one slot having this item
+	 * @param probability n/100 chance of any one slot having this item
 	 */
 	protected void addRandomChestItem(int slot, Item item, int min, int max, int probability) {
 		if (randomChestItems == null)
@@ -340,7 +346,48 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			this.probability = probability;
 		}
 	}
+
+	// Checks that chunk has been created and meets the spawn requirements
+	private boolean spawnedAtLocationEdges(World world, int x, int y, int z, int xMax, int zMax)
+	{
+		if (world.blockExists(x + xMax, y, z + zMax))
+		{
+			int xHalf = x + (xMax / 2);
+			int zHalf = z + (zMax / 2);
+			// check that each side has valid spawn blocks
+			// Check top, left, right, and bottom
+			if(locationIsValidSpawn(world, x + 3, y, z) && locationIsValidSpawn(world, xHalf, y, z) && locationIsValidSpawn(world, x + xMax - 3, y, z)  
+				&& locationIsValidSpawn(world, x, y, z + 3) && locationIsValidSpawn(world, x, y, z + zHalf) && locationIsValidSpawn(world, x, y, z + zMax - 3)  
+				&& locationIsValidSpawn(world, x + xMax, y, z + 3) && locationIsValidSpawn(world, x + xMax, y, z + zHalf) && locationIsValidSpawn(world, x + xMax, y, z + zMax - 3)  
+				&& locationIsValidSpawn(world, x + 3, y, z+ zMax) && locationIsValidSpawn(world, x + 15, y, z+ zMax) && locationIsValidSpawn(world, x + xMax - 3, y, z+ zMax))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 	
+	// Tries 4 locations around selected spawn point to avoid placing in a chunk not yet created
+	protected boolean isValidSpawnEdges(World world, int x, int y, int z, int xMax, int zMax)
+	{
+		if (spawnedAtLocationEdges(world, x, y, z, xMax, zMax))
+			return true;
+		// try the North
+		else if (spawnedAtLocationEdges(world, x, y, z - zMax, xMax, zMax))
+			return true;
+		// try to the West
+		else if (spawnedAtLocationEdges(world, x - xMax, y, z, xMax, zMax))
+			return true;
+		// try to the South
+		else if (spawnedAtLocationEdges(world, x, y, z + zMax, xMax, zMax))
+			return true;
+		// try to the East
+		else if (spawnedAtLocationEdges(world, x + xMax, y, z, xMax, zMax))
+			return true;
+
+		return false;
+	}
+
 	// Checks that chunk has been created and meets the spawn requirements
 	private boolean spawnedAtLocation(World world, int x, int y, int z, int xMax, int zMax)
 	{
@@ -420,4 +467,105 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		if(block == Blocks.air || block == Blocks.chest || y == floorLevel || block == Blocks.wooden_door || structureMissingBlockChance == 1 || chance > 0)
 			world.setBlock(x, y, z, block, metadata, flag);
 	}
+	
+	// Chest stuff
+	protected int addItemsForAllChests(int i) {
+		// 16 total
+		
+		// In all chests - minecraft vanilla
+		addRandomChestItem(i++, Items.iron_ingot, 1, 3, 7);
+		addRandomChestItem(i++, Items.gold_ingot, 1, 2, 7);
+		addRandomChestItem(i++, Items.diamond, 1, 1, 2);
+		addRandomChestItem(i++, Items.emerald, 1, 1, 1);
+		addRandomChestItem(i++, Items.rotten_flesh, 1, 4, 10);
+		addRandomChestItem(i++, Items.bone, 1, 3, 8);
+		addRandomChestItem(i++, Items.wheat, 1, 4, 10);
+		
+		// In all chests - modItems
+		addRandomChestItem(i++, ModItems.titaniumIngot, 1, 2, 6);
+		addRandomChestItem(i++, ModItems.vexalIngot, 1, 1, 5);
+		addRandomChestItem(i++, ModItems.rawVenison, 1, 3, 10);
+		addRandomChestItem(i++, ModItems.coldBlazeRod, 1, 2, 8);
+		addRandomChestItem(i++, ModItems.sharkTeeth, 1, 1, 9);
+		addRandomChestItem(i++, ModItems.golemGyro, 1, 1, 5);
+
+		// In all chests - modArmory
+		addRandomChestItem(i++, ModArmory.blazeSword, 1, 1, 2);
+		addRandomChestItem(i++, ModArmory.iceSword, 1, 1, 2);
+		addRandomChestItem(i++, ModArmory.razorSword, 1, 1, 2);
+		
+		return i;
+	}
+	
+	protected int addItemsForAllDungeons(int i) {
+		// More ModItems for All Mob Dungeons (6):
+		addRandomChestItem(i++, ModItems.steelIngot, 1, 1, 4);
+		addRandomChestItem(i++, ModItems.crystal, 1, 1, 4);
+		addRandomChestItem(i++, ModItems.fleroviumShard, 1, 1, 4);
+		addRandomChestItem(i++, ModItems.crystalShard, 1, 1, 4);
+		addRandomChestItem(i++, ModItems.iceGem, 1, 1, 4);
+		addRandomChestItem(i++, ModItems.blazeGem, 1, 1, 4);
+
+		// More ModArmory for All Dungeons (13):
+		Random random = new Random();
+		switch (random.nextInt(3)) {
+			case 0:
+				addRandomChestItem(i++, ModArmory.steelAxe, 1, 1, 3);
+				break;
+			case 1:
+				addRandomChestItem(i++, ModArmory.steelBoots, 1, 1, 3);
+				break;
+			case 2:
+				addRandomChestItem(i++, ModArmory.steelHelm, 1, 1, 3);
+				break;
+			}
+		switch (random.nextInt(3)) {
+		case 0:
+			addRandomChestItem(i++, ModArmory.steelPants, 1, 1, 3);
+			break;
+		case 1:
+			addRandomChestItem(i++, ModArmory.steelPick, 1, 1, 3);
+			break;
+		case 2:
+			addRandomChestItem(i++, ModArmory.steelPlate, 1, 1, 3);
+			break;
+		}
+		switch (random.nextInt(3)) {
+		case 0:
+			addRandomChestItem(i++, ModArmory.steelShovel, 1, 1, 3);
+			break;
+		case 1:
+			addRandomChestItem(i++, ModArmory.steelSword, 1, 1, 3);
+			break;
+		case 2:
+			addRandomChestItem(i++, ModArmory.crystallizedSword, 1, 1, 2);
+			break;
+		}
+		switch (random.nextInt(4)) {
+		case 0:
+			addRandomChestItem(i++, ModArmory.gyroMace, 1, 1, 1);
+			break;
+		case 1:
+			addRandomChestItem(i++, ModArmory.shadowBlade, 1, 1, 1);
+			break;
+		case 2:
+			addRandomChestItem(i++, ModArmory.etherealBlade, 1, 1, 1);
+			break;
+		case 3:
+			addRandomChestItem(i++, ModArmory.wingedBlade, 1, 1, 1);
+			break;
+		}
+		
+
+		return i;
+	}
+
+	protected int addItemsForHardDungeons(int i) {
+		addRandomChestItem(i++, ModArmory.divineRapier, 1, 1, 2);
+		addRandomChestItem(i++, ModArmory.voidHammer, 1, 1, 2);
+		addRandomChestItem(i++, ModArmory.titaniumSword, 1, 1, 10);
+	
+		return i;
+	}
 }
+

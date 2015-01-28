@@ -8,6 +8,7 @@ import com.thexfactor117.ascension.init.ModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 /**
@@ -19,7 +20,7 @@ public class Camp_000 extends AbandonedStructure {
 	// Variables for configuration
 	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 1;   // Set larger for bigger structures
-	public static int spawnChance = 200;           // chance n/1000
+	public static int spawnChance = 100;          // chance n/100
     
 	public Camp_000() 
 	{
@@ -30,28 +31,12 @@ public class Camp_000 extends AbandonedStructure {
 		mobsToSpawn = getMobsToSpawn();
 		baseBlock = Blocks.dirt;
 
-		// Add these in order of low to high probability:
-		// Rareness - 3
-		addRandomChestItem(0, ModArmory.divineRapier, 1, 1, 2);
-		addRandomChestItem(1, ModArmory.voidHammer, 1, 1, 2);
-
-		// Rareness - 2
-		addRandomChestItem(2, ModArmory.crystallizedSword, 1, 1, 5);
-		addRandomChestItem(3, ModArmory.gyroMace, 1, 1, 5);
-		addRandomChestItem(4, ModArmory.shadowBlade, 1, 1, 5);
-		addRandomChestItem(5, ModArmory.etherealBlade, 1, 1, 5);
-
-		// Rareness - 1 (least)
-		addRandomChestItem(6, ModItems.strawberry, 1, 3, 40);
-		addRandomChestItem(7, ModArmory.titaniumSword, 1, 1, 10);
-		addRandomChestItem(8, ModArmory.steelSword, 1, 1, 10);
-		addRandomChestItem(9, ModArmory.blazeSword, 1, 1, 10);
-		addRandomChestItem(10, ModArmory.iceSword, 1, 1, 10);
-		addRandomChestItem(11, ModArmory.razorSword, 1, 1, 10);
+		int i = 0;
+		addItemsForAllChests(i);		
 	}
 
 	protected String[] getMobsToSpawn() {
-		return new String[] { "Ghost" };
+		return new String[] { "Ghost", "Barbarian", "Valkyrie" };
 	}
 	
 	protected Block[] getValidSpawnBlocks() 
@@ -65,13 +50,9 @@ public class Camp_000 extends AbandonedStructure {
 		// Add this line to prevent more than one being built at a time
 		if (running) return false; 
 
-		// check that each side has valid spawn blocks
-		// Check top, left, right, and bottom
-		if(!locationIsValidSpawn(world, x + 3, y, z) || !locationIsValidSpawn(world, x + 15, y, z) || !locationIsValidSpawn(world, x + 30, y, z)  
-			|| !locationIsValidSpawn(world, x, y, z + 3) || !locationIsValidSpawn(world, x, y, z + 15) || !locationIsValidSpawn(world, x, y, z + 30)  
-			|| !locationIsValidSpawn(world, x + 32, y, z + 3) || !locationIsValidSpawn(world, x + 32, y, z + 15) || !locationIsValidSpawn(world, x + 32, y, z + 29)  
-			|| !locationIsValidSpawn(world, x + 3, y, z + 32) || !locationIsValidSpawn(world, x + 15, y, z + 32) || !locationIsValidSpawn(world, x + 29, y, z + 32))
-		{
+		// check that all around is one of the valid spawn blocks
+		// This is better for large structures (one chunk size or larger)
+		if (!isValidSpawnEdges(world, x, y, z, 32, 32)){
 			return false;
 		}
 

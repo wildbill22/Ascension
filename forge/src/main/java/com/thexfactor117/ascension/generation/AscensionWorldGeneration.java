@@ -74,100 +74,65 @@ public class AscensionWorldGeneration implements IWorldGenerator
 	}
 	
 	private void addStructures(World world, Random random, int x, int z){
-		int chance = random.nextInt(1000);
-		boolean generatedStructure = false; // needed when a 2nd structure is added
-		int spawnChance = 0;
+		// Flat?
+		if (world.provider.getAverageGroundLevel() < 10)
+			return;
+
+		final int numStructures = 6;
+		int which = random.nextInt(numStructures);
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 		
-		spawnChance += Camp_000.spawnChance; 
-		if (generatedStructure == false && chance < spawnChance)
-		{
-			// Create Camp
-			int posX = x + random.nextInt(16);
-			int posZ = z + random.nextInt(16);
-			// Check where center of camp is (camp fire):
-			int posY = world.getHeightValue(posX + 16, posZ + 16); 
+		switch (which) {
+		case 0:
+		case 1:
 			Camp_000 camp = new Camp_000();
-			generatedStructure = camp.generate(world, random, posX, posY - 1, posZ);
-		}
-		spawnChance = 0; // The camp will spawn rarely, so don't increase chance of next structure spawning
-
-		spawnChance += LandWatchtowerPart1.spawnChance; 
-		if (generatedStructure == false && chance < spawnChance)
-		{
-			// Create Land Watch Tower
-			int posX = x + random.nextInt(16);
-			int posZ = z + random.nextInt(16);
-			// Check where entrance is (look in structure class for location of stairs):
-			int posY = world.getHeightValue(posX + 3, posZ + 0); 
+			// Use center of camp as entrance for now
+			generateStructure(camp, world, random, x, z, 16, 16, -1);
+			break;
+		case 2:
 			LandWatchtowerPart1 tower = new LandWatchtowerPart1();
-			generatedStructure = tower.generate(world, random, posX, posY - 1, posZ);
-		}
-
-		spawnChance += MediumAbandonedHouse.spawnChance; 
-		if (generatedStructure == false && chance < spawnChance)
-		{
-			// Create abandoned house
-			int posX = x + random.nextInt(16);
-			int posZ = z + random.nextInt(16);
-			// Check where entrance is (look in structure class for location of stairs):
-			int posY = world.getHeightValue(posX + 3, posZ + 0); 
-			MediumAbandonedHouse house = new MediumAbandonedHouse();
-			generatedStructure = house.generate(world, random, posX, posY - 1, posZ);
-		}
-
-		spawnChance += SmallAbandonedHouse.spawnChance; 
-		if (generatedStructure == false && chance < spawnChance)
-		{
-			// Create abandoned house
-			int posX = x + random.nextInt(16);
-			int posZ = z + random.nextInt(16);
-			// Check where entrance is (look in structure class for location of stairs):
-			int posY = world.getHeightValue(posX + 2, posZ + 0); 
-			SmallAbandonedHouse house = new SmallAbandonedHouse();
-			generatedStructure = house.generate(world, random, posX, posY - 1, posZ);
-		}
-
-		spawnChance += EasyMobDungeon1.spawnChance; 
-		if (generatedStructure == false && chance < spawnChance)
-		{
+			generateStructure(tower, world, random, x, z, 3, 0, -1);
+			break;
+		case 3:
+			MediumAbandonedHouse mediumHouse = new MediumAbandonedHouse();
+			generateStructure(mediumHouse, world, random, x, z, 3, 0, -1);
+			break;
+		case 4:
+			SmallAbandonedHouse smallHouse = new SmallAbandonedHouse();
+			generateStructure(smallHouse, world, random, x, z, 2, 0, -1);
+			break;
+		case 5:
 			if (biome != BiomeGenBase.birchForest && biome != BiomeGenBase.birchForestHills &&
-					biome != BiomeGenBase.forest && biome != BiomeGenBase.forestHills &&
-					biome != BiomeGenBase.jungle && biome != BiomeGenBase.jungleHills &&
-					biome != BiomeGenBase.taiga && biome != BiomeGenBase.taigaHills &&
-					biome != BiomeGenBase.roofedForest) {
-				// Create dungeon
-				int posX = x + random.nextInt(16);
-				int posZ = z + random.nextInt(16);
-				// Check where entrance is (look in structure class for location of stairs):
-				int posY = world.getHeightValue(posX + 5, posZ + 0); 
+			biome != BiomeGenBase.forest && biome != BiomeGenBase.forestHills &&
+			biome != BiomeGenBase.jungle && biome != BiomeGenBase.jungleHills &&
+			biome != BiomeGenBase.taiga && biome != BiomeGenBase.taigaHills &&
+			biome != BiomeGenBase.roofedForest) {
 				EasyMobDungeon1 dungeon = new EasyMobDungeon1();
-				generatedStructure = dungeon.generate(world, random, posX, posY - 1, posZ);
+				generateStructure(dungeon, world, random, x, z, 5, 0, -1);
 			}
+			break;
 		}
+	}
 
-//		spawnChance += StructureGenAbandonedHouse.spawnChance; 
-//		if (generatedStructure == false && chance < spawnChance)
-//		{
-//			// Create abandoned house
-//			int posX = x + random.nextInt(16);
-//			int posZ = z + random.nextInt(16);
-//			// Check where entrance is (look in structure class for location of stairs):
-//			int posY = world.getHeightValue(posX + 2, posZ + 6); 
-//			StructureGenAbandonedHouse house = new StructureGenAbandonedHouse();
-//			generatedStructure = house.generate(world, random, posX, posY, posZ);
-//		}
-//
-//		// Code below for second structure is designed to not place it if first is placed
-//		// 2nd structure would go here like so:
-//		spawnChance += SkyrimStyleHouse0.spawnChance; 
-//		if (generatedStructure == false && chance < spawnChance) {
-//			int posX = x + random.nextInt(16);
-//			int posZ = z + random.nextInt(16);
-//			// Check where entrance is:
-//			int posY = world.getHeightValue(posX + 9, posZ + 16);
-//			SkyrimStyleHouse0 house = new SkyrimStyleHouse0();
-//			generatedStructure = house.generate(world, random, posX, posY, posZ);
-//		}
+	/**
+	 * Create structure at x, z, check height at entrance at x + doorX, z + doorZ, set y = y + yOffset 
+	 * @param world 
+	 * @param random
+	 * @param x X coordinate in world
+	 * @param z Z coordinate in world
+	 * @param doorX Offset from x where entrance is
+	 * @param doorZ Offset from z where entrance is
+	 * @param yOffset Normally 0, but -1 if structure has floor
+	 * @return true if generated
+	 */
+	private boolean generateStructure(AbandonedStructure structure, World world, Random random, int x, int z, int doorX, int doorZ, int offsetY) {
+		int chance = random.nextInt(100);
+		if (chance < structure.structureSpawnChance) {
+			int posX = x + random.nextInt(16);
+			int posZ = z + random.nextInt(16);
+			int posY = world.getHeightValue(posX + doorX, posZ + doorZ); 
+			return structure.generate(world, random, posX, posY - offsetY, posZ);
+		}
+		return false;
 	}
 }
