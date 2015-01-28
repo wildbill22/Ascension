@@ -129,8 +129,10 @@ public class ModelGolem extends ModelBase
   {
 	  super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 	  
-      this.Head.rotateAngleY = f3 / (180F / (float)Math.PI);
-      this.Head.rotateAngleX = f4 / (180F / (float)Math.PI);
+      //this.Head.rotateAngleY = f3 / (180F / (float)Math.PI);
+      //this.Head.rotateAngleX = f4 / (180F / (float)Math.PI);
+	  this.Head.rotateAngleY = 0.8F;
+	  this.Head.rotateAngleX = 0F;
       this.Arm_top_1.rotateAngleZ = -0.35F;
       this.Arm_top_2.rotateAngleZ = 0.35F;
       this.Leg1.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
