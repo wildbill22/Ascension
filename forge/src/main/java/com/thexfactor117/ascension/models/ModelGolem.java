@@ -131,10 +131,8 @@ public class ModelGolem extends ModelBase
 	  
       this.Head.rotateAngleY = f3 / (180F / (float)Math.PI);
       this.Head.rotateAngleX = f4 / (180F / (float)Math.PI);
-      this.Arm_top_1.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 2.0F * f1 * 0.5F;
-      this.Arm_top_2.rotateAngleX = MathHelper.cos(f * 0.6662F) * 2.0F * f1 * 0.5F;
-      this.Arm_top_1.rotateAngleZ = 0.0F;
-      this.Arm_top_2.rotateAngleZ = 0.0F;
+      this.Arm_top_1.rotateAngleZ = -0.35F;
+      this.Arm_top_2.rotateAngleZ = 0.35F;
       this.Leg1.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
       this.Leg2.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
       this.Leg1.rotateAngleY = 0.0F;
