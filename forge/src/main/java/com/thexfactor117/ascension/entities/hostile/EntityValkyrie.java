@@ -11,6 +11,8 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.init.ModItems;
@@ -71,6 +73,28 @@ public class EntityValkyrie extends EntityMob
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
 	
+    @Override
+    public boolean getCanSpawnHere()
+    {
+    	return super.getCanSpawnHere() && entityValidLightLevel();
+    }
+    
+    public boolean entityValidLightLevel()
+    {
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+        
+        if (this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k) < 0)
+        {
+        	return false;
+        }
+        else
+        {
+        	return true;
+        }
+    }
+    
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
 	{	
