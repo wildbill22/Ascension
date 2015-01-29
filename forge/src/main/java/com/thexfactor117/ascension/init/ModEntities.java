@@ -3,6 +3,7 @@ package com.thexfactor117.ascension.init;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 
+import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
 import com.thexfactor117.ascension.entities.hostile.EntityBanshee;
 import com.thexfactor117.ascension.entities.hostile.EntityBarbarian;
 import com.thexfactor117.ascension.entities.hostile.EntityGhost;
@@ -28,6 +29,8 @@ public class ModEntities
 		EntityHandler.registerMonsters(EntityBanshee.class, "Banshee");
 		
 		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
+		
+		EntityHandler.registerMonsters(EntityPharaoh.class, "Pharaoh");
 		
 		addMobSpawns();
 	}

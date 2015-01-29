@@ -70,6 +70,7 @@ public class EntityBanshee extends EntityMob
 		tasks.taskEntries.clear();
 		targetTasks.taskEntries.clear();
 	}
+	
 	/**
 	 * Testing purposes. Entities are having trouble attacking
 	 * players; hopefully this will help out.
