@@ -24,6 +24,7 @@ public class EntityGolem extends EntityMob
 	{
 		super(world);
 		this.getNavigator().setCanSwim(true);
+		this.getNavigator().setAvoidsWater(true);
 		this.experienceValue = 30;
 		this.setSize(1.75F, 3.0F);
 		this.clearAITasks();
@@ -41,7 +42,7 @@ public class EntityGolem extends EntityMob
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(16.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.15D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.175D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
 	}
 	

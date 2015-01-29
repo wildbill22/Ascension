@@ -131,8 +131,6 @@ public class ModelValkyrie extends ModelBase
     
       this.headmid.rotateAngleY = f3 / (180F / (float)Math.PI);
       this.headmid.rotateAngleX = f4 / (180F / (float)Math.PI);
-      this.Hair.rotateAngleY = this.headmid.rotateAngleY;
-      this.Hair.rotateAngleX = this.headmid.rotateAngleX;
       this.rightarm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 2.0F * f1 * 0.5F;
       this.leftarm.rotateAngleX = MathHelper.cos(f * 0.6662F) * 2.0F * f1 * 0.5F;
       this.rightarm.rotateAngleZ = 0.0F;

@@ -9,6 +9,7 @@ import com.thexfactor117.ascension.items.ItemAscensionAxe;
 import com.thexfactor117.ascension.items.ItemAscensionPickaxe;
 import com.thexfactor117.ascension.items.ItemAscensionShovel;
 import com.thexfactor117.ascension.items.ItemAscensionSword;
+import com.thexfactor117.ascension.items.armor.ItemFleroviumArmor;
 import com.thexfactor117.ascension.items.armor.ItemGyroPlate;
 import com.thexfactor117.ascension.items.armor.ItemSteelArmor;
 import com.thexfactor117.ascension.items.armor.ItemTitaniumArmor;
@@ -94,10 +95,10 @@ public class ModArmory
 	public static Item steelPlate = new ItemSteelArmor(ASTEEL, 1, "steelPlate");
 	public static Item steelPants = new ItemSteelArmor(ASTEEL, 2, "steelPants");
 	public static Item steelBoots = new ItemSteelArmor(ASTEEL, 3, "steelBoots");
-	public static Item fleroviumHelm = new ItemSteelArmor(AFLEROVIUM, 0, "fleroviumHelm");
-	public static Item fleroviumPlate = new ItemSteelArmor(AFLEROVIUM, 1, "fleroviumPlate");
-	public static Item fleroviumPants = new ItemSteelArmor(AFLEROVIUM, 2, "fleroviumPants");
-	public static Item fleroviumBoots = new ItemSteelArmor(AFLEROVIUM, 3, "fleroviumBoots");
+	public static Item fleroviumHelm = new ItemFleroviumArmor(AFLEROVIUM, 0, "fleroviumHelm");
+	public static Item fleroviumPlate = new ItemFleroviumArmor(AFLEROVIUM, 1, "fleroviumPlate");
+	public static Item fleroviumPants = new ItemFleroviumArmor(AFLEROVIUM, 2, "fleroviumPants");
+	public static Item fleroviumBoots = new ItemFleroviumArmor(AFLEROVIUM, 3, "fleroviumBoots");
 	
 	public static Item gyroPlate = new ItemGyroPlate(AGYROCHESTPLATE, 1, "gyroPlate");
 
@@ -139,6 +140,10 @@ public class ModArmory
 		RegisterHelper.registerItem(steelPlate);
 		RegisterHelper.registerItem(steelPants);
 		RegisterHelper.registerItem(steelBoots);
+		RegisterHelper.registerItem(fleroviumHelm);
+		RegisterHelper.registerItem(fleroviumPlate);
+		RegisterHelper.registerItem(fleroviumPants);
+		RegisterHelper.registerItem(fleroviumBoots);
 		
 		RegisterHelper.registerItem(gyroPlate);
 	}

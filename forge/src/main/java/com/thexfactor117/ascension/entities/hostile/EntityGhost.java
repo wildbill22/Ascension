@@ -43,7 +43,7 @@ public class EntityGhost extends EntityMob
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(16.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.175D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
 	}
 	

@@ -6,7 +6,7 @@ import com.thexfactor117.ascension.help.RegisterHelper;
 import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.items.ItemAscensionFood;
 import com.thexfactor117.ascension.items.artifacts.ItemOmega;
-import com.thexfactor117.ascension.items.miscellaneous.ItemBottleOfFlerovium;
+import com.thexfactor117.ascension.items.miscellaneous.ItemFlerovium;
 
 public class ModItems 
 {
@@ -22,7 +22,7 @@ public class ModItems
 	public static Item blazeGem = new ItemAscension().setUnlocalizedName("blazeGem");
 	public static Item crystal = new ItemAscension().setUnlocalizedName("crystal");
 	public static Item crystalShard = new ItemAscension().setUnlocalizedName("crystalShard");
-	public static Item fleroviumIngot = new ItemAscension().setUnlocalizedName("fleroviumIngot");
+	public static Item fleroviumIngot = new ItemFlerovium().setUnlocalizedName("fleroviumIngot");
 	public static Item fleroviumShard = new ItemAscension().setUnlocalizedName("fleroviumShard");
 	
 	//Food

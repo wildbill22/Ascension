@@ -2,10 +2,9 @@ package com.thexfactor117.ascension.items.weapons;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
