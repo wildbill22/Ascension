@@ -3,8 +3,7 @@ package com.thexfactor117.ascension.structures;
 import java.util.Random;
 
 import com.thexfactor117.ascension.help.LogHelper;
-import com.thexfactor117.ascension.init.ModArmory;
-import com.thexfactor117.ascension.init.ModItems;
+import com.thexfactor117.ascension.help.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -20,7 +19,7 @@ public class Camp_000 extends AbandonedStructure {
 	// Variables for configuration
 	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 1;   // Set larger for bigger structures
-	public static int spawnChance = 100;          // chance n/100
+	public static int spawnChance = Reference.spawnChanceCamp;  // chance n/100
     
 	public Camp_000() 
 	{

@@ -1,5 +1,8 @@
 package com.thexfactor117.ascension.structures;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -9,16 +12,23 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompressedStreamTools;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.tileentity.TileEntityMobSpawner;
-import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.WorldEvent;
 
+import com.thexfactor117.ascension.handlers.WorldLoadEventHandler;
+import com.thexfactor117.ascension.handlers.WorldSaveEventHandler;
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
+
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 /**
  * All structures extend this class. The steps to add a structure:
@@ -38,7 +48,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 {
 	protected int structureMissingBlockChance = 15;  // Set this to about 1/10 number of blocks
 	protected int structureSpawnHeightTolerance = 3;
-	public int structureSpawnChance = 200; // chance n/200
+	public int structureSpawnChance = 100; // chance n/100
 	protected Block[] validSpawnBlocks;
 	protected Block[] validBaseBlocks = { Blocks.bedrock, Blocks.clay, Blocks.coal_ore, Blocks.cobblestone,
 			Blocks.diamond_ore, Blocks.dirt, Blocks.emerald_ore, Blocks.end_stone, Blocks.glass,
@@ -68,20 +78,124 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	protected Block baseBlock; 
 
 	// Code to find nearest already generated structure (in a thread, so just the largest ones)
-	protected static ArrayList<ChunkCoordinates> structureList = new ArrayList<ChunkCoordinates>();
+	protected static ArrayList<StructureCoordinates> structureList = new ArrayList<StructureCoordinates>();
+//	protected static WorldClient world;
+	private static File saveDir = null;
+	private static String datFilename = "ascensionStructureList.dat";
     
+    public static void preInit(FMLPreInitializationEvent event) {    	
+    	MinecraftForge.EVENT_BUS.register(new WorldSaveEventHandler());
+    	MinecraftForge.EVENT_BUS.register(new WorldLoadEventHandler());
+//    	world = Minecraft.getMinecraft().theWorld;
+    	setPendingRead();
+    }
+    
+	// Stuff to save the structureList
+	public static void writeToNBT(NBTTagCompound nbt) {
+		int size = structureList.size();
+		nbt.setInteger("size", size);
+        Iterator<StructureCoordinates> iterator = structureList.iterator();
+		for (int i = 0; i < size; i++) {
+        	iterator.next().writeToNBT(nbt, i);
+        }
+	}
+	
+	public static void readFromNBT(NBTTagCompound nbt) {
+		int size = nbt.getInteger("size");
+		for (int i = 0; i < size; i++) {
+			StructureCoordinates coords = new StructureCoordinates();
+			coords.readFromNBT(nbt, i);
+			structureList.add(coords);
+		}
+	}
+	
+	public static void writeToFile(WorldEvent.Unload event) {
+		if (hasPendingWrite()) {
+			clearPendingWrite();
+			try {
+				if (saveDir != null) {
+					File file = new File(saveDir, datFilename);
+					if (!file.exists()) {
+						file.createNewFile();
+					}
+					FileOutputStream fos = new FileOutputStream(file);
+					NBTTagCompound nbt = new NBTTagCompound();
+		   			writeToNBT(nbt);
+		   			CompressedStreamTools.writeCompressed(nbt, fos);
+					fos.close();
+					LogHelper.info("Saved the structure list.");
+				}
+			} catch(Exception exception) {
+				exception.printStackTrace();
+			}
+		}
+	}
+		
+	public static void readFromFile(WorldEvent.Load event) {
+		if (hasPendingRead()) {
+			clearPendingRead();
+			clearStructureList();
+			try {
+				if (saveDir == null)
+					saveDir = event.world.getSaveHandler().getWorldDirectory();
+				File file = new File(saveDir, datFilename);
+				if (!file.exists()) {
+					return;
+				}
+				FileInputStream fis = new FileInputStream(file);
+				NBTTagCompound nbt = CompressedStreamTools.readCompressed(fis);
+				readFromNBT(nbt);
+				fis.close();
+				LogHelper.info("Loaded the structure list.");
+			} catch(Exception exception) {
+				exception.printStackTrace();
+			}
+		}	
+	}
+	
+	private static short dirtyFlag = 0;
+	
+	private static void setPendingRead() {
+		dirtyFlag |= 1;
+	}
+	
+	private static void setPendingWrite() {
+		dirtyFlag |= 2;
+	}
+	
+	public static void clearPendingRead() {
+		dirtyFlag &= ~1;
+	}
+	
+	public static void clearPendingWrite() {
+		dirtyFlag &= ~2;
+	}
+	
+	public static boolean hasPendingRead() {
+		return (dirtyFlag & 1) == 1;
+	}
+	
+	public static boolean hasPendingWrite() {
+		return (dirtyFlag & 2) == 2;
+	}
+	
+	public static void clearStructureList() {
+		structureList.clear();
+	}
+	
 	public static void generatedCenterAt(int posX, int posY, int posZ) {
-		ChunkCoordinates center = new ChunkCoordinates(posX, posY, posZ);
+		StructureCoordinates center = new StructureCoordinates(posX, posY, posZ);
 		structureList.add(center);
+		setPendingWrite();
 	}
 	
 	public static double findNearestStructure(int posX, int posY, int posZ) {
 		double nearest = 2000;
 		double distance = 2000;
-        Iterator<ChunkCoordinates> iterator = structureList.iterator();
+        Iterator<StructureCoordinates> iterator = structureList.iterator();
         
         while (iterator.hasNext()) {
-        	ChunkCoordinates campCenter = iterator.next();
+        	StructureCoordinates campCenter = iterator.next();
         	distance = Math.sqrt(campCenter.getDistanceSquared(posZ, posY, posZ));
         	if (distance < nearest) {
         		nearest = distance;
@@ -220,7 +334,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			TileEntityChest chestEntity = new TileEntityChest();
 			world.setTileEntity(x, y, z, chestEntity);
 			if (randomChestItems != null) {
-				// item, min to add, max to add, chance N/1000
+				// item, min to add, max to add, chance N/100
 				// Add items with lowest chance first
 				for (int i = 0; i < randomChestItems.size(); i++) {
 					if (i > 26) {

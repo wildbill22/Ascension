@@ -16,6 +16,7 @@ import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.init.ModStructureItems;
 import com.thexfactor117.ascension.proxies.ClientProxy;
 import com.thexfactor117.ascension.proxies.CommonProxy;
+import com.thexfactor117.ascension.structures.AbandonedStructure;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -44,11 +45,12 @@ public class Ascension
 		ModArmory.init();
 		ModEntities.init();
 		ModStructureItems.init(); // Comment out for releases
+		AbandonedStructure.preInit(event);
 		
 		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 		
 		ascensionProxy.registerRenderer();
-		
+				
 		//FMLCommonHandler.instance().bus().register(new AscensionEvent());
 	}
 	
@@ -64,5 +66,5 @@ public class Ascension
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		
-	}
+	}	
 }
