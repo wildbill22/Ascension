@@ -13,9 +13,9 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemFlerovium extends Item
+public class ItemTitanium extends Item
 {
-	public ItemFlerovium()
+	public ItemTitanium()
 	{
 		super();
 		setCreativeTab(ModTabs.tabAscension);
@@ -32,7 +32,6 @@ public class ItemFlerovium extends Item
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
-		list.add("An extremely powerful substance.");
-		list.add("Congratulations.");
+		list.add("An alternative to iron.");
 	}
 }

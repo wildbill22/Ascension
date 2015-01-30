@@ -1,6 +1,6 @@
 tile.titaniumOre.name=Titanium Ore
 tile.vexalOre.name=Vexal Ore
-tile.fleroviumOre.name=Flerovium Ore
+tile.fleroviumOre.name=§eFlerovium Ore§r
 tile.limestone.name=Limestone
 tile.limestoneBricks.name=Limestone Bricks
 
@@ -14,28 +14,27 @@ tile.abyssStoneBricks.name=Abyss Stone Bricks
 tile.abyssOre.name=Abyss Ore
 tile.ash.name=Ash
 
-item.eclipse.name=Eclipse
-item.nova.name=Nova
-item.mythic.name=Mythic
-item.inheritance.name=Inheritance
-item.omega.name=Omega
+item.eclipse.name=§aEclipse§r
+item.nova.name=§aNova§r
+item.mythic.name=§aMythic§r
+item.inheritance.name=§aInheritance§r
+item.omega.name=§aOmega§r
 
-item.titaniumIngot.name=§4Titanium Ingot§r
-item.steelIngot.name=§6Steel Ingot§r
-item.vexalIngot.name=§2Vexal Ingot§r
-item.infusedVexalIngot.name=§bInfused Vexal Ingot§r
-item.fleroviumIngot.name=§6§lFlerovium Ingot§r
-item.fleroviumShard.name=§dFlerovium Shard§r
+item.titaniumIngot.name=Titanium Ingot
+item.steelIngot.name=Steel Ingot
+item.vexalIngot.name=Vexal Ingot
+item.infusedVexalIngot.name=Infused Vexal Ingot
+item.fleroviumIngot.name=§eFlerovium Ingot§r
+item.fleroviumShard.name=§eFlerovium Shard§r
 item.iceGem.name=Ice Gem
 item.blazeGem.name=Blaze Gem
 item.crystal.name=Crystal
 item.crystalShard.name=Crystal Shard
+item.soulGem.name=Soul Gem
+item.soulFragment.name=Soul Fragment
 
 item.rawVenison.name=Raw Venison
 item.cookedVenison.name=Cooked Venison
-item.strawberry.name=Strawberry
-item.raspberry.name=Raspberry
-item.blueberry.name=Blueberry
 
 item.antlers.name=Antlers
 item.sharkTeeth.name=Shark Teeth
@@ -59,19 +58,17 @@ item.veconiteAxe.name=Veconite Axe
 item.iceSword.name=Ice Sword
 item.blazeSword.name=Blaze Sword
 item.vexalSword.name=Vexal Sword
-item.infusedVeconiteSword.name=Infused Veconite Sword
+item.infusedVexalSword.name=Infused Vexal Sword
 item.razorSword.name=Razor Sword
 item.crystallizedSword.name=Crystallized Sword
 item.gyroMace.name=Gyro Mace
 item.shadowBlade.name=Shadow Blade
 item.etherealBlade.name=Ethereal Blade
 item.wingedBlade.name=Winged Blade
-item.nightsEdge.name=Night's Edge
-item.lightsBane.name=Light's Bane
-item.voidHammer.name=Void Hammer
-item.divineRapier.name=Divine Rapier
-item.bladeOfAlacrity.name=Blade of Alacrity
-item.fleroviumSword.name=Flerovium Sword
+item.voidHammer.name=§eVoid Hammer§r
+item.divineRapier.name=§eDivine Rapier§r
+item.bladeOfAlacrity.name=§bBlade of Alacrity§r
+item.fleroviumSword.name=§eFlerovium Sword§r
 
 item.titaniumHelm.name=Titanium Helmet
 item.titaniumPlate.name=Titanium Chestplate
@@ -81,10 +78,10 @@ item.steelHelm.name=Steel Helmet
 item.steelPlate.name=Steel Chestplate
 item.steelPants.name=Steel Leggings
 item.steelBoots.name=Steel Boots
-item.fleroviumHelm.name=Flerovium Helmet
-item.fleroviumPlate.name=Flerovium Chestplate
-item.fleroviumPants.name=Flerovium Leggings
-item.fleroviumBoots.name=Flerovium Boots
+item.fleroviumHelm.name=§eFlerovium Helmet§r
+item.fleroviumPlate.name=§eFlerovium Chestplate§r
+item.fleroviumPants.name=§eFlerovium Leggings§r
+item.fleroviumBoots.name=§eFlerovium Boots§r
 
 item.gyroPlate.name=Gyro Chestplate
 
@@ -104,6 +101,8 @@ entity.Ghost.name=Ghost
 entity.Banshee.name=Banshee
 
 entity.Doe.name=Doe
+
+entity.Pharaoh.name=Pharaoh
 
 itemGroup.tabAscension=Ascension
 itemGroup.tabAscensionTest=Ascension Test Items

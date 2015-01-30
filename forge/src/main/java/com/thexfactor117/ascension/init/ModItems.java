@@ -7,6 +7,8 @@ import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.items.ItemAscensionFood;
 import com.thexfactor117.ascension.items.artifacts.ItemOmega;
 import com.thexfactor117.ascension.items.miscellaneous.ItemFlerovium;
+import com.thexfactor117.ascension.items.miscellaneous.ItemSteel;
+import com.thexfactor117.ascension.items.miscellaneous.ItemTitanium;
 
 public class ModItems 
 {
@@ -14,8 +16,8 @@ public class ModItems
 	public static Item omega = new ItemOmega().setUnlocalizedName("omega");
 
 	//Valuables
-	public static Item titaniumIngot = new ItemAscension().setUnlocalizedName("titaniumIngot");
-	public static Item steelIngot = new ItemAscension().setUnlocalizedName("steelIngot");
+	public static Item titaniumIngot = new ItemTitanium().setUnlocalizedName("titaniumIngot");
+	public static Item steelIngot = new ItemSteel().setUnlocalizedName("steelIngot");
 	public static Item vexalIngot = new ItemAscension().setUnlocalizedName("vexalIngot");
 	public static Item infusedVexalIngot = new ItemAscension().setUnlocalizedName("infusedVexalIngot");
 	public static Item iceGem = new ItemAscension().setUnlocalizedName("iceGem");
@@ -23,7 +25,7 @@ public class ModItems
 	public static Item crystal = new ItemAscension().setUnlocalizedName("crystal");
 	public static Item crystalShard = new ItemAscension().setUnlocalizedName("crystalShard");
 	public static Item fleroviumIngot = new ItemFlerovium().setUnlocalizedName("fleroviumIngot");
-	public static Item fleroviumShard = new ItemAscension().setUnlocalizedName("fleroviumShard");
+	public static Item fleroviumShard = new ItemFlerovium().setUnlocalizedName("fleroviumShard");
 	
 	//Food
 	public static Item rawVenison = new ItemAscensionFood(3, 0.5F, true).setUnlocalizedName("rawVenison");

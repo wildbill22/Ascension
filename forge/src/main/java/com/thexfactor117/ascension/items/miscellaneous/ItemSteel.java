@@ -2,20 +2,19 @@ package com.thexfactor117.ascension.items.miscellaneous;
 
 import java.util.List;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
-public class ItemFlerovium extends Item
+public class ItemSteel extends Item
 {
-	public ItemFlerovium()
+	public ItemSteel()
 	{
 		super();
 		setCreativeTab(ModTabs.tabAscension);
@@ -32,7 +31,6 @@ public class ItemFlerovium extends Item
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
-		list.add("An extremely powerful substance.");
-		list.add("Congratulations.");
+		list.add("A combination of titanium and iron.");
 	}
 }

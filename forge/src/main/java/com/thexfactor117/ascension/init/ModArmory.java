@@ -40,8 +40,6 @@ public class ModArmory
 	static Item.ToolMaterial SHADOW = EnumHelper.addToolMaterial("SHADOW", 3, 256, 2.0F, 4.0F, 25);
 	static Item.ToolMaterial ETHEREAL = EnumHelper.addToolMaterial("ETHEREAL", 3, 192, 2.0F, 4.0F, 25);
 	static Item.ToolMaterial WINGED = EnumHelper.addToolMaterial("WINGED", 3, 256, 2.0F, 4.0F, 25);
-	static Item.ToolMaterial NIGHTSEDGE = EnumHelper.addToolMaterial("NIGHTSEDGE", 3, 256, 2.0F, 5.0F, 20);
-	static Item.ToolMaterial LIGHTSBANE = EnumHelper.addToolMaterial("LIGHTSBANE", 3, 256, 2.0F, 5.0F, 20);
 	static Item.ToolMaterial VOID = EnumHelper.addToolMaterial("VOID", 3, 256, 2.0F, 6.0F, 15);
 	static Item.ToolMaterial DIVINERAPIER = EnumHelper.addToolMaterial("DIVINERAPIER", 3, 256, 2.0F, 6.0F, 15);
 	static Item.ToolMaterial ALACRITY = EnumHelper.addToolMaterial("ALACRITY", 3, 512, 10.0F, 8.0F, 30);
@@ -77,15 +75,11 @@ public class ModArmory
 	public static Item shadowBlade = new ItemAscensionSword(SHADOW).setUnlocalizedName("shadowBlade");
 	public static Item etherealBlade = new ItemEtherealBlade(ETHEREAL).setUnlocalizedName("etherealBlade");
 	public static Item wingedBlade = new ItemAscensionSword(WINGED).setUnlocalizedName("wingedBlade");
-	public static Item nightsEdge = new ItemAscensionSword(NIGHTSEDGE).setUnlocalizedName("nightsEdge");
-	public static Item lightsBane = new ItemAscensionSword(LIGHTSBANE).setUnlocalizedName("lightsBane");
 	public static Item voidHammer = new ItemAscensionSword(VOID).setUnlocalizedName("voidHammer");
 	public static Item divineRapier = new ItemDivineRapier(DIVINERAPIER).setUnlocalizedName("divineRapier");
 	public static Item bladeOfAlacrity = new ItemAscensionSword(ALACRITY).setUnlocalizedName("bladeOfAlacrity");
 	public static Item fleroviumSword = new ItemFleroviumSword(FLEROVIUM).setUnlocalizedName("fleroviumSword");
-	
-	public static Item infernoStaff = new ItemInfernoStaff().setUnlocalizedName("infernoStaff");
-	
+		
 	//Armor
 	public static Item titaniumHelm = new ItemTitaniumArmor(ATITANIUM, 0, "titaniumHelm");
 	public static Item titaniumPlate = new ItemTitaniumArmor(ATITANIUM, 1, "titaniumPlate");
@@ -123,14 +117,10 @@ public class ModArmory
 		RegisterHelper.registerItem(shadowBlade);
 		RegisterHelper.registerItem(etherealBlade);
 		RegisterHelper.registerItem(wingedBlade);
-		RegisterHelper.registerItem(nightsEdge);
-		RegisterHelper.registerItem(lightsBane);
 		RegisterHelper.registerItem(voidHammer);
 		RegisterHelper.registerItem(divineRapier);
 		RegisterHelper.registerItem(bladeOfAlacrity);
 		RegisterHelper.registerItem(fleroviumSword);
-		
-		RegisterHelper.registerItem(infernoStaff);
 		
 		RegisterHelper.registerItem(titaniumHelm);
 		RegisterHelper.registerItem(titaniumPlate);
