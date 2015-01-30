@@ -1,0 +1,9 @@
+Sphinx by TheXFactor117
+
+Contains 3 double chests - two underground, 1 inside the structure. All should be generated.
+
+A very massive structure to say the least. It does, however, expand down under ground, so take that into account.
+
+* This is not the final version - just something as a starting point. Any and all suggestions are appreciated.
+
+This is a biome restricted structure, restricted to Desert Biomes only. Along with this, this is a boss dungeon, and therefore should be a rare spawn, and a limited amount of structures per world.
