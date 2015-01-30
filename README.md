@@ -1,9 +1,9 @@
 Ascension
 =========
 
-Ascension Source Code -- A Skyrim inspired, RGP adventure.
+Ascension Source Code -- An immersive, challenging adventure awaits...
 
-Ascension is a new mod idea for Minecraft which aims to create an immersive, 
+Ascension is a new mod for Minecraft which aims to create an immersive, 
 challenging adventure for you to explore. Inspired a lot by Skyrim, you'll jump into 
 your own world, battling intimidation monsters, slaying mysterious bosses, looting 
 seemingly innocent ruins, ultimately leading you up to recapturing the lost Artifacts 
