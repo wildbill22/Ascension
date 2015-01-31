@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.help.Reference;
+import com.thexfactor117.ascension.structures.StructureCoordinates.Structures;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -27,6 +28,7 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 		structureSpawnChance = spawnChance;
 		validSpawnBlocks = getValidSpawnBlocks();
 		mobsToSpawn = getMobsToSpawn();
+		structureType = Structures.EASYMOBDUNGEON;
 
 		int i = 0;
 		i = addItemsForAllChests(i);

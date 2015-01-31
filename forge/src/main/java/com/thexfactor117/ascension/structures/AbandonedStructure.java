@@ -27,6 +27,7 @@ import com.thexfactor117.ascension.handlers.WorldSaveEventHandler;
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
+import com.thexfactor117.ascension.structures.StructureCoordinates.Structures;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
@@ -49,6 +50,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	protected int structureMissingBlockChance = 15;  // Set this to about 1/10 number of blocks
 	protected int structureSpawnHeightTolerance = 3;
 	public int structureSpawnChance = 100; // chance n/100
+	public Structures structureType = Structures.OTHER;
 	protected Block[] validSpawnBlocks;
 	protected Block[] validBaseBlocks = { Blocks.bedrock, Blocks.clay, Blocks.coal_ore, Blocks.cobblestone,
 			Blocks.diamond_ore, Blocks.dirt, Blocks.emerald_ore, Blocks.end_stone, Blocks.glass,
@@ -183,8 +185,8 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		structureList.clear();
 	}
 	
-	public static void generatedCenterAt(int posX, int posY, int posZ) {
-		StructureCoordinates center = new StructureCoordinates(posX, posY, posZ);
+	public static void generatedCenterAt(Structures type, int posX, int posY, int posZ) {
+		StructureCoordinates center = new StructureCoordinates(type, posX, posY, posZ);
 		structureList.add(center);
 		setPendingWrite();
 	}
@@ -234,7 +236,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	{
 		if (AbandonedStructure.findNearestStructure(x + xBaseMax / 2, y, z + zBaseMax / 2) < 64)
 			return false;
-		generatedCenterAt(x + xBaseMax / 2, y, z + zBaseMax / 2);
+		generatedCenterAt(structureType, x + xBaseMax / 2, y, z + zBaseMax / 2);
 
 		threadWorld = world;
 		threadRandom = random;
@@ -682,4 +684,3 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		return i;
 	}
 }
-

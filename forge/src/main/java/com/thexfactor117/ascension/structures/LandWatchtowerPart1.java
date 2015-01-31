@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.help.Reference;
+import com.thexfactor117.ascension.structures.StructureCoordinates.Structures;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -27,6 +28,7 @@ public class LandWatchtowerPart1 extends AbandonedStructure {
 		structureSpawnChance = spawnChance;
 		validSpawnBlocks = getValidSpawnBlocks();
 		mobsToSpawn = getMobsToSpawn();
+//		structureType = Structures.LANDWATCHTOWER;
 
 		int i = 0;
 		addItemsForAllChests(i);		
@@ -54,7 +56,7 @@ public class LandWatchtowerPart1 extends AbandonedStructure {
 		}
 		generateStructure(world, random, x, y, z);
 		generateStructureBase(world, random, x, z, 6, 6, Blocks.cobblestone);
-		generatedCenterAt(x + 5, y, z + 5);
+		generatedCenterAt(structureType, x + 5, y, z + 5);
 		
 		return true;
 	}

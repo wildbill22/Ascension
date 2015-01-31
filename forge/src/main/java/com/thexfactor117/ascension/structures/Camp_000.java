@@ -4,10 +4,10 @@ import java.util.Random;
 
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.help.Reference;
+import com.thexfactor117.ascension.structures.StructureCoordinates.Structures;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 /**
@@ -29,6 +29,7 @@ public class Camp_000 extends AbandonedStructure {
 		validSpawnBlocks = getValidSpawnBlocks();
 		mobsToSpawn = getMobsToSpawn();
 		baseBlock = Blocks.dirt;
+		structureType = Structures.CAMP;
 
 		int i = 0;
 		addItemsForAllChests(i);		

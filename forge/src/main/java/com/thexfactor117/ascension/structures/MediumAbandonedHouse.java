@@ -54,7 +54,7 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 		}
 		generateStructure(world, random, x, y, z);
 		generateStructureBase(world, random, x, z, 6, 8, Blocks.cobblestone);
-		generatedCenterAt(x + 5, y, z + 5);
+		generatedCenterAt(structureType, x + 5, y, z + 5);
 		
 		return true;
 	}
