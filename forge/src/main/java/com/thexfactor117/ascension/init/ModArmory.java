@@ -13,12 +13,20 @@ import com.thexfactor117.ascension.items.armor.ItemFleroviumArmor;
 import com.thexfactor117.ascension.items.armor.ItemGyroPlate;
 import com.thexfactor117.ascension.items.armor.ItemSteelArmor;
 import com.thexfactor117.ascension.items.armor.ItemTitaniumArmor;
+import com.thexfactor117.ascension.items.weapons.ItemBladeOfAlacrity;
 import com.thexfactor117.ascension.items.weapons.ItemBlazeSword;
+import com.thexfactor117.ascension.items.weapons.ItemCrystallizedSword;
 import com.thexfactor117.ascension.items.weapons.ItemDivineRapier;
 import com.thexfactor117.ascension.items.weapons.ItemEtherealBlade;
 import com.thexfactor117.ascension.items.weapons.ItemFleroviumSword;
+import com.thexfactor117.ascension.items.weapons.ItemGyroMace;
 import com.thexfactor117.ascension.items.weapons.ItemIceSword;
-import com.thexfactor117.ascension.items.weapons.ItemInfernoStaff;
+import com.thexfactor117.ascension.items.weapons.ItemInfusedVexalSword;
+import com.thexfactor117.ascension.items.weapons.ItemRazorSword;
+import com.thexfactor117.ascension.items.weapons.ItemShadowBlade;
+import com.thexfactor117.ascension.items.weapons.ItemVexalSword;
+import com.thexfactor117.ascension.items.weapons.ItemVoidHammer;
+import com.thexfactor117.ascension.items.weapons.ItemWingedBlade;
 
 public class ModArmory 
 {
@@ -65,19 +73,19 @@ public class ModArmory
 	public static Item steelAxe = new ItemAscensionAxe(STEEL).setUnlocalizedName("steelAxe");
 	
 	//Weapons
-	public static Item vexalSword = new ItemAscensionSword(VEXAL).setUnlocalizedName("vexalSword");
+	public static Item vexalSword = new ItemVexalSword(VEXAL).setUnlocalizedName("vexalSword");
 	public static Item iceSword = new ItemIceSword(ICE).setUnlocalizedName("iceSword");
 	public static Item blazeSword = new ItemBlazeSword(BLAZE).setUnlocalizedName("blazeSword");
-	public static Item infusedVexalSword = new ItemAscensionSword(INFUSEDVEXAL).setUnlocalizedName("infusedVexalSword");
-	public static Item razorSword = new ItemAscensionSword(RAZOR).setUnlocalizedName("razorSword");
-	public static Item crystallizedSword = new ItemAscensionSword(CRYSTAL).setUnlocalizedName("crystallizedSword");
-	public static Item gyroMace = new ItemAscensionSword(GYRO).setUnlocalizedName("gyroMace");
-	public static Item shadowBlade = new ItemAscensionSword(SHADOW).setUnlocalizedName("shadowBlade");
+	public static Item infusedVexalSword = new ItemInfusedVexalSword(INFUSEDVEXAL).setUnlocalizedName("infusedVexalSword");
+	public static Item razorSword = new ItemRazorSword(RAZOR).setUnlocalizedName("razorSword");
+	public static Item crystallizedSword = new ItemCrystallizedSword(CRYSTAL).setUnlocalizedName("crystallizedSword");
+	public static Item gyroMace = new ItemGyroMace(GYRO).setUnlocalizedName("gyroMace");
+	public static Item shadowBlade = new ItemShadowBlade(SHADOW).setUnlocalizedName("shadowBlade");
 	public static Item etherealBlade = new ItemEtherealBlade(ETHEREAL).setUnlocalizedName("etherealBlade");
-	public static Item wingedBlade = new ItemAscensionSword(WINGED).setUnlocalizedName("wingedBlade");
-	public static Item voidHammer = new ItemAscensionSword(VOID).setUnlocalizedName("voidHammer");
+	public static Item wingedBlade = new ItemWingedBlade(WINGED).setUnlocalizedName("wingedBlade");
+	public static Item voidHammer = new ItemVoidHammer(VOID).setUnlocalizedName("voidHammer");
 	public static Item divineRapier = new ItemDivineRapier(DIVINERAPIER).setUnlocalizedName("divineRapier");
-	public static Item bladeOfAlacrity = new ItemAscensionSword(ALACRITY).setUnlocalizedName("bladeOfAlacrity");
+	public static Item bladeOfAlacrity = new ItemBladeOfAlacrity(ALACRITY).setUnlocalizedName("bladeOfAlacrity");
 	public static Item fleroviumSword = new ItemFleroviumSword(FLEROVIUM).setUnlocalizedName("fleroviumSword");
 		
 	//Armor

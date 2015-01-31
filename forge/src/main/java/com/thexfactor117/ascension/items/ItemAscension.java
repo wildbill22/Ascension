@@ -1,6 +1,7 @@
 package com.thexfactor117.ascension.items;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 import com.thexfactor117.ascension.help.Reference;

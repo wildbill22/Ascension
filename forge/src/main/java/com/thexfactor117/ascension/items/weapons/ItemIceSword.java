@@ -1,7 +1,10 @@
 package com.thexfactor117.ascension.items.weapons;
 
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
@@ -38,5 +41,14 @@ public class ItemIceSword extends ItemSword
 		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*3, 2));
 		
 		return true;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
+	{
+		list.add("Freeze your enemies in their tracks!");
+		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
+		list.add("Ability: Slowness");
 	}
 }

@@ -1,7 +1,10 @@
 package com.thexfactor117.ascension.items.weapons;
 
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
@@ -39,5 +42,14 @@ public class ItemFleroviumSword extends ItemSword
 		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.poison.id, 20*30, 1));
 		
 		return true;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
+	{
+		list.add("Truly the greatest craftable weapon.");
+		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
+		list.add("Ability: Poison");
 	}
 }
