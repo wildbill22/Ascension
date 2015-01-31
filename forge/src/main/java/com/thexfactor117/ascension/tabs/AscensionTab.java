@@ -31,7 +31,6 @@ public class AscensionTab extends CreativeTabs
 		{
 			return ModStructureItems.spawnAbandonedHouse;
 		}
-		System.out.println("Love you, Mariah");
 		return null;
 	}
 }

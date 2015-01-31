@@ -45,10 +45,10 @@ public class AscensionWorldGeneration implements IWorldGenerator
 	 */
 	private void generateSurface(World world, Random random, int x, int z)
 	{
-		addOreSpawn(ModBlocks.titaniumOre, world, random, x, z, 16, 16, 1 + random.nextInt(3), 7, 0, 25);
+		addOreSpawn(ModBlocks.titaniumOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), 9, 0, 48);
 		addOreSpawn(ModBlocks.vexalOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), 7, 0, 32);
 		addOreSpawn(ModBlocks.fleroviumOre, world, random, x, z, 16, 16, 1, 1, 0, 80);
-		addOreSpawn(ModBlocks.limestone, world, random, x, z, 16, 16, 20 + random.nextInt(20), 15, 32, 128);
+		addOreSpawn(ModBlocks.limestone, world, random, x, z, 16, 16, 20 + random.nextInt(20), 13, 42, 128);
 		addStructures(world, random, x, z);
 	}
 
