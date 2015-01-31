@@ -591,8 +591,8 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		// In all chests - minecraft vanilla
 		addRandomChestItem(i++, Items.iron_ingot, 1, 3, 7);
 		addRandomChestItem(i++, Items.gold_ingot, 1, 2, 7);
-		addRandomChestItem(i++, Items.diamond, 1, 1, 2);
-		addRandomChestItem(i++, Items.emerald, 1, 1, 1);
+		addRandomChestItem(i++, Items.diamond, 1, 2, 3);
+		addRandomChestItem(i++, Items.emerald, 1, 1, 2);
 		addRandomChestItem(i++, Items.rotten_flesh, 1, 4, 10);
 		addRandomChestItem(i++, Items.bone, 1, 3, 8);
 		addRandomChestItem(i++, Items.wheat, 1, 4, 10);
@@ -602,12 +602,12 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		addRandomChestItem(i++, ModItems.vexalIngot, 1, 1, 5);
 		addRandomChestItem(i++, ModItems.rawVenison, 1, 3, 10);
 		addRandomChestItem(i++, ModItems.coldBlazeRod, 1, 2, 8);
-		addRandomChestItem(i++, ModItems.sharkTeeth, 1, 1, 9);
+		addRandomChestItem(i++, ModItems.sharkTeeth, 1, 2, 9);
 		addRandomChestItem(i++, ModItems.golemGyro, 1, 1, 5);
 
 		// In all chests - modArmory
 		addRandomChestItem(i++, ModArmory.blazeSword, 1, 1, 2);
-		addRandomChestItem(i++, ModArmory.iceSword, 1, 1, 2);
+		addRandomChestItem(i++, ModArmory.iceSword, 1, 1, 3);
 		addRandomChestItem(i++, ModArmory.razorSword, 1, 1, 2);
 		
 		return i;
@@ -616,11 +616,11 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	protected int addItemsForAllDungeons(int i) {
 		// More ModItems for All Mob Dungeons (6):
 		addRandomChestItem(i++, ModItems.steelIngot, 1, 1, 4);
-		addRandomChestItem(i++, ModItems.crystal, 1, 1, 4);
-		addRandomChestItem(i++, ModItems.fleroviumShard, 1, 1, 4);
-		addRandomChestItem(i++, ModItems.crystalShard, 1, 1, 4);
-		addRandomChestItem(i++, ModItems.iceGem, 1, 1, 4);
-		addRandomChestItem(i++, ModItems.blazeGem, 1, 1, 4);
+		addRandomChestItem(i++, ModItems.crystal, 1, 2, 4);
+		addRandomChestItem(i++, ModItems.fleroviumShard, 1, 1, 2);
+		addRandomChestItem(i++, ModItems.crystalShard, 1, 3, 5);
+		addRandomChestItem(i++, ModItems.iceGem, 1, 1, 3);
+		addRandomChestItem(i++, ModItems.blazeGem, 1, 1, 3);
 
 		// More ModArmory for All Dungeons (13):
 		Random random = new Random();
