@@ -39,8 +39,8 @@ public class ItemDivineRapier extends ItemSword
 	{
 		par1ItemStack.damageItem(1, par3EntityLivingBase);
 		
-		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*3, 1));
-		par2EntityLivingBase.setFire(3);
+		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*5, 1));
+		par2EntityLivingBase.setFire(5);
 		
 		return true;
 	}
