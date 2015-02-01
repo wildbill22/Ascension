@@ -15,6 +15,5 @@ public class Reference
 	public static final int spawnChanceLandWatchtowerPart1 = 20;
 	public static final int spawnChanceMediumAbandonedHouse = 30;
 	public static final int spawnChanceSmallAbandonedHouse = 30;
-	
-	// Constants for controlling 
+	public static final int spawnChanceSphinx = 100;		
 }

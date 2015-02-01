@@ -49,6 +49,8 @@ public class StructureCoordinates extends ChunkCoordinates {
 		posX = nbtTag.getInteger("x");
 		posY = nbtTag.getInteger("y");
 		posZ = nbtTag.getInteger("z");
+		if (type == Structures.SPHINX)
+			AbandonedStructure.sphinxGenerated = true;
 	}
 
 	public void writeToNBT(NBTTagCompound nbt, int i) {

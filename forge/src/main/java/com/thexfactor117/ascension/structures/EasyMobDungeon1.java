@@ -799,8 +799,6 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 		setBlock(world, random, x + 9, y + 5, z + 10, Blocks.air, 0, 3);
 		setBlock(world, random, x + 10, y + 5, z + 10, Blocks.air, 0, 3);
 
-		running = false; // Half built, let another thread start now
-
 		// Upper level, from part2 of schematic
 		// 13 wide (x) x 13 length (z)
 		new EasyMobDungeon1_part2().generate_part2(world, random, x - 1 , y + 6, z - 1);
@@ -812,5 +810,7 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 		// Mob spawner
 		generateMobSpawner(world, random, x + 2, y + 1, z + 2, 0);		
 		generateMobSpawner(world, random, x + 7, y + 1, z + 9, 0);		
+
+		running = false; // Done, let another thread start
 	}
 }

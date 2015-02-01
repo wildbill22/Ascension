@@ -92,6 +92,7 @@ item.spawnMediumAbandonedHouse.name=Spawn Medium Abandoned House
 item.spawnLandWatchtower.name=Spawn Land Watchtower
 item.spawnEasyMobDungeon1.name=Spawn Easy Mob Dungeon 1
 item.spawnCamp.name=Spawn Camp
+item.spawnSphinx.name=Spawn Sphinx
 
 entity.Mummy.name=Mummy
 entity.Valkyrie.name=Valkyrie

@@ -10,6 +10,7 @@ import com.thexfactor117.ascension.items.structures.SpawnLandWatchtower;
 import com.thexfactor117.ascension.items.structures.SpawnMediumAbandonedHouse;
 import com.thexfactor117.ascension.items.structures.SpawnSkyrimStyleHouse;
 import com.thexfactor117.ascension.items.structures.SpawnSmallAbandonedHouse;
+import com.thexfactor117.ascension.items.structures.SpawnSphinx;
 
 /**
  * 
@@ -25,6 +26,7 @@ public class ModStructureItems {
 	public static Item spawnLandWatchtower = new SpawnLandWatchtower().setUnlocalizedName("spawnLandWatchtower");
 	public static Item spawnEasyMobDungeon1 = new SpawnEasyMobDungeon1().setUnlocalizedName("spawnEasyMobDungeon1");
 	public static Item spawnCamp = new SpawnCamp().setUnlocalizedName("spawnCamp");
+	public static Item spawnSphinx = new SpawnSphinx().setUnlocalizedName("spawnSphinx");
 
 	public static void init()
 	{
@@ -35,5 +37,6 @@ public class ModStructureItems {
 		RegisterHelper.registerItem(spawnLandWatchtower);
 		RegisterHelper.registerItem(spawnEasyMobDungeon1);
 		RegisterHelper.registerItem(spawnCamp);
+		RegisterHelper.registerItem(spawnSphinx);
 	}
 }

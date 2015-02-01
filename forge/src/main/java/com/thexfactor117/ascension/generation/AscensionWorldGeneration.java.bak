@@ -81,18 +81,6 @@ public class AscensionWorldGeneration implements IWorldGenerator
 		final int numStructures = 6;
 		int which = random.nextInt(numStructures);
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
-
-		if (biome == BiomeGenBase.desert && AbandonedStructure.sphinxGenerated == false) {
-			ChunkCoordinates spawn = new ChunkCoordinates(0, 64, 0);
-			double distanceFromZero = Math.sqrt(spawn.getDistanceSquared(x, 64, z));
-			if (distanceFromZero > 500) {
-				LogHelper.info("Attempting to generate Sphinx at " + distanceFromZero + " meters from spawn"); 
-				Sphinx_000 sphinx = new Sphinx_000();
-				AbandonedStructure.sphinxGenerated = generateStructure(sphinx, world, random, x, z, 10, 34, -1);
-				if (AbandonedStructure.sphinxGenerated == true)
-					return;
-			}
-		}
 		
 		switch (which) {
 		case 0:
