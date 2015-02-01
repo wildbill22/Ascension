@@ -38,3 +38,9 @@ schematics for potential structures, adding weapons you feel would be nice to ha
 Bug fixes will normally be pulled right away; content additions will take longer.
 
 Just remember, test your changes/fixes for pushing it back.
+
+Quick Links
+===========
+* [Minecraft Forum Thread] (http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/requests-ideas-for-mods/2294729-ascension-a-challenging-immersive-journey-awaits)
+* [Website] (https://sites.google.com/site/ascensionmod/)
+* [Wiki] (https://github.com/TheXFactor117/Ascension/wiki)
