@@ -3,20 +3,21 @@ package com.thexfactor117.ascension.generation;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
+import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.structures.AbandonedStructure;
 import com.thexfactor117.ascension.structures.Camp_000;
 import com.thexfactor117.ascension.structures.EasyMobDungeon1;
 import com.thexfactor117.ascension.structures.LandWatchtowerPart1;
 import com.thexfactor117.ascension.structures.MediumAbandonedHouse;
-import com.thexfactor117.ascension.structures.SkyrimStyleHouse0;
 import com.thexfactor117.ascension.structures.SmallAbandonedHouse;
-import com.thexfactor117.ascension.structures.StructureGenAbandonedHouse;
+import com.thexfactor117.ascension.structures.Sphinx_000;
 
 import cpw.mods.fml.common.IWorldGenerator;
 
