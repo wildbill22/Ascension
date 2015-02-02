@@ -26,8 +26,7 @@ public class AscensionTab extends CreativeTabs
 		if (this.name == "tabAscension") 
 		{
 			return ModItems.omega;
-		}
-		else if (this.name == "tabAscensionTest")
+		} else if (this.name == "tabAscensionTest")
 		{
 			return ModStructureItems.spawnAbandonedHouse;
 		}
