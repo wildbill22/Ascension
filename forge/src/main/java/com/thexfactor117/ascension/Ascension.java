@@ -8,6 +8,7 @@ import com.thexfactor117.ascension.crafting.ModArmorRecipes;
 import com.thexfactor117.ascension.crafting.ModRecipes;
 import com.thexfactor117.ascension.crafting.ModWeaponRecipes;
 import com.thexfactor117.ascension.generation.AscensionWorldGeneration;
+import com.thexfactor117.ascension.generation.VanillaChestLootGen;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModBlocks;
@@ -46,6 +47,7 @@ public class Ascension
 		ModEntities.init();
 		ModStructureItems.init(); // Comment out for releases
 		AbandonedStructure.preInit(event);
+		VanillaChestLootGen.init();
 		
 		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 		
