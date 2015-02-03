@@ -30,7 +30,7 @@ public class ModEntities
 		
 		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
 		
-		EntityHandler.registerMonsters(EntityPharaoh.class, "Pharaoh");
+		EntityHandler.registerBosses(EntityPharaoh.class, "Pharaoh");
 		
 		addMobSpawns();
 	}

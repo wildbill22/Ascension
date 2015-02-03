@@ -2,6 +2,7 @@ package com.thexfactor117.ascension.init;
 
 import net.minecraft.item.Item;
 
+import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.help.RegisterHelper;
 import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.items.ItemAscensionFood;
@@ -11,10 +12,13 @@ import com.thexfactor117.ascension.items.miscellaneous.ItemCrystal;
 import com.thexfactor117.ascension.items.miscellaneous.ItemFlerovium;
 import com.thexfactor117.ascension.items.miscellaneous.ItemIceGem;
 import com.thexfactor117.ascension.items.miscellaneous.ItemInfusedVexal;
+import com.thexfactor117.ascension.items.miscellaneous.ItemPharaohEgg;
 import com.thexfactor117.ascension.items.miscellaneous.ItemSoulGem;
 import com.thexfactor117.ascension.items.miscellaneous.ItemSteel;
 import com.thexfactor117.ascension.items.miscellaneous.ItemTitanium;
 import com.thexfactor117.ascension.items.miscellaneous.ItemVexal;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModItems 
 {
@@ -46,6 +50,9 @@ public class ModItems
 	//Magical Items
 	public static Item soulFragment = new ItemSoulGem().setUnlocalizedName("soulFragment");
 	public static Item soulGem = new ItemSoulGem().setUnlocalizedName("soulGem");
+	
+	//Boss Spawn Eggs
+	public static Item pharaohEgg = new ItemPharaohEgg("Pharaoh", 0xE18519, 0x000000).setUnlocalizedName("pharaohEgg").setTextureName(Reference.MODID + ":" + "pharaohEgg");
 		
 	public static void init()
 	{
@@ -72,5 +79,7 @@ public class ModItems
 		
 		RegisterHelper.registerItem(soulFragment);
 		RegisterHelper.registerItem(soulGem);
+		
+		GameRegistry.registerItem(pharaohEgg, "pharaohEgg");
 	}
 }
