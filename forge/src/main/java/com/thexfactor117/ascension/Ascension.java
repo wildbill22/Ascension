@@ -12,6 +12,7 @@ import com.thexfactor117.ascension.generation.VanillaChestLootGen;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModBlocks;
+import com.thexfactor117.ascension.init.ModBosses;
 import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.init.ModStructureItems;
@@ -45,6 +46,7 @@ public class Ascension
 		ModBlocks.init();
 		ModArmory.init();
 		ModEntities.init();
+		ModBosses.init();
 		ModStructureItems.init(); // Comment out for releases
 		AbandonedStructure.preInit(event);
 		VanillaChestLootGen.init();

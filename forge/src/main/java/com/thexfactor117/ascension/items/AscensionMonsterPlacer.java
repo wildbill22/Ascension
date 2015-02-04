@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.items.miscellaneous;
+package com.thexfactor117.ascension.items;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemPharaohEgg extends ItemMonsterPlacer
+public class AscensionMonsterPlacer extends ItemMonsterPlacer
 {
     @SideOnly(Side.CLIENT)
     private IIcon theIcon;
@@ -37,12 +37,12 @@ public class ItemPharaohEgg extends ItemMonsterPlacer
     protected String entityToSpawnNameFull = "";
     protected EntityLiving entityToSpawn = null;
 
-    public ItemPharaohEgg()
+    public AscensionMonsterPlacer()
     {
         super();
     }
     
-    public ItemPharaohEgg(String parEntityToSpawnName, int parPrimaryColor, int parSecondaryColor)
+    public AscensionMonsterPlacer(String parEntityToSpawnName, int parPrimaryColor, int parSecondaryColor)
     {
         setHasSubtypes(false);
         maxStackSize = 64;

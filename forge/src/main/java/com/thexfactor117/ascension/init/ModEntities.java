@@ -29,9 +29,7 @@ public class ModEntities
 		EntityHandler.registerMonsters(EntityBanshee.class, "Banshee");
 		
 		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
-		
-		EntityHandler.registerBosses(EntityPharaoh.class, "Pharaoh");
-		
+
 		addMobSpawns();
 	}
 	
