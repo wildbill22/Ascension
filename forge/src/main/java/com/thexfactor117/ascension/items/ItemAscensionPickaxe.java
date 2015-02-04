@@ -1,7 +1,11 @@
 package com.thexfactor117.ascension.items;
 
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemStack;
 
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
@@ -25,5 +29,12 @@ public class ItemAscensionPickaxe extends ItemPickaxe
 	public void registerIcons(IIconRegister par1IconRegister)
 	{
 		this.itemIcon = par1IconRegister.registerIcon(Reference.MODID + ":" + getUnlocalizedName().substring(5));
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
+	{
+		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
 	}
 }

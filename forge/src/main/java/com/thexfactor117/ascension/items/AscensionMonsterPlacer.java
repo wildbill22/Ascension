@@ -51,7 +51,7 @@ public class AscensionMonsterPlacer extends ItemMonsterPlacer
         colorBase = parPrimaryColor;
         colorSpots = parSecondaryColor;
         // DEBUG
-        System.out.println("Spawn egg constructor for " + entityToSpawnName);
+        LogHelper.info("Spawn egg constructor for " + entityToSpawnName);
     }
 
     /**
@@ -257,4 +257,12 @@ public class AscensionMonsterPlacer extends ItemMonsterPlacer
         entityToSpawnName = parEntityToSpawnName;
         entityToSpawnNameFull = Reference.MODID + "." + entityToSpawnName; 
     }
+    
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
+	{
+		list.add("Ready for a battle?");
+		list.add("Hope you are...");
+	}
 }

@@ -1,10 +1,15 @@
 package com.thexfactor117.ascension.items.armor;
 
+import java.util.List;
+
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -34,5 +39,13 @@ public class ItemFleroviumArmor extends ItemArmor
 		{
 			return null;
 		}
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
+	{
+		list.add("An extremely powerful armor.");
+		list.add("Full Set Bonus: None (planned)");
 	}
 }
