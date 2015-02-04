@@ -35,7 +35,7 @@ public class SpawnEasyMobDungeon1 extends ItemAscension {
 		
 		Random random = new Random();
 		EasyMobDungeon1 house = new EasyMobDungeon1();
-		house.generateStructure(world, random, x, y, z);
+		house.generate(world, random, x, y, z);
 		house.generateStructureBase(world, random, x, z, 10, 10, Blocks.cobblestone);
 		
 		return true;

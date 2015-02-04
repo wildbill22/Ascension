@@ -35,7 +35,7 @@ public class SpawnMediumAbandonedHouse extends ItemAscension {
 		
 		Random random = new Random();
 		MediumAbandonedHouse house = new MediumAbandonedHouse();
-		house.generateStructure(world, random, x, y, z);
+		house.generate(world, random, x, y, z);
 		house.generateStructureBase(world, random, x, z, 6, 8, Blocks.cobblestone);
 		
 		return true;

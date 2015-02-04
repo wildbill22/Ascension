@@ -20,51 +20,33 @@ public class LandWatchtowerPart1 extends AbandonedStructure {
 	public static int missingBlockChance = 1;     // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
 	public static int spawnChance = Reference.spawnChanceLandWatchtowerPart1; // chance n/100
+	private static int doorX = 3;
+	private static int doorZ = 0;
+	private static int xMax = 6;
+	private static int zMax = 6;
 
 	public LandWatchtowerPart1() 
 	{
-		structureMissingBlockChance = missingBlockChance;
-		structureSpawnHeightTolerance = spawnHeightTolerance;
-		structureSpawnChance = spawnChance;
-		validSpawnBlocks = getValidSpawnBlocks();
-		mobsToSpawn = getMobsToSpawn();
-//		structureType = Structures.LANDWATCHTOWER;
+		super(missingBlockChance, spawnHeightTolerance, spawnChance, Structures.OTHER, 
+				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 
 		int i = 0;
 		addItemsForAllChests(i);		
 	}
 
-	protected String[] getMobsToSpawn() {
+	protected static String[] getMobsToSpawn() {
 		return new String[] { "Ghost", "Barbarian", "Valkyrie" };
 	}
 
-	protected Block[] getValidSpawnBlocks() 
+	protected static Block[] getValidSpawnBlocks() 
 	{
 		return new Block[] { Blocks.grass, Blocks.dirt, Blocks.sand, Blocks.cobblestone };
 	}
 
 	@Override
-	public boolean generate(World world, Random random, int x, int y, int z) 
-	{
-		//check that each corner is one of the valid spawn blocks
-		if(!locationIsValidSpawn(world, x, y, z) 
-				|| !locationIsValidSpawn(world, x + 6, y, z) 
-				|| !locationIsValidSpawn(world, x + 6, y, z + 6) 
-				|| !locationIsValidSpawn(world, x, y, z + 6))
-		{
-			return false;
-		}
-		generateStructure(world, random, x, y, z);
-		generateStructureBase(world, random, x, z, 6, 6, Blocks.cobblestone);
-		generatedCenterAt(structureType, x + 5, y, z + 5);
-		
-		return true;
-	}
-
-	@Override
 	// Lower level, from part1 of schematic
 	// 7 wide (x) x 7 length (z)
-	public void generateStructure(World world, Random random, int x, int y,	int z) {
+	public boolean generate(World world, Random random, int x, int y, int z) {
 		floorLevel = y;
 		
 		LogHelper.info("Generating a Land Watchtower at " + x + "," + y + "," + z + "!");
@@ -228,6 +210,8 @@ public class LandWatchtowerPart1 extends AbandonedStructure {
 		//adding a chest with random stuff
 		// If just one chest, set last two parameters to 1 and false
 		generateChest(world, random, x + 5, y + 1, z + 2, 0, 1, false);	
-		generateChest(world, random, x + 6, y + 11, z + 2, 0, 1, false);	
+		generateChest(world, random, x + 6, y + 11, z + 2, 0, 1, false);
+		
+		return true;
 	}
 }

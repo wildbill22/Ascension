@@ -13,6 +13,11 @@ public class StructureCoordinates extends ChunkCoordinates {
 		this.type = type;
 	}
 
+	public StructureCoordinates(Structures type, StructureCoordinates coords) {	
+		super(coords);
+		this.type = type;
+	}
+
 	public enum Structures {
 		CAMP, EASYMOBDUNGEON, SPHINX, OTHER;
 	}
@@ -50,7 +55,7 @@ public class StructureCoordinates extends ChunkCoordinates {
 		posY = nbtTag.getInteger("y");
 		posZ = nbtTag.getInteger("z");
 		if (type == Structures.SPHINX)
-			AbandonedStructure.sphinxGenerated = true;
+			StructureList.setSphinxGenerated(true);
 	}
 
 	public void writeToNBT(NBTTagCompound nbt, int i) {

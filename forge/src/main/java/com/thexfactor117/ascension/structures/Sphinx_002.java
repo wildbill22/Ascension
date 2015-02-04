@@ -198,6 +198,9 @@ public class Sphinx_002 extends Sphinx_000 {
 		world.setBlock(x + 5, y + 5, z + 19, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 6, y + 5, z + 19, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 7, y + 5, z + 19, Blocks.air, 0, 3);
+
+		preventLag();
+
 		world.setBlock(x + 8, y + 5, z + 19, Blocks.air, 0, 3);
 		world.setBlock(x + 9, y + 5, z + 19, Blocks.air, 0, 3);
 		world.setBlock(x + 10, y + 5, z + 19, Blocks.air, 0, 3);
@@ -464,6 +467,9 @@ public class Sphinx_002 extends Sphinx_000 {
 		world.setBlock(x + 18, y + 5, z + 31, Blocks.air, 0, 3);
 		world.setBlock(x + 19, y + 5, z + 31, Blocks.air, 0, 3);
 		world.setBlock(x + 20, y + 5, z + 31, Blocks.air, 0, 3);
+
+		preventLag();
+
 		world.setBlock(x + 0, y + 5, z + 32, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 5, z + 32, Blocks.air, 0, 3);
 		world.setBlock(x + 2, y + 5, z + 32, Blocks.air, 0, 3);

@@ -3,6 +3,7 @@ package com.thexfactor117.ascension.generation;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -10,14 +11,18 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.thexfactor117.ascension.help.LogHelper;
+import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.structures.AbandonedStructure;
+import com.thexfactor117.ascension.structures.AbandonedTower;
 import com.thexfactor117.ascension.structures.Camp_000;
 import com.thexfactor117.ascension.structures.EasyMobDungeon1;
 import com.thexfactor117.ascension.structures.LandWatchtowerPart1;
 import com.thexfactor117.ascension.structures.MediumAbandonedHouse;
 import com.thexfactor117.ascension.structures.SmallAbandonedHouse;
 import com.thexfactor117.ascension.structures.Sphinx_000;
+import com.thexfactor117.ascension.structures.StructureCoordinates;
+import com.thexfactor117.ascension.structures.StructureList;
 
 import cpw.mods.fml.common.IWorldGenerator;
 
@@ -79,18 +84,18 @@ public class AscensionWorldGeneration implements IWorldGenerator
 		if (world.provider.getAverageGroundLevel() < 10)
 			return;
 
-		final int numStructures = 6;
+		final int numStructures = 7;
 		int which = random.nextInt(numStructures);
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 
-		if (biome == BiomeGenBase.desert && AbandonedStructure.sphinxGenerated == false) {
-			ChunkCoordinates spawn = new ChunkCoordinates(0, 64, 0);
-			double distanceFromZero = Math.sqrt(spawn.getDistanceSquared(x, 64, z));
-			if (distanceFromZero > 500) {
-				LogHelper.info("Attempting to generate Sphinx at " + distanceFromZero + " meters from spawn"); 
+		if (biome == BiomeGenBase.desert && StructureList.isSphinxGenerated() == false) {
+			ChunkCoordinates spawn = world.getSpawnPoint();
+			double distanceFromSpawn = Math.sqrt(spawn.getDistanceSquared(x, 64, z));
+			if (distanceFromSpawn > Reference.minimumSpawnDistanceSphinx) {
+				LogHelper.info("Attempting to generate Sphinx at " + distanceFromSpawn + " meters from spawn"); 
 				Sphinx_000 sphinx = new Sphinx_000();
-				AbandonedStructure.sphinxGenerated = generateStructure(sphinx, world, random, x, z, 10, 34, -1);
-				if (AbandonedStructure.sphinxGenerated == true)
+				generateFlatStructure(sphinx, world, random, x, z, -1, false);
+				if (StructureList.isSphinxGenerated() == true)
 					return;
 			}
 		}
@@ -100,19 +105,25 @@ public class AscensionWorldGeneration implements IWorldGenerator
 		case 1:
 			Camp_000 camp = new Camp_000();
 			// Use center of camp as entrance for now
-			generateStructure(camp, world, random, x, z, 16, 16, -1);
+			generateFlatStructure(camp, world, random, x, z, -1, true);
 			break;
 		case 2:
-			LandWatchtowerPart1 tower = new LandWatchtowerPart1();
-			generateStructure(tower, world, random, x, z, 3, 0, -1);
+			if (biome != BiomeGenBase.desert) {				
+				LandWatchtowerPart1 tower = new LandWatchtowerPart1();
+				generateSmallStructure(tower, world, random, x, z, -1, Blocks.cobblestone);
+			}
 			break;
 		case 3:
-			MediumAbandonedHouse mediumHouse = new MediumAbandonedHouse();
-			generateStructure(mediumHouse, world, random, x, z, 3, 0, -1);
+			if (biome != BiomeGenBase.desert) {				
+				MediumAbandonedHouse mediumHouse = new MediumAbandonedHouse();
+				generateSmallStructure(mediumHouse, world, random, x, z, -1, Blocks.cobblestone);
+			}
 			break;
 		case 4:
-			SmallAbandonedHouse smallHouse = new SmallAbandonedHouse();
-			generateStructure(smallHouse, world, random, x, z, 2, 0, -1);
+			if (biome != BiomeGenBase.desert) {				
+				SmallAbandonedHouse smallHouse = new SmallAbandonedHouse();
+				generateSmallStructure(smallHouse, world, random, x, z, -1, Blocks.cobblestone);
+			}
 			break;
 		case 5:
 			if (biome != BiomeGenBase.birchForest && biome != BiomeGenBase.birchForestHills &&
@@ -121,8 +132,12 @@ public class AscensionWorldGeneration implements IWorldGenerator
 			biome != BiomeGenBase.taiga && biome != BiomeGenBase.taigaHills &&
 			biome != BiomeGenBase.roofedForest) {
 				EasyMobDungeon1 dungeon = new EasyMobDungeon1();
-				generateStructure(dungeon, world, random, x, z, 5, 0, -1);
+				generateLargeStructure(dungeon, world, random, x, z, -1);
 			}
+			break;
+		case 6:
+			AbandonedTower abandonedTower = new AbandonedTower();
+			generateSmallStructure(abandonedTower, world, random, x, z, -1, Blocks.cobblestone);
 			break;
 		}
 	}
@@ -138,14 +153,96 @@ public class AscensionWorldGeneration implements IWorldGenerator
 	 * @param yOffset Normally 0, but -1 if structure has floor
 	 * @return true if generated
 	 */
-	private boolean generateStructure(AbandonedStructure structure, World world, Random random, int x, int z, int doorX, int doorZ, int offsetY) {
+	private boolean generateSmallStructure(AbandonedStructure structure, World world, Random random, int x, int z, int offsetY, Block block) {
 		int chance = random.nextInt(100);
 		if (chance < structure.structureSpawnChance) {
 			int posX = x + random.nextInt(16);
 			int posZ = z + random.nextInt(16);
-			int posY = world.getHeightValue(posX + doorX, posZ + doorZ); 
-			return structure.generate(world, random, posX, posY - offsetY, posZ);
+			int posY = world.getHeightValue(posX + structure.doorX, posZ + structure.doorZ); 
+
+			// Don't place if another structures is nearby
+			if (StructureList.findNearestStructure(posX + 5, posY, posZ + 4) < 64)
+				return false;
+
+			//check that each corner is one of the valid spawn blocks
+			if(!structure.locationIsValidSpawn(world, posX, posY, posZ) 
+					|| !structure.locationIsValidSpawn(world, posX + structure.xMax, posY, posZ) 
+					|| !structure.locationIsValidSpawn(world, posX + structure.xMax, posY, posZ + structure.zMax) 
+					|| !structure.locationIsValidSpawn(world, posX, posY, posZ + structure.zMax))
+			{
+				return false;
+			}
+			StructureList.generatedCenterAt(structure.structureType, posX + structure.xMax / 2, posY, posZ + structure.zMax / 2);
+			
+			structure.generate(world, random, posX, posY + offsetY, posZ);
+			structure.generateStructureBase(world, random, posX, posZ, structure.xMax, structure.zMax, block);
 		}
 		return false;
 	}
-}
+	
+	/**
+	 * Create structure at x, z, check height at entrance at x + doorX, z + doorZ, set y = y + yOffset 
+	 * @param world 
+	 * @param random
+	 * @param x X coordinate in world
+	 * @param z Z coordinate in world
+	 * @param doorX Offset from x where entrance is
+	 * @param doorZ Offset from z where entrance is
+	 * @param yOffset Normally 0, but -1 if structure has floor
+	 * @return true if generated
+	 */
+	private boolean generateLargeStructure(AbandonedStructure structure, World world, Random random, int x, int z, int offsetY) {
+		// Add this line to prevent more than one being built at a time
+		if (AbandonedStructure.running) return false; 
+
+		int chance = random.nextInt(100);
+		if (chance < structure.structureSpawnChance) {
+			int posX = x + random.nextInt(16);
+			int posZ = z + random.nextInt(16);
+			int posY = world.getHeightValue(posX, posZ);
+			StructureCoordinates coords = new StructureCoordinates(structure.structureType, posX, posY, posZ);
+			if (!structure.isValidSpawnCorners(world, coords)){
+				return false;
+			}
+			coords.posY = coords.posY + offsetY;
+			StructureList.generatedAt(structure.structureType, coords);			
+			return structure.generateStructureInThread(world, random, coords, true);		
+		}
+		return false;
+	}
+
+	/**
+	 * Create structure at x, z, check height at entrance at x + doorX, z + doorZ, set y = y + yOffset 
+	 * @param world 
+	 * @param random
+	 * @param x X coordinate in world
+	 * @param z Z coordinate in world
+	 * @param doorX Offset from x where entrance is
+	 * @param doorZ Offset from z where entrance is
+	 * @param yOffset Normally 0, but -1 if structure has floor
+	 * @param generateBase true to generate the base (below the structure
+	 * @return true if generated
+	 */
+	private boolean generateFlatStructure(AbandonedStructure structure, World world, Random random, int x, int z, int offsetY, boolean generateBase) {
+		// Add this line to prevent more than one being built at a time
+		if (AbandonedStructure.running) return false; 
+
+		int chance = random.nextInt(100);
+		if (chance < structure.structureSpawnChance) {
+			int posX = x + random.nextInt(16);
+			int posZ = z + random.nextInt(16);
+			int posY = world.getHeightValue(posX, posZ);
+			StructureCoordinates coords = new StructureCoordinates(structure.structureType, posX, posY, posZ);
+			// TODO: can set spawn location after returning from this
+			// Also check for close structures just from the posX, posY, posZ, not the center
+			if (!structure.isValidSpawnEdges(world, coords)){
+				return false;
+			}
+			StructureList.setSphinxGenerated(true);
+			coords.posY = coords.posY + offsetY;
+			StructureList.generatedAt(structure.structureType, coords);			
+			return structure.generateStructureInThread(world, random, coords, generateBase);		
+		}
+		return false;
+	}
+}	

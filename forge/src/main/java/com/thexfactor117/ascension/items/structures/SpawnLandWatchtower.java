@@ -34,7 +34,7 @@ public class SpawnLandWatchtower extends ItemAscension {
 		
 		Random random = new Random();
 		LandWatchtowerPart1 tower = new LandWatchtowerPart1();
-		tower.generateStructure(world, random, x, y, z);
+		tower.generate(world, random, x, y, z);
 		tower.generateStructureBase(world, random, x, z, 6, 6, Blocks.cobblestone);
 		
 		return true;

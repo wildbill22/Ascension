@@ -17,52 +17,36 @@ import net.minecraft.world.World;
  */
 public class EasyMobDungeon1 extends AbandonedStructure {
 	// Variables for configuration
-	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
-	public static int spawnHeightTolerance = 4;   // Set larger for bigger structures
-	public static int spawnChance = Reference.spawnChanceEasyMobDungeon1; // chance n/100
+	private static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
+	private static int spawnHeightTolerance = 4;   // Set larger for bigger structures
+	private static int spawnChance = Reference.spawnChanceEasyMobDungeon1; // chance n/100
+	private static int doorX = 5;
+	private static int doorZ = 0;
+	private static int xMax = 10;
+	private static int zMax = 10;
 
 	public EasyMobDungeon1() 
 	{
-		structureMissingBlockChance = missingBlockChance;
-		structureSpawnHeightTolerance = spawnHeightTolerance;
-		structureSpawnChance = spawnChance;
-		validSpawnBlocks = getValidSpawnBlocks();
-		mobsToSpawn = getMobsToSpawn();
-		structureType = Structures.EASYMOBDUNGEON;
-
+		super(missingBlockChance, spawnHeightTolerance, spawnChance, Structures.EASYMOBDUNGEON, 
+				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 		int i = 0;
 		i = addItemsForAllChests(i);
 		i = addItemsForAllDungeons(i);				
 	}
 
-	protected String[] getMobsToSpawn() {
+	protected static String[] getMobsToSpawn() {
 		return new String[] { "Ghost", "Barbarian", "Valkyrie" };
 	}
 	
-	protected Block[] getValidSpawnBlocks() 
+	protected static Block[] getValidSpawnBlocks() 
 	{
 		return new Block[] { Blocks.grass, Blocks.dirt, Blocks.sand, Blocks.cobblestone };
 	}
 
 	@Override
-	public boolean generate(World world, Random random, int x, int y, int z) 
-	{
-		// Add this line to prevent more than one being built at a time
-		if (running) return false; 
-
-		// check that each corner is one of the valid spawn blocks
-		// This is better for large structures (one chunk size or larger)
-		if (!isValidSpawnCorners(world, x, y, z, 10, 10)){
-			return false;
-		}
-		// Alternate way to create a large structure in a separate thread (with base)
-		return generateStructureInThread(world, random, x, y, z, x, z, 10, 10, true);		
-	}
-
-	@Override
 	// Lower level, from part1 of schematic
 	// 11 wide (x) x 11 length (z)
-	public void generateStructure(World world, Random random, int x, int y,	int z) {
+	public boolean generate(World world, Random random, int x, int y, int z) {
 		floorLevel = y;
 
 		LogHelper.info("Generating Easy Mob Dungeon 1, part 1 at " + x + "," + y + "," + z + "!");
@@ -812,5 +796,7 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 		generateMobSpawner(world, random, x + 7, y + 1, z + 9, 0);		
 
 		running = false; // Done, let another thread start
+		
+		return true;
 	}
 }

@@ -35,7 +35,7 @@ public class SpawnCamp extends ItemAscension {
 		
 		Random random = new Random();
 		Camp_000 camp = new Camp_000();
-		camp.generateStructure(world, random, x, y, z);
+		camp.generate(world, random, x, y, z);
 		camp.generateStructureBase(world, random, x, z, 31, 31, Blocks.dirt);
 		
 		return true;

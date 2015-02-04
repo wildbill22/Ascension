@@ -1,10 +1,6 @@
 package com.thexfactor117.ascension.structures;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -12,24 +8,16 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompressedStreamTools;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.WorldEvent;
 
-import com.thexfactor117.ascension.handlers.WorldLoadEventHandler;
-import com.thexfactor117.ascension.handlers.WorldSaveEventHandler;
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.structures.StructureCoordinates.Structures;
-
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import com.thexfactor117.ascension.structures.StructureList;
 
 /**
  * All structures extend this class. The steps to add a structure:
@@ -47,11 +35,33 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 */ 
 public abstract class AbandonedStructure extends WorldGenerator implements Runnable
 {
-	protected int structureMissingBlockChance = 15;  // Set this to about 1/10 number of blocks
-	protected int structureSpawnHeightTolerance = 3;
-	public int structureSpawnChance = 100; // chance n/100
+	public AbandonedStructure(int structureMissingBlockChance,
+			int structureSpawnHeightTolerance, int structureSpawnChance,
+			Structures structureType, Block[] validSpawnBlocks,
+			String[] mobsToSpawn, int doorX, int doorZ, int xMax, int zMax) {
+		super();
+		this.structureMissingBlockChance = structureMissingBlockChance;
+		this.structureSpawnHeightTolerance = structureSpawnHeightTolerance;
+		this.structureSpawnChance = structureSpawnChance;
+		this.structureType = structureType;
+		this.validSpawnBlocks = validSpawnBlocks;
+		this.mobsToSpawn = mobsToSpawn;
+		this.doorX = doorX;
+		this.doorZ = doorZ;
+		this.xMax = xMax;
+		this.zMax = zMax;
+	}
+
+	protected int structureMissingBlockChance;  // Set this to about 1/10 number of blocks
+	protected int structureSpawnHeightTolerance;
+	public int structureSpawnChance; // chance n/100
 	public Structures structureType = Structures.OTHER;
 	protected Block[] validSpawnBlocks;
+	protected String[] mobsToSpawn;
+	public int doorX;
+	public int doorZ;
+	public int xMax;
+	public int zMax;
 	protected Block[] validBaseBlocks = { Blocks.bedrock, Blocks.clay, Blocks.coal_ore, Blocks.cobblestone,
 			Blocks.diamond_ore, Blocks.dirt, Blocks.emerald_ore, Blocks.end_stone, Blocks.glass,
 			Blocks.glowstone, Blocks.gold_ore, Blocks.gravel, Blocks.hardened_clay, Blocks.ice, Blocks.iron_ore,
@@ -61,7 +71,6 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	protected int floorLevel = 0;
 	protected ArrayList<RandomChestItems> randomSingleChestItems;
 	protected ArrayList<RandomChestItems> randomDoubleChestItems;
-	protected String[] mobsToSpawn;
 	
 	// For generating chests (if more than one)
 	protected int numGenerated = 0;
@@ -77,138 +86,8 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	int threadXBaseMax;
 	int threadZBaseMax;
 	private boolean generateBase;
-	static boolean running = false;
+	static public boolean running = false;
 	protected Block baseBlock; 
-
-	// Code to find nearest already generated structure (in a thread, so just the largest ones)
-	protected static ArrayList<StructureCoordinates> structureList = new ArrayList<StructureCoordinates>();
-	private static File saveDir = null;
-	private static String datFilename = "ascensionStructureList.dat";
-	public static boolean sphinxGenerated = false;
-    
-    public static void preInit(FMLPreInitializationEvent event) {    	
-    	MinecraftForge.EVENT_BUS.register(new WorldSaveEventHandler());
-    	MinecraftForge.EVENT_BUS.register(new WorldLoadEventHandler());
-    	setPendingRead();
-    }
-    
-	// Stuff to save the structureList
-	public static void writeToNBT(NBTTagCompound nbt) {
-		int size = structureList.size();
-		nbt.setInteger("size", size);
-        Iterator<StructureCoordinates> iterator = structureList.iterator();
-		for (int i = 0; i < size; i++) {
-        	iterator.next().writeToNBT(nbt, i);
-        }
-	}
-	
-	public static void readFromNBT(NBTTagCompound nbt) {
-		int size = nbt.getInteger("size");
-		for (int i = 0; i < size; i++) {
-			StructureCoordinates coords = new StructureCoordinates();
-			coords.readFromNBT(nbt, i);
-			structureList.add(coords);
-		}
-	}
-	
-	public static void writeToFile(WorldEvent.Unload event) {
-		if (hasPendingWrite()) {
-			clearPendingWrite();
-			try {
-				if (saveDir != null) {
-					File file = new File(saveDir, datFilename);
-					if (!file.exists()) {
-						file.createNewFile();
-					}
-					FileOutputStream fos = new FileOutputStream(file);
-					NBTTagCompound nbt = new NBTTagCompound();
-		   			writeToNBT(nbt);
-		   			CompressedStreamTools.writeCompressed(nbt, fos);
-					fos.close();
-					LogHelper.info("Saved the structure list.");
-				}
-			} catch(Exception exception) {
-				exception.printStackTrace();
-			}
-		}
-	}
-		
-	public static void readFromFile(WorldEvent.Load event) {
-		if (hasPendingRead()) {
-			clearPendingRead();
-			clearStructureList();
-			try {
-				if (saveDir == null)
-					saveDir = event.world.getSaveHandler().getWorldDirectory();
-				File file = new File(saveDir, datFilename);
-				if (!file.exists()) {
-					return;
-				}
-				FileInputStream fis = new FileInputStream(file);
-				NBTTagCompound nbt = CompressedStreamTools.readCompressed(fis);
-				readFromNBT(nbt);
-				fis.close();
-				LogHelper.info("Loaded the structure list.");
-			} catch(Exception exception) {
-				exception.printStackTrace();
-			}
-		}	
-	}
-	
-	private static short dirtyFlag = 0;
-	
-	private static void setPendingRead() {
-		dirtyFlag |= 1;
-	}
-	
-	private static void setPendingWrite() {
-		dirtyFlag |= 2;
-	}
-	
-	public static void clearPendingRead() {
-		dirtyFlag &= ~1;
-	}
-	
-	public static void clearPendingWrite() {
-		dirtyFlag &= ~2;
-	}
-	
-	public static boolean hasPendingRead() {
-		return (dirtyFlag & 1) == 1;
-	}
-	
-	public static boolean hasPendingWrite() {
-		return (dirtyFlag & 2) == 2;
-	}
-	
-	public static void clearStructureList() {
-		structureList.clear();
-	}
-	
-	public static void generatedCenterAt(Structures type, int posX, int posY, int posZ) {
-		StructureCoordinates center = new StructureCoordinates(type, posX, posY, posZ);
-		structureList.add(center);
-		setPendingWrite();
-	}
-	
-	public static double findNearestStructure(int posX, int posY, int posZ) {
-		double nearest = 2000;
-		double distance = 2000;
-        Iterator<StructureCoordinates> iterator = structureList.iterator();
-        
-        while (iterator.hasNext()) {
-        	StructureCoordinates campCenter = iterator.next();
-        	distance = Math.sqrt(campCenter.getDistanceSquared(posX, posY, posZ));
-        	if (distance < nearest) {
-        		nearest = distance;
-        	}
-        }
-
-        return nearest;
-	}
-
-	// Instantiate in class that implements this abstract class
-	public abstract void generateStructure(World world, Random random, int x, int y, int z);	
 
 	// Used when generateStructureInThread is used instead of generateStructure
 	@Override
@@ -216,7 +95,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	{
 		if (threadWorld == null)
 			LogHelper.error("Call generateStructureInThread first!");
-		generateStructure(threadWorld, threadRandom, threadX, threadY, threadZ);
+		generate(threadWorld, threadRandom, threadX, threadY, threadZ);
 		
 		if (generateBase) {
 			if (baseBlock == null)
@@ -234,10 +113,6 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	// 4) Set "running" to false at end of last generateStructureX() call 
 	public boolean generateStructureInThread(World world, Random random, int x, int y, int z, int xBase, int zBase, int xBaseMax, int zBaseMax, boolean generateBase) 
 	{
-		if (AbandonedStructure.findNearestStructure(x + xBaseMax / 2, y, z + zBaseMax / 2) < 64)
-			return false;
-		generatedCenterAt(structureType, x + xBaseMax / 2, y, z + zBaseMax / 2);
-
 		threadWorld = world;
 		threadRandom = random;
 		threadX = x;
@@ -257,11 +132,37 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		return true;
 	}
 
+	// To use this:
+	// 1) Add "if (running) return false;" in generate, to avoid too many threads
+	// 2) Call generateStructureInThread(...); instead of: generateStructure(...);
+	// 3) Put preventLag() in generateStructure function every 100 lines
+	// 4) Set "running" to false at end of last generateStructureX() call 
+	public boolean generateStructureInThread(World world, Random random, StructureCoordinates coords, boolean generateBase) 
+	{
+		threadWorld = world;
+		threadRandom = random;
+		threadX = coords.posX;
+		threadY = coords.posY;
+		threadZ = coords.posZ;
+		// These are for the base. First two are same as x and y, but maybe a offset for a structure with smaller base than top
+		// xBaseMax & zBaseMax are the size of the structure at the base 
+		threadXBase = coords.posX;
+		threadZBase =coords.posZ ;
+		threadXBaseMax = xMax;
+		threadZBaseMax = zMax;
+		this.generateBase = generateBase;
+		running = true;
+		Thread thread = new Thread(this);
+		thread.start();
+		
+		return true;
+	}
+
 	protected void preventLag()
 	{
 		try           
 		{              
-			Thread.sleep(300);            
+			Thread.sleep(400);            
 		}          
 		catch (InterruptedException interruptedException)          
 		{              
@@ -488,21 +389,6 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		}
 	}
 	
-	/**
-	 * Replace a setBlock for a mob_spawner with this function with all the parameters, and a few extra 
-	 * @param world 
-	 * @param random
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @param metaData
-	 */
-	protected void generateFurnace(World world, Random random, int x, int y, int z, int metaData) {
-		world.setBlock(x, y, z, Blocks.furnace, metaData, 3);
-		TileEntityFurnace furnace = new TileEntityFurnace();
-		world.setTileEntity(x, y, z, furnace);		
-	}
-	
 	protected class RandomChestItems {
 		int slot;
 		Item item;
@@ -522,40 +408,59 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	// Checks that chunk has been created and meets the spawn requirements
 	private boolean spawnedAtLocationEdges(World world, int x, int y, int z, int xMax, int zMax)
 	{
-		if (world.blockExists(x + xMax, y, z + zMax))
+		y = world.getHeightValue(x + doorX, z + doorZ);
+		if (y == 0 || (!world.blockExists(x, y, z) || !world.blockExists(x + xMax, y, z) ||
+				 !world.blockExists(x, y, z + zMax) || !world.blockExists(x + xMax, y, z + zMax)))
+			return false;
+		y = world.getHeightValue(x + doorX, z + doorZ);
+		int xHalf = x + (xMax / 2);
+		int zHalf = z + (zMax / 2);
+		// check that each side has valid spawn blocks
+		// Check top, left, right, and bottom
+		if(locationIsValidSpawn(world, x + 3, y, z) && locationIsValidSpawn(world, xHalf, y, z) && locationIsValidSpawn(world, x + xMax - 3, y, z)  
+			&& locationIsValidSpawn(world, x, y, z + 3) && locationIsValidSpawn(world, x, y, z + zHalf) && locationIsValidSpawn(world, x, y, z + zMax - 3)  
+			&& locationIsValidSpawn(world, x + xMax, y, z + 3) && locationIsValidSpawn(world, x + xMax, y, z + zHalf) && locationIsValidSpawn(world, x + xMax, y, z + zMax - 3)  
+			&& locationIsValidSpawn(world, x + 3, y, z+ zMax) && locationIsValidSpawn(world, x + 15, y, z+ zMax) && locationIsValidSpawn(world, x + xMax - 3, y, z+ zMax))
 		{
-			int xHalf = x + (xMax / 2);
-			int zHalf = z + (zMax / 2);
-			// check that each side has valid spawn blocks
-			// Check top, left, right, and bottom
-			if(locationIsValidSpawn(world, x + 3, y, z) && locationIsValidSpawn(world, xHalf, y, z) && locationIsValidSpawn(world, x + xMax - 3, y, z)  
-				&& locationIsValidSpawn(world, x, y, z + 3) && locationIsValidSpawn(world, x, y, z + zHalf) && locationIsValidSpawn(world, x, y, z + zMax - 3)  
-				&& locationIsValidSpawn(world, x + xMax, y, z + 3) && locationIsValidSpawn(world, x + xMax, y, z + zHalf) && locationIsValidSpawn(world, x + xMax, y, z + zMax - 3)  
-				&& locationIsValidSpawn(world, x + 3, y, z+ zMax) && locationIsValidSpawn(world, x + 15, y, z+ zMax) && locationIsValidSpawn(world, x + xMax - 3, y, z+ zMax))
-			{
-				return true;
-			}
+			return true;
 		}
 		return false;
 	}
 	
 	// Tries 4 locations around selected spawn point to avoid placing in a chunk not yet created
-	protected boolean isValidSpawnEdges(World world, int x, int y, int z, int xMax, int zMax)
+	public boolean isValidSpawnEdges(World world, StructureCoordinates coords)
 	{
-		if (spawnedAtLocationEdges(world, x, y, z, xMax, zMax))
-			return true;
+		int x = coords.posX;
+		int z = coords.posZ;
+		int y = world.getHeightValue(x + doorX, z + doorZ);
+		
+		// Don't place if another structures is nearby
+		if (y == 0 || StructureList.findNearestStructure(x, y, z) < 64)
+			return false;
+		
+		if (spawnedAtLocationEdges(world, x, y, z, xMax, zMax)) {
+			return true;			
+		}
 		// try the North
-		else if (spawnedAtLocationEdges(world, x, y, z - zMax, xMax, zMax))
-			return true;
+		if (spawnedAtLocationEdges(world, x, y, z - zMax, xMax, zMax)) {
+			coords.posZ = z - zMax;
+			return true;			
+		}
 		// try to the West
-		else if (spawnedAtLocationEdges(world, x - xMax, y, z, xMax, zMax))
-			return true;
+		if (spawnedAtLocationEdges(world, x - xMax, y, z, xMax, zMax)) {
+			coords.posX = x - xMax;
+			return true;			
+		}
 		// try to the South
-		else if (spawnedAtLocationEdges(world, x, y, z + zMax, xMax, zMax))
-			return true;
+		if (spawnedAtLocationEdges(world, x, y, z + zMax, xMax, zMax)) {
+			coords.posZ = z + zMax;
+			return true;			
+		}
 		// try to the East
-		else if (spawnedAtLocationEdges(world, x + xMax, y, z, xMax, zMax))
+		if (spawnedAtLocationEdges(world, x + xMax, y, z, xMax, zMax)) {
+			coords.posX = x + xMax;
 			return true;
+		}
 
 		return false;
 	}
@@ -563,6 +468,9 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	// Checks that chunk has been created and meets the spawn requirements
 	private boolean spawnedAtLocation(World world, int x, int y, int z, int xMax, int zMax)
 	{
+		y = world.getHeightValue(x + doorX, z + doorZ);
+		if (y == 0 || (!world.blockExists(x, y, z) || world.blockExists(x + xMax, y, z) ||
+				 world.blockExists(x, y, z + zMax) || world.blockExists(x + xMax, y, z + zMax)))
 		if (world.blockExists(x + xMax, y, z + zMax))
 		{
 			if(locationIsValidSpawn(world, x, y, z) 
@@ -576,29 +484,46 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	}
 	
 	// Tries 4 locations around selected spawn point to avoid placing in a chunk not yet created
-	protected boolean isValidSpawnCorners(World world, int x, int y, int z, int xMax, int zMax)
+	public boolean isValidSpawnCorners(World world, StructureCoordinates coords)
 	{
-		if (spawnedAtLocation(world, x, y, z, xMax, zMax))
-			return true;
+		int x = coords.posX;
+		int z = coords.posZ;
+		int y = world.getHeightValue(x + doorX, z + doorZ);
+		
+		// Don't place if another structures is nearby
+		if (y == 0 || StructureList.findNearestStructure(x, y, z) < 64)
+			return false;
+		
+		if (spawnedAtLocation(world, x, y, z, xMax, zMax)) {
+			return true;			
+		}
 		// try the North
-		else if (spawnedAtLocation(world, x, y, z - zMax, xMax, zMax))
-			return true;
+		if (spawnedAtLocation(world, x, y, z - zMax, xMax, zMax)) {
+			coords.posZ = z - zMax;
+			return true;			
+		}
 		// try to the West
-		else if (spawnedAtLocation(world, x - xMax, y, z, xMax, zMax))
-			return true;
+		if (spawnedAtLocation(world, x - xMax, y, z, xMax, zMax)){
+			coords.posX = x - xMax;
+			return true;			
+		}
 		// try to the South
-		else if (spawnedAtLocation(world, x, y, z + zMax, xMax, zMax))
-			return true;
+		if (spawnedAtLocation(world, x, y, z + zMax, xMax, zMax)) {
+			coords.posZ = z + zMax;
+			return true;			
+		}
 		// try to the East
-		else if (spawnedAtLocation(world, x + xMax, y, z, xMax, zMax))
-			return true;
+		if (spawnedAtLocation(world, x + xMax, y, z, xMax, zMax)) {
+			coords.posX = x + xMax;
+			return true;			
+		}
 
 		return false;
 	}
-	
+
 	// Works fairly well to place the building where the stairs are on ground level
 	// Could be improved to rotate structure so none of it is in the air
-	protected boolean locationIsValidSpawn(World world, int x, int y, int z)
+	public boolean locationIsValidSpawn(World world, int x, int y, int z)
 	{
 		int distanceToAir = 0;
 		Block check = world.getBlock(x, y, z);

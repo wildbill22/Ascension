@@ -18,7 +18,7 @@ import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.init.ModStructureItems;
 import com.thexfactor117.ascension.proxies.ClientProxy;
 import com.thexfactor117.ascension.proxies.CommonProxy;
-import com.thexfactor117.ascension.structures.AbandonedStructure;
+import com.thexfactor117.ascension.structures.StructureList;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -48,7 +48,7 @@ public class Ascension
 		ModEntities.init();
 		ModBosses.init();
 		ModStructureItems.init(); // Comment out for releases
-		AbandonedStructure.preInit(event);
+		StructureList.preInit(event);
 		VanillaChestLootGen.init();
 		
 		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);

@@ -20,50 +20,34 @@ public class Camp_000 extends AbandonedStructure {
 	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
 	public static int spawnHeightTolerance = 1;   // Set larger for bigger structures
 	public static int spawnChance = Reference.spawnChanceCamp;  // chance n/100
-    
+	private static int doorX = 16;
+	private static int doorZ = 16;
+	private static int xMax = 32;
+	private static int zMax = 32;
+
 	public Camp_000() 
 	{
-		structureMissingBlockChance = missingBlockChance;
-		structureSpawnHeightTolerance = spawnHeightTolerance;
-		structureSpawnChance = spawnChance;
-		validSpawnBlocks = getValidSpawnBlocks();
-		mobsToSpawn = getMobsToSpawn();
+		super(missingBlockChance, spawnHeightTolerance, spawnChance, Structures.CAMP, 
+				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 		baseBlock = Blocks.dirt;
-		structureType = Structures.CAMP;
 
 		int i = 0;
 		addItemsForAllChests(i);		
 	}
 
-	protected String[] getMobsToSpawn() {
+	protected static String[] getMobsToSpawn() {
 		return new String[] { "Ghost", "Barbarian", "Valkyrie" };
 	}
 	
-	protected Block[] getValidSpawnBlocks() 
+	protected static Block[] getValidSpawnBlocks() 
 	{
 		return new Block[] { Blocks.grass, Blocks.dirt };
 	}
 
 	@Override
-	public boolean generate(World world, Random random, int x, int y, int z) 
-	{
-		// Add this line to prevent more than one being built at a time
-		if (running) return false; 
-
-		// check that all around is one of the valid spawn blocks
-		// This is better for large structures (one chunk size or larger)
-		if (!isValidSpawnEdges(world, x, y, z, 32, 32)){
-			return false;
-		}
-
-		// Alternate way to create a large structure in a separate thread (with base)
-		return generateStructureInThread(world, random, x, y, z, x, z, 32, 32, true);
-	}
-
-	@Override
 	// Lower level, from part1 of schematic
 	// 33 wide (x) x 33 length (z)
-	public void generateStructure(World world, Random random, int x, int y,	int z) {
+	public boolean generate(World world, Random random, int x, int y, int z) {
 		floorLevel = y;
 
 		LogHelper.info("Generating camp at " + x + "," + y + "," + z + "!");
@@ -1329,5 +1313,7 @@ public class Camp_000 extends AbandonedStructure {
 		world.setBlock(x + 6, y + 1, z + 7, Blocks.air, 4, 3);
 //		world.setBlock(x + 24, y + 1, z + 15, Blocks.chest, 3, 3);
 		world.setBlock(x + 25, y + 1, z + 15, Blocks.air, 3, 3);
+		
+		return true;
 	}
 }
