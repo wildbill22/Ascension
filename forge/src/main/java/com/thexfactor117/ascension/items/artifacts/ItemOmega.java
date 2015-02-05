@@ -32,6 +32,5 @@ public class ItemOmega extends Item
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
 		list.add("One of the ancient Artifacts");
-		list.add(" ");
 	}
 }

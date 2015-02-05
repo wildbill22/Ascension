@@ -2,16 +2,19 @@ package com.thexfactor117.ascension.items.weapons;
 
 import java.util.List;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.world.World;
+
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.Item.ToolMaterial;
 
 public class ItemVoidHammer extends ItemSword
 {
@@ -37,6 +40,14 @@ public class ItemVoidHammer extends ItemSword
 	{
 		list.add("Enhanced with voidless power.");
 		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
-		list.add("No Special Abilities");
+		list.add("Ability: Power");
 	}
+	
+	/*
+	@Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int par1, boolean par2)
+	{
+		stack.addEnchantment(Enchantment.knockback, 2);
+	}
+	*/
 }

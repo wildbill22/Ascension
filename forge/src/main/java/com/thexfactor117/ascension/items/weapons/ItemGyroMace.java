@@ -3,11 +3,13 @@ package com.thexfactor117.ascension.items.weapons;
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.world.World;
 
+import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
@@ -37,6 +39,15 @@ public class ItemGyroMace extends ItemSword
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
 		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
-		list.add("No Special Abilities");
+		list.add("Ability: Power");
+	}
+	
+	/**
+	 * Adds the Knockback enchantment on creation.
+	 */
+	@Override
+	public void onCreated(ItemStack stack, World world, EntityPlayer player)
+	{
+		stack.addEnchantment(Enchantment.knockback, 1);
 	}
 }
