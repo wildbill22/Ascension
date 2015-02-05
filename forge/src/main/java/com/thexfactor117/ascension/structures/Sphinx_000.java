@@ -33,7 +33,9 @@ public class Sphinx_000 extends AbandonedStructure {
 		baseBlock = Blocks.sand;
 
 		int i = 0;
-		addItemsForAllChests(i);		
+		i = addItemsForSphinx(i, Reference.sphinxChestItemsMultiplier);
+		i = addItemsForAllChests(i, Reference.sphinxChestItemsMultiplier);
+		i = addItemsForAllDungeons(i, Reference.sphinxChestItemsMultiplier);
 	}
 
 	protected static String[] getMobsToSpawn() {
@@ -43,6 +45,14 @@ public class Sphinx_000 extends AbandonedStructure {
 	protected static Block[] getValidSpawnBlocks() 
 	{
 		return new Block[] { Blocks.sand, Blocks.sandstone };
+	}
+	
+	protected void reloadChestItems() {
+		randomChestItems.clear();
+		int i = 0;
+		i = addItemsForHardDungeons(i, Reference.sphinxChestItemsMultiplier);
+		i = addItemsForAllChests(i, Reference.sphinxChestItemsMultiplier);
+		i = addItemsForAllDungeons(i, Reference.sphinxChestItemsMultiplier);		
 	}
 
 	@Override
@@ -1294,7 +1304,9 @@ public class Sphinx_000 extends AbandonedStructure {
 //		world.setBlock(x + 16, y + 2, z + 3, Blocks.chest, 3, 3);
 
 		// Lower floor (2 double chests)
+		reloadChestItems();
 		generateDoubleChest(world, random, x + 4 + 1, y - 3 + 2, z + 25 + 1, x + 4 + 1, y - 1, z + 25 + 2, 5, numChests, generatedChest);	
+		reloadChestItems();
 		generateDoubleChest(world, random, x + 4 + 11, y - 3 + 2, z + 25 + 1, x + 4 + 11, y - 1, z + 25 + 2, 4, numChests, generatedChest);	
 //		world.setBlock(x + 1, y + 2, z + 1, Blocks.chest, 5, 3);
 //		world.setBlock(x + 1, y + 2, z + 2, Blocks.chest, 5, 3);

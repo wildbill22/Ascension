@@ -31,7 +31,7 @@ public class LandWatchtowerPart1 extends AbandonedStructure {
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 
 		int i = 0;
-		addItemsForAllChests(i);		
+		i = addItemsForAllChests(i, 1);		
 	}
 
 	protected static String[] getMobsToSpawn() {

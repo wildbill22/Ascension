@@ -69,8 +69,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			Blocks.quartz_ore, Blocks.redstone_ore, Blocks.sandstone, Blocks.soul_sand, Blocks.stone,
 			Blocks.wool, Blocks.sand };
 	protected int floorLevel = 0;
-	protected ArrayList<RandomChestItems> randomSingleChestItems;
-	protected ArrayList<RandomChestItems> randomDoubleChestItems;
+	public ArrayList<RandomChestItem> randomChestItems;
 	
 	// For generating chests (if more than one)
 	protected int numGenerated = 0;
@@ -236,16 +235,16 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			setBlock(world, random, x, y, z, Blocks.chest, metaData, 2);
 			TileEntityChest chestEntity = new TileEntityChest();
 			world.setTileEntity(x, y, z, chestEntity);
-			if (randomSingleChestItems != null) {
+			if (randomChestItems != null) {
 				// item, min to add, max to add, chance N/100
 				// Add items with lowest chance first
-				for (int i = 0; i < randomSingleChestItems.size(); i++) {
+				for (int i = 0; i < randomChestItems.size(); i++) {
 					if (i > 26) {
 						LogHelper.error("Too many items assigned to spawn in chest!");
 						break;
 					}
-					setRandomSlots(chestEntity, randomSingleChestItems.get(i).slot, randomSingleChestItems.get(i).item, randomSingleChestItems.get(i).min,
-							randomSingleChestItems.get(i).max, randomSingleChestItems.get(i).probability);
+					setRandomSlots(chestEntity, randomChestItems.get(i).slot, randomChestItems.get(i).item, randomChestItems.get(i).min,
+							randomChestItems.get(i).max, randomChestItems.get(i).probability);
 				}
 			}
 			return true;
@@ -275,16 +274,16 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			setBlock(world, random, x2, y2, z2, Blocks.chest, metaData, 2);
 			TileEntityChest chestEntity = new TileEntityChest();
 			world.setTileEntity(x1, y1, z1, chestEntity);
-			if (randomDoubleChestItems != null) {
+			if (randomChestItems != null) {
 				// item, min to add, max to add, chance N/100
 				// Add items with lowest chance first
-				for (int i = 0; i < randomDoubleChestItems.size(); i++) {
+				for (int i = 0; i < randomChestItems.size(); i++) {
 					if (i > 53) {
 						LogHelper.error("Too many items assigned to spawn in chest!");
 						break;
 					}
-					setRandomSlots(chestEntity, randomDoubleChestItems.get(i).slot, randomDoubleChestItems.get(i).item, 
-							randomDoubleChestItems.get(i).min, randomDoubleChestItems.get(i).max, randomDoubleChestItems.get(i).probability);
+					setRandomSlots(chestEntity, randomChestItems.get(i).slot, randomChestItems.get(i).item, 
+							randomChestItems.get(i).min, randomChestItems.get(i).max, randomChestItems.get(i).probability);
 				}
 			}
 			return true;
@@ -311,12 +310,12 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			setBlock(world, random, x, y, z, Blocks.chest, metaData, 2);
 			TileEntityChest chestEntity = new TileEntityChest();
 			world.setTileEntity(x, y, z, chestEntity);
-			if (randomSingleChestItems != null) {
+			if (randomChestItems != null) {
 				// item, min to add, max to add, chance N/1000
 				// Add items with lowest chance first
-				for (int i = 0; i < randomSingleChestItems.size(); i++) {
-					setRandomSlots(chestEntity, randomSingleChestItems.get(i).slot, randomSingleChestItems.get(i).item, randomSingleChestItems.get(i).min,
-							randomSingleChestItems.get(i).max, randomSingleChestItems.get(i).probability);				
+				for (int i = 0; i < randomChestItems.size(); i++) {
+					setRandomSlots(chestEntity, randomChestItems.get(i).slot, randomChestItems.get(i).item, randomChestItems.get(i).min,
+							randomChestItems.get(i).max, randomChestItems.get(i).probability);				
 				}
 			}
 			return true;
@@ -332,31 +331,33 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	 * @param max maximum to add to a slot (1 - 64)
 	 * @param probability n/100 chance of any one slot having this item
 	 */
-	protected void addRandomSingleChestItem(int slot, Item item, int min, int max, int probability) {
-		if (randomSingleChestItems == null)
-			randomSingleChestItems = new ArrayList<RandomChestItems>();
-		if (min <= max && max <= 64 && slot < 27 && probability >= 0 && probability <= 100)
-			randomSingleChestItems.add(new RandomChestItems(slot, item, min, max, probability));
+	protected void addRandomChestItem(int slot, Item item, int min, int max, int probability) {
+		if (randomChestItems == null)
+			randomChestItems = new ArrayList<RandomChestItem>();
+		if (probability > 100)
+			probability = 100;
+		if (min <= max && max <= 64 && slot < 27 && probability >= 0)
+			randomChestItems.add(new RandomChestItem(slot, item, min, max, probability));
 		else
 			LogHelper.error("One of the parameters for adding " + item.getUnlocalizedName() + " to chest is wrong!");
 	}
 	
-	/**
-	 * Adds item(s) to a chest in the designated slot with the probability given 
-	 * @param slot slot where the item will randomly appear
-	 * @param item item to add randomly to chest 
-	 * @param min minimum to add to a slot (0 - 64)
-	 * @param max maximum to add to a slot (1 - 64)
-	 * @param probability n/100 chance of any one slot having this item
-	 */
-	protected void addRandomDoubleChestItem(int slot, Item item, int min, int max, int probability) {
-		if (randomDoubleChestItems == null)
-			randomDoubleChestItems = new ArrayList<RandomChestItems>();
-		if (min <= max && max <= 64 && slot < 27 && probability >= 0 && probability <= 100)
-			randomDoubleChestItems.add(new RandomChestItems(slot, item, min, max, probability));
-		else
-			LogHelper.error("One of the parameters for adding " + item.getUnlocalizedName() + " to chest is wrong!");
-	}
+//	/**
+//	 * Adds item(s) to a chest in the designated slot with the probability given 
+//	 * @param slot slot where the item will randomly appear
+//	 * @param item item to add randomly to chest 
+//	 * @param min minimum to add to a slot (0 - 64)
+//	 * @param max maximum to add to a slot (1 - 64)
+//	 * @param probability n/100 chance of any one slot having this item
+//	 */
+//	protected void addRandomDoubleChestItem(int slot, Item item, int min, int max, int probability) {
+//		if (randomChestItems == null)
+//			randomChestItems = new ArrayList<RandomChestItems>();
+//		if (min <= max && max <= 64 && slot < 54 && probability >= 0 && probability <= 100)
+//			randomChestItems.add(new RandomChestItems(slot, item, min, max, probability));
+//		else
+//			LogHelper.error("One of the parameters for adding " + item.getUnlocalizedName() + " to chest is wrong!");
+//	}
 	
 	/**
 	 * Replace a setBlock for a mob_spawner with this function with all the parameters, and a few extra 
@@ -389,14 +390,14 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		}
 	}
 	
-	protected class RandomChestItems {
+	protected class RandomChestItem {
 		int slot;
 		Item item;
 		int min;
 		int max;
 		int probability;
 		
-		protected RandomChestItems(int slot, Item item, int min, int max, int probability) {
+		protected RandomChestItem(int slot, Item item, int min, int max, int probability) {
 			this.slot = slot;
 			this.item = item;
 			this.min = min;
@@ -566,107 +567,230 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	}
 	
 	// Chest stuff
-	protected int addItemsForAllChests(int i) {
-		// 16 total
+	protected int addItemsForAllChests(int i, int m) {
+		// 8 total
 		
 		// In all chests - minecraft vanilla
-		addRandomSingleChestItem(i++, Items.iron_ingot, 1, 3, 7);
-		addRandomSingleChestItem(i++, Items.gold_ingot, 1, 2, 7);
-		addRandomSingleChestItem(i++, Items.diamond, 1, 2, 3);
-		addRandomSingleChestItem(i++, Items.emerald, 1, 1, 2);
-		addRandomSingleChestItem(i++, Items.rotten_flesh, 1, 4, 10);
-		addRandomSingleChestItem(i++, Items.bone, 1, 3, 8);
-		addRandomSingleChestItem(i++, Items.wheat, 1, 4, 10);
+		Random random = new Random();
+		int n = 3;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, Items.iron_ingot, 1, 3, 7 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, Items.gold_ingot, 1, 2, 7 * n * m);
+				break;
+			case 2:
+				addRandomChestItem(i++, Items.diamond, 1, 2, 3 * n * m);
+				break;
+		}
+		n = 4;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, Items.emerald, 1, 1, 2 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, Items.rotten_flesh, 1, 4, 10 * n * m);
+				break;
+			case 2:
+				addRandomChestItem(i++, Items.bone, 1, 3, 8 * n * m);
+				break;
+			case 3:
+				addRandomChestItem(i++, Items.wheat, 1, 4, 10 * n * m);
+				break;
+			}
 		
 		// In all chests - modItems
-		addRandomSingleChestItem(i++, ModItems.titaniumIngot, 1, 2, 6);
-		addRandomSingleChestItem(i++, ModItems.vexalIngot, 1, 1, 5);
-		addRandomSingleChestItem(i++, ModItems.rawVenison, 1, 3, 10);
-		addRandomSingleChestItem(i++, ModItems.coldBlazeRod, 1, 2, 8);
-		addRandomSingleChestItem(i++, ModItems.sharkTeeth, 1, 2, 9);
-		addRandomSingleChestItem(i++, ModItems.golemGyro, 1, 1, 5);
+		n = 3;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, ModItems.titaniumIngot, 1, 2, 6 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, ModItems.vexalIngot, 1, 1, 5 * n * m);
+				break;
+			case 2:
+				addRandomChestItem(i++, ModItems.rawVenison, 1, 3, 10 * n * m);
+				break;
+		}
+		n = 3;
+		switch (random.nextInt(n)) {
+		case 0:
+			addRandomChestItem(i++, ModItems.coldBlazeRod, 1, 2, 8 * n * m);
+			break;
+		case 1:
+			addRandomChestItem(i++, ModItems.sharkTeeth, 1, 2, 9 * n * m);
+			break;
+		case 2:
+			addRandomChestItem(i++, ModItems.golemGyro, 1, 1, 5 * n * m);
+			break;
+		}
 
 		// In all chests - modArmory
-		addRandomSingleChestItem(i++, ModArmory.blazeSword, 1, 1, 2);
-		addRandomSingleChestItem(i++, ModArmory.iceSword, 1, 1, 3);
-		addRandomSingleChestItem(i++, ModArmory.razorSword, 1, 1, 2);
+		n = 3;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, ModArmory.blazeSword, 1, 1, 2 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, ModArmory.iceSword, 1, 1, 3 * n * m);
+				break;
+			case 2:
+				addRandomChestItem(i++, ModArmory.razorSword, 1, 1, 2 * n * m);
+				break;
+			}
 		
+		// In all chests - modArmory - titanium tools & weapons
+		n = 4;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, ModArmory.titaniumAxe, 1, 1, 4 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, ModArmory.titaniumPick, 1, 1, 4 * n * m);
+				break;
+			case 2:
+				addRandomChestItem(i++, ModArmory.titaniumShovel, 1, 1, 4 * n * m);
+				break;
+			case 3:
+				addRandomChestItem(i++, ModArmory.titaniumSword, 1, 1, 4 * n * m);
+				break;
+			}
+
+		// In all chests - modArmory - titanium armor
+		n = 2;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, ModArmory.titaniumBoots, 1, 1, 4 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, ModArmory.titaniumHelm, 1, 1, 4 * n * m);
+				break;
+		}
+		n = 2;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, ModArmory.titaniumPants, 1, 1, 4 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, ModArmory.titaniumPlate, 1, 1, 4 * n * m);
+				break;
+			}
+
 		return i;
 	}
-	
-	protected int addItemsForAllDungeons(int i) {
-		// More ModItems for All Mob Dungeons (6):
-		addRandomSingleChestItem(i++, ModItems.steelIngot, 1, 1, 4);
-		addRandomSingleChestItem(i++, ModItems.crystal, 1, 2, 4);
-		addRandomSingleChestItem(i++, ModItems.fleroviumShard, 1, 1, 2);
-		addRandomSingleChestItem(i++, ModItems.crystalShard, 1, 3, 5);
-		addRandomSingleChestItem(i++, ModItems.iceGem, 1, 1, 3);
-		addRandomSingleChestItem(i++, ModItems.blazeGem, 1, 1, 3);
 
-		// More ModArmory for All Dungeons (13):
+	// Add 6 items
+	protected int addItemsForAllDungeons(int i, int m) {
 		Random random = new Random();
+
+		// More ModItems for All Mob Dungeons (6):
 		// Since only 1 of n, changed probability to * n
 		int n = 3;
 		switch (random.nextInt(n)) {
 			case 0:
-				addRandomSingleChestItem(i++, ModArmory.steelAxe, 1, 1, 3 * n);
+				addRandomChestItem(i++, ModItems.steelIngot, 1, 1, 4 * n * m);
 				break;
 			case 1:
-				addRandomSingleChestItem(i++, ModArmory.steelBoots, 1, 1, 3 * n);
+				addRandomChestItem(i++, ModItems.crystal, 1, 2, 4 * n * m);
 				break;
 			case 2:
-				addRandomSingleChestItem(i++, ModArmory.steelHelm, 1, 1, 3 * n);
+				addRandomChestItem(i++, ModItems.fleroviumShard, 1, 1, 2 * n * m);
+				break;
+		}
+		n = 3;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, ModItems.crystalShard, 1, 3, 5 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, ModItems.iceGem, 1, 1, 3 * n * m);
+				break;
+			case 2:
+				addRandomChestItem(i++, ModItems.blazeGem, 1, 1, 3 * n * m);
+				break;
+			}
+
+		// More ModArmory for All Dungeons (13):
+		n = 3;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, ModArmory.steelAxe, 1, 1, 3 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, ModArmory.steelBoots, 1, 1, 3 * n * m);
+				break;
+			case 2:
+				addRandomChestItem(i++, ModArmory.steelHelm, 1, 1, 3 * n * m);
 				break;
 			}
 		n = 3;
 		switch (random.nextInt(n)) {
 		case 0:
-			addRandomSingleChestItem(i++, ModArmory.steelPants, 1, 1, 3 * n);
+			addRandomChestItem(i++, ModArmory.steelPants, 1, 1, 3 * n * m);
 			break;
 		case 1:
-			addRandomSingleChestItem(i++, ModArmory.steelPick, 1, 1, 3 * n);
+			addRandomChestItem(i++, ModArmory.steelPick, 1, 1, 3 * n * m);
 			break;
 		case 2:
-			addRandomSingleChestItem(i++, ModArmory.steelPlate, 1, 1, 3 * n);
+			addRandomChestItem(i++, ModArmory.steelPlate, 1, 1, 3 * n * m);
 			break;
 		}
 		n = 3;
 		switch (random.nextInt(n)) {
 		case 0:
-			addRandomSingleChestItem(i++, ModArmory.steelShovel, 1, 1, 3 * n);
+			addRandomChestItem(i++, ModArmory.steelShovel, 1, 1, 3 * n * m);
 			break;
 		case 1:
-			addRandomSingleChestItem(i++, ModArmory.steelSword, 1, 1, 3 * n);
+			addRandomChestItem(i++, ModArmory.steelSword, 1, 1, 3 * n * m);
 			break;
 		case 2:
-			addRandomSingleChestItem(i++, ModArmory.crystallizedSword, 1, 1, 2 * n);
+			addRandomChestItem(i++, ModArmory.crystallizedSword, 1, 1, 2 * n * m);
 			break;
 		}
 		n = 4;
 		switch (random.nextInt(n)) {
 		case 0:
-			addRandomSingleChestItem(i++, ModArmory.gyroMace, 1, 1, 1 * n);
+			addRandomChestItem(i++, ModArmory.gyroMace, 1, 1, 1 * n * m);
 			break;
 		case 1:
-			addRandomSingleChestItem(i++, ModArmory.shadowBlade, 1, 1, 1 * n);
+			addRandomChestItem(i++, ModArmory.shadowBlade, 1, 1, 1 * n * m);
 			break;
 		case 2:
-			addRandomSingleChestItem(i++, ModArmory.etherealBlade, 1, 1, 1 * n);
+			addRandomChestItem(i++, ModArmory.etherealBlade, 1, 1, 1 * n * m);
 			break;
 		case 3:
-			addRandomSingleChestItem(i++, ModArmory.wingedBlade, 1, 1, 1 * n);
+			addRandomChestItem(i++, ModArmory.wingedBlade, 1, 1, 1 * n * m);
 			break;
 		}
 		
-
 		return i;
 	}
 
-	protected int addItemsForHardDungeons(int i) {
-		addRandomSingleChestItem(i++, ModArmory.divineRapier, 1, 1, 2);
-		addRandomSingleChestItem(i++, ModArmory.voidHammer, 1, 1, 2);
-		addRandomSingleChestItem(i++, ModArmory.titaniumSword, 1, 1, 10);
+	// Add 1 item
+	protected int addItemsForHardDungeons(int i, int m) {
+		Random random = new Random();
+		int n = 3;
+		switch (random.nextInt(n)) {
+			case 0:
+				addRandomChestItem(i++, ModArmory.divineRapier, 1, 1, 2 * n * m);
+				break;
+			case 1:
+				addRandomChestItem(i++, ModArmory.voidHammer, 1, 1, 2 * n * m);
+				break;
+			case 2:
+				addRandomChestItem(i++, ModArmory.titaniumSword, 1, 1, 10 * n * m);
+				break;
+			}
 	
+		return i;
+	}
+
+	// Add 1 item
+	protected int addItemsForSphinx(int i, int m) {
+		// Spawn egg(s)
+		addRandomChestItem(i++, ModItems.pharaohEgg, 1, 1, 100);
+			
 		return i;
 	}
 }

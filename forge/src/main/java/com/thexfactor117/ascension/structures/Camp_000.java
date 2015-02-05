@@ -32,7 +32,7 @@ public class Camp_000 extends AbandonedStructure {
 		baseBlock = Blocks.dirt;
 
 		int i = 0;
-		addItemsForAllChests(i);		
+		i = addItemsForAllChests(i, 1);		
 	}
 
 	protected static String[] getMobsToSpawn() {

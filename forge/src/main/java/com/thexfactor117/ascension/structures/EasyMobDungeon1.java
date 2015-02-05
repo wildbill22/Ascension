@@ -30,8 +30,8 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 		super(missingBlockChance, spawnHeightTolerance, spawnChance, Structures.EASYMOBDUNGEON, 
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 		int i = 0;
-		i = addItemsForAllChests(i);
-		i = addItemsForAllDungeons(i);				
+		i = addItemsForAllChests(i, 1);
+		i = addItemsForAllDungeons(i, 1);				
 	}
 
 	protected static String[] getMobsToSpawn() {
