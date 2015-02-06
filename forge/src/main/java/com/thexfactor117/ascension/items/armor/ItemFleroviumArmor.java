@@ -48,7 +48,7 @@ public class ItemFleroviumArmor extends ItemArmor
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
 		list.add("An extremely powerful armor.");
-		list.add("Full Set Bonus: None (planned)");
+		list.add("Full Set Bonus: Strength");
 	}
 	
 	@Override

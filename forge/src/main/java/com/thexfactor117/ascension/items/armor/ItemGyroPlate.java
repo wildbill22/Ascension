@@ -13,6 +13,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
 
 public class ItemGyroPlate extends ItemArmor
 {
@@ -42,6 +45,15 @@ public class ItemGyroPlate extends ItemArmor
 	{
 		list.add("A heavy-duty plate for those who");
 		list.add("want to soak up damage.");
-		list.add("Chestplate Bonus: None");
+		list.add("Chestplate Bonus: Resistance");
+	}
+	
+	@Override
+	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
+	{
+		if (stack.getItem().equals(ModArmory.gyroPlate))
+		{
+			player.addPotionEffect(new PotionEffect(Potion.resistance.id, 20*1));
+		}
 	}
 }
