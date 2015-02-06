@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -161,7 +162,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	{
 		try           
 		{              
-			Thread.sleep(400);            
+			Thread.sleep(450);            
 		}          
 		catch (InterruptedException interruptedException)          
 		{              
@@ -213,15 +214,18 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	 * @param chance that it will be added
 	 * @return slot + 1 if added, slot if not added
 	 */
-	private int setRandomSlots(TileEntityChest chestEntity, int slot, Item item, int min, int max, int chance) 
+	private int setRandomSlots(TileEntityChest chestEntity, int slot, RandomChestItem chestItem) 
 	{
 		Random rand = new Random();
 		int randomChance = rand.nextInt(100);
-		if (chestEntity.getStackInSlot(slot) == null && chance > randomChance)
+		if (chestEntity.getStackInSlot(slot) == null && chestItem.probability > randomChance)
 		{
-			int randomQty = rand.nextInt(max - min + 1) + min;
-			ItemStack items = new ItemStack(item, randomQty);
-			chestEntity.setInventorySlotContents(slot, items);
+			int randomQty = rand.nextInt(chestItem.max - chestItem.min + 1) + chestItem.min;
+			ItemStack stack = new ItemStack(chestItem.item, randomQty);
+			if (chestItem.enchantment != null) {
+				stack.addEnchantment(chestItem.enchantment, 1);
+			}
+			chestEntity.setInventorySlotContents(slot, stack);
 			return slot + 1;
 		}
 		return slot;
@@ -253,8 +257,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 				for (int i = 0; i < listSize; i++) {
 					if (random.nextInt(27) < addItemChance) {
 						// item, min to add, max to add, chance N/100
-						slot = setRandomSlots(chestEntity, slot, randomChestItems.get(i).item, randomChestItems.get(i).min,
-							randomChestItems.get(i).max, randomChestItems.get(i).probability);
+						slot = setRandomSlots(chestEntity, slot, randomChestItems.get(i));
 					}
 					if (i == 27) {
 						LogHelper.error("Too many items assigned to spawn in chest!");
@@ -296,8 +299,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 				for (int i = 0; i < listSize; i++) {
 					if (random.nextInt(54) < addItemChance) {
 						// item, min to add, max to add, chance N/100
-						slot = setRandomSlots(chestEntity, slot, randomChestItems.get(i).item, 
-							randomChestItems.get(i).min, randomChestItems.get(i).max, randomChestItems.get(i).probability);
+						slot = setRandomSlots(chestEntity, slot, randomChestItems.get(i));
 					}
 					if (slot == 54) {
 						LogHelper.error("Too many items assigned to spawn in chest!");
@@ -336,8 +338,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 				for (int i = 0; i < listSize; i++) {
 					if (random.nextInt(27) < addItemChance) {
 						// item, min to add, max to add, chance N/100
-						slot = setRandomSlots(chestEntity, slot, randomChestItems.get(i).item, 
-								randomChestItems.get(i).min, randomChestItems.get(i).max, randomChestItems.get(i).probability);
+						slot = setRandomSlots(chestEntity, slot, randomChestItems.get(i));
 					}
 					if (slot == 27) {
 						LogHelper.error("Too many items assigned to spawn in chest!");
@@ -389,6 +390,26 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	}
 	
 	/**
+	 * Adds item(s) to a the random chest items list with a designated slot and probability 
+	 * @param slot slot where the item will randomly appear
+	 * @param item item to add randomly to chest 
+	 * @param min minimum to add to a slot (0 - 64)
+	 * @param max maximum to add to a slot (1 - 64)
+	 * @param probability n/100 chance of any one slot having this item
+	 * @param enchantment property to add to item
+	 */
+	protected void addRandomChestItem(Item item, int min, int max, int probability, Enchantment enchantment, int enchantmentLevel) {
+		if (randomChestItems == null)
+			randomChestItems = new ArrayList<RandomChestItem>();
+		if (probability > 100)
+			probability = 100;
+		if (min <= max && max <= 64 && probability >= 0)
+			randomChestItems.add(new RandomChestItem(item, min, max, probability, enchantment, enchantmentLevel));
+		else
+			LogHelper.error("One of the parameters for adding " + item.getUnlocalizedName() + " to chest is wrong!");
+	}
+	
+	/**
 	 * Replace a setBlock for a mob_spawner with this function with all the parameters, and a few extra 
 	 * @param world 
 	 * @param random
@@ -424,12 +445,22 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		int min;
 		int max;
 		int probability;
+		Enchantment enchantment;
+		int enchantmentLevel;
 		
 		protected RandomChestItem(Item item, int min, int max, int probability) {
 			this.item = item;
 			this.min = min;
 			this.max = max;
 			this.probability = probability;
+			enchantment = null;
+		}
+		protected RandomChestItem(Item item, int min, int max, int probability, Enchantment enchantment, int enchantmentLevel) {
+			this.item = item;
+			this.min = min;
+			this.max = max;
+			this.probability = probability;
+			this.enchantment = enchantment;
 		}
 	}
 
@@ -650,7 +681,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 		addRandomChestItem(ModArmory.steelShovel, 1, 1, 3 * m);
 		addRandomChestItem(ModArmory.steelSword, 1, 1, 3 * m);
 		addRandomChestItem(ModArmory.crystallizedSword, 1, 1, 2 * m);
-		addRandomChestItem(ModArmory.gyroMace, 1, 1, 1 * m);
+		addRandomChestItem(ModArmory.gyroMace, 1, 1, 1 * m, Enchantment.knockback, 1);
 		addRandomChestItem(ModArmory.shadowBlade, 1, 1, 1 * m);
 		addRandomChestItem(ModArmory.etherealBlade, 1, 1, 1 * m);
 		addRandomChestItem(ModArmory.wingedBlade, 1, 1, 1 * m);
@@ -658,7 +689,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 
 	protected void addItemsForHardDungeons(int m) {
 		addRandomChestItem(ModArmory.divineRapier, 1, 1, 2 * m);
-		addRandomChestItem(ModArmory.voidHammer, 1, 1, 2 * m);
+		addRandomChestItem(ModArmory.voidHammer, 1, 1, 2 * m, Enchantment.knockback, 2);
 		addRandomChestItem(ModArmory.titaniumSword, 1, 1, 10 * m);
 	}
 
