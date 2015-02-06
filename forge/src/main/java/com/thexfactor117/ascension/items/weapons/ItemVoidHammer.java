@@ -42,12 +42,4 @@ public class ItemVoidHammer extends ItemSword
 		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
 		list.add("Ability: Power");
 	}
-	
-	/*
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int par1, boolean par2)
-	{
-		stack.addEnchantment(Enchantment.knockback, 2);
-	}
-	*/
 }

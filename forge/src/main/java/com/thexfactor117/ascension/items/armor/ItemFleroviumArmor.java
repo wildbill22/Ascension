@@ -2,18 +2,20 @@ package com.thexfactor117.ascension.items.armor;
 
 import java.util.List;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
+
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 
 public class ItemFleroviumArmor extends ItemArmor
 {
@@ -47,5 +49,23 @@ public class ItemFleroviumArmor extends ItemArmor
 	{
 		list.add("An extremely powerful armor.");
 		list.add("Full Set Bonus: None (planned)");
+	}
+	
+	@Override
+	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
+	{
+		if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem().equals(ModArmory.fleroviumBoots))
+		{
+			if (player.getCurrentArmor(1) != null && player.getCurrentArmor(1).getItem().equals(ModArmory.fleroviumPants))
+			{
+				if (player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem().equals(ModArmory.fleroviumPlate))
+				{
+					if (player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ModArmory.fleroviumHelm))
+					{
+						player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 20*1));
+					}
+				}
+			}
+		}
 	}
 }
