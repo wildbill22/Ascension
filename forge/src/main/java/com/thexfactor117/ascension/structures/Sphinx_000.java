@@ -21,8 +21,7 @@ public class Sphinx_000 extends AbandonedStructure {
 	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
 	public static int spawnChance = Reference.spawnChanceSphinx;  // chance n/100
 	private static int doorX = 10;
-//	private static int doorZ = 34;
-	private static int doorZ = 0;
+	private static int doorZ = 34;
 	private static int xMax = 20;
 	private static int zMax = 34;
     
@@ -32,10 +31,9 @@ public class Sphinx_000 extends AbandonedStructure {
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 		baseBlock = Blocks.sand;
 
-		int i = 0;
-		i = addItemsForSphinx(i, Reference.sphinxChestItemsMultiplier);
-		i = addItemsForAllChests(i, Reference.sphinxChestItemsMultiplier);
-		i = addItemsForAllDungeons(i, Reference.sphinxChestItemsMultiplier);
+		addItemsForSphinx(Reference.sphinxChestItemsMultiplier);
+		addItemsForAllChests(Reference.sphinxChestItemsMultiplier);
+		addItemsForAllDungeons(Reference.sphinxChestItemsMultiplier);
 	}
 
 	protected static String[] getMobsToSpawn() {
@@ -49,10 +47,9 @@ public class Sphinx_000 extends AbandonedStructure {
 	
 	protected void reloadChestItems() {
 		randomChestItems.clear();
-		int i = 0;
-		i = addItemsForHardDungeons(i, Reference.sphinxChestItemsMultiplier);
-		i = addItemsForAllChests(i, Reference.sphinxChestItemsMultiplier);
-		i = addItemsForAllDungeons(i, Reference.sphinxChestItemsMultiplier);		
+		addItemsForHardDungeons(Reference.sphinxChestItemsMultiplier);
+		addItemsForAllChests(Reference.sphinxChestItemsMultiplier);
+		addItemsForAllDungeons(Reference.sphinxChestItemsMultiplier);		
 	}
 
 	@Override

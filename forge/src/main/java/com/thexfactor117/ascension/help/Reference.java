@@ -18,5 +18,5 @@ public class Reference
 	public static final int spawnChanceSphinx = 100;		
 	public static final int spawnChanceAbandonedTower = 8;
 	public static final int minimumSpawnDistanceSphinx = 400; // TODO: Make this larger for Beta
-	public static final int sphinxChestItemsMultiplier = 5;   // n times the normal probability for items in Sphinx chests 
+	public static final int sphinxChestItemsMultiplier = 10;   // n times the normal probability for items in Sphinx chests 
 }

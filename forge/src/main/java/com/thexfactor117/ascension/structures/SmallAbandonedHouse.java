@@ -30,8 +30,7 @@ public class SmallAbandonedHouse extends AbandonedStructure {
 		super(missingBlockChance, spawnHeightTolerance, spawnChance, Structures.OTHER, 
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 
-		int i = 0;
-		i = addItemsForAllChests(i, 1);		
+		addItemsForAllChests(1);		
 	}
 
 	protected static String[] getMobsToSpawn() {
