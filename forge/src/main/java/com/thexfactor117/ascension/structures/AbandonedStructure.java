@@ -433,10 +433,13 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			if (random.nextInt(mobsToSpawn.length) == 0) {
 				LogHelper.info("Generating a mob spawner with " + mobsToSpawn[i]);
 				spawner.func_145881_a().setEntityName(mobsToSpawn[i]);
+				setEntity = true;
 			}				
 		}
 		if (setEntity == false) {
-			spawner.func_145881_a().setEntityName(mobsToSpawn[0]);			
+			int i = random.nextInt(mobsToSpawn.length);
+			spawner.func_145881_a().setEntityName(mobsToSpawn[i]);			
+			LogHelper.info("Generating a mob spawner with " + mobsToSpawn[i]);
 		}
 	}
 	
