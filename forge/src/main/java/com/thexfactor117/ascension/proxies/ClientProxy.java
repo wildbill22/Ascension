@@ -1,5 +1,6 @@
 package com.thexfactor117.ascension.proxies;
 
+import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
 import com.thexfactor117.ascension.entities.hostile.EntityBanshee;
 import com.thexfactor117.ascension.entities.hostile.EntityBarbarian;
 import com.thexfactor117.ascension.entities.hostile.EntityGhost;
@@ -13,6 +14,7 @@ import com.thexfactor117.ascension.models.ModelDoe;
 import com.thexfactor117.ascension.models.ModelGhost;
 import com.thexfactor117.ascension.models.ModelGolem;
 import com.thexfactor117.ascension.models.ModelMummy;
+import com.thexfactor117.ascension.models.ModelPharaoh;
 import com.thexfactor117.ascension.models.ModelValkyrie;
 import com.thexfactor117.ascension.render.RenderBanshee;
 import com.thexfactor117.ascension.render.RenderBarbarian;
@@ -20,6 +22,7 @@ import com.thexfactor117.ascension.render.RenderDoe;
 import com.thexfactor117.ascension.render.RenderGhost;
 import com.thexfactor117.ascension.render.RenderGolem;
 import com.thexfactor117.ascension.render.RenderMummy;
+import com.thexfactor117.ascension.render.RenderPharaoh;
 import com.thexfactor117.ascension.render.RenderValkyrie;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -37,6 +40,8 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityBanshee.class, new RenderBanshee(new ModelBanshee(), 0));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityDoe.class, new RenderDoe(new ModelDoe(), 0));
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityPharaoh.class, new RenderPharaoh(new ModelPharaoh(), 0));
 	}
 	
 	public void registerTileEntitySpecialRenderer() 
