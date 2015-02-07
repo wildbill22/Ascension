@@ -31,7 +31,7 @@ public class Camp_000 extends AbandonedStructure {
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 		baseBlock = Blocks.dirt;
 
-		addItemsForAllChests(1);		
+		randomChest.addItemsForAllChests(1);		
 	}
 
 	protected static String[] getMobsToSpawn() {
@@ -1304,8 +1304,8 @@ public class Camp_000 extends AbandonedStructure {
 		// If just one chest, set last two parameters to 1 and false (or here, we want them both)
 		int numChests = 1;
 		boolean generatedChest = false;
-		generatedChest = generateChest(world, random, x + 6, y + 1, z + 6, 4, numChests, generatedChest);	
-		generateChest(world, random, x + 24, y + 1, z + 15, 3, numChests, false);
+		generatedChest = randomChest.generateChest(world, random, x + 6, y + 1, z + 6, 4, numChests, generatedChest);	
+		randomChest.generateChest(world, random, x + 24, y + 1, z + 15, 3, numChests, false);
 		
 		// Location of chests below, 2nd part was for double chest, set to air
 //		world.setBlock(x + 6, y + 1, z + 6, Blocks.chest, 4, 3);

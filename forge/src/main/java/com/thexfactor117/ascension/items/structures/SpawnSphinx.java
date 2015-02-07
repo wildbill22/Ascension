@@ -35,7 +35,7 @@ public class SpawnSphinx extends ItemAscension {
 		
 		Random random = new Random();
 		Sphinx_000 sphinx = new Sphinx_000();
-		sphinx.generate(world, random, x, y, z);
+		sphinx.generate(world, random, x, y - 1, z);
 //		camp.generateStructureBase(world, random, x, z, 31, 31, Blocks.sand);
 		
 		return true;

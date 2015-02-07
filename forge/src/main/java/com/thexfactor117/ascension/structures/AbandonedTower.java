@@ -30,7 +30,7 @@ public class AbandonedTower extends AbandonedStructure {
 		super(missingBlockChance, spawnHeightTolerance, spawnChance, Structures.OTHER, 
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 
-		addItemsForAllChests(1);		
+		randomChest.addItemsForAllChests(1);		
 	}
 
 	protected static String[] getMobsToSpawn() {
@@ -1202,8 +1202,8 @@ public class AbandonedTower extends AbandonedStructure {
 		// If just one chest, set last two parameters to 1 and false (or here, where we want them both)
 		int numChests = 1;
 		boolean generatedChest = false;
-		generateChest(world, random, x + 1, y + 1, z + 1, 3, numChests, generatedChest);	
-		generateChest(world, random, x + 8, y + 11, z + 1, 3, numChests, generatedChest);	
+		randomChest.generateChest(world, random, x + 1, y + 1, z + 1, 3, numChests, generatedChest);	
+		randomChest.generateChest(world, random, x + 8, y + 11, z + 1, 3, numChests, generatedChest);	
 //		world.setBlock(x + 1, y + 1, z + 1, Blocks.chest, 3, 3);
 		world.setBlock(x + 2, y + 1, z + 1, Blocks.air, 3, 3);
 //		world.setBlock(x + 8, y + 11, z + 1, Blocks.chest, 3, 3);

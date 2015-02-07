@@ -5,7 +5,7 @@ import java.util.Random;
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.structures.StructureCoordinates.Structures;
-
+import com.thexfactor117.ascension.structures.RandomChest;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -30,7 +30,7 @@ public class SmallAbandonedHouse extends AbandonedStructure {
 		super(missingBlockChance, spawnHeightTolerance, spawnChance, Structures.OTHER, 
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 
-		addItemsForAllChests(1);		
+		randomChest.addItemsForAllChests(1);		
 	}
 
 	protected static String[] getMobsToSpawn() {
@@ -159,7 +159,7 @@ public class SmallAbandonedHouse extends AbandonedStructure {
 
 		//adding a chest with random stuff
 		// If just one chest, set last two parameters to 1 and false
-		generateChest(world, random, x + 3, y + 1, z + 5, 0, 1, false);	
+		randomChest.generateChest(world, random, x + 3, y + 1, z + 5, 0, 1, false);	
 		
 		// Mob spawner
 		generateMobSpawner(world, random, x + 1, y + 1, z + 5, 0);

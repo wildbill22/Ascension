@@ -29,8 +29,8 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 	{
 		super(missingBlockChance, spawnHeightTolerance, spawnChance, Structures.EASYMOBDUNGEON, 
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
-		addItemsForAllChests(1);
-		addItemsForAllDungeons(1);				
+		randomChest.addItemsForAllChests(1);
+		randomChest.addItemsForAllDungeons(1);				
 	}
 
 	protected static String[] getMobsToSpawn() {
@@ -788,7 +788,7 @@ public class EasyMobDungeon1 extends AbandonedStructure {
 
 		//adding a chest with random stuff
 		// If just one chest, set last two parameters to 1 and false
-		generateChest(world, random, x + 7, y + 1, z + 1, 3, 1, false);	
+		randomChest.generateChest(world, random, x + 7, y + 1, z + 1, 3, 1, false);	
 		
 		// Mob spawner
 		generateMobSpawner(world, random, x + 2, y + 1, z + 2, 0);		

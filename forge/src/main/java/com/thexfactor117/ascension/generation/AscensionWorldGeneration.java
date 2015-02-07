@@ -94,7 +94,7 @@ public class AscensionWorldGeneration implements IWorldGenerator
 			if (distanceFromSpawn > Reference.minimumSpawnDistanceSphinx) {
 				LogHelper.info("Attempting to generate Sphinx at " + distanceFromSpawn + " meters from spawn"); 
 				Sphinx_000 sphinx = new Sphinx_000();
-				generateFlatStructure(sphinx, world, random, x, z, -1, false);
+				generateFlatStructure(sphinx, world, random, x, z, -2, false);
 				if (StructureList.isSphinxGenerated() == true)
 					return;
 			}

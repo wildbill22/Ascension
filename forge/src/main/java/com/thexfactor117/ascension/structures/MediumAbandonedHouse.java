@@ -30,7 +30,7 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 		super(missingBlockChance, spawnHeightTolerance, spawnChance, Structures.OTHER, 
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 
-		addItemsForAllChests(1);		
+		randomChest.addItemsForAllChests(1);		
 	}
 
 	protected static String[] getMobsToSpawn() {
@@ -248,7 +248,7 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 
 		//adding a chest with random stuff
 		// If just one chest, set last two parameters to 1 and false
-		generateChest(world, random, x + 4, y + 1, z + 7, 0, 1, false);	
+		randomChest.generateChest(world, random, x + 4, y + 1, z + 7, 0, 1, false);	
 
 		// door
 		setBlock(world, random, x + 3, y + 1, z + 0, Blocks.wooden_door, 3, 3);
@@ -1312,7 +1312,7 @@ public class MediumAbandonedHouse extends AbandonedStructure {
 
 		//adding a chest with random stuff
 		// If just one chest, set last two parameters to 1 and false
-		generateChest(world, random, x + 2, y + 2, z + 3, 0, 1, false);	
+		randomChest.generateChest(world, random, x + 2, y + 2, z + 3, 0, 1, false);	
 
 		generate_r02_last(world, random, x, y, z);
 	}

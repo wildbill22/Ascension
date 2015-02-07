@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 public class Sphinx_000 extends AbandonedStructure {
 	// Variables for configuration
 	public static int missingBlockChance = 1;    // 1/n chance of setting block, set not less than 1, to 1 to set all blocks
-	public static int spawnHeightTolerance = 3;   // Set larger for bigger structures
+	public static int spawnHeightTolerance = 4;   // Set larger for bigger structures
 	public static int spawnChance = Reference.spawnChanceSphinx;  // chance n/100
 	private static int doorX = 10;
 	private static int doorZ = 34;
@@ -31,9 +31,9 @@ public class Sphinx_000 extends AbandonedStructure {
 				getValidSpawnBlocks(), getMobsToSpawn(), doorX, doorZ, xMax, zMax);
 		baseBlock = Blocks.sand;
 
-		addItemsForSphinx(Reference.sphinxChestItemsMultiplier);
-		addItemsForAllChests(Reference.sphinxChestItemsMultiplier);
-		addItemsForAllDungeons(Reference.sphinxChestItemsMultiplier);
+		randomChest.addItemsForSphinx(Reference.sphinxChestItemsMultiplier);
+		randomChest.addItemsForAllChests(Reference.sphinxChestItemsMultiplier);
+		randomChest.addItemsForAllDungeons(Reference.sphinxChestItemsMultiplier);
 	}
 
 	protected static String[] getMobsToSpawn() {
@@ -46,10 +46,10 @@ public class Sphinx_000 extends AbandonedStructure {
 	}
 	
 	protected void reloadChestItems() {
-		randomChestItems.clear();
-		addItemsForHardDungeons(Reference.sphinxChestItemsMultiplier);
-		addItemsForAllChests(Reference.sphinxChestItemsMultiplier);
-		addItemsForAllDungeons(Reference.sphinxChestItemsMultiplier);		
+		randomChest.randomChestItems.clear();
+		randomChest.addItemsForHardDungeons(Reference.sphinxChestItemsMultiplier);
+		randomChest.addItemsForAllChests(Reference.sphinxChestItemsMultiplier);
+		randomChest.addItemsForAllDungeons(Reference.sphinxChestItemsMultiplier);		
 	}
 
 	@Override
@@ -72,72 +72,73 @@ public class Sphinx_000 extends AbandonedStructure {
 		// 13 wide (x) x 24 length (z) x 5 height (y)
 		new SphinxStatue_000().generate_r00(world, random, x + 4, y + 6, z + 8);
 
+		// Some y=1 at the end of this method
 		new Sphinx_001().generate_r00(world, random, x, y, z);
 
-		world.setBlock(x + 0, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 4, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 5, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 6, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 13, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 14, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 15, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 16, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 17, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 18, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 19, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 0, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 2, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 3, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 4, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 5, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 6, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 7, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 8, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 9, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 10, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 11, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 12, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 13, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 14, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 15, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 16, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 17, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 18, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 0, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 2, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 3, y + 1, z + 1, Blocks.air, 0, 3);
 		world.setBlock(x + 4, y + 1, z + 1, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 5, y + 1, z + 1, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 6, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 7, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 8, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 13, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 14, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 6, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 7, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 8, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 9, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 10, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 11, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 12, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 13, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 14, y + 1, z + 1, Blocks.air, 0, 3);
 		world.setBlock(x + 15, y + 1, z + 1, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 16, y + 1, z + 1, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 17, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 18, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 19, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 1, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 2, Blocks.air, 0, 3);
+//		world.setBlock(x + 17, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 18, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 1, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 2, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 2, Blocks.air, 0, 3);
 		world.setBlock(x + 2, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 4, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 5, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 6, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 7, y + 1, z + 2, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 8, y + 1, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 9, y + 1, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 10, y + 1, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 11, y + 1, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 12, y + 1, z + 2, Blocks.air, 0, 3);
+//		world.setBlock(x + 8, y + 1, z + 2, Blocks.air, 0, 3);
+//		world.setBlock(x + 9, y + 1, z + 2, Blocks.air, 0, 3);
+//		world.setBlock(x + 10, y + 1, z + 2, Blocks.air, 0, 3);
+//		world.setBlock(x + 11, y + 1, z + 2, Blocks.air, 0, 3);
+//		world.setBlock(x + 12, y + 1, z + 2, Blocks.air, 0, 3);
 		world.setBlock(x + 13, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 14, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 15, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 16, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 17, y + 1, z + 2, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 2, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 19, y + 1, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 2, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 3, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 2, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 2, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 3, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 3, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 3, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 3, Blocks.sandstone, 2, 3);
@@ -157,8 +158,8 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 3, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 3, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 3, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 3, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 4, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 3, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 4, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 4, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 4, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 4, Blocks.sandstone, 2, 3);
@@ -181,8 +182,8 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 4, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 4, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 4, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 4, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 5, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 4, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 5, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 5, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 5, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 5, Blocks.sandstone, 2, 3);
@@ -202,8 +203,8 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 5, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 5, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 5, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 5, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 6, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 5, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 6, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 6, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 6, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 6, Blocks.sandstone, 2, 3);
@@ -223,8 +224,8 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 6, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 6, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 6, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 6, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 7, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 6, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 7, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 7, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 7, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 7, Blocks.sandstone, 2, 3);
@@ -244,8 +245,8 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 7, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 7, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 7, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 7, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 8, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 7, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 8, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 8, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 8, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 8, Blocks.sandstone, 2, 3);
@@ -265,8 +266,8 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 8, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 8, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 8, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 8, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 9, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 8, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 9, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 9, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 9, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 9, Blocks.sandstone, 2, 3);
@@ -286,8 +287,8 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 9, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 9, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 9, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 9, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 10, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 9, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 10, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 10, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 10, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 10, Blocks.sandstone, 2, 3);
@@ -307,8 +308,8 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 10, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 10, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 10, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 10, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 11, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 10, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 11, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 11, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 11, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 11, Blocks.sandstone, 2, 3);
@@ -331,8 +332,8 @@ public class Sphinx_000 extends AbandonedStructure {
 
 		preventLag();
 
-		world.setBlock(x + 20, y + 1, z + 11, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 12, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 11, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 12, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 12, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 12, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 12, Blocks.sandstone, 2, 3);
@@ -352,8 +353,8 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 12, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 12, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 12, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 12, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 13, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 12, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 13, Blocks.air, 0, 3);
 		world.setBlock(x + 1, y + 1, z + 13, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 2, y + 1, z + 13, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 13, Blocks.sandstone, 2, 3);
@@ -373,9 +374,9 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 17, y + 1, z + 13, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 13, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 19, y + 1, z + 13, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 20, y + 1, z + 13, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 14, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 13, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 14, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 14, Blocks.air, 0, 3);
 		world.setBlock(x + 2, y + 1, z + 14, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 14, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 4, y + 1, z + 14, Blocks.sandstone, 2, 3);
@@ -393,10 +394,10 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 16, y + 1, z + 14, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 17, y + 1, z + 14, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 14, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 19, y + 1, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 14, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 15, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 14, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 14, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 15, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 15, Blocks.air, 0, 3);
 		world.setBlock(x + 2, y + 1, z + 15, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 3, y + 1, z + 15, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 4, y + 1, z + 15, Blocks.sandstone, 2, 3);
@@ -414,11 +415,11 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 16, y + 1, z + 15, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 17, y + 1, z + 15, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 18, y + 1, z + 15, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 19, y + 1, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 15, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 16, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 15, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 15, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 16, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 16, Blocks.air, 0, 3);
+//		world.setBlock(x + 2, y + 1, z + 16, Blocks.air, 0, 3);
 		world.setBlock(x + 3, y + 1, z + 16, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 4, y + 1, z + 16, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 5, y + 1, z + 16, Blocks.sandstone, 2, 3);
@@ -434,12 +435,12 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 15, y + 1, z + 16, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 16, y + 1, z + 16, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 17, y + 1, z + 16, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 18, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 19, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 16, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 17, Blocks.air, 0, 3);
+//		world.setBlock(x + 18, y + 1, z + 16, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 16, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 16, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 17, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 17, Blocks.air, 0, 3);
+//		world.setBlock(x + 2, y + 1, z + 17, Blocks.air, 0, 3);
 		world.setBlock(x + 3, y + 1, z + 17, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 4, y + 1, z + 17, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 5, y + 1, z + 17, Blocks.sandstone, 2, 3);
@@ -455,12 +456,12 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 15, y + 1, z + 17, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 16, y + 1, z + 17, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 17, y + 1, z + 17, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 18, y + 1, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 19, y + 1, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 17, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 18, Blocks.air, 0, 3);
+//		world.setBlock(x + 18, y + 1, z + 17, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 17, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 17, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 18, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 18, Blocks.air, 0, 3);
+//		world.setBlock(x + 2, y + 1, z + 18, Blocks.air, 0, 3);
 		world.setBlock(x + 3, y + 1, z + 18, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 4, y + 1, z + 18, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 5, y + 1, z + 18, Blocks.sandstone, 2, 3);
@@ -476,12 +477,12 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 15, y + 1, z + 18, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 16, y + 1, z + 18, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 17, y + 1, z + 18, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 18, y + 1, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 19, y + 1, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 18, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 19, Blocks.air, 0, 3);
+//		world.setBlock(x + 18, y + 1, z + 18, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 18, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 18, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 19, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 19, Blocks.air, 0, 3);
+//		world.setBlock(x + 2, y + 1, z + 19, Blocks.air, 0, 3);
 		world.setBlock(x + 3, y + 1, z + 19, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 4, y + 1, z + 19, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 5, y + 1, z + 19, Blocks.sandstone, 2, 3);
@@ -497,12 +498,12 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 15, y + 1, z + 19, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 16, y + 1, z + 19, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 17, y + 1, z + 19, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 18, y + 1, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 19, y + 1, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 19, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 20, Blocks.air, 0, 3);
+//		world.setBlock(x + 18, y + 1, z + 19, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 19, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 19, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 20, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 20, Blocks.air, 0, 3);
+//		world.setBlock(x + 2, y + 1, z + 20, Blocks.air, 0, 3);
 		world.setBlock(x + 3, y + 1, z + 20, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 4, y + 1, z + 20, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 5, y + 1, z + 20, Blocks.sandstone, 2, 3);
@@ -518,13 +519,13 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 15, y + 1, z + 20, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 16, y + 1, z + 20, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 17, y + 1, z + 20, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 18, y + 1, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 19, y + 1, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 20, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 3, y + 1, z + 21, Blocks.air, 0, 3);
+//		world.setBlock(x + 18, y + 1, z + 20, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 20, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 20, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 21, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 21, Blocks.air, 0, 3);
+//		world.setBlock(x + 2, y + 1, z + 21, Blocks.air, 0, 3);
+//		world.setBlock(x + 3, y + 1, z + 21, Blocks.air, 0, 3);
 		world.setBlock(x + 4, y + 1, z + 21, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 5, y + 1, z + 21, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 6, y + 1, z + 21, Blocks.sandstone, 2, 3);
@@ -538,13 +539,13 @@ public class Sphinx_000 extends AbandonedStructure {
 		world.setBlock(x + 14, y + 1, z + 21, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 15, y + 1, z + 21, Blocks.sandstone, 2, 3);
 		world.setBlock(x + 16, y + 1, z + 21, Blocks.sandstone, 2, 3);
-		world.setBlock(x + 17, y + 1, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 18, y + 1, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 19, y + 1, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 20, y + 1, z + 21, Blocks.air, 0, 3);
-		world.setBlock(x + 0, y + 1, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 1, y + 1, z + 22, Blocks.air, 0, 3);
-		world.setBlock(x + 2, y + 1, z + 22, Blocks.air, 0, 3);
+//		world.setBlock(x + 17, y + 1, z + 21, Blocks.air, 0, 3);
+//		world.setBlock(x + 18, y + 1, z + 21, Blocks.air, 0, 3);
+//		world.setBlock(x + 19, y + 1, z + 21, Blocks.air, 0, 3);
+//		world.setBlock(x + 20, y + 1, z + 21, Blocks.air, 0, 3);
+//		world.setBlock(x + 0, y + 1, z + 22, Blocks.air, 0, 3);
+//		world.setBlock(x + 1, y + 1, z + 22, Blocks.air, 0, 3);
+//		world.setBlock(x + 2, y + 1, z + 22, Blocks.air, 0, 3);
 
 		// corner
 //		world.setBlock(x + 0, y + 0, z + 0, Blocks.air, 0, 3);
@@ -1296,15 +1297,15 @@ public class Sphinx_000 extends AbandonedStructure {
 		int numChests = 1;
 		boolean generatedChest = false;
 		// Upper floor (1 double chest)
-		generateDoubleChest(world, random, x + 15, y + 2, z + 3, x + 16, y + 2, z + 3,  4, numChests, generatedChest);	
+		randomChest.generateDoubleChest(world, random, x + 15, y + 2, z + 3, x + 16, y + 2, z + 3,  4, numChests, generatedChest);	
 //		world.setBlock(x + 15, y + 2, z + 3, Blocks.chest, 3, 3);
 //		world.setBlock(x + 16, y + 2, z + 3, Blocks.chest, 3, 3);
 
 		// Lower floor (2 double chests)
 		reloadChestItems();
-		generateDoubleChest(world, random, x + 4 + 1, y - 3 + 2, z + 25 + 1, x + 4 + 1, y - 1, z + 25 + 2, 5, numChests, generatedChest);	
+		randomChest.generateDoubleChest(world, random, x + 4 + 1, y - 3 + 2, z + 25 + 1, x + 4 + 1, y - 1, z + 25 + 2, 5, numChests, generatedChest);	
 		reloadChestItems();
-		generateDoubleChest(world, random, x + 4 + 11, y - 3 + 2, z + 25 + 1, x + 4 + 11, y - 1, z + 25 + 2, 4, numChests, generatedChest);	
+		randomChest.generateDoubleChest(world, random, x + 4 + 11, y - 3 + 2, z + 25 + 1, x + 4 + 11, y - 1, z + 25 + 2, 4, numChests, generatedChest);	
 //		world.setBlock(x + 1, y + 2, z + 1, Blocks.chest, 5, 3);
 //		world.setBlock(x + 1, y + 2, z + 2, Blocks.chest, 5, 3);
 //		world.setBlock(x + 11, y + 2, z + 1, Blocks.chest, 4, 3);

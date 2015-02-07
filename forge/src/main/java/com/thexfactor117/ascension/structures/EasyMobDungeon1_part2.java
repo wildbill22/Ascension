@@ -365,8 +365,8 @@ public class EasyMobDungeon1_part2 extends EasyMobDungeon1 {
 		// guarantees 1 chest
 		int numChests = 2;
 		boolean generatedChest = false;
-		generatedChest = generateChest(world, random, x + 1, y + 1, z + 9, 5, numChests, generatedChest);
-		generatedChest = generateChest(world, random, x + 11, y + 1, z + 9, 4, numChests, generatedChest);
+		generatedChest = randomChest.generateChest(world, random, x + 1, y + 1, z + 9, 5, numChests, generatedChest);
+		generatedChest = randomChest.generateChest(world, random, x + 11, y + 1, z + 9, 4, numChests, generatedChest);
 
 		// Mob spawner
 		generateMobSpawner(world, random, x + 6, y + 1, z + 6, 0);		
