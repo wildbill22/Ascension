@@ -91,10 +91,20 @@ public class ModelMummy extends ModelBase
       
 	  this.head.rotateAngleY = f3 / (180F / (float)Math.PI);
       this.head.rotateAngleX = f4 / (180F / (float)Math.PI);
-      this.rightarm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 2.0F * f1 * 0.5F;
-      this.leftarm.rotateAngleX = MathHelper.cos(f * 0.6662F) * 2.0F * f1 * 0.5F;
+      float f6 = MathHelper.sin(this.onGround * (float)Math.PI);
+      float f7 = MathHelper.sin((1.0F - (1.0F - this.onGround) * (1.0F - this.onGround)) * (float)Math.PI);
       this.rightarm.rotateAngleZ = 0.0F;
       this.leftarm.rotateAngleZ = 0.0F;
+      this.rightarm.rotateAngleY = -(0.1F - f6 * 0.6F);
+      this.leftarm.rotateAngleY = 0.1F - f6 * 0.6F;
+      this.rightarm.rotateAngleX = -((float)Math.PI / 2F);
+      this.leftarm.rotateAngleX = -((float)Math.PI / 2F);
+      this.rightarm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
+      this.leftarm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
+      this.rightarm.rotateAngleZ += MathHelper.cos(f2 * 0.09F) * 0.05F + 0.05F;
+      this.leftarm.rotateAngleZ -= MathHelper.cos(f2 * 0.09F) * 0.05F + 0.05F;
+      this.rightarm.rotateAngleX += MathHelper.sin(f2 * 0.067F) * 0.05F;
+      this.leftarm.rotateAngleX -= MathHelper.sin(f2 * 0.067F) * 0.05F;
       this.rightleg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
       this.leftleg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
       this.rightleg.rotateAngleY = 0.0F;

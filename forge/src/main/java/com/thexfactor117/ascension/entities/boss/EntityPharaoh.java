@@ -1,9 +1,7 @@
 package com.thexfactor117.ascension.entities.boss;
 
-import com.thexfactor117.ascension.init.ModArmory;
-import com.thexfactor117.ascension.init.ModItems;
-
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -14,9 +12,13 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+
+import com.thexfactor117.ascension.init.ModArmory;
+import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityPharaoh extends EntityMob implements IBossDisplayData
 {
@@ -75,6 +77,27 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     {
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 32.0D);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
+    }
+    
+    @Override
+    public boolean attackEntityAsMob(Entity entity)
+    {
+    	if (super.attackEntityAsMob(entity))
+       	{
+        	if (entity instanceof EntityLivingBase)
+        	{
+        		EntityLivingBase enemy = (EntityLivingBase) entity;        			
+       			
+        			if (enemy != null)
+       			{
+       				enemy.addPotionEffect(new PotionEffect(Potion.confusion.id, 20*10, 0));
+       				enemy.addPotionEffect(new PotionEffect(Potion.blindness.id, 20*3, 0));
+       				
+       				return true;
+       			}
+       		}
+        }
+    	return false;
     }
     
     @Override
