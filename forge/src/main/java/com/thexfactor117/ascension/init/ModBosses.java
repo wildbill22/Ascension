@@ -15,14 +15,14 @@ public class ModBosses
 	
     public static void init()
     {
-    	registerModEntityWithEgg(EntityPharaoh.class, "Pharaoh", 0xE18519, 0x000000);
+    	registerModEntityWithEgg(EntityPharaoh.class, "Pharaoh", 0xC9C9BB, 0x182ED6);
     }
     
     public static void registerModEntity(Class parEntityClass, String parEntityName)
     {
         EntityRegistry.registerModEntity(parEntityClass, parEntityName, ++entityId, Ascension.instance, 64, 1, false);
       	// DEBUG
-      	LogHelper.info("Registering mod entity " + parEntityName + " with ID =" + entityId);
+      	LogHelper.info("Registering mod entity " + parEntityName + " with ID = " + entityId);
     }
 
     public static void registerModEntityWithEgg(Class parEntityClass, String parEntityName, int parEggColor, int parEggSpotsColor)

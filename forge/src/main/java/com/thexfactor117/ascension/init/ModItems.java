@@ -52,7 +52,7 @@ public class ModItems
 	public static Item soulGem = new ItemSoulGem().setUnlocalizedName("soulGem");
 	
 	//Boss Spawn Eggs
-	public static Item pharaohEgg = new AscensionMonsterPlacer("Pharaoh", 0xE18519, 0x000000).setUnlocalizedName("pharaohEgg").setTextureName(Reference.MODID + ":" + "pharaohEgg");
+	public static Item pharaohEgg = new AscensionMonsterPlacer("Pharaoh", 0xC9C9BB, 0x182ED6).setUnlocalizedName("pharaohEgg").setTextureName(Reference.MODID + ":" + "pharaohEgg");
 		
 	public static void init()
 	{

@@ -51,7 +51,7 @@ public class AscensionMonsterPlacer extends ItemMonsterPlacer
         colorBase = parPrimaryColor;
         colorSpots = parSecondaryColor;
         // DEBUG
-        LogHelper.info("Spawn egg constructor for " + entityToSpawnName);
+        LogHelper.info("Added spawn egg constructor for " + entityToSpawnName);
     }
 
     /**
