@@ -88,7 +88,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
         	{
         		EntityLivingBase enemy = (EntityLivingBase) entity;        			
        			
-        			if (enemy != null)
+        		if (enemy != null)
        			{
        				enemy.addPotionEffect(new PotionEffect(Potion.confusion.id, 20*10, 0));
        				enemy.addPotionEffect(new PotionEffect(Potion.blindness.id, 20*3, 0));
