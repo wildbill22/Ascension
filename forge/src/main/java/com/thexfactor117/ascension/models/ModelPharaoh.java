@@ -105,10 +105,10 @@ public class ModelPharaoh extends ModelBase
 	      this.leftarm.rotateAngleX = -((float)Math.PI / 2F);
 	      this.rightarm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
 	      this.leftarm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
-	      this.rightarm.rotateAngleZ += MathHelper.cos(f2 * 0.09F) * 0.05F + 0.05F;
-	      this.leftarm.rotateAngleZ -= MathHelper.cos(f2 * 0.09F) * 0.05F + 0.05F;
-	      this.rightarm.rotateAngleX += MathHelper.sin(f2 * 0.067F) * 0.05F;
-	      this.leftarm.rotateAngleX -= MathHelper.sin(f2 * 0.067F) * 0.05F;
+	      this.rightarm.rotateAngleZ += MathHelper.cos(f2 * 0.09F) * 0.05F + 0.15F;
+	      this.leftarm.rotateAngleZ -= MathHelper.cos(f2 * 0.09F) * 0.05F + 0.15F;
+	      this.rightarm.rotateAngleX += MathHelper.sin(f2 * 0.067F) * 0.15F;
+	      this.leftarm.rotateAngleX -= MathHelper.sin(f2 * 0.067F) * 0.15F;
 	  }
 
 	}

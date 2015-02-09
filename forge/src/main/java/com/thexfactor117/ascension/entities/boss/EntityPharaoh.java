@@ -17,6 +17,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
+import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
@@ -43,7 +44,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(32.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.215D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200.0D);
 	}
 	
@@ -82,21 +83,29 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     @Override
     public boolean attackEntityAsMob(Entity entity)
     {
-    	if (super.attackEntityAsMob(entity))
-       	{
-        	if (entity instanceof EntityLivingBase)
-        	{
-        		EntityLivingBase enemy = (EntityLivingBase) entity;        			
-       			
-        		if (enemy != null)
-       			{
-       				enemy.addPotionEffect(new PotionEffect(Potion.confusion.id, 20*10, 0));
-       				enemy.addPotionEffect(new PotionEffect(Potion.blindness.id, 20*3, 0));
-       				
-       				return true;
-       			}
-       		}
-        }
+    	int attack = this.rand.nextInt(3);
+    	
+    	if (attack == 0)
+    	{
+    		if (super.attackEntityAsMob(entity))
+           	{
+            	if (entity instanceof EntityLivingBase)
+            	{
+            		EntityLivingBase enemy = (EntityLivingBase) entity;        			
+           			
+            		if (enemy != null)
+           			{
+           				enemy.addPotionEffect(new PotionEffect(Potion.confusion.id, 20*10, 0));
+           				enemy.addPotionEffect(new PotionEffect(Potion.blindness.id, 20*3, 0));
+           				
+           				return true;
+           			}
+           		}
+            }
+    	} else
+    	{
+    		return super.attackEntityAsMob(entity);
+    	}
     	return false;
     }
     
