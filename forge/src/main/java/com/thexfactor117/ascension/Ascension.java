@@ -54,8 +54,6 @@ public class Ascension
 		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 		
 		ascensionProxy.registerRenderer();
-				
-		//FMLCommonHandler.instance().bus().register(new AscensionEvent());
 	}
 	
 	@Mod.EventHandler

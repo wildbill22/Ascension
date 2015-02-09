@@ -45,7 +45,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(32.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.215D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(300.0D);
 	}
 	
 	@Override

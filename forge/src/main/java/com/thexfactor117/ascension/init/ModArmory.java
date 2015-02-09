@@ -50,13 +50,13 @@ public class ModArmory
 	static Item.ToolMaterial WINGED = EnumHelper.addToolMaterial("WINGED", 3, 256, 2.0F, 4.0F, 30);
 	static Item.ToolMaterial VOID = EnumHelper.addToolMaterial("VOID", 3, 256, 2.0F, 6.0F, 15);
 	static Item.ToolMaterial DIVINERAPIER = EnumHelper.addToolMaterial("DIVINERAPIER", 3, 256, 2.0F, 6.0F, 15);
-	static Item.ToolMaterial ALACRITY = EnumHelper.addToolMaterial("ALACRITY", 3, 984, 10.0F, 10.0F, 30);
+	static Item.ToolMaterial ALACRITY = EnumHelper.addToolMaterial("ALACRITY", 3, 984, 4.0F, 10.0F, 30);
 	static Item.ToolMaterial FLEROVIUM = EnumHelper.addToolMaterial("FLEROVIUM", 3, 728, 4.0F, 8.0F, 20);
 		
 	//Armor Materials
 	static ArmorMaterial ATITANIUM = EnumHelper.addArmorMaterial("ATITANIUM", 20, new int[]{3, 7, 5, 2}, 14);
 	static ArmorMaterial ASTEEL = EnumHelper.addArmorMaterial("ASTEEL", 30, new int[]{4, 8, 7, 3}, 5);
-	static ArmorMaterial AFLEROVIUM = EnumHelper.addArmorMaterial("AFLEROVIUM", 10, new int[]{5, 9, 8, 4}, 20);
+	static ArmorMaterial AFLEROVIUM = EnumHelper.addArmorMaterial("AFLEROVIUM", 40, new int[]{5, 9, 8, 4}, 20);
 	
 	static ArmorMaterial AGYROCHESTPLATE = EnumHelper.addArmorMaterial("AGYROCHESTPLATE", 40, new int[]{3, 7, 5, 3}, 15);
 	
