@@ -12,7 +12,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ModBosses
 {
     static int entityId = -1;
-	
+    
+    public static Item itemSpawnEgg = new AscensionMonsterPlacer("Pharaoh", 0xC9C9BB, 0x182ED6).setUnlocalizedName("spawn_egg_" + "Pharaoh".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
+    
     public static void init()
     {
     	registerModEntityWithEgg(EntityPharaoh.class, "Pharaoh", 0xC9C9BB, 0x182ED6);
@@ -33,7 +35,7 @@ public class ModBosses
 
     public static void registerSpawnEgg(String parSpawnName, int parEggColor, int parEggSpotsColor)
     {
-    	Item itemSpawnEgg = new AscensionMonsterPlacer(parSpawnName, parEggColor, parEggSpotsColor).setUnlocalizedName("spawn_egg_" + parSpawnName.toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
+    	//Item itemSpawnEgg = new AscensionMonsterPlacer(parSpawnName, parEggColor, parEggSpotsColor).setUnlocalizedName("spawn_egg_" + parSpawnName.toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
     	GameRegistry.registerItem(itemSpawnEgg, "spawnEgg" + parSpawnName);
     }
 }
