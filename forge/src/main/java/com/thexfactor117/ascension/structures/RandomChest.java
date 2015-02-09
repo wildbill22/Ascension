@@ -313,6 +313,6 @@ public class RandomChest {
 	// Add 1 item
 	protected void addItemsForSphinx(int m) {
 		// Spawn egg(s)
-		addRandomChestItem(ModItems.pharaohEgg, 1, 1, 100);
+		//addRandomChestItem(ModItems.pharaohEgg, 1, 1, 100);
 	}
 }

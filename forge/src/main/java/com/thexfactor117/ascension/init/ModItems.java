@@ -51,9 +51,6 @@ public class ModItems
 	public static Item soulFragment = new ItemSoulGem().setUnlocalizedName("soulFragment");
 	public static Item soulGem = new ItemSoulGem().setUnlocalizedName("soulGem");
 	
-	//Boss Spawn Eggs
-	public static Item pharaohEgg = new AscensionMonsterPlacer("Pharaoh", 0xC9C9BB, 0x182ED6).setUnlocalizedName("pharaohEgg").setTextureName(Reference.MODID + ":" + "pharaohEgg");
-		
 	public static void init()
 	{
 		RegisterHelper.registerItem(omega);
@@ -79,7 +76,5 @@ public class ModItems
 		
 		RegisterHelper.registerItem(soulFragment);
 		RegisterHelper.registerItem(soulGem);
-		
-		RegisterHelper.registerItem(pharaohEgg);
 	}
 }
