@@ -15,8 +15,6 @@ TheXFactor117 -- Creator and Lead-Developer
 
 wildbill02 -- Developer (generation)
 
-Megmachunian -- Developer
-
 If you wish to be a contributor, please contact TheXFactor117 on Skype (thexfactor117).
 
 Team Members
@@ -44,3 +42,5 @@ Quick Links
 * [Minecraft Forum Thread] (http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/requests-ideas-for-mods/2294729-ascension-a-challenging-immersive-journey-awaits)
 * [Website] (https://sites.google.com/site/ascensionmod/)
 * [Wiki] (https://github.com/TheXFactor117/Ascension/wiki)
+
+
