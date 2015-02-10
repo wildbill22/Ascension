@@ -148,4 +148,22 @@ public class EntityMummy extends EntityMob
 			this.dropItem(ModArmory.etherealBlade, 1);
 		}
 	}
+	
+    @Override
+    protected String getLivingSound()
+    {
+    	return "mob.zombie.say";
+    }
+    
+    @Override
+    protected String getHurtSound()
+    {
+    	return "mob.zombie.hurt";
+    }
+    
+    @Override
+    protected String getDeathSound()
+    {
+    	return "mob.zombie.death";
+    }
 }

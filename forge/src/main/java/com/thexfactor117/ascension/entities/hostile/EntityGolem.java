@@ -132,4 +132,22 @@ public class EntityGolem extends EntityMob
 			this.dropItem(ModArmory.divineRapier, 1);
 		}
 	}
+	
+    @Override
+    protected String getLivingSound()
+    {
+    	return "mob.irongolem.walk";
+    }
+    
+    @Override
+    protected String getHurtSound()
+    {
+    	return "mob.irongolem.hit";
+    }
+    
+    @Override
+    protected String getDeathSound()
+    {
+    	return "mob.irongolem.death";
+    }
 }

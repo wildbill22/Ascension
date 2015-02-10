@@ -125,4 +125,22 @@ public class EntityValkyrie extends EntityMob
 			this.dropItem(ModArmory.wingedBlade, 1);
 		}
 	}
+	
+    @Override
+    protected String getLivingSound()
+    {
+    	return "mob.villager.idle";
+    }
+    
+    @Override
+    protected String getHurtSound()
+    {
+    	return "mob.villager.hit";
+    }
+    
+    @Override
+    protected String getDeathSound()
+    {
+    	return "mob.villager.death";
+    }
 }

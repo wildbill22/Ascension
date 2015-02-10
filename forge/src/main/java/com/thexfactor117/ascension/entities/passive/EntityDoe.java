@@ -66,6 +66,6 @@ public class EntityDoe extends EntityAnimal
 	@Override
 	public EntityAgeable createChild(EntityAgeable p_90011_1_) 
 	{
-		return null ;
+		return null;
 	}
 }

@@ -174,4 +174,22 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     		this.dropItem(ModItems.omega, 1);
     	}
     }
+    
+    @Override
+    protected String getLivingSound()
+    {
+    	return "mob.zombie.say";
+    }
+    
+    @Override
+    protected String getHurtSound()
+    {
+    	return "mob.zombie.hurt";
+    }
+    
+    @Override
+    protected String getDeathSound()
+    {
+    	return "mob.zombie.death";
+    }
 }

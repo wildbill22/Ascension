@@ -182,4 +182,22 @@ public class EntityBanshee extends EntityMob
 			this.dropItem(ModArmory.voidHammer, 1);
 		}
     }
+    
+    @Override
+    protected String getLivingSound()
+    {
+    	return "mob.endermen.idle";
+    }
+    
+    @Override
+    protected String getHurtSound()
+    {
+    	return "mob.endermen.scream";
+    }
+    
+    @Override
+    protected String getDeathSound()
+    {
+    	return "mob.endermen.death";
+    }
 }
