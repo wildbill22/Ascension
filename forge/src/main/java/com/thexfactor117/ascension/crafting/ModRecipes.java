@@ -15,7 +15,6 @@ public class ModRecipes
 	{		
 		// Overworld
 		GameRegistry.addSmelting(ModBlocks.titaniumOre, new ItemStack(ModItems.titaniumIngot), 0.8F);
-		GameRegistry.addSmelting(ModBlocks.vexalOre, new ItemStack(ModItems.vexalIngot), 0.8F);
 		GameRegistry.addSmelting(ModItems.rawVenison, new ItemStack(ModItems.cookedVenison), 0.3F);
 		GameRegistry.addSmelting(ModBlocks.fleroviumOre, new ItemStack(ModItems.fleroviumIngot), 0.8F);
 		
