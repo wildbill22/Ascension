@@ -27,11 +27,12 @@ public class ItemGyroPlate extends ItemArmor
 		setCreativeTab(ModTabs.tabAscension);
 	}
 	
+	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		if (stack.getItem() == ModArmory.steelPlate)
+		if (stack.getItem() == ModArmory.gyroPlate)
 		{
-			return Reference.MODID + ":models/armor/steel_layer1.png";
+			return Reference.MODID + ":models/armor/gyro_layer1.png";
 		}
 		else
 		{
