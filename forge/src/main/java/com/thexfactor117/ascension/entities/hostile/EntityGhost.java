@@ -75,7 +75,7 @@ public class EntityGhost extends EntityMob
     @Override
 	protected Entity findPlayerToAttack()
     {
-        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 24.0D);
+        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
 
