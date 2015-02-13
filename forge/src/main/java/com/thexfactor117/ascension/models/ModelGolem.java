@@ -75,29 +75,35 @@ public class ModelGolem extends ModelBase
       Arm_top_2.mirror = true;
       setRotation(Arm_top_2, 0F, 0F, 45F);
       Arm_middle_1 = new ModelRenderer(this, 74, 0);
-      Arm_middle_1.addBox(-2F, 0F, -1F, 4, 15, 4);
+      Arm_middle_1.addBox(-2F, 0F, -1F, 4, 15, 4); //old model
+      //Arm_middle_1.addBox(-14F, 22F, -1F, 4, 15, 4); <- new model
       Arm_middle_1.setRotationPoint(15F, -15F, -1F);
       Arm_middle_1.setTextureSize(128, 64);
       Arm_middle_1.mirror = true;
       setRotation(Arm_middle_1, 0F, 0F, 0F);
       Arm_middle_2 = new ModelRenderer(this, 74, 0);
-      Arm_middle_2.addBox(-2F, 0F, -2F, 4, 15, 4);
+      Arm_middle_2.addBox(-2F, 0F, -2F, 4, 15, 4); //old model
+      //Arm_middle_2.addBox(10F, 22F, -2F, 4, 15, 4); <- new model
       Arm_middle_2.setRotationPoint(-15F, -15F, 0F);
       Arm_middle_2.setTextureSize(128, 64);
       Arm_middle_2.mirror = true;
       setRotation(Arm_middle_2, 0F, 0F, 0F);
       Arm_bottom_1 = new ModelRenderer(this, 68, 23);
-      Arm_bottom_1.addBox(-4F, 0F, -4F, 8, 16, 8);
+      Arm_bottom_1.addBox(-32F, 35F, -4F, 8, 16, 8);
       Arm_bottom_1.setRotationPoint(15F, 0F, 0F);
       Arm_bottom_1.setTextureSize(128, 64);
       Arm_bottom_1.mirror = true;
       setRotation(Arm_bottom_1, 0F, 0F, 0F);
       Arm_bottom_2 = new ModelRenderer(this, 68, 23);
-      Arm_bottom_2.addBox(-4F, 0F, -4F, 8, 16, 8);
+      Arm_bottom_2.addBox(23F, 35F, -4F, 8, 16, 8);
       Arm_bottom_2.setRotationPoint(-15F, 0F, 0F);
       Arm_bottom_2.setTextureSize(128, 64);
       Arm_bottom_2.mirror = true;
       setRotation(Arm_bottom_2, 0F, 0F, 0F);
+      //Arm_top_1.addChild(Arm_middle_1);
+      //Arm_middle_1.addChild(Arm_bottom_1);
+      //Arm_top_2.addChild(Arm_middle_2);
+      //Arm_middle_2.addChild(Arm_bottom_2);
   }
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
@@ -129,12 +135,16 @@ public class ModelGolem extends ModelBase
   {
 	  super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 	  
-      //this.Head.rotateAngleY = f3 / (180F / (float)Math.PI);
-      //this.Head.rotateAngleX = f4 / (180F / (float)Math.PI);
 	  this.Head.rotateAngleY = 0.8F;
 	  this.Head.rotateAngleX = 0F;
       this.Arm_top_1.rotateAngleZ = -0.35F;
       this.Arm_top_2.rotateAngleZ = 0.35F;
+      this.Arm_top_1.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 2.0F * f1 * 0.5F;
+      this.Arm_top_2.rotateAngleX = MathHelper.cos(f * 0.6662F) * 2.0F * f1 * 0.5F;
+      //this.Arm_middle_1.rotateAngleZ = -0.35F;
+      //this.Arm_middle_2.rotateAngleZ = 0.35F;
+      //this.Arm_bottom_1.rotateAngleZ = -0.35F;
+      //this.Arm_bottom_2.rotateAngleZ = 0.35F;
       this.Leg1.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
       this.Leg2.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
       this.Leg1.rotateAngleY = 0.0F;
