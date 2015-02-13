@@ -46,6 +46,7 @@ public class ItemGyroPlate extends ItemArmor
 	{
 		list.add("A heavy-duty plate for those who");
 		list.add("want to soak up damage.");
+		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
 		list.add("Chestplate Bonus: Resistance");
 	}
 	

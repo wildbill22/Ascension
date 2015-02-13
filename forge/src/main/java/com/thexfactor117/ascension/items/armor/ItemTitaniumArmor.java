@@ -45,6 +45,7 @@ public class ItemTitaniumArmor extends ItemArmor
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
 		list.add("An alternative to iron.");
+		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
 		list.add("Full Set Bonus: None");
 	}
 }
