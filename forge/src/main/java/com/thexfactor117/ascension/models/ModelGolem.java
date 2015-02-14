@@ -89,13 +89,15 @@ public class ModelGolem extends ModelBase
       Arm_middle_2.mirror = true;
       setRotation(Arm_middle_2, 0F, 0F, 0F);
       Arm_bottom_1 = new ModelRenderer(this, 68, 23);
-      Arm_bottom_1.addBox(-32F, 35F, -4F, 8, 16, 8);
+      //Arm_bottom_1.addBox(-32F, 35F, -4F, 8, 16, 8);
+      Arm_bottom_1.addBox(-4.0F, 0.0F, -4.0F, 8, 16, 8);
       Arm_bottom_1.setRotationPoint(15F, 0F, 0F);
       Arm_bottom_1.setTextureSize(128, 64);
       Arm_bottom_1.mirror = true;
       setRotation(Arm_bottom_1, 0F, 0F, 0F);
       Arm_bottom_2 = new ModelRenderer(this, 68, 23);
-      Arm_bottom_2.addBox(23F, 35F, -4F, 8, 16, 8);
+      //Arm_bottom_2.addBox(23F, 35F, -4F, 8, 16, 8);
+      Arm_bottom_2.addBox(-4.0F, 0.0F, -4.0F, 8, 16, 8);
       Arm_bottom_2.setRotationPoint(-15F, 0F, 0F);
       Arm_bottom_2.setTextureSize(128, 64);
       Arm_bottom_2.mirror = true;

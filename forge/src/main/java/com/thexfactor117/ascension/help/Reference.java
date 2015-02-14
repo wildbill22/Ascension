@@ -4,7 +4,7 @@ public class Reference
 {
 	public static final String MODID = "thexfactor117_ascension";
 	public static final String NAME = "Ascension";
-	public static final String VERSION = "a1.1.0";
+	public static final String VERSION = "a1.1.1";
 	
 	// Constants for controlling structure generation
 	// spawnChanceXXXX is the chance n/100 that an attempt will be made to generate it
