@@ -3,7 +3,6 @@ package com.thexfactor117.ascension.init;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 
-import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
 import com.thexfactor117.ascension.entities.hostile.EntityBanshee;
 import com.thexfactor117.ascension.entities.hostile.EntityBarbarian;
 import com.thexfactor117.ascension.entities.hostile.EntityGhost;
@@ -12,7 +11,6 @@ import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
 import com.thexfactor117.ascension.handlers.EntityHandler;
-import com.thexfactor117.ascension.help.LogHelper;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 
@@ -20,7 +18,7 @@ public class ModEntities
 {
 	public static void init()
 	{
-		//Overworld
+		//Overworld Mobs
 		EntityHandler.registerMonsters(EntityMummy.class, "Mummy");
 		EntityHandler.registerMonsters(EntityValkyrie.class, "Valkyrie");
 		EntityHandler.registerMonsters(EntityGolem.class, "Golem");

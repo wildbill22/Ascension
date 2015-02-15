@@ -1,7 +1,6 @@
 package com.thexfactor117.ascension.init;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
@@ -22,6 +21,7 @@ import com.thexfactor117.ascension.items.weapons.ItemEtherealBlade;
 import com.thexfactor117.ascension.items.weapons.ItemFleroviumSword;
 import com.thexfactor117.ascension.items.weapons.ItemGyroMace;
 import com.thexfactor117.ascension.items.weapons.ItemIceSword;
+import com.thexfactor117.ascension.items.weapons.ItemInfernoStaff;
 import com.thexfactor117.ascension.items.weapons.ItemInfusedVexalSword;
 import com.thexfactor117.ascension.items.weapons.ItemRazorSword;
 import com.thexfactor117.ascension.items.weapons.ItemShadowBlade;
@@ -104,6 +104,9 @@ public class ModArmory
 	public static Item fleroviumBoots = new ItemFleroviumArmor(AFLEROVIUM, 3, "fleroviumBoots");
 	
 	public static Item gyroPlate = new ItemGyroPlate(AGYROCHESTPLATE, 1, "gyroPlate");
+	
+	//Staffs
+	public static Item infernoStaff = new ItemInfernoStaff().setUnlocalizedName("infernoStaff");
 
 	public static void init()
 	{
@@ -145,5 +148,7 @@ public class ModArmory
 		RegisterHelper.registerItem(fleroviumBoots);
 		
 		RegisterHelper.registerItem(gyroPlate);
+		
+		RegisterHelper.registerItem(infernoStaff);
 	}
 }
