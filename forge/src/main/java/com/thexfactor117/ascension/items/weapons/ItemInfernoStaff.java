@@ -2,12 +2,12 @@ package com.thexfactor117.ascension.items.weapons;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
+import com.thexfactor117.ascension.entities.projectiles.EntityInferno;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
@@ -15,13 +15,13 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemInfernoStaff extends ItemBow
-{
+{	
 	public ItemInfernoStaff()
 	{
 		super();
 		this.setCreativeTab(ModTabs.tabAscensionTest);
 		this.maxStackSize = 1;
-		this.setMaxDamage(64);
+		this.setMaxDamage(192);
 		this.setNoRepair();
 	}
 	
@@ -42,12 +42,9 @@ public class ItemInfernoStaff extends ItemBow
 		{
 			Vec3 look = player.getLookVec();
 			
-			EntitySmallFireball inferno = new EntitySmallFireball(world, player, 1, 1, 1);
+			EntityInferno inferno = new EntityInferno(world, player);
 			
 			inferno.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
-			inferno.accelerationX = look.xCoord * 0.1;
-			inferno.accelerationY = look.yCoord * 0.1;
-			inferno.accelerationZ = look.zCoord * 0.1;
 			
 			world.spawnEntityInWorld(inferno);
 		}

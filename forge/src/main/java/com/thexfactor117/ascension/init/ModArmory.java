@@ -28,6 +28,7 @@ import com.thexfactor117.ascension.items.weapons.ItemShadowBlade;
 import com.thexfactor117.ascension.items.weapons.ItemVexalSword;
 import com.thexfactor117.ascension.items.weapons.ItemVoidHammer;
 import com.thexfactor117.ascension.items.weapons.ItemWingedBlade;
+import com.thexfactor117.ascension.items.weapons.ItemWoodenStaff;
 
 public class ModArmory 
 {
@@ -106,6 +107,7 @@ public class ModArmory
 	public static Item gyroPlate = new ItemGyroPlate(AGYROCHESTPLATE, 1, "gyroPlate");
 	
 	//Staffs
+	public static Item woodenStaff = new ItemWoodenStaff().setUnlocalizedName("woodenStaff");
 	public static Item infernoStaff = new ItemInfernoStaff().setUnlocalizedName("infernoStaff");
 
 	public static void init()
@@ -149,6 +151,7 @@ public class ModArmory
 		
 		RegisterHelper.registerItem(gyroPlate);
 		
+		RegisterHelper.registerItem(woodenStaff);
 		RegisterHelper.registerItem(infernoStaff);
 	}
 }
