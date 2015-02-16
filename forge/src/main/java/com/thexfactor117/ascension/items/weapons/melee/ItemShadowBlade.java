@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.items.weapons;
+package com.thexfactor117.ascension.items.weapons.melee;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.Item.ToolMaterial;
 
-public class ItemWingedBlade extends ItemSword
+public class ItemShadowBlade extends ItemSword
 {
 	public final ToolMaterial toolMaterial;
 	
-	public ItemWingedBlade(ToolMaterial EnumToolMaterial)
+	public ItemShadowBlade(ToolMaterial EnumToolMaterial)
 	{
 		super(EnumToolMaterial);
 		toolMaterial = EnumToolMaterial;

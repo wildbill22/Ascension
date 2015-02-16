@@ -1,12 +1,15 @@
-package com.thexfactor117.ascension.items.weapons;
+package com.thexfactor117.ascension.items.weapons.melee;
 
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
@@ -14,11 +17,11 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemBlazeSword extends ItemSword
+public class ItemFleroviumSword extends ItemSword
 {
 	public final ToolMaterial toolMaterial;
 	
-	public ItemBlazeSword(ToolMaterial EnumToolMaterial)
+	public ItemFleroviumSword(ToolMaterial EnumToolMaterial)
 	{
 		super(EnumToolMaterial);
 		toolMaterial = EnumToolMaterial;
@@ -36,7 +39,7 @@ public class ItemBlazeSword extends ItemSword
 	{
 		par1ItemStack.damageItem(1, par3EntityLivingBase);
 		
-		par2EntityLivingBase.setFire(3);
+		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.poison.id, 20*30, 1));
 		
 		return true;
 	}
@@ -45,8 +48,8 @@ public class ItemBlazeSword extends ItemSword
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
-		list.add("Douse your enemies in fire!");
+		list.add("Truly the greatest craftable weapon.");
 		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
-		list.add("Ability: Fire");
+		list.add("Ability: Poison");
 	}
 }

@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.items.weapons;
+package com.thexfactor117.ascension.items.weapons.melee;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.Item.ToolMaterial;
 
-public class ItemInfusedVexalSword extends ItemSword
+public class ItemBladeOfAlacrity extends ItemSword
 {
 	public final ToolMaterial toolMaterial;
 	
-	public ItemInfusedVexalSword(ToolMaterial EnumToolMaterial)
+	public ItemBladeOfAlacrity(ToolMaterial EnumToolMaterial)
 	{
 		super(EnumToolMaterial);
 		toolMaterial = EnumToolMaterial;
@@ -35,6 +35,8 @@ public class ItemInfusedVexalSword extends ItemSword
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
+		list.add("If the big guy swings it,");
+		list.add("you swing it.");
 		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
 		list.add("No Special Abilities");
 	}

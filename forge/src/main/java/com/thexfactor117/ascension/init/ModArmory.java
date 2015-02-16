@@ -13,22 +13,22 @@ import com.thexfactor117.ascension.items.armor.ItemFleroviumArmor;
 import com.thexfactor117.ascension.items.armor.ItemGyroPlate;
 import com.thexfactor117.ascension.items.armor.ItemSteelArmor;
 import com.thexfactor117.ascension.items.armor.ItemTitaniumArmor;
-import com.thexfactor117.ascension.items.weapons.ItemBladeOfAlacrity;
-import com.thexfactor117.ascension.items.weapons.ItemBlazeSword;
-import com.thexfactor117.ascension.items.weapons.ItemCrystallizedSword;
-import com.thexfactor117.ascension.items.weapons.ItemDivineRapier;
-import com.thexfactor117.ascension.items.weapons.ItemEtherealBlade;
-import com.thexfactor117.ascension.items.weapons.ItemFleroviumSword;
-import com.thexfactor117.ascension.items.weapons.ItemGyroMace;
-import com.thexfactor117.ascension.items.weapons.ItemIceSword;
-import com.thexfactor117.ascension.items.weapons.ItemInfernoStaff;
-import com.thexfactor117.ascension.items.weapons.ItemInfusedVexalSword;
-import com.thexfactor117.ascension.items.weapons.ItemRazorSword;
-import com.thexfactor117.ascension.items.weapons.ItemShadowBlade;
-import com.thexfactor117.ascension.items.weapons.ItemVexalSword;
-import com.thexfactor117.ascension.items.weapons.ItemVoidHammer;
-import com.thexfactor117.ascension.items.weapons.ItemWingedBlade;
-import com.thexfactor117.ascension.items.weapons.ItemWoodenStaff;
+import com.thexfactor117.ascension.items.weapons.melee.ItemBladeOfAlacrity;
+import com.thexfactor117.ascension.items.weapons.melee.ItemBlazeSword;
+import com.thexfactor117.ascension.items.weapons.melee.ItemCrystallizedSword;
+import com.thexfactor117.ascension.items.weapons.melee.ItemDivineRapier;
+import com.thexfactor117.ascension.items.weapons.melee.ItemEtherealBlade;
+import com.thexfactor117.ascension.items.weapons.melee.ItemFleroviumSword;
+import com.thexfactor117.ascension.items.weapons.melee.ItemGyroMace;
+import com.thexfactor117.ascension.items.weapons.melee.ItemIceSword;
+import com.thexfactor117.ascension.items.weapons.melee.ItemInfusedVexalSword;
+import com.thexfactor117.ascension.items.weapons.melee.ItemRazorSword;
+import com.thexfactor117.ascension.items.weapons.melee.ItemShadowBlade;
+import com.thexfactor117.ascension.items.weapons.melee.ItemVexalSword;
+import com.thexfactor117.ascension.items.weapons.melee.ItemVoidHammer;
+import com.thexfactor117.ascension.items.weapons.melee.ItemWingedBlade;
+import com.thexfactor117.ascension.items.weapons.ranged.ItemInfernoStaff;
+import com.thexfactor117.ascension.items.weapons.ranged.ItemWoodenStaff;
 
 public class ModArmory 
 {

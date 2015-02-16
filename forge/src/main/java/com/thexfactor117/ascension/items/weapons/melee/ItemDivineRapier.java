@@ -1,4 +1,4 @@
-package com.thexfactor117.ascension.items.weapons;
+package com.thexfactor117.ascension.items.weapons.melee;
 
 import java.util.List;
 
@@ -17,11 +17,11 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemFleroviumSword extends ItemSword
+public class ItemDivineRapier extends ItemSword
 {
 	public final ToolMaterial toolMaterial;
 	
-	public ItemFleroviumSword(ToolMaterial EnumToolMaterial)
+	public ItemDivineRapier(ToolMaterial EnumToolMaterial)
 	{
 		super(EnumToolMaterial);
 		toolMaterial = EnumToolMaterial;
@@ -39,7 +39,8 @@ public class ItemFleroviumSword extends ItemSword
 	{
 		par1ItemStack.damageItem(1, par3EntityLivingBase);
 		
-		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.poison.id, 20*30, 1));
+		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*5, 1));
+		par2EntityLivingBase.setFire(5);
 		
 		return true;
 	}
@@ -48,8 +49,8 @@ public class ItemFleroviumSword extends ItemSword
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
-		list.add("Truly the greatest craftable weapon.");
+		list.add("Divine power at its best.");
 		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
-		list.add("Ability: Poison");
+		list.add("Ability: Slowness, Fire");
 	}
 }
