@@ -7,19 +7,19 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class EntityBlizzard extends EntityThrowable
+public class EntitySmallBlizzard extends EntityThrowable
 {
-	public EntityBlizzard(World world)
+	public EntitySmallBlizzard(World world)
     {
         super(world);
     }
     
-    public EntityBlizzard(World world, EntityLivingBase entity)
+    public EntitySmallBlizzard(World world, EntityLivingBase entity)
     {
         super(world, entity);
     }
    
-    public EntityBlizzard(World world, double par2, double par4, double par6)
+    public EntitySmallBlizzard(World world, double par2, double par4, double par6)
     {
         super(world, par2, par4, par6);
     }

@@ -9,6 +9,7 @@ import com.thexfactor117.ascension.items.ItemAscensionAxe;
 import com.thexfactor117.ascension.items.ItemAscensionPickaxe;
 import com.thexfactor117.ascension.items.ItemAscensionShovel;
 import com.thexfactor117.ascension.items.ItemAscensionSword;
+import com.thexfactor117.ascension.items.armor.ItemEtherealArmor;
 import com.thexfactor117.ascension.items.armor.ItemFleroviumArmor;
 import com.thexfactor117.ascension.items.armor.ItemGyroPlate;
 import com.thexfactor117.ascension.items.armor.ItemSteelArmor;
@@ -99,6 +100,10 @@ public class ModArmory
 	public static Item steelPlate = new ItemSteelArmor(ASTEEL, 1, "steelPlate");
 	public static Item steelPants = new ItemSteelArmor(ASTEEL, 2, "steelPants");
 	public static Item steelBoots = new ItemSteelArmor(ASTEEL, 3, "steelBoots");
+	public static Item etherealHelm = new ItemEtherealArmor(AFLEROVIUM, 0, "etherealHelm");
+	public static Item etherealPlate = new ItemEtherealArmor(AFLEROVIUM, 1, "etherealPlate");
+	public static Item etherealPants = new ItemEtherealArmor(AFLEROVIUM, 2, "etherealPants");
+	public static Item etherealBoots = new ItemEtherealArmor(AFLEROVIUM, 3, "etherealBoots");
 	public static Item fleroviumHelm = new ItemFleroviumArmor(AFLEROVIUM, 0, "fleroviumHelm");
 	public static Item fleroviumPlate = new ItemFleroviumArmor(AFLEROVIUM, 1, "fleroviumPlate");
 	public static Item fleroviumPants = new ItemFleroviumArmor(AFLEROVIUM, 2, "fleroviumPants");

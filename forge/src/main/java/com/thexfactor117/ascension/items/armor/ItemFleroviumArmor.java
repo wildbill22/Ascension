@@ -55,7 +55,10 @@ public class ItemFleroviumArmor extends ItemArmor
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{
-		if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem().equals(ModArmory.fleroviumBoots) && player.getCurrentArmor(1) != null && player.getCurrentArmor(1).getItem().equals(ModArmory.fleroviumPants) && player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem().equals(ModArmory.fleroviumPlate) && player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ModArmory.fleroviumHelm))
+		if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem().equals(ModArmory.fleroviumBoots) 
+				&& player.getCurrentArmor(1) != null && player.getCurrentArmor(1).getItem().equals(ModArmory.fleroviumPants) 
+				&& player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem().equals(ModArmory.fleroviumPlate) 
+				&& player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ModArmory.fleroviumHelm))
 		{
 			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 20*1));
 		}
