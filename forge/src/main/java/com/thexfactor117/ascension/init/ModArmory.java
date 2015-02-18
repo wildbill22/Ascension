@@ -156,7 +156,15 @@ public class ModArmory
 		
 		RegisterHelper.registerItem(gyroPlate);
 		
-		RegisterHelper.registerItem(woodenStaff);
-		RegisterHelper.registerItem(infernoStaff);
+		/*
+		 * TEST ITEMS
+		 * 
+		 * These items are under testing. Certain items below this point
+		 * should not be included in certain releases. COMMENT THESE OUT
+		 * BEFORE RELEASES!
+		 */
+		// Beta 2
+		//RegisterHelper.registerItem(woodenStaff);
+		//RegisterHelper.registerItem(infernoStaff);
 	}
 }
