@@ -6,19 +6,19 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class EntitySmallMagic extends EntityThrowable
+public class EntityMediumInferno extends EntityThrowable
 {
-	public EntitySmallMagic(World world)
+	public EntityMediumInferno(World world)
     {
         super(world);
     }
     
-    public EntitySmallMagic(World world, EntityLivingBase entity)
+    public EntityMediumInferno(World world, EntityLivingBase entity)
     {
         super(world, entity);
     }
    
-    public EntitySmallMagic(World world, double par2, double par4, double par6)
+    public EntityMediumInferno(World world, double par2, double par4, double par6)
     {
         super(world, par2, par4, par6);
     }
@@ -26,18 +26,14 @@ public class EntitySmallMagic extends EntityThrowable
     @Override
     protected void onImpact(MovingObjectPosition moveObjPos)
     {
-    	if (moveObjPos.entityHit != null)
-    	{
-   			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 4.0F);
-   		}
-    	
-    	for (int i = 0; i < 8; ++i)
-    	{
-    		this.worldObj.spawnParticle("magicCrit", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
-    	}
-    	
     	if (!this.worldObj.isRemote)
     	{
+    		if (moveObjPos.entityHit != null)
+    		{
+    			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
+    			moveObjPos.entityHit.setFire(5);
+    		}
+    		
     		this.setDead();
     	}
     }

@@ -44,7 +44,7 @@ public class Ascension
 	{		
 		ModItems.init();
 		ModBlocks.init();
-		ModArmory.init();
+		ModArmory.init(); // un-register staffs before releases
 		ModEntities.init();
 		ModBosses.init();
 		ModStructureItems.init(); // Comment out for releases

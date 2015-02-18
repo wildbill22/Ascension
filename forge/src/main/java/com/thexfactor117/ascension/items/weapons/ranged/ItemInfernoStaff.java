@@ -9,9 +9,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
+import com.thexfactor117.ascension.entities.projectiles.EntityMediumInferno;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallInferno;
-import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
@@ -104,19 +103,18 @@ public class ItemInfernoStaff extends Item
 					 * will 'fly' in a straight path.
 					 */
 					Vec3 look = player.getLookVec();
-					//EntityMediumInferno inferno = new EntityMediumInferno(world, player);
-					//magic.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
+					EntityMediumInferno inferno = new EntityMediumInferno(world, player);
+					inferno.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
 					player.inventory.consumeInventoryItem(ModItems.crystalShard);
-					//world.spawnEntityInWorld(magic);
-					//TO-DO: create medium inferno for inferno staff
+					world.spawnEntityInWorld(inferno);
 				}
 				else
 				{
 					Vec3 look = player.getLookVec();
-					EntitySmallMagic magic = new EntitySmallMagic(world, player);
-					magic.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
+					EntitySmallInferno inferno = new EntitySmallInferno(world, player);
+					inferno.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
 					player.inventory.consumeInventoryItem(ModItems.crystalShard);
-					world.spawnEntityInWorld(magic);
+					world.spawnEntityInWorld(inferno);
 				}
 			}
 		}

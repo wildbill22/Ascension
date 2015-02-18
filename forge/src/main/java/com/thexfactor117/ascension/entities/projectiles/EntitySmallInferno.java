@@ -1,5 +1,7 @@
 package com.thexfactor117.ascension.entities.projectiles;
 
+import com.thexfactor117.ascension.help.LogHelper;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
@@ -25,15 +27,21 @@ public class EntitySmallInferno extends EntityThrowable
     
     @Override
     protected void onImpact(MovingObjectPosition moveObjPos)
-    {
+    {	
+    	if (moveObjPos.entityHit != null)
+    	{
+   			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 3.0F);
+   			moveObjPos.entityHit.setFire(3);
+   		}
+    	
+    	for (int i = 0; i < 8; ++i)
+    	{
+    		this.worldObj.spawnParticle("smoke", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+    		LogHelper.info("Particles have spawned!");
+    	}
+    	
     	if (!this.worldObj.isRemote)
     	{
-    		if (moveObjPos.entityHit != null)
-    		{
-    			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 3.0F);
-    			moveObjPos.entityHit.setFire(3);
-    		}
-    		
     		this.setDead();
     	}
     }
