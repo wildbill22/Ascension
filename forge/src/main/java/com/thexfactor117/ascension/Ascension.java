@@ -15,8 +15,6 @@ import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.init.ModBosses;
 import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
-import com.thexfactor117.ascension.init.ModStructureItems;
-import com.thexfactor117.ascension.proxies.ClientProxy;
 import com.thexfactor117.ascension.proxies.CommonProxy;
 import com.thexfactor117.ascension.structures.StructureList;
 
@@ -24,6 +22,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -62,6 +61,10 @@ public class Ascension
 		ModRecipes.init();
 		ModWeaponRecipes.init();
 		ModArmorRecipes.init();
+		
+		//Version Checker -- Be sure to update the file!
+		String link = "https://raw.githubusercontent.com/TheXFactor117/Ascension/master/resources/versionchecker.json";
+		FMLInterModComms.sendRuntimeMessage(Reference.MODID, "VersionChecker", "addVersionCheck", link);
 	}
 	
 	@Mod.EventHandler
