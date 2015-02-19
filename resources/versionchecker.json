@@ -1,0 +1,14 @@
+{
+        "versionChecker": [
+                {
+                        "mcVersion":"1.7.10",
+                        "modVersion":"b1.1.0",
+                        "changeLog": [
+                        "See website for an entire changelog"
+                        ],
+                        "updateURL":"http://minecraft.curseforge.com/mc-mods/227918-ascension/files/2227882/download",
+                        "isDirectLink":"true",
+                        "newFileName":""
+                }
+        ]
+}
