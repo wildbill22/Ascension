@@ -17,12 +17,17 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
+import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityPharaoh extends EntityMob implements IBossDisplayData
 {
+	//used to cool down the mummy spawning
+	int coolDown = 100;
+	int count = 0;
+	
 	public EntityPharaoh(World world)
 	{
 		super(world);
@@ -57,7 +62,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
 	@Override
 	public boolean canDespawn()
 	{
-		return true;
+		return false;
 	}
 	
 	/**
@@ -80,6 +85,51 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
     
+    /**
+     * Updates every tick the Pharoah is alive. Once the cool 
+     * down has finished, the Pharoah will spawn a mummy at 
+     * its coordinates. The cool down then resets, and will 
+     * tick down again and repeat.
+     */
+    @Override
+    public void onLivingUpdate()
+    {
+    	super.onLivingUpdate();
+    	
+    	if (coolDown > 0)
+    	{
+    		this.coolDown = coolDown - 1;
+    	}
+    	
+    	if (count > 1)
+    	{
+    		this.count = count - 1;
+    	}
+    	
+    	if ((coolDown < 2) && (!this.worldObj.isRemote))
+    	{
+    		this.count = 60;
+    		this.coolDown = 200;
+    	}
+
+    	if ((count == 1) && (!this.worldObj.isRemote))
+    	{
+    		EntityMummy mummy = new EntityMummy(this.worldObj);
+    		
+    		//spawns the Mummy at the Pharaoh's coordinates
+    		mummy.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360, 0.0F);
+    		this.worldObj.spawnEntityInWorld(mummy);
+    		LogHelper.info("The Pharaoh has summoned a minion!");
+    		this.count = 0;
+    	}
+    }
+    
+    /**
+     * Gives the Pharoah a special attack. The
+     * Pharoah has a 25% chance to inflict
+     * blindness and nausea for the stated
+     * amount of time.
+     */
     @Override
     public boolean attackEntityAsMob(Entity entity)
     {
