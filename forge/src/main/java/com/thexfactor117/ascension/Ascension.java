@@ -4,11 +4,14 @@
 
 package com.thexfactor117.ascension;
 
+import net.minecraftforge.common.MinecraftForge;
+
 import com.thexfactor117.ascension.crafting.ModArmorRecipes;
 import com.thexfactor117.ascension.crafting.ModRecipes;
 import com.thexfactor117.ascension.crafting.ModWeaponRecipes;
 import com.thexfactor117.ascension.generation.AscensionWorldGeneration;
 import com.thexfactor117.ascension.generation.VanillaChestLootGen;
+import com.thexfactor117.ascension.handlers.DropHandler;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModBlocks;
@@ -53,6 +56,8 @@ public class Ascension
 		GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 		
 		ascensionProxy.registerRenderer();
+		
+		MinecraftForge.EVENT_BUS.register(new DropHandler());
 	}
 	
 	@Mod.EventHandler
