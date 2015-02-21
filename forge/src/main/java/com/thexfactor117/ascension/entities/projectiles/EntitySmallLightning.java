@@ -8,26 +8,28 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class EntitySmallBlizzard extends EntityThrowable
+import com.thexfactor117.ascension.help.LogHelper;
+
+public class EntitySmallLightning extends EntityThrowable
 {
-	public EntitySmallBlizzard(World world)
+	public EntitySmallLightning(World world)
     {
         super(world);
     }
     
-    public EntitySmallBlizzard(World world, EntityLivingBase entity)
+    public EntitySmallLightning(World world, EntityLivingBase entity)
     {
         super(world, entity);
     }
    
-    public EntitySmallBlizzard(World world, double par2, double par4, double par6)
+    public EntitySmallLightning(World world, double par2, double par4, double par6)
     {
         super(world, par2, par4, par6);
     }
     
     @Override
     protected void onImpact(MovingObjectPosition moveObjPos)
-    {
+    {	
     	if (!this.worldObj.isRemote)
     	{
     		if (moveObjPos.entityHit != null)
@@ -39,7 +41,7 @@ public class EntitySmallBlizzard extends EntityThrowable
     				if (enemy != null)
     				{
     					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 3.0F);
-    					enemy.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*5, 0));
+    					enemy.addPotionEffect(new PotionEffect(Potion.weakness.id, 20*5, 0));
     				}
     			}
     		}	

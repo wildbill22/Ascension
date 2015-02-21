@@ -28,6 +28,7 @@ import com.thexfactor117.ascension.items.weapons.melee.ItemShadowBlade;
 import com.thexfactor117.ascension.items.weapons.melee.ItemVexalSword;
 import com.thexfactor117.ascension.items.weapons.melee.ItemVoidHammer;
 import com.thexfactor117.ascension.items.weapons.melee.ItemWingedBlade;
+import com.thexfactor117.ascension.items.weapons.ranged.ItemBlizzardStaff;
 import com.thexfactor117.ascension.items.weapons.ranged.ItemInfernoStaff;
 import com.thexfactor117.ascension.items.weapons.ranged.ItemWoodenStaff;
 
@@ -114,6 +115,8 @@ public class ModArmory
 	//Staffs
 	public static Item woodenStaff = new ItemWoodenStaff().setUnlocalizedName("woodenStaff");
 	public static Item infernoStaff = new ItemInfernoStaff().setUnlocalizedName("infernoStaff");
+	public static Item blizzardStaff = new ItemBlizzardStaff().setUnlocalizedName("blizzardStaff");
+	//public static Item lightningStaff = new ItemLightningStaff().setUnlocalizedName("lightningStaff");
 
 	public static void init()
 	{

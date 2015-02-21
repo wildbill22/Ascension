@@ -8,26 +8,33 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class EntitySmallBlizzard extends EntityThrowable
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.World;
+
+public class EntityMediumLightning extends EntityThrowable
 {
-	public EntitySmallBlizzard(World world)
+	public EntityMediumLightning(World world)
     {
         super(world);
     }
     
-    public EntitySmallBlizzard(World world, EntityLivingBase entity)
+    public EntityMediumLightning(World world, EntityLivingBase entity)
     {
         super(world, entity);
     }
    
-    public EntitySmallBlizzard(World world, double par2, double par4, double par6)
+    public EntityMediumLightning(World world, double par2, double par4, double par6)
     {
         super(world, par2, par4, par6);
     }
     
     @Override
     protected void onImpact(MovingObjectPosition moveObjPos)
-    {
+    {	
     	if (!this.worldObj.isRemote)
     	{
     		if (moveObjPos.entityHit != null)
@@ -38,8 +45,8 @@ public class EntitySmallBlizzard extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 3.0F);
-    					enemy.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*5, 0));
+    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
+    					enemy.addPotionEffect(new PotionEffect(Potion.weakness.id, 20*10, 1));
     				}
     			}
     		}	
