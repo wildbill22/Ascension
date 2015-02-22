@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.help.LogHelper;
+import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
@@ -119,7 +120,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     		//spawns the Mummy at the Pharaoh's coordinates
     		mummy.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360, 0.0F);
     		this.worldObj.spawnEntityInWorld(mummy);
-    		LogHelper.info("The Pharaoh has summoned a minion!");
+    		LogHelper.info("The Pharaoh has summoned a mummy!");
     		this.count = 0;
     	}
     }
@@ -228,18 +229,6 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     @Override
     protected String getLivingSound()
     {
-    	return "mob.zombie.say";
-    }
-    
-    @Override
-    protected String getHurtSound()
-    {
-    	return "mob.zombie.hurt";
-    }
-    
-    @Override
-    protected String getDeathSound()
-    {
-    	return "mob.zombie.death";
+    	return Reference.MODID + ":" + "PharoahSay";
     }
 }

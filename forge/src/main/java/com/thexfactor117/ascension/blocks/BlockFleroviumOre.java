@@ -32,6 +32,6 @@ public class BlockFleroviumOre extends Block
 		setHardness(2.5F);
 		setResistance(10.0F);
 		setHarvestLevel("pickaxe", 3);
-		setLightLevel(0.8F); //testing purposes. not sure what the normal float value is.
+		setLightLevel(0.4F);
 	}
 }

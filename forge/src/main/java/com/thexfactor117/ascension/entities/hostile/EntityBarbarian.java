@@ -2,6 +2,7 @@ package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Random;
 
+import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
@@ -130,18 +131,18 @@ public class EntityBarbarian extends EntityMob
     @Override
     protected String getLivingSound()
     {
-    	return "mob.villager.idle";
+    	return "mob.zombie.say";    
     }
     
     @Override
     protected String getHurtSound()
     {
-    	return "mob.villager.hit";
+    	return "mob.zombie.hurt";
     }
     
     @Override
     protected String getDeathSound()
     {
-    	return "mob.villager.death";
+    	return "mob.zombie.death";
     }
 }

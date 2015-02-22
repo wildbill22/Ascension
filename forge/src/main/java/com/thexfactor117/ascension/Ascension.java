@@ -49,7 +49,7 @@ public class Ascension
 		ModArmory.init();
 		ModEntities.init();
 		ModBosses.init();
-		//ModStructureItems.init(); // Comment out for releases
+		//ModStructureItems.init(); // Keep this commented out when pushing.
 		StructureList.preInit(event);
 		VanillaChestLootGen.init();
 		

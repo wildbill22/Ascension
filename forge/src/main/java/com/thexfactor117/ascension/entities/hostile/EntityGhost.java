@@ -1,5 +1,6 @@
 package com.thexfactor117.ascension.entities.hostile;
 
+import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
@@ -138,18 +139,18 @@ public class EntityGhost extends EntityMob
     @Override
     protected String getLivingSound()
     {
-    	return "mob.endermen.idle";
+    	return Reference.MODID + ":" + "BansheeScream";
     }
     
     @Override
     protected String getHurtSound()
     {
-    	return "mob.endermen.scream";
+    	return Reference.MODID + ":" + "BansheeScream";
     }
     
     @Override
     protected String getDeathSound()
     {
-    	return "mob.endermen.death";
+    	return Reference.MODID + ":" + "BansheeScream";
     }
 }

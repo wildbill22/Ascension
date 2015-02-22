@@ -2,6 +2,7 @@ package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Random;
 
+import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
@@ -152,18 +153,18 @@ public class EntityMummy extends EntityMob
     @Override
     protected String getLivingSound()
     {
-    	return "mob.zombie.say";
+    	return Reference.MODID + ":" + "MummySay";
     }
     
     @Override
     protected String getHurtSound()
     {
-    	return "mob.zombie.hurt";
+    	return Reference.MODID + ":" + "MummySay";
     }
     
     @Override
     protected String getDeathSound()
     {
-    	return "mob.zombie.death";
+    	return Reference.MODID + ":" + "MummySay";
     }
 }

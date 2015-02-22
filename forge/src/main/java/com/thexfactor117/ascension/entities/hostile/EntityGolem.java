@@ -15,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
+import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
@@ -136,18 +137,18 @@ public class EntityGolem extends EntityMob
     @Override
     protected String getLivingSound()
     {
-    	return "mob.irongolem.walk";
+    	return Reference.MODID + ":" + "GolemSay";
     }
     
     @Override
     protected String getHurtSound()
     {
-    	return "mob.irongolem.hit";
+    	return Reference.MODID + ":" + "GolemSay";
     }
     
     @Override
     protected String getDeathSound()
     {
-    	return "mob.irongolem.death";
+    	return Reference.MODID + ":" + "GolemSay";
     }
 }
