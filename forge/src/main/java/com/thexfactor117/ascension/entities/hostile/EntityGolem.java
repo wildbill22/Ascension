@@ -1,11 +1,10 @@
 package com.thexfactor117.ascension.entities.hostile;
 
-import java.util.Random;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
@@ -29,10 +28,11 @@ public class EntityGolem extends EntityMob
 		this.experienceValue = 30;
 		this.setSize(1.75F, 3.0F);
 		this.clearAITasks();
-		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
-        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(4, new EntityAIWander(this, 1.0D));
-		this.tasks.addTask(5, new EntityAISwimming(this));
+		this.tasks.addTask(0, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
+        this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(2, new EntityAIWander(this, 1.0D));
+		this.tasks.addTask(3, new EntityAISwimming(this));
+		this.tasks.addTask(4, new EntityAILookIdle(this));
         this.targetTasks.addTask(0, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 	}
@@ -45,6 +45,7 @@ public class EntityGolem extends EntityMob
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(16.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.175D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8D);
 	}
 	
 	@Override
