@@ -167,7 +167,7 @@ public class ModArmory
 		 * BEFORE RELEASES!
 		 */
 		// Beta 2
-		//RegisterHelper.registerItem(woodenStaff);
+		RegisterHelper.registerItem(woodenStaff);
 		//RegisterHelper.registerItem(infernoStaff);
 	}
 }

@@ -21,7 +21,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemWoodenStaff extends Item
 {
-	public static final String[] woodenStaffChargeArray = new String[] {"charging_0", "charging_1", "charging_full"};
 	@SideOnly(Side.CLIENT)
 	private IIcon[] iconArray;
 	
@@ -38,19 +37,40 @@ public class ItemWoodenStaff extends Item
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.itemIcon = iconRegister.registerIcon(Reference.MODID + ":" + getUnlocalizedName().substring(5));
-		this.iconArray = new IIcon[woodenStaffChargeArray.length];
-		
-		for (int i = 0; i < this.iconArray.length; ++i)
-		{
-			this.iconArray[i] = iconRegister.registerIcon(this.getIconString() + "_" + woodenStaffChargeArray[i]);
-		}
+		this.itemIcon = iconRegister.registerIcon(Reference.MODID + ":" + "woodenStaff");
+		this.iconArray = new IIcon[3];
+		this.iconArray[0] = iconRegister.registerIcon(Reference.MODID + ":" + "woodenStaff_charging_1");
+		this.iconArray[1] = iconRegister.registerIcon(Reference.MODID + ":" + "woodenStaff_charging_2");
+		this.iconArray[2] = iconRegister.registerIcon(Reference.MODID + ":" + "woodenStaff_charging_full");
 	}
 	
+	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getItemIconForUseDuration(int i)
+	public IIcon getIcon(ItemStack stack, int par2, EntityPlayer player, ItemStack item, int usesRemaining)
 	{
-		return this.iconArray[i];
+		if (item == null)
+		{
+			return itemIcon;
+		}
+		
+		int ticksInUse = stack.getMaxItemUseDuration() - usesRemaining;
+		
+		if (ticksInUse > 17)
+		{
+			return iconArray[2];
+		}
+		else if (ticksInUse > 8)
+		{
+			return iconArray[1];
+		}
+		else if (ticksInUse > 0)
+		{
+			return iconArray[0];
+		}
+		else
+		{
+			return itemIcon;
+		}
 	}
 	
 	/**
