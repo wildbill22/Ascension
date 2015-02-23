@@ -10,6 +10,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
+import com.thexfactor117.ascension.Ascension;
+import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModBlocks;
@@ -51,11 +53,30 @@ public class AscensionWorldGeneration implements IWorldGenerator
 	 */
 	private void generateSurface(World world, Random random, int x, int z)
 	{
-		addOreSpawn(ModBlocks.titaniumOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), 9, 0, 48);
-		addOreSpawn(ModBlocks.vexalOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), 7, 0, 32);
-		addOreSpawn(ModBlocks.fleroviumOre, world, random, x, z, 16, 16, 1, 1, 0, 80);
-		addOreSpawn(ModBlocks.limestone, world, random, x, z, 16, 16, 20 + random.nextInt(20), 13, 42, 128);
-		addStructures(world, random, x, z);
+		if (ConfigHandler.generateTitaniumOre)
+		{
+			addOreSpawn(ModBlocks.titaniumOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), 9, 0, 48);
+		}
+		
+		if (ConfigHandler.generateVexalOre)
+		{
+			addOreSpawn(ModBlocks.vexalOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), 7, 0, 32);
+		}
+		
+		if (ConfigHandler.generateFleroviumOre)
+		{
+			addOreSpawn(ModBlocks.fleroviumOre, world, random, x, z, 16, 16, 1, 1, 0, 80);
+		}
+		
+		if (ConfigHandler.generateLimestone)
+		{
+			addOreSpawn(ModBlocks.limestone, world, random, x, z, 16, 16, 20 + random.nextInt(20), 13, 42, 128);
+		}
+		
+		if (ConfigHandler.generateStructures)
+		{
+			addStructures(world, random, x, z);
+		}
 	}
 
 	private void generateNether(World world, Random random, int x, int z)

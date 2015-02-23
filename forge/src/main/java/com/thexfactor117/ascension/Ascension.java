@@ -11,7 +11,9 @@ import com.thexfactor117.ascension.crafting.ModRecipes;
 import com.thexfactor117.ascension.crafting.ModWeaponRecipes;
 import com.thexfactor117.ascension.generation.AscensionWorldGeneration;
 import com.thexfactor117.ascension.generation.VanillaChestLootGen;
+import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.handlers.DropHandler;
+import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModBlocks;
@@ -21,6 +23,7 @@ import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.proxies.CommonProxy;
 import com.thexfactor117.ascension.structures.StructureList;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
@@ -44,6 +47,8 @@ public class Ascension
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{		
+		ConfigHandler.initProps(event.getModConfigurationDirectory());
+
 		ModItems.init();
 		ModBlocks.init();
 		ModArmory.init();
@@ -75,6 +80,6 @@ public class Ascension
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		
+
 	}	
 }
