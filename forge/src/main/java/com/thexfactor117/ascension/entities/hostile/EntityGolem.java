@@ -14,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
+import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
@@ -41,11 +42,11 @@ public class EntityGolem extends EntityMob
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(16.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.175D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8D);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(ConfigHandler.golemDamage);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(ConfigHandler.golemFollowRange);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(ConfigHandler.golemSpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(ConfigHandler.golemHealth);
+		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(ConfigHandler.golemKnockbackResistance);
 	}
 	
 	@Override
@@ -73,7 +74,7 @@ public class EntityGolem extends EntityMob
     @Override
 	protected Entity findPlayerToAttack()
     {
-        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
+        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, ConfigHandler.golemFollowRange);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
 	

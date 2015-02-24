@@ -2,6 +2,7 @@ package com.thexfactor117.ascension.entities.hostile;
 
 import java.util.Random;
 
+import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
@@ -43,10 +44,10 @@ public class EntityMummy extends EntityMob
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(24.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(60.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(ConfigHandler.mummyDamage);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(ConfigHandler.mummyFollowRange);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(ConfigHandler.mummySpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(ConfigHandler.mummyHealth);
 	}
 	
 	/**
@@ -81,7 +82,7 @@ public class EntityMummy extends EntityMob
     @Override
 	protected Entity findPlayerToAttack()
     {
-        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 24.0D);
+        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, ConfigHandler.mummyFollowRange);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
 	
