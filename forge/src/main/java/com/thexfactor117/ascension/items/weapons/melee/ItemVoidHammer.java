@@ -42,4 +42,18 @@ public class ItemVoidHammer extends ItemSword
 		list.add(stack.getMaxDamage() - stack.getItemDamage() + " Hits Remaining");
 		list.add("Ability: Power");
 	}
+	
+	/**
+	 * Called each tick the item is in the inventory
+	 * 
+	 * If the item is NOT enchanted, we will add an enchant.
+	 */
+	@Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5)
+	{
+		if (!stack.isItemEnchanted())
+		{
+			stack.addEnchantment(Enchantment.knockback, 1);
+		}
+	}
 }
