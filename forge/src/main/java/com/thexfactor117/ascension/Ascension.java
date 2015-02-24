@@ -47,6 +47,7 @@ public class Ascension
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{		
+		LogHelper.info("Beginning initialization phase 1...");
 		ConfigHandler.initProps(event.getModConfigurationDirectory());
 
 		ModItems.init();
@@ -63,18 +64,21 @@ public class Ascension
 		ascensionProxy.registerRenderer();
 		
 		MinecraftForge.EVENT_BUS.register(new DropHandler());
+		LogHelper.info("Finished initialization phase 1.");
 	}
 	
 	@Mod.EventHandler
 	public void Init(FMLInitializationEvent event)
 	{
+		LogHelper.info("Beginning initialization phase 2...");
 		ModRecipes.init();
 		ModWeaponRecipes.init();
 		ModArmorRecipes.init();
 		
 		//Version Checker -- Be sure to update the file!
-		String link = "https://raw.githubusercontent.com/TheXFactor117/Ascension/master/resources/versionchecker.json";
+		String link = "https://raw.githubusercontent.com/TheXFactor117/Ascension/master/versionchecker.json";
 		FMLInterModComms.sendRuntimeMessage(Reference.MODID, "VersionChecker", "addVersionCheck", link);
+		LogHelper.info("Finished initialization phase 2.");
 	}
 	
 	@Mod.EventHandler
