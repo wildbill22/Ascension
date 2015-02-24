@@ -1,27 +1,21 @@
 package com.thexfactor117.ascension.items.weapons.ranged;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
-import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.items.ItemAscensionStaff;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-public class ItemWoodenStaff extends ItemAscensionStaff
+public class ItemOblivionStaff extends ItemAscensionStaff
 {
-	public ItemWoodenStaff()
+	public ItemOblivionStaff()
 	{
 		super();
 		this.setCreativeTab(ModTabs.tabAscensionTest);
@@ -90,6 +84,7 @@ public class ItemWoodenStaff extends ItemAscensionStaff
 					 * the direction the player is facing so that the entity
 					 * will 'fly' in a straight path.
 					 */
+					// TODO: Create dark magic projectile
 					Vec3 look = player.getLookVec();
 					EntityMediumMagic magic = new EntityMediumMagic(world, player);
 					magic.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);

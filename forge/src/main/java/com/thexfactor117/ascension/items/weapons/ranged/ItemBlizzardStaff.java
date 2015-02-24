@@ -3,7 +3,6 @@ package com.thexfactor117.ascension.items.weapons.ranged;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
@@ -14,17 +13,14 @@ import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
+import com.thexfactor117.ascension.items.ItemAscensionStaff;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemBlizzardStaff extends Item
+public class ItemBlizzardStaff extends ItemAscensionStaff
 {
-	public static final String[] blizzardStaffChargeArray = new String[] {"charging_0", "charging_1", "charging_full"};
-	@SideOnly(Side.CLIENT)
-	private IIcon[] iconArray;
-	
 	public ItemBlizzardStaff()
 	{
 		super();
@@ -34,25 +30,7 @@ public class ItemBlizzardStaff extends Item
 		this.setNoRepair();
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister)
-	{
-		this.itemIcon = iconRegister.registerIcon(Reference.MODID + ":" + getUnlocalizedName().substring(5));
-		this.iconArray = new IIcon[blizzardStaffChargeArray.length];
 		
-		for (int i = 0; i < this.iconArray.length; ++i)
-		{
-			this.iconArray[i] = iconRegister.registerIcon(this.getIconString() + "_" + blizzardStaffChargeArray[i]);
-		}
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public IIcon getItemIconForUseDuration(int i)
-	{
-		return this.iconArray[i];
-	}
-	
 	/**
 	 * Once the player releases the right click button, this method is
 	 * called, so long as the first couple conditions are met. If they

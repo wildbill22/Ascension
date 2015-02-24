@@ -3,7 +3,6 @@ package com.thexfactor117.ascension.items.weapons.ranged;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
@@ -14,17 +13,14 @@ import com.thexfactor117.ascension.entities.projectiles.EntitySmallInferno;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
+import com.thexfactor117.ascension.items.ItemAscensionStaff;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemInfernoStaff extends Item
+public class ItemInfernoStaff extends ItemAscensionStaff
 {	
-	public static final String[] infernoStaffChargeArray = new String[] {"charging_0", "charging_1", "charging_full"};
-	@SideOnly(Side.CLIENT)
-	private IIcon[] iconArray;
-	
 	public ItemInfernoStaff()
 	{
 		super();
@@ -32,25 +28,6 @@ public class ItemInfernoStaff extends Item
 		this.maxStackSize = 1;
 		this.setMaxDamage(192);
 		this.setNoRepair();
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister)
-	{
-		this.itemIcon = iconRegister.registerIcon(Reference.MODID + ":" + getUnlocalizedName().substring(5));
-		this.iconArray = new IIcon[infernoStaffChargeArray.length];
-		
-		for (int i = 0; i < this.iconArray.length; ++i)
-		{
-			this.iconArray[i] = iconRegister.registerIcon(this.getIconString() + "_" + infernoStaffChargeArray[i]);
-		}
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public IIcon getItemIconForUseDuration(int i)
-	{
-		return this.iconArray[i];
 	}
 	
 	/**
