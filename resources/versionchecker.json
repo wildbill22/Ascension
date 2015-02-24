@@ -2,11 +2,12 @@
         "versionList": [
                 {
                         "mcVersion":"1.7.10",
-                        "modVersion":"b1.2.0",
+                        "modVersion":"b1.2.1",
                         "changeLog": [
                         "See website for an entire changelog",
                         "New world is not required",
-                        "Unless you wish to change config options"
+                        "",
+                        "Bug fixes and config updates"
                         ],
                         "updateURL":"http://minecraft.curseforge.com/mc-mods/227918-ascension/files/2228636/download",
                         "isDirectLink":"true",
