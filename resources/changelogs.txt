@@ -1,0 +1,25 @@
+b1.2.0
+-----
++ Added a Config file
++ Added new sounds for mobs
+* AI updates
+* Flerovium Ore lighting decreased
+
+
+
+b1.1.0
+-----
++ Added a Version Checker system (only compatible if Version Checker is installed)
++ Adds Soul Fragment drops to all vanilla mobs
+* Major tweaks to the Pharaoh
+* Nerfed Flerovium Armor a bit
+* Fixes a small issue with Creative Tabs
+
+b1.0.1
+-----
+- Removes test items that could potentially break things
+
+b1.0.0 - Ascension Public Beta Release
+-----
++ Added unique ID system to prevent crashes from mixing entity ID's
+* [Bug] Fixed Golem model issues
