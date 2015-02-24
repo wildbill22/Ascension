@@ -34,9 +34,6 @@ import com.thexfactor117.ascension.items.weapons.ranged.ItemWoodenStaff;
 
 public class ModArmory 
 {
-	/**
-	 * Overworld
-	 */
 	//Tool Materials
 	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 512, 2.0F, 2.0F, 14);
 	static Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 3, 728, 3.0F, 2.0F, 5);
@@ -167,7 +164,7 @@ public class ModArmory
 		 * BEFORE RELEASES!
 		 */
 		// Beta 2
-		RegisterHelper.registerItem(woodenStaff);
+		//RegisterHelper.registerItem(woodenStaff);
 		//RegisterHelper.registerItem(infernoStaff);
 	}
 }

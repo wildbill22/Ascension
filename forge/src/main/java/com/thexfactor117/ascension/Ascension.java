@@ -51,7 +51,7 @@ public class Ascension
 
 		ModItems.init();
 		ModBlocks.init();
-		ModArmory.init();
+		ModArmory.init(); // Comment out all test items!
 		ModEntities.init();
 		ModBosses.init();
 		//ModStructureItems.init(); // Keep this commented out when pushing.
