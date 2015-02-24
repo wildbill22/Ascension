@@ -59,20 +59,29 @@ public class ItemBlizzardStaff extends Item
 	 * are not met, nothing returns.
 	 */
 	@Override
-	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int i)
+	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int count)
 	{
 		/**
 		 * Determines whether or not the player has fully charged
 		 * up the staff. If the staff has not finished charging,
 		 * nothing is returned. If the staff has finished
 		 * charging, then the specified entity will spawn.
+		 * 
+		 * Explanation:
+		 * We set x to the maxDuration minus the count. Count is how long the item has been
+		 * used in ticks (e.g. maxDuration [300] - count [20] = 280). Y is then x transformed
+		 * into seconds (280/20), and is run through some numbers to make sure it is over 1 
+		 * second.
+		 * 
+		 * If count is less than 20, nothing will return. If it is greater than 20, the entity
+		 * fires.
 		 */
-		int x = getMaxItemUseDuration(stack) - i;
+		int x = getMaxItemUseDuration(stack) - count;
 		float y = x / 20.0F;
 		y = (y * y + y * 2.0F) / 3.0F;
 		
-		if (y < 0.1F) return;
-		if (y > 1.0F)
+		if (y < 1.0F) return;
+		if (y >= 1.0F)
 		{
 			y = 1.0F;
 		}
@@ -135,7 +144,7 @@ public class ItemBlizzardStaff extends Item
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack)
     {
-        return 72000;
+        return 300;
     }
 	
 	/**

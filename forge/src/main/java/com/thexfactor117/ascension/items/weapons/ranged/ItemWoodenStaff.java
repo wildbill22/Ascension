@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
+import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
@@ -55,15 +56,15 @@ public class ItemWoodenStaff extends Item
 		
 		int ticksInUse = stack.getMaxItemUseDuration() - usesRemaining;
 		
-		if (ticksInUse > 17)
+		if (ticksInUse > 19)
 		{
 			return iconArray[2];
 		}
-		else if (ticksInUse > 8)
+		else if (ticksInUse > 11)
 		{
 			return iconArray[1];
 		}
-		else if (ticksInUse > 0)
+		else if (ticksInUse > 3)
 		{
 			return iconArray[0];
 		}
@@ -77,22 +78,33 @@ public class ItemWoodenStaff extends Item
 	 * Once the player releases the right click button, this method is
 	 * called, so long as the first couple conditions are met. If they
 	 * are not met, nothing returns.
+	 * 
+	 * Count = itemInUseCount (how many ticks the item has been in use)
 	 */
 	@Override
-	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int i)
+	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int count)
 	{
 		/**
 		 * Determines whether or not the player has fully charged
 		 * up the staff. If the staff has not finished charging,
 		 * nothing is returned. If the staff has finished
 		 * charging, then the specified entity will spawn.
+		 * 
+		 * Explanation:
+		 * We set x to the maxDuration minus the count. Count is how long the item has been
+		 * used in ticks (e.g. maxDuration [300] - count [20] = 280). Y is then x transformed
+		 * into seconds (280/20), and is run through some numbers to make sure it is over 1 
+		 * second.
+		 * 
+		 * If count is less than 20, nothing will return. If it is greater than 20, the entity
+		 * fires.
 		 */
-		int x = getMaxItemUseDuration(stack) - i;
+		int x = getMaxItemUseDuration(stack) - count;
 		float y = x / 20.0F;
 		y = (y * y + y * 2.0F) / 3.0F;
 		
-		if (y < 0.1F) return;
-		if (y > 1.0F)
+		if (y < 1.0F) return;
+		if (y >= 1.0F)
 		{
 			y = 1.0F;
 		}
@@ -155,7 +167,7 @@ public class ItemWoodenStaff extends Item
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack)
     {
-        return 72000;
+        return 300;
     }
 	
 	/**

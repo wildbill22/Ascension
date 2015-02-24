@@ -4,10 +4,10 @@ import net.minecraft.item.Item;
 
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.help.RegisterHelper;
-import com.thexfactor117.ascension.items.AscensionMonsterPlacer;
 import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.items.ItemAscensionFood;
 import com.thexfactor117.ascension.items.artifacts.ItemOmega;
+import com.thexfactor117.ascension.items.eggs.ItemPharoahEgg;
 import com.thexfactor117.ascension.items.miscellaneous.ItemBlazeGem;
 import com.thexfactor117.ascension.items.miscellaneous.ItemCrystal;
 import com.thexfactor117.ascension.items.miscellaneous.ItemFlerovium;

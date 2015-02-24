@@ -3,7 +3,7 @@ package com.thexfactor117.ascension.init;
 import com.thexfactor117.ascension.Ascension;
 import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
 import com.thexfactor117.ascension.help.LogHelper;
-import com.thexfactor117.ascension.items.AscensionMonsterPlacer;
+import com.thexfactor117.ascension.items.eggs.ItemPharoahEgg;
 
 import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
@@ -14,7 +14,7 @@ public class ModBosses
 {
     static int startEntityId = 300;
     
-    public static Item itemSpawnEgg = new AscensionMonsterPlacer("Pharaoh", 0xC9C9BB, 0x182ED6).setUnlocalizedName("spawn_egg_" + "Pharaoh".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
+    public static Item itemSpawnEgg = new ItemPharoahEgg("Pharaoh", 0xC9C9BB, 0x182ED6).setUnlocalizedName("spawn_egg_" + "Pharaoh".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
     
     public static void init()
     {

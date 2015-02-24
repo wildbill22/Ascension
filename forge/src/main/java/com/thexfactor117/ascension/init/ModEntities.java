@@ -12,7 +12,6 @@ import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
 import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.handlers.EntityHandler;
-import com.thexfactor117.ascension.help.LogHelper;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 
@@ -48,6 +47,7 @@ public class ModEntities
 		 * at all, plus crashes.
 		 */
 		
+		// HOSTILE
 		if (ConfigHandler.shouldBansheeSpawn)
 		{
 			EntityRegistry.addSpawn(EntityBanshee.class, 200, 1, 2, EnumCreatureType.monster, BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.extremeHillsPlus, BiomeGenBase.desert, BiomeGenBase.desertHills, BiomeGenBase.iceMountains, BiomeGenBase.icePlains, BiomeGenBase.mesa, BiomeGenBase.mesaPlateau, BiomeGenBase.mesaPlateau_F, BiomeGenBase.mushroomIsland, BiomeGenBase.mushroomIslandShore, BiomeGenBase.savanna, BiomeGenBase.savannaPlateau, BiomeGenBase.swampland, BiomeGenBase.taiga, BiomeGenBase.taigaHills, BiomeGenBase.forest, BiomeGenBase.birchForest, BiomeGenBase.birchForestHills, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleEdge, BiomeGenBase.jungleHills, BiomeGenBase.roofedForest);
@@ -56,10 +56,6 @@ public class ModEntities
 		if (ConfigHandler.shouldBarbarianSpawn)
 		{
 			EntityRegistry.addSpawn(EntityBarbarian.class, 20, 1, 3, EnumCreatureType.creature, BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.extremeHillsPlus, BiomeGenBase.desert, BiomeGenBase.desertHills, BiomeGenBase.iceMountains, BiomeGenBase.icePlains, BiomeGenBase.mesa, BiomeGenBase.mesaPlateau, BiomeGenBase.mesaPlateau_F, BiomeGenBase.mushroomIsland, BiomeGenBase.mushroomIslandShore, BiomeGenBase.savanna, BiomeGenBase.savannaPlateau, BiomeGenBase.swampland, BiomeGenBase.taiga, BiomeGenBase.taigaHills, BiomeGenBase.forest, BiomeGenBase.birchForest, BiomeGenBase.birchForestHills, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleEdge, BiomeGenBase.jungleHills, BiomeGenBase.roofedForest);
-		}
-		else
-		{
-			LogHelper.warn("Barbarians are not spawning! Are you sure?");
 		}
 		
 		if (ConfigHandler.shouldGhostSpawn)
