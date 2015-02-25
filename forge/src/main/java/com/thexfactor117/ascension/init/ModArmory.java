@@ -167,10 +167,10 @@ public class ModArmory
 		 * BEFORE RELEASES!
 		 */
 		// Beta 2
-		//RegisterHelper.registerItem(woodenStaff);
-		//RegisterHelper.registerItem(infernoStaff);
-		//RegisterHelper.registerItem(blizzardStaff);
-		//RegisterHelper.registerItem(lightningStaff);
-		//RegisterHelper.registerItem(oblivionStaff);
+		/*RegisterHelper.registerItem(woodenStaff);
+		RegisterHelper.registerItem(infernoStaff);
+		RegisterHelper.registerItem(blizzardStaff);
+		RegisterHelper.registerItem(lightningStaff);
+		RegisterHelper.registerItem(oblivionStaff);*/
 	}
 }

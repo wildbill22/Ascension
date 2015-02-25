@@ -10,6 +10,7 @@ import com.thexfactor117.ascension.entities.hostile.EntityGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
 import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.handlers.EntityHandler;
 
@@ -28,6 +29,9 @@ public class ModEntities
 		EntityHandler.registerMonsters(EntityBanshee.class, "Banshee");
 		
 		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
+		
+		// Projectiles
+		EntityHandler.registerProjectiles(EntitySmallBlizzard.class, "SmallBlizzard");
 
 		addMobSpawns();
 	}

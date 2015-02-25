@@ -1,5 +1,8 @@
 package com.thexfactor117.ascension.proxies;
 
+import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.init.Items;
+
 import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
 import com.thexfactor117.ascension.entities.hostile.EntityBanshee;
 import com.thexfactor117.ascension.entities.hostile.EntityBarbarian;
@@ -8,6 +11,7 @@ import com.thexfactor117.ascension.entities.hostile.EntityGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
 import com.thexfactor117.ascension.models.ModelBanshee;
 import com.thexfactor117.ascension.models.ModelBarbarian;
 import com.thexfactor117.ascension.models.ModelDoe;
@@ -32,7 +36,7 @@ public class ClientProxy extends CommonProxy
 	@Override
 	public void registerRenderer() 
 	{
-		//Entities
+		// mob entities
 		RenderingRegistry.registerEntityRenderingHandler(EntityValkyrie.class, new RenderValkyrie(new ModelValkyrie(), 0));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBarbarian.class, new RenderBarbarian(new ModelBarbarian(), 0));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGolem.class, new RenderGolem(new ModelGolem(), 0));
@@ -43,6 +47,9 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityDoe.class, new RenderDoe(new ModelDoe(), 0));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityPharaoh.class, new RenderPharaoh(new ModelPharaoh(), 0));
+		
+		// projectile entities
+		RenderingRegistry.registerEntityRenderingHandler(EntitySmallBlizzard.class, new RenderSnowball(Items.snowball));
 	}
 	
 	public void registerTileEntitySpecialRenderer() 

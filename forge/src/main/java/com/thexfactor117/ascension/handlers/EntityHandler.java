@@ -34,4 +34,11 @@ public class EntityHandler
 		EntityRegistry.registerModEntity(entityClass, name, entityId, Ascension.instance, 64, 1, true);
 		EntityList.entityEggs.put(Integer.valueOf(entityId), new EntityList.EntityEggInfo(entityId, primaryColor, secondaryColor));
 	}
+	
+	public static void registerProjectiles(Class entityClass, String name)
+	{
+		int entityId = EntityRegistry.findGlobalUniqueEntityId();
+		
+		EntityRegistry.registerModEntity(entityClass, name, entityId, Ascension.instance, 64, 10, true);
+	}
 }
