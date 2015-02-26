@@ -13,6 +13,18 @@ public class ConfigHandler
 	public static boolean generateVexalOre;
 	public static boolean generateFleroviumOre;
 	public static boolean generateLimestone;
+	public static int titaniumSpawnProbability;
+	public static int titaniumMinY;
+	public static int titaniumMaxY;
+	public static int vexalSpawnProbability;
+	public static int vexalMinY;
+	public static int vexalMaxY;
+	public static int fleroviumSpawnProbability;
+	public static int fleroviumMinY;
+	public static int fleroviumMaxY;
+	public static int limestoneSpawnProbability;
+	public static int limestoneMinY;
+	public static int limestoneMaxY;
 	
 	// worldgenstructures
 	public static boolean generateStructures;
@@ -66,6 +78,18 @@ public class ConfigHandler
 		generateVexalOre = config.get("worldgenOres", "generateVexalOre", true).getBoolean(true);
 		generateFleroviumOre = config.get("worldgenOres", "generateFleroviumOre", true).getBoolean(true);
 		generateLimestone = config.get("worldgenOres", "generateLimestone", true).getBoolean(true);
+		titaniumSpawnProbability = config.get("worldgenOres", "titaniumSpawnProbability", 9).getInt(9);
+		titaniumMinY = config.get("worldgenOres", "titaniumMinY", 0).getInt(0);
+		titaniumMaxY = config.get("worldgenOres", "titaniumMaxY", 48).getInt(48);
+		vexalSpawnProbability = config.get("worldgenOres", "vexalSpawnProbability", 7).getInt(7);
+		vexalMinY = config.get("worldgenOres", "vexalMinY", 0).getInt(0);
+		vexalMaxY = config.get("worldgenOres", "vexalMaxY", 32).getInt(32);
+		fleroviumSpawnProbability = config.get("worldgenOres", "fleroviumSpawnProbability", 1).getInt(1);
+		fleroviumMinY = config.get("worldgenOres", "fleroviumMinY", 0).getInt(0);
+		fleroviumMaxY = config.get("worldgenOres", "fleroviumMaxY", 80).getInt(80);
+		limestoneSpawnProbability = config.get("worldgenOres", "limestoneSpawnProbability", 13).getInt(13);
+		limestoneMinY = config.get("worldgenOres", "limestoneMinY", 42).getInt(42);
+		limestoneMaxY = config.get("worldgenOres", "limestoneMaxY", 128).getInt(128);
 		
 		// worldgenstructures
 		generateStructures = config.get("worldgenStructures", "generateStructures", true).getBoolean(true);

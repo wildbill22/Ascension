@@ -55,22 +55,22 @@ public class AscensionWorldGeneration implements IWorldGenerator
 	{
 		if (ConfigHandler.generateTitaniumOre)
 		{
-			addOreSpawn(ModBlocks.titaniumOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), 9, 0, 48);
+			addOreSpawn(ModBlocks.titaniumOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), ConfigHandler.titaniumSpawnProbability, ConfigHandler.titaniumMinY, ConfigHandler.titaniumMaxY);
 		}
 		
 		if (ConfigHandler.generateVexalOre)
 		{
-			addOreSpawn(ModBlocks.vexalOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), 7, 0, 32);
+			addOreSpawn(ModBlocks.vexalOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), ConfigHandler.vexalSpawnProbability, ConfigHandler.vexalMinY, ConfigHandler.vexalMaxY);
 		}
 		
 		if (ConfigHandler.generateFleroviumOre)
 		{
-			addOreSpawn(ModBlocks.fleroviumOre, world, random, x, z, 16, 16, 1, 1, 0, 80);
+			addOreSpawn(ModBlocks.fleroviumOre, world, random, x, z, 16, 16, 1, ConfigHandler.fleroviumSpawnProbability, ConfigHandler.fleroviumMinY, ConfigHandler.fleroviumMaxY);
 		}
 		
 		if (ConfigHandler.generateLimestone)
 		{
-			addOreSpawn(ModBlocks.limestone, world, random, x, z, 16, 16, 20 + random.nextInt(20), 13, 42, 128);
+			addOreSpawn(ModBlocks.limestone, world, random, x, z, 16, 16, 20 + random.nextInt(20), ConfigHandler.limestoneSpawnProbability, ConfigHandler.limestoneMinY, ConfigHandler.limestoneMaxY);
 		}
 		
 		if (ConfigHandler.generateStructures)
