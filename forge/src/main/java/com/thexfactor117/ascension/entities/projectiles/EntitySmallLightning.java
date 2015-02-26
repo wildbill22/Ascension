@@ -8,8 +8,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-import com.thexfactor117.ascension.help.LogHelper;
-
 public class EntitySmallLightning extends EntityThrowable
 {
 	public EntitySmallLightning(World world)
@@ -40,8 +38,26 @@ public class EntitySmallLightning extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
-    					enemy.addPotionEffect(new PotionEffect(Potion.weakness.id, 20*5, 0));
+    					moveObjPos.entityHit.attackEntityFrom(DamageSource.magic, 5.0F);
+    					
+    					int var = this.rand.nextInt(6);
+    					if (var == 0)
+    					{
+    						enemy.addPotionEffect(new PotionEffect(Potion.blindness.id, 20*3, 0));
+    						enemy.addPotionEffect(new PotionEffect(Potion.confusion.id, 20*5, 0));
+    					}
+    					
+    					if (var == 1)
+    					{
+    						enemy.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*5, 0));
+    					}
+    					
+    					if (var == 2)
+    					{
+    						enemy.addPotionEffect(new PotionEffect(Potion.blindness.id, 20*3, 0));
+    						enemy.addPotionEffect(new PotionEffect(Potion.confusion.id, 20*5, 0));
+    						enemy.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*5, 0));
+    					}
     				}
     			}
     		}	

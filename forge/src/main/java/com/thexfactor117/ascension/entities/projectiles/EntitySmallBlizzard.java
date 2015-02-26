@@ -49,7 +49,7 @@ public class EntitySmallBlizzard extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
+    					moveObjPos.entityHit.attackEntityFrom(DamageSource.magic, 5.0F);
     					enemy.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*5, 0));
     				}
     			}

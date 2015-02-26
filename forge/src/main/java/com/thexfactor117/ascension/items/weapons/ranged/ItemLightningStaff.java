@@ -84,7 +84,6 @@ public class ItemLightningStaff extends ItemAscensionStaff
 					 * the direction the player is facing so that the entity
 					 * will 'fly' in a straight path.
 					 */
-					// TODO: Create lightning projectile
 					Vec3 look = player.getLookVec();
 					EntityMediumMagic magic = new EntityMediumMagic(world, player);
 					magic.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);

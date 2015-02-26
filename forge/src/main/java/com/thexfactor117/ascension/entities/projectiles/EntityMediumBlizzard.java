@@ -30,12 +30,6 @@ public class EntityMediumBlizzard extends EntityThrowable
     @Override
     protected void onImpact(MovingObjectPosition moveObjPos)
     {
-    	for (int i = 0; i < 8; ++i)
-    	{
-    		this.worldObj.spawnParticle("snowballpoof", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
-    		LogHelper.info("Particles have spawned!");
-    	}
-    	
     	if (!this.worldObj.isRemote)
     	{
     		if (moveObjPos.entityHit != null)
@@ -46,7 +40,7 @@ public class EntityMediumBlizzard extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					enemy.attackEntityFrom(DamageSource.generic, 7.0F);
+    					moveObjPos.entityHit.attackEntityFrom(DamageSource.magic, 7.0F);
     					enemy.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*10, 1));
     				}
     			}
