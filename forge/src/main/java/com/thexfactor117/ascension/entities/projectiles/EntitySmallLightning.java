@@ -40,7 +40,7 @@ public class EntitySmallLightning extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 3.0F);
+    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
     					enemy.addPotionEffect(new PotionEffect(Potion.weakness.id, 20*5, 0));
     				}
     			}

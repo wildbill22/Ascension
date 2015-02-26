@@ -30,7 +30,7 @@ public class EntityMediumMagic extends EntityThrowable
     	{
     		if (moveObjPos.entityHit != null)
     		{
-    			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 6.0F);
+    			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 7.0F);
     		}
     		
     		this.setDead();

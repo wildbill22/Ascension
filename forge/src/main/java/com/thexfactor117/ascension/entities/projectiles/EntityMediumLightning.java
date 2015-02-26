@@ -45,7 +45,7 @@ public class EntityMediumLightning extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
+    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 7.0F);
     					enemy.addPotionEffect(new PotionEffect(Potion.weakness.id, 20*10, 1));
     				}
     			}

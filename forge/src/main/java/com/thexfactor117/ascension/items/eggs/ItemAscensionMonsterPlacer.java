@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemPharoahEgg extends ItemMonsterPlacer
+public class ItemAscensionMonsterPlacer extends ItemMonsterPlacer
 {
     @SideOnly(Side.CLIENT)
     private IIcon theIcon;
@@ -37,12 +37,12 @@ public class ItemPharoahEgg extends ItemMonsterPlacer
     protected String entityToSpawnNameFull = "";
     protected EntityLiving entityToSpawn = null;
 
-    public ItemPharoahEgg()
+    public ItemAscensionMonsterPlacer()
     {
         super();
     }
     
-    public ItemPharoahEgg(String parEntityToSpawnName, int parPrimaryColor, int parSecondaryColor)
+    public ItemAscensionMonsterPlacer(String parEntityToSpawnName, int parPrimaryColor, int parSecondaryColor)
     {
         setHasSubtypes(false);
         maxStackSize = 64;
@@ -257,12 +257,4 @@ public class ItemPharoahEgg extends ItemMonsterPlacer
         entityToSpawnName = parEntityToSpawnName;
         entityToSpawnNameFull = Reference.MODID + "." + entityToSpawnName; 
     }
-    
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
-	{
-		list.add("Ready for a battle?");
-		list.add("Hope you are...");
-	}
 }

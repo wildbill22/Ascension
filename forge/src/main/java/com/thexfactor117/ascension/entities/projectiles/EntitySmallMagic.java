@@ -28,7 +28,7 @@ public class EntitySmallMagic extends EntityThrowable
     {
     	if (moveObjPos.entityHit != null)
     	{
-   			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 4.0F);
+   			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
    		}
     	
     	for (int i = 0; i < 8; ++i)

@@ -30,7 +30,7 @@ public class EntitySmallInferno extends EntityThrowable
     {	
     	if (moveObjPos.entityHit != null)
     	{
-   			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 3.0F);
+   			moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
    			moveObjPos.entityHit.setFire(3);
    		}
     	

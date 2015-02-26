@@ -84,6 +84,6 @@ public class Ascension
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-
+		LogHelper.info("Skipping initialization phase 3. Nothing to initialize.");
 	}	
 }

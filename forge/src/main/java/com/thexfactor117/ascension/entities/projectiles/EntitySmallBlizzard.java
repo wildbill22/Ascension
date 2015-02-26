@@ -1,15 +1,26 @@
 package com.thexfactor117.ascension.entities.projectiles;
 
+import java.util.List;
+
+import com.thexfactor117.ascension.help.LogHelper;
+
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 public class EntitySmallBlizzard extends EntityThrowable
 {
+	public EntityLivingBase shootingEntity;
+	public int ticksInAir;
+	
 	public EntitySmallBlizzard(World world)
     {
         super(world);
@@ -38,12 +49,29 @@ public class EntitySmallBlizzard extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 3.0F);
+    					moveObjPos.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
     					enemy.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*5, 0));
     				}
     			}
     		}	
     		this.setDead();
+    	}
+    }
+    
+    @Override
+    public void onUpdate()
+    {
+    	super.onUpdate();
+    	
+    	if (this.worldObj.isRemote)
+    	{
+    		if (!this.isDead && !this.inGround)
+        	{
+    			for (int i = 0; i < 4; ++i)
+    			{
+    				this.worldObj.spawnParticle("snowballpoof", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+    			}
+        	}
     	}
     }
 }

@@ -46,7 +46,7 @@ public class EntityMediumBlizzard extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					enemy.attackEntityFrom(DamageSource.generic, 5.0F);
+    					enemy.attackEntityFrom(DamageSource.generic, 7.0F);
     					enemy.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*10, 1));
     				}
     			}
