@@ -51,6 +51,12 @@ public class ModItems
 	public static Item soulFragment = new ItemSoulGem().setUnlocalizedName("soulFragment");
 	public static Item soulGem = new ItemSoulGem().setUnlocalizedName("soulGem");
 	
+	//Entities
+	public static Item smallMagic = new ItemAscension().setUnlocalizedName("smallMagic");
+	public static Item mediumMagic = new ItemAscension().setUnlocalizedName("mediumMagic");
+	public static Item smallOblivion = new ItemAscension().setUnlocalizedName("smallOblivion");
+	public static Item mediumOblivion = new ItemAscension().setUnlocalizedName("mediumOblivion");
+	
 	public static void init()
 	{
 		RegisterHelper.registerItem(omega);
@@ -76,5 +82,10 @@ public class ModItems
 		
 		RegisterHelper.registerItem(soulFragment);
 		RegisterHelper.registerItem(soulGem);
+		
+		RegisterHelper.registerItem(smallMagic);
+		RegisterHelper.registerItem(mediumMagic);
+		RegisterHelper.registerItem(smallOblivion);
+		RegisterHelper.registerItem(mediumOblivion);
 	}
 }

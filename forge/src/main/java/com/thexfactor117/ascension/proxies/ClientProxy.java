@@ -11,7 +11,11 @@ import com.thexfactor117.ascension.entities.hostile.EntityGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
-import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
+import com.thexfactor117.ascension.entities.projectiles.EntityMediumInferno;
+import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallInferno;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
+import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.models.ModelBanshee;
 import com.thexfactor117.ascension.models.ModelBarbarian;
 import com.thexfactor117.ascension.models.ModelDoe;
@@ -49,7 +53,10 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityPharaoh.class, new RenderPharaoh(new ModelPharaoh(), 0));
 		
 		// projectile entities
-		RenderingRegistry.registerEntityRenderingHandler(EntitySmallBlizzard.class, new RenderSnowball(Items.snowball));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySmallMagic.class, new RenderSnowball(ModItems.smallMagic));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMediumMagic.class, new RenderSnowball(ModItems.mediumMagic));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySmallInferno.class, new RenderSnowball(ModItems.smallOblivion));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMediumInferno.class, new RenderSnowball(ModItems.mediumOblivion));
 	}
 	
 	public void registerTileEntitySpecialRenderer() 
