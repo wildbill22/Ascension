@@ -85,5 +85,6 @@ public class Ascension
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		LogHelper.info("Skipping initialization phase 3. Nothing to initialize.");
+		LogHelper.info("Are you up for the challenge that awaits you?");
 	}	
 }

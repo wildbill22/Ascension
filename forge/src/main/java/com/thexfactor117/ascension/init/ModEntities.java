@@ -10,10 +10,10 @@ import com.thexfactor117.ascension.entities.hostile.EntityGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
-import com.thexfactor117.ascension.entities.projectiles.EntityMediumInferno;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
-import com.thexfactor117.ascension.entities.projectiles.EntitySmallInferno;
+import com.thexfactor117.ascension.entities.projectiles.EntityMediumOblivion;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallOblivion;
 import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.handlers.EntityHandler;
 
@@ -36,8 +36,8 @@ public class ModEntities
 		// Projectiles
 		EntityHandler.registerProjectiles(EntitySmallMagic.class, "Small Magic");
 		EntityHandler.registerProjectiles(EntityMediumMagic.class, "Medium Magic");
-		EntityHandler.registerProjectiles(EntitySmallInferno.class, "Small Inferno");
-		EntityHandler.registerProjectiles(EntityMediumInferno.class, "Medium Inferno");
+		EntityHandler.registerProjectiles(EntitySmallOblivion.class, "Small Oblivion");
+		EntityHandler.registerProjectiles(EntityMediumOblivion.class, "Medium Oblivion");
 
 		addMobSpawns();
 	}

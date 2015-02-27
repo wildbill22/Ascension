@@ -1,7 +1,6 @@
 package com.thexfactor117.ascension.proxies;
 
 import net.minecraft.client.renderer.entity.RenderSnowball;
-import net.minecraft.init.Items;
 
 import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
 import com.thexfactor117.ascension.entities.hostile.EntityBanshee;
@@ -11,10 +10,10 @@ import com.thexfactor117.ascension.entities.hostile.EntityGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
-import com.thexfactor117.ascension.entities.projectiles.EntityMediumInferno;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
-import com.thexfactor117.ascension.entities.projectiles.EntitySmallInferno;
+import com.thexfactor117.ascension.entities.projectiles.EntityMediumOblivion;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallOblivion;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.models.ModelBanshee;
 import com.thexfactor117.ascension.models.ModelBarbarian;
@@ -55,8 +54,8 @@ public class ClientProxy extends CommonProxy
 		// projectile entities
 		RenderingRegistry.registerEntityRenderingHandler(EntitySmallMagic.class, new RenderSnowball(ModItems.smallMagic));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMediumMagic.class, new RenderSnowball(ModItems.mediumMagic));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySmallInferno.class, new RenderSnowball(ModItems.smallOblivion));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMediumInferno.class, new RenderSnowball(ModItems.mediumOblivion));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySmallOblivion.class, new RenderSnowball(ModItems.smallOblivion));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMediumOblivion.class, new RenderSnowball(ModItems.mediumOblivion));
 	}
 	
 	public void registerTileEntitySpecialRenderer() 

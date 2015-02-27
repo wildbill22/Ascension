@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
-import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
+import com.thexfactor117.ascension.entities.projectiles.EntityMediumOblivion;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallOblivion;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.items.ItemAscensionStaff;
@@ -84,20 +84,19 @@ public class ItemOblivionStaff extends ItemAscensionStaff
 					 * the direction the player is facing so that the entity
 					 * will 'fly' in a straight path.
 					 */
-					// TODO: Create dark magic projectile
 					Vec3 look = player.getLookVec();
-					EntityMediumMagic magic = new EntityMediumMagic(world, player);
-					magic.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
+					EntityMediumOblivion oblivion = new EntityMediumOblivion(world, player);
+					oblivion.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
 					player.inventory.consumeInventoryItem(ModItems.crystalShard);
-					world.spawnEntityInWorld(magic);
+					world.spawnEntityInWorld(oblivion);
 				}
 				else
 				{
 					Vec3 look = player.getLookVec();
-					EntitySmallMagic magic = new EntitySmallMagic(world, player);
-					magic.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
+					EntitySmallOblivion oblivion = new EntitySmallOblivion(world, player);
+					oblivion.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
 					player.inventory.consumeInventoryItem(ModItems.crystalShard);
-					world.spawnEntityInWorld(magic);
+					world.spawnEntityInWorld(oblivion);
 				}
 			}
 		}
