@@ -1,5 +1,6 @@
 package com.thexfactor117.ascension.tabs;
 
+import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.init.ModStructureItems;
 
@@ -27,7 +28,7 @@ public class AscensionTab extends CreativeTabs
 		} 
 		else if (this.name == "tabAscensionTest")
 		{
-			return ModStructureItems.spawnSmallAbandonedHouse;
+			return ModArmory.bladeOfAlacrity;
 		}
 		return null;
 	}

@@ -31,8 +31,8 @@ public class ModEntities
 		EntityHandler.registerMonsters(EntityBarbarian.class, "Barbarian");
 		EntityHandler.registerMonsters(EntityGhost.class, "Ghost");
 		EntityHandler.registerMonsters(EntityBanshee.class, "Banshee");
-		// comment out for releases till Beta 2
-		EntityHandler.registerMonsters(EntitySnowBlaze.class, "Snow Blaze");
+		// comment these out!
+		//EntityHandler.registerMonsters(EntitySnowBlaze.class, "Snow Blaze");
 		
 		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
 		
