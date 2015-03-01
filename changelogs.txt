@@ -1,3 +1,11 @@
+b1.2.2 (3/1/15)
+-----
++ Added several worldgen options to the config
+* [Technical] Changed versionchecker.json location. Update alerts should work properly from here on out.
+* [Beta 2] Snow Blaze half-completed
+* [Beta 2] Projectiles finished. Complete with textures and all.
+
+
 b1.2.1 (2/24/15)
 -----
 + Added several options to the config
@@ -6,8 +14,6 @@ b1.2.1 (2/24/15)
 * [Bug] Fixed Gyro Mace/Void Hammer not having the power ability half the time
 * [Technical] Re-worked how Staff's were textured to automate the process
 * [Beta 2] Finished Staff 'charging' animations/code
-
-
 
 b1.2.0 (2/23/15)
 -----
