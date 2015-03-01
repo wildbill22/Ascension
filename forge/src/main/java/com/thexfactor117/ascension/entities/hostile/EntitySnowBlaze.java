@@ -1,13 +1,22 @@
 package com.thexfactor117.ascension.entities.hostile;
 
-import com.thexfactor117.ascension.handlers.ConfigHandler;
-
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntityBlaze;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntitySnowBlaze extends EntityBlaze
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
+import com.thexfactor117.ascension.help.LogHelper;
+
+public class EntitySnowBlaze extends EntityMob
 {
+	private float heightOffset = 0.5F;
+    private int heightOffsetUpdateTime;
+	// wish I knew what this did :/
+    private int field_70846_g;
+	
 	public EntitySnowBlaze(World world)
 	{
 		super(world);
@@ -22,17 +31,112 @@ public class EntitySnowBlaze extends EntityBlaze
 		//this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(ConfigHandler.bansheeHealth);
 	}
 	
-	/**
-	 * Calls Blaze#onLivingUpdate to change particle effects to snowballs instead of smoke
-	 */
 	@Override
 	public void onLivingUpdate()
 	{
-		super.onLivingUpdate();
+		if (!this.worldObj.isRemote)
+        {
+            if (this.isWet())
+            {
+                this.attackEntityFrom(DamageSource.drown, 1.0F);
+            }
+
+            --this.heightOffsetUpdateTime;
+
+            if (this.heightOffsetUpdateTime <= 0)
+            {
+                this.heightOffsetUpdateTime = 100;
+                this.heightOffset = 0.5F + (float)this.rand.nextGaussian() * 3.0F;
+            }
+
+            if (this.getEntityToAttack() != null && this.getEntityToAttack().posY + (double)this.getEntityToAttack().getEyeHeight() > this.posY + (double)this.getEyeHeight() + (double)this.heightOffset)
+            {
+                this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
+            }
+        }
+
+        if (!this.onGround && this.motionY < 0.0D)
+        {
+            this.motionY *= 0.6D;
+        }
 		
 		for (int i = 0; i < 2; ++i)
-		{
+        {
             this.worldObj.spawnParticle("snowballpoof", this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, 0.0D, 0.0D, 0.0D);
-		}
+        }
+		
+		super.onLivingUpdate();
 	}
+	
+	@Override
+	protected void attackEntity(Entity entity, float f)
+    {
+        if (this.attackTime <= 0 && f < 2.0F && entity.boundingBox.maxY > this.boundingBox.minY && entity.boundingBox.minY < this.boundingBox.maxY)
+        {
+            this.attackTime = 20;
+            this.attackEntityAsMob(entity);
+        }
+        else if (f < 30.0F)
+        {
+            double d0 = entity.posX - this.posX;
+            double d1 = entity.boundingBox.minY + (double)(entity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
+            double d2 = entity.posZ - this.posZ;
+
+            if (this.attackTime == 0)
+            {
+                ++this.field_70846_g;
+
+                if (this.field_70846_g == 1)
+                {
+                    this.attackTime = 60;
+                    //this.func_70844_e(true);
+                }
+                else if (this.field_70846_g <= 4)
+                {
+                    this.attackTime = 6;
+                }
+                else
+                {
+                    this.attackTime = 100;
+                    this.field_70846_g = 0;
+                    //this.func_70844_e(false);
+                }
+
+                if (this.field_70846_g > 1)
+                {
+                    float f1 = MathHelper.sqrt_float(f) * 0.5F;
+                    this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1009, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
+
+                    for (int i = 0; i < 1; ++i)
+                    {
+                        EntitySmallMagic blizzard = new EntitySmallMagic(this.worldObj, d0 + this.rand.nextGaussian() * (double)f1, d1, d2 + this.rand.nextGaussian() * (double)f1);
+                        blizzard.posY = this.posY + (double)(this.height / 2.0F) + 0.5D;
+                        this.worldObj.spawnEntityInWorld(blizzard);
+                        LogHelper.info("Entity spawned in world.");
+                    }
+                }
+            }
+
+            this.rotationYaw = (float)(Math.atan2(d2, d0) * 180.0D / Math.PI) - 90.0F;
+            this.hasAttacked = true;
+        }
+    }
+	
+	@Override
+    protected String getLivingSound()
+    {
+        return "mob.blaze.breathe";
+    }
+
+	@Override
+    protected String getHurtSound()
+    {
+        return "mob.blaze.hit";
+    }
+
+	@Override
+    protected String getDeathSound()
+    {
+        return "mob.blaze.death";
+    }
 }

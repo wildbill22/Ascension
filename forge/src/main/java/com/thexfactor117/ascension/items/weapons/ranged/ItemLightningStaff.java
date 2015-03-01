@@ -1,5 +1,6 @@
 package com.thexfactor117.ascension.items.weapons.ranged;
 
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;

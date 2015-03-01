@@ -8,6 +8,7 @@ import com.thexfactor117.ascension.entities.hostile.EntityBarbarian;
 import com.thexfactor117.ascension.entities.hostile.EntityGhost;
 import com.thexfactor117.ascension.entities.hostile.EntityGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
+import com.thexfactor117.ascension.entities.hostile.EntitySnowBlaze;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
@@ -30,6 +31,8 @@ public class ModEntities
 		EntityHandler.registerMonsters(EntityBarbarian.class, "Barbarian");
 		EntityHandler.registerMonsters(EntityGhost.class, "Ghost");
 		EntityHandler.registerMonsters(EntityBanshee.class, "Banshee");
+		// comment out for releases till Beta 2
+		EntityHandler.registerMonsters(EntitySnowBlaze.class, "Snow Blaze");
 		
 		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
 		
