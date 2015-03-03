@@ -6,6 +6,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import com.thexfactor117.ascension.entities.hostile.EntityBanshee;
 import com.thexfactor117.ascension.entities.hostile.EntityBarbarian;
 import com.thexfactor117.ascension.entities.hostile.EntityGhost;
+import com.thexfactor117.ascension.entities.hostile.EntityGoblin;
 import com.thexfactor117.ascension.entities.hostile.EntityGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntitySnowBlaze;
@@ -32,7 +33,8 @@ public class ModEntities
 		EntityHandler.registerMonsters(EntityGhost.class, "Ghost");
 		EntityHandler.registerMonsters(EntityBanshee.class, "Banshee");
 		// comment these out!
-		//EntityHandler.registerMonsters(EntitySnowBlaze.class, "Snow Blaze");
+		EntityHandler.registerMonsters(EntitySnowBlaze.class, "Snow Blaze");
+		EntityHandler.registerMonsters(EntityGoblin.class, "Goblin");
 		
 		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
 		

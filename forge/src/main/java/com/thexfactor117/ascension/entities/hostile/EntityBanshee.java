@@ -99,7 +99,10 @@ public class EntityBanshee extends EntityMob
     	}
     	else
     	{
-        	addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*10, 1));
+        	if (!this.worldObj.isRemote)
+        	{
+        		addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*10, 1));
+        	}
     	}
     	return true;
     }

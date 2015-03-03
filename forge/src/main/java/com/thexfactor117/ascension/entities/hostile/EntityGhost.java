@@ -96,7 +96,10 @@ public class EntityGhost extends EntityMob
     	}
     	else
     	{
-        	addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*5, 1));
+    		if (!this.worldObj.isRemote)
+        	{
+        		addPotionEffect(new PotionEffect(Potion.invisibility.id, 20*5, 1));
+        	}    	
     	}
     	return true;
     }

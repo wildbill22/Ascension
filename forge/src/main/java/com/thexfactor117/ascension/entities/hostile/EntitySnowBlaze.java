@@ -3,6 +3,7 @@ package com.thexfactor117.ascension.entities.hostile;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -89,7 +90,7 @@ public class EntitySnowBlaze extends EntityMob
                 if (this.field_70846_g == 1)
                 {
                     this.attackTime = 60;
-                    //this.func_70844_e(true);
+                    this.func_70844_e(true);
                 }
                 else if (this.field_70846_g <= 4)
                 {
@@ -99,7 +100,7 @@ public class EntitySnowBlaze extends EntityMob
                 {
                     this.attackTime = 100;
                     this.field_70846_g = 0;
-                    //this.func_70844_e(false);
+                    this.func_70844_e(false);
                 }
 
                 if (this.field_70846_g > 1)
@@ -109,10 +110,9 @@ public class EntitySnowBlaze extends EntityMob
 
                     for (int i = 0; i < 1; ++i)
                     {
-                        EntitySmallMagic blizzard = new EntitySmallMagic(this.worldObj, d0 + this.rand.nextGaussian() * (double)f1, d1, d2 + this.rand.nextGaussian() * (double)f1);
-                        blizzard.posY = this.posY + (double)(this.height / 2.0F) + 0.5D;
-                        this.worldObj.spawnEntityInWorld(blizzard);
-                        LogHelper.info("Entity spawned in world.");
+                    	EntitySmallFireball entitysmallfireball = new EntitySmallFireball(this.worldObj, this, d0 + this.rand.nextGaussian() * (double)f1, d1, d2 + this.rand.nextGaussian() * (double)f1);
+                        entitysmallfireball.posY = this.posY + (double)(this.height / 2.0F) + 0.5D;
+                        this.worldObj.spawnEntityInWorld(entitysmallfireball);
                     }
                 }
             }
@@ -120,6 +120,34 @@ public class EntitySnowBlaze extends EntityMob
             this.rotationYaw = (float)(Math.atan2(d2, d0) * 180.0D / Math.PI) - 90.0F;
             this.hasAttacked = true;
         }
+    }
+	
+	@Override
+	protected void entityInit()
+    {
+        super.entityInit();
+        this.dataWatcher.addObject(16, new Byte((byte)0));
+    }
+	
+	public boolean func_70845_n()
+    {
+        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+    }
+	
+	public void func_70844_e(boolean i)
+    {
+        byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+
+        if (i)
+        {
+            b0 = (byte)(b0 | 1);
+        }
+        else
+        {
+            b0 &= -2;
+        }
+
+        this.dataWatcher.updateObject(16, Byte.valueOf(b0));
     }
 	
 	@Override

@@ -84,9 +84,9 @@ public class ModItems
 		RegisterHelper.registerItem(soulGem);
 		
 		// comment these out!
-		/*RegisterHelper.registerItem(smallMagic);
+		RegisterHelper.registerItem(smallMagic);
 		RegisterHelper.registerItem(mediumMagic);
 		RegisterHelper.registerItem(smallOblivion);
-		RegisterHelper.registerItem(mediumOblivion);*/
+		RegisterHelper.registerItem(mediumOblivion);
 	}
 }
