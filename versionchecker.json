@@ -5,11 +5,10 @@
                         "modVersion":"b1.2.2",
                         "changeLog": [
                         "See website for an entire changelog",
-                        "New world is preferred/optional",
                         "",
-                        "Config updates"
+                        "Potentially fixed bug with Banshees causing crashes."
                         ],
-                        "updateURL":"http://minecraft.curseforge.com/mc-mods/227918-ascension/files/2229092/download",
+                        "updateURL":"http://minecraft.curseforge.com/mc-mods/227918-ascension/files/2229317/download",
                         "isDirectLink":"true",
                         "newFileName":""
                 }
