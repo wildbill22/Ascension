@@ -1,10 +1,16 @@
+b1.2.3 (3/3/15)
+-----
+* [Bug] Potentially fixed a bug with Banshee's causing crashes
+* [Beta 2] Work on Goblin and Snow Blaze mobs
+
+
+
 b1.2.2 (3/1/15)
 -----
 + Added several worldgen options to the config
 * [Technical] Changed versionchecker.json location. Update alerts should work properly from here on out.
 * [Beta 2] Snow Blaze half-completed
 * [Beta 2] Projectiles finished. Complete with textures and all.
-
 
 b1.2.1 (2/24/15)
 -----
