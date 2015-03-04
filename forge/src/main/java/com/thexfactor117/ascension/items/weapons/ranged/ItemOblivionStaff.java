@@ -60,7 +60,7 @@ public class ItemOblivionStaff extends ItemAscensionStaff
 		}
 		
 		//should the staff consume something?
-		if (player.capabilities.isCreativeMode || player.inventory.hasItem(ModItems.crystalShard))
+		if (player.capabilities.isCreativeMode || player.inventory.hasItem(ModItems.gemCrystalShard))
 		{
 			stack.damageItem(1, player);
 			world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
@@ -87,7 +87,7 @@ public class ItemOblivionStaff extends ItemAscensionStaff
 					Vec3 look = player.getLookVec();
 					EntityMediumOblivion oblivion = new EntityMediumOblivion(world, player);
 					oblivion.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
-					player.inventory.consumeInventoryItem(ModItems.crystalShard);
+					player.inventory.consumeInventoryItem(ModItems.gemCrystalShard);
 					world.spawnEntityInWorld(oblivion);
 				}
 				else
@@ -95,7 +95,7 @@ public class ItemOblivionStaff extends ItemAscensionStaff
 					Vec3 look = player.getLookVec();
 					EntitySmallOblivion oblivion = new EntitySmallOblivion(world, player);
 					oblivion.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
-					player.inventory.consumeInventoryItem(ModItems.crystalShard);
+					player.inventory.consumeInventoryItem(ModItems.gemCrystalShard);
 					world.spawnEntityInWorld(oblivion);
 				}
 			}
@@ -127,7 +127,7 @@ public class ItemOblivionStaff extends ItemAscensionStaff
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (player.inventory.hasItem(ModItems.crystalShard))
+		if (player.inventory.hasItem(ModItems.gemCrystalShard))
 		{
 			player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
 		}

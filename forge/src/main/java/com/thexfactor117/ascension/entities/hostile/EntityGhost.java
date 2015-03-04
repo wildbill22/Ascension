@@ -116,7 +116,7 @@ public class EntityGhost extends EntityMob
 		int var1 = this.rand.nextInt(10);
 		if (var1 == 0)
 		{
-			this.dropItem(ModItems.crystalShard, 1);
+			this.dropItem(ModItems.gemCrystalShard, 1);
 		}
 		
 		int var2 = this.rand.nextInt(10);
@@ -128,7 +128,7 @@ public class EntityGhost extends EntityMob
 		int var3 = this.rand.nextInt(100);
 		if (var3 == 0)
 		{
-			this.dropItem(ModItems.fleroviumShard, 1);
+			this.dropItem(ModItems.gemFleroviumShard, 1);
 		}
 		
 		int var4 = this.rand.nextInt(100);

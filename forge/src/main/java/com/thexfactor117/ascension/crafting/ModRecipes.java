@@ -14,20 +14,20 @@ public class ModRecipes
 	public static void init()
 	{		
 		// Overworld
-		GameRegistry.addSmelting(ModBlocks.titaniumOre, new ItemStack(ModItems.titaniumIngot), 0.8F);
+		GameRegistry.addSmelting(ModBlocks.titaniumOre, new ItemStack(ModItems.ingotTitanium), 0.8F);
 		GameRegistry.addSmelting(ModItems.rawVenison, new ItemStack(ModItems.cookedVenison), 0.3F);
-		GameRegistry.addSmelting(ModBlocks.fleroviumOre, new ItemStack(ModItems.fleroviumIngot), 0.8F);
+		GameRegistry.addSmelting(ModBlocks.fleroviumOre, new ItemStack(ModItems.ingotFlerovium), 0.8F);
 		
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.iceGem), new Object[] {"ABA", "BCB", "ABA", 'A', ModItems.coldBlazeRod, 'B', Items.snowball, 'C', Items.diamond});
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.blazeGem), new Object[] {"ABA", "BCB", "ABA", 'A', Items.blaze_rod, 'B', Items.flint, 'C', Items.diamond});
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.gemIceGem), new Object[] {"ABA", "BCB", "ABA", 'A', ModItems.coldBlazeRod, 'B', Items.snowball, 'C', Items.diamond});
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.gemBlazeGem), new Object[] {"ABA", "BCB", "ABA", 'A', Items.blaze_rod, 'B', Items.flint, 'C', Items.diamond});
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.coldBlazeRod), new Object[] {"AAA", "ABA", "AAA", 'A', Items.snowball, 'B', Items.blaze_rod});
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.crystal), new Object[] {"AAA", "AAA", "AAA", 'A', ModItems.crystalShard});
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.fleroviumIngot), new Object[] {"AAA", "AAA", "AAA", 'A', ModItems.fleroviumShard});
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.gemCrystal), new Object[] {"AAA", "AAA", "AAA", 'A', ModItems.gemCrystalShard});
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.ingotFlerovium), new Object[] {"AAA", "AAA", "AAA", 'A', ModItems.gemFleroviumShard});
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.soulGem), new Object[] {"AAA", "AAA", "AAA", 'A', ModItems.soulFragment});
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.limestoneBricks), new Object[] {"AA", "AA", 'A', ModBlocks.limestone});
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.steelIngot), new Object[] {new ItemStack(ModItems.titaniumIngot), Items.iron_ingot, ModItems.crystalShard});
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.crystal), new Object[] {new ItemStack(ModItems.vexalIngot), Items.diamond});
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.infusedVexalIngot), new Object[] {new ItemStack(ModItems.vexalIngot), Items.diamond, ModItems.fleroviumShard});
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.ingotSteel), new Object[] {new ItemStack(ModItems.ingotTitanium), Items.iron_ingot, ModItems.gemCrystalShard});
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.gemCrystal), new Object[] {new ItemStack(ModItems.ingotVexal), Items.diamond});
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.ingotInfusedVexal), new Object[] {new ItemStack(ModItems.ingotVexal), Items.diamond, ModItems.gemFleroviumShard});
 	}
 }

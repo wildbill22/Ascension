@@ -125,7 +125,7 @@ public class EntityMummy extends EntityMob
 		int var4 = this.rand.nextInt(10);
 		if (var4 == 0)
 		{
-			this.dropItem(ModItems.crystalShard, 1);
+			this.dropItem(ModItems.gemCrystalShard, 1);
 		}
 		
 		int var5 = this.rand.nextInt(19);
@@ -143,7 +143,7 @@ public class EntityMummy extends EntityMob
 		int var7 = this.rand.nextInt(100);
 		if (var7 == 0)
 		{
-			this.dropItem(ModItems.fleroviumShard, 1);
+			this.dropItem(ModItems.gemFleroviumShard, 1);
 		}
 		
 		int var8 = this.rand.nextInt(100);

@@ -103,13 +103,13 @@ public class EntityBarbarian extends EntityMob
 		int var2 = this.rand.nextInt(19);
 		if (var2 == 0)
 		{
-			this.dropItem(ModItems.steelIngot, 1);
+			this.dropItem(ModItems.ingotSteel, 1);
 		}
 		
 		int var3 = this.rand.nextInt(19);
 		if (var3 == 0)
 		{
-			this.dropItem(ModItems.crystalShard, 1);
+			this.dropItem(ModItems.gemCrystalShard, 1);
 		}
 		
 		int var4 = this.rand.nextInt(19);
@@ -121,7 +121,7 @@ public class EntityBarbarian extends EntityMob
 		int var5 = this.rand.nextInt(100);
 		if (var5 == 0)
 		{
-			this.dropItem(ModItems.fleroviumShard, 1);
+			this.dropItem(ModItems.gemFleroviumShard, 1);
 		}
 		
 		int var6 = this.rand.nextInt(100);

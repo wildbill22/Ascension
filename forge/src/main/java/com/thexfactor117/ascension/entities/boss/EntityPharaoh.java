@@ -167,7 +167,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     	int var = this.rand.nextInt(3);
     	if (var == 0)
     	{
-    		this.dropItem(ModItems.crystal, 1);
+    		this.dropItem(ModItems.gemCrystal, 1);
     	}
     	
     	int var1 = this.rand.nextInt(3);
@@ -189,7 +189,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     	int var3 = this.rand.nextInt(19);
     	if (var3 == 0)
     	{
-    		this.dropItem(ModItems.fleroviumIngot, 1);
+    		this.dropItem(ModItems.ingotFlerovium, 1);
     	}
     	
     	int var4 = this.rand.nextInt(19);

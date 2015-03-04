@@ -33,8 +33,8 @@ public class ModEntities
 		EntityHandler.registerMonsters(EntityGhost.class, "Ghost");
 		EntityHandler.registerMonsters(EntityBanshee.class, "Banshee");
 		// comment these out!
-		//EntityHandler.registerMonsters(EntitySnowBlaze.class, "Snow Blaze");
-		//EntityHandler.registerMonsters(EntityGoblin.class, "Goblin");
+		EntityHandler.registerMonsters(EntitySnowBlaze.class, "Snow Blaze");
+		EntityHandler.registerMonsters(EntityGoblin.class, "Goblin");
 		
 		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
 		

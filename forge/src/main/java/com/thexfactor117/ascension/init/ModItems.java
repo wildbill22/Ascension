@@ -1,6 +1,7 @@
 package com.thexfactor117.ascension.init;
 
 import net.minecraft.item.Item;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.help.RegisterHelper;
@@ -26,16 +27,16 @@ public class ModItems
 	public static Item omega = new ItemOmega().setUnlocalizedName("omega");
 
 	//Valuables
-	public static Item titaniumIngot = new ItemTitanium().setUnlocalizedName("titaniumIngot");
-	public static Item steelIngot = new ItemSteel().setUnlocalizedName("steelIngot");
-	public static Item vexalIngot = new ItemVexal().setUnlocalizedName("vexalIngot");
-	public static Item infusedVexalIngot = new ItemInfusedVexal().setUnlocalizedName("infusedVexalIngot");
-	public static Item iceGem = new ItemIceGem().setUnlocalizedName("iceGem");
-	public static Item blazeGem = new ItemBlazeGem().setUnlocalizedName("blazeGem");
-	public static Item crystal = new ItemCrystal().setUnlocalizedName("crystal");
-	public static Item crystalShard = new ItemCrystal().setUnlocalizedName("crystalShard");
-	public static Item fleroviumIngot = new ItemFlerovium().setUnlocalizedName("fleroviumIngot");
-	public static Item fleroviumShard = new ItemFlerovium().setUnlocalizedName("fleroviumShard");
+	public static Item ingotTitanium = new ItemTitanium().setUnlocalizedName("ingotTitanium");
+	public static Item ingotSteel = new ItemSteel().setUnlocalizedName("ingotSteel");
+	public static Item ingotVexal = new ItemVexal().setUnlocalizedName("ingotVexal");
+	public static Item ingotInfusedVexal = new ItemInfusedVexal().setUnlocalizedName("ingotInfusedVexal");
+	public static Item gemIceGem = new ItemIceGem().setUnlocalizedName("gemIceGem");
+	public static Item gemBlazeGem = new ItemBlazeGem().setUnlocalizedName("gemBlazeGem");
+	public static Item gemCrystal = new ItemCrystal().setUnlocalizedName("gemCrystal");
+	public static Item gemCrystalShard = new ItemCrystal().setUnlocalizedName("gemCrystalShard");
+	public static Item ingotFlerovium = new ItemFlerovium().setUnlocalizedName("ingotFlerovium");
+	public static Item gemFleroviumShard = new ItemFlerovium().setUnlocalizedName("gemFleroviumShard");
 	
 	//Food
 	public static Item rawVenison = new ItemAscensionFood(3, 0.5F, true).setUnlocalizedName("rawVenison");
@@ -61,16 +62,16 @@ public class ModItems
 	{
 		RegisterHelper.registerItem(omega);
 	
-		RegisterHelper.registerItem(titaniumIngot);
-		RegisterHelper.registerItem(steelIngot);
-		RegisterHelper.registerItem(vexalIngot);
-		RegisterHelper.registerItem(infusedVexalIngot);
-		RegisterHelper.registerItem(blazeGem);
-		RegisterHelper.registerItem(iceGem);
-		RegisterHelper.registerItem(crystal);
-		RegisterHelper.registerItem(crystalShard);
-		RegisterHelper.registerItem(fleroviumIngot);
-		RegisterHelper.registerItem(fleroviumShard);
+		OreDictionary.registerOre("ingotTitanium", ingotTitanium);
+		OreDictionary.registerOre("ingotSteel", ingotSteel);
+		OreDictionary.registerOre("ingotVexal", ingotVexal);
+		OreDictionary.registerOre("ingotInfusedVexal", ingotInfusedVexal);
+		OreDictionary.registerOre("gemBlazeGem", gemBlazeGem);
+		OreDictionary.registerOre("gemIceGem", gemIceGem);
+		OreDictionary.registerOre("gemCrystal", gemCrystal);
+		OreDictionary.registerOre("gemCrystalShard", gemCrystalShard);
+		OreDictionary.registerOre("ingotFlerovium", ingotFlerovium);
+		OreDictionary.registerOre("gemFleroviumShard", gemFleroviumShard);
 	
 		RegisterHelper.registerItem(rawVenison);
 		RegisterHelper.registerItem(cookedVenison);

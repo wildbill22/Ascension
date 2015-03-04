@@ -254,8 +254,8 @@ public class RandomChest {
 		addRandomChestItem(Items.wheat, 1, 4, 10 * m);
 		
 		// In all chests - modItems
-		addRandomChestItem(ModItems.titaniumIngot, 1, 2, 6 * m);
-		addRandomChestItem(ModItems.vexalIngot, 1, 1, 5 * m);
+		addRandomChestItem(ModItems.ingotTitanium, 1, 2, 6 * m);
+		addRandomChestItem(ModItems.ingotVexal, 1, 1, 5 * m);
 		addRandomChestItem(ModItems.rawVenison, 1, 3, 10 * m);
 		addRandomChestItem(ModItems.coldBlazeRod, 1, 2, 8 * m);
 		addRandomChestItem(ModItems.sharkTeeth, 1, 2, 9 * m);
@@ -282,12 +282,12 @@ public class RandomChest {
 	protected void addItemsForAllDungeons(int m) {
 
 		// More ModItems for All Mob Dungeons (6):
-		addRandomChestItem(ModItems.steelIngot, 1, 1, 4 * m);
-		addRandomChestItem(ModItems.crystal, 1, 2, 4 * m);
-		addRandomChestItem(ModItems.fleroviumShard, 1, 1, 2 * m);
-		addRandomChestItem(ModItems.crystalShard, 1, 3, 5 * m);
-		addRandomChestItem(ModItems.iceGem, 1, 1, 3 * m);
-		addRandomChestItem(ModItems.blazeGem, 1, 1, 3 * m);
+		addRandomChestItem(ModItems.ingotSteel, 1, 1, 4 * m);
+		addRandomChestItem(ModItems.gemCrystal, 1, 2, 4 * m);
+		addRandomChestItem(ModItems.gemFleroviumShard, 1, 1, 2 * m);
+		addRandomChestItem(ModItems.gemCrystalShard, 1, 3, 5 * m);
+		addRandomChestItem(ModItems.gemIceGem, 1, 1, 3 * m);
+		addRandomChestItem(ModItems.gemBlazeGem, 1, 1, 3 * m);
 
 		// More ModArmory for All Dungeons (13):
 		addRandomChestItem(ModArmory.steelAxe, 1, 1, 3 * m);

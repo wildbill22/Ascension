@@ -110,9 +110,9 @@ public class EntitySnowBlaze extends EntityMob
 
                     for (int i = 0; i < 1; ++i)
                     {
-                    	EntitySmallFireball entitysmallfireball = new EntitySmallFireball(this.worldObj, this, d0 + this.rand.nextGaussian() * (double)f1, d1, d2 + this.rand.nextGaussian() * (double)f1);
-                        entitysmallfireball.posY = this.posY + (double)(this.height / 2.0F) + 0.5D;
-                        this.worldObj.spawnEntityInWorld(entitysmallfireball);
+                    	EntitySmallMagic magic = new EntitySmallMagic(this.worldObj, this);
+                    	magic.posY = this.posY + (double)(this.height / 2.0F) + 0.5D;
+                        this.worldObj.spawnEntityInWorld(magic);
                     }
                 }
             }

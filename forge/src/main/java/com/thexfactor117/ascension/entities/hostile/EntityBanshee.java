@@ -146,13 +146,13 @@ public class EntityBanshee extends EntityMob
 		int var1 = this.rand.nextInt(10);
 		if (var1 == 0)
 		{
-			this.dropItem(ModItems.steelIngot, 1);
+			this.dropItem(ModItems.ingotSteel, 1);
 		}
 		
 		int var2 = this.rand.nextInt(10);
 		if (var2 == 0)
 		{
-			this.dropItem(ModItems.crystalShard, 1);
+			this.dropItem(ModItems.gemCrystalShard, 1);
 		}
 		
 		int var3 = this.rand.nextInt(10);
@@ -164,13 +164,13 @@ public class EntityBanshee extends EntityMob
 		int var4 = this.rand.nextInt(19);
 		if (var4 == 0)
 		{
-			this.dropItem(ModItems.crystalShard, 2);
+			this.dropItem(ModItems.gemCrystalShard, 2);
 		}
 		
 		int var5 = this.rand.nextInt(19);
 		if (var5 == 0)
 		{
-			this.dropItem(ModItems.fleroviumShard, 1);
+			this.dropItem(ModItems.gemFleroviumShard, 1);
 		}
 		
 		int var6 = this.rand.nextInt(100);

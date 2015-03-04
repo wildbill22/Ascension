@@ -13,6 +13,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
@@ -56,19 +57,17 @@ public class EntityGoblin extends EntityMob implements IRangedAttackMob
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase entity, float f) 
 	{
-		EntitySmallMagic magic = new EntitySmallMagic(this.worldObj, entity);
-		//double i = entity.posX - this.posX;
-		//double j = entity.posY + 1.5;
-		//double k = entity.posZ - this.posZ;
-		//magic.setPosition(i, j, k);
-		//LogHelper.info(i + " : " + j + " : " + k);
+		EntitySmallMagic magic = new EntitySmallMagic(this.worldObj, this);
+		double i = entity.posX - this.posX;
+		double j = entity.posY + entity.getEyeHeight() - 1.1D - magic.posY;
+		double k = entity.posZ - this.posZ;
+		magic.setThrowableHeading(i, j, k, 1.6F, 12.0F);
 		
 		this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         
 		if (!this.worldObj.isRemote)
 		{
 			this.worldObj.spawnEntityInWorld(magic);
-	        LogHelper.info("Entity spawned in world.");
 		}
 	}
 	

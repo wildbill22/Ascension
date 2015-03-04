@@ -1,5 +1,10 @@
 package com.thexfactor117.ascension.entities.hostile;
 
+import com.thexfactor117.ascension.handlers.ConfigHandler;
+import com.thexfactor117.ascension.help.Reference;
+import com.thexfactor117.ascension.init.ModArmory;
+import com.thexfactor117.ascension.init.ModItems;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -12,23 +17,17 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
-import com.thexfactor117.ascension.handlers.ConfigHandler;
-import com.thexfactor117.ascension.help.Reference;
-import com.thexfactor117.ascension.init.ModArmory;
-import com.thexfactor117.ascension.init.ModItems;
-
-public class EntityValkyrie extends EntityMob
+public class EntityMiniGolem extends EntityMob
 {
-	public EntityValkyrie(World world) 
+	public EntityMiniGolem(World world) 
 	{
 		super(world);
 		this.getNavigator().setCanSwim(true);
-		this.experienceValue = 20;
-		this.setSize(1.0F, 2.0F);
+		this.getNavigator().setAvoidsWater(true);
+		this.experienceValue = 30;
+		this.setSize(1.75F, 3.0F);
 		this.clearAITasks();
 		this.tasks.addTask(0, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
         this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -42,21 +41,17 @@ public class EntityValkyrie extends EntityMob
 	@Override
 	protected void applyEntityAttributes()
 	{
+		/* change up attributes */
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(ConfigHandler.valkyrieDamage);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(ConfigHandler.valkyrieFollowRange);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(ConfigHandler.valkyrieSpeed);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(ConfigHandler.valkyrieHealth);
-	}
-
-	@Override
-	public boolean isAIEnabled()
-	{
-		return true;
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(ConfigHandler.golemDamage);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(ConfigHandler.golemFollowRange);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(ConfigHandler.golemSpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(ConfigHandler.golemHealth);
+		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(ConfigHandler.golemKnockbackResistance);
 	}
 	
 	@Override
-	public boolean isValidLightLevel()
+	public boolean isAIEnabled()
 	{
 		return true;
 	}
@@ -80,13 +75,13 @@ public class EntityValkyrie extends EntityMob
     @Override
 	protected Entity findPlayerToAttack()
     {
-        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, ConfigHandler.valkyrieFollowRange);
+        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, ConfigHandler.golemFollowRange);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
-    
+	
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
-	{	
+	{		
 		int var = this.rand.nextInt(5);
 		if (var == 0)
 		{
@@ -96,28 +91,28 @@ public class EntityValkyrie extends EntityMob
 		int var1 = this.rand.nextInt(10);
 		if (var1 == 0)
 		{
-			this.dropItem(ModItems.soulFragment, 1);
-		}
-		
-		int var2 = this.rand.nextInt(19);
-		if (var2 == 0)
-		{
 			this.dropItem(ModItems.ingotSteel, 1);
 		}
 		
-		int var3 = this.rand.nextInt(19);
+		int var2 = this.rand.nextInt(10);
+		if (var2 == 0)
+		{
+			this.dropItem(ModItems.soulFragment, 1);
+		}
+		
+		int var3 = this.rand.nextInt(10);
 		if (var3 == 0)
 		{
 			this.dropItem(ModItems.gemCrystalShard, 1);
 		}
 		
-		int var4 = this.rand.nextInt(19);
+		int var4 = this.rand.nextInt(10);
 		if (var4 == 0)
 		{
-			this.dropItem(ModArmory.razorSword, 1);
+			this.dropItem(ModItems.golemGyro, 1);
 		}
 		
-		int var5 = this.rand.nextInt(100);
+		int var5 = this.rand.nextInt(19);
 		if (var5 == 0)
 		{
 			this.dropItem(ModItems.gemFleroviumShard, 1);
@@ -126,25 +121,37 @@ public class EntityValkyrie extends EntityMob
 		int var6 = this.rand.nextInt(100);
 		if (var6 == 0)
 		{
-			this.dropItem(ModArmory.wingedBlade, 1);
+			this.dropItem(ModArmory.gyroMace, 1);
+		}
+		
+		int var7 = this.rand.nextInt(100);
+		if (var7 == 0)
+		{
+			this.dropItem(ModArmory.gyroPlate, 1);
+		}
+		
+		int var8 = this.rand.nextInt(100);
+		if (var8 == 0)
+		{
+			this.dropItem(ModArmory.divineRapier, 1);
 		}
 	}
 	
     @Override
     protected String getLivingSound()
     {
-    	return "mob.zombie.say";    
+    	return Reference.MODID + ":" + "GolemSay";
     }
     
     @Override
     protected String getHurtSound()
     {
-    	return "mob.zombie.hurt";
+    	return Reference.MODID + ":" + "GolemSay";
     }
     
     @Override
     protected String getDeathSound()
     {
-    	return "mob.zombie.death";
+    	return Reference.MODID + ":" + "GolemSay";
     }
 }

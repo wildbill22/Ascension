@@ -47,7 +47,7 @@ public class EntitySmallMagic extends EntityThrowable
     		{
     			for (int i = 0; i < 4; ++i)
     			{
-        			this.worldObj.spawnParticle("mobSpell", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+        			this.worldObj.spawnParticle("witchMagic", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
     			}
     		}
     	}
