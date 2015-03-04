@@ -20,16 +20,16 @@ item.mythic.name=§aMythic§r
 item.inheritance.name=§aInheritance§r
 item.omega.name=§aOmega§r
 
-item.titaniumIngot.name=Titanium Ingot
-item.steelIngot.name=Steel Ingot
-item.vexalIngot.name=Vexal Ingot
-item.infusedVexalIngot.name=Infused Vexal Ingot
-item.fleroviumIngot.name=§eFlerovium Ingot§r
-item.fleroviumShard.name=§eFlerovium Shard§r
-item.iceGem.name=Ice Gem
-item.blazeGem.name=Blaze Gem
-item.crystal.name=Crystal
-item.crystalShard.name=Crystal Shard
+item.ingotTitanium.name=Titanium Ingot
+item.ingotSteel.name=Steel Ingot
+item.ingotVexal.name=Vexal Ingot
+item.ingotInfusedVexal.name=Infused Vexal Ingot
+item.ingotFlerovium.name=§eFlerovium Ingot§r
+item.gemFleroviumShard.name=§eFlerovium Shard§r
+item.gemIceGem.name=Ice Gem
+item.gemBlazeGem.name=Blaze Gem
+item.gemCrystal.name=Crystal
+item.gemCrystalShard.name=Crystal Shard
 item.soulGem.name=Soul Gem
 item.soulFragment.name=Soul Fragment
 

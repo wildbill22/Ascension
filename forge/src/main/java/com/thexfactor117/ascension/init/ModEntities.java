@@ -8,6 +8,7 @@ import com.thexfactor117.ascension.entities.hostile.EntityBarbarian;
 import com.thexfactor117.ascension.entities.hostile.EntityGhost;
 import com.thexfactor117.ascension.entities.hostile.EntityGoblin;
 import com.thexfactor117.ascension.entities.hostile.EntityGolem;
+import com.thexfactor117.ascension.entities.hostile.EntityMiniGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntitySnowBlaze;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
@@ -35,6 +36,7 @@ public class ModEntities
 		// comment these out!
 		EntityHandler.registerMonsters(EntitySnowBlaze.class, "Snow Blaze");
 		EntityHandler.registerMonsters(EntityGoblin.class, "Goblin");
+		EntityHandler.registerMonsters(EntityMiniGolem.class, "Mini-Golem");
 		
 		EntityHandler.registerAnimals(EntityDoe.class, "Doe");
 		

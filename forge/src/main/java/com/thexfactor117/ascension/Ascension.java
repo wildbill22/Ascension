@@ -59,7 +59,7 @@ public class Ascension
 		StructureList.preInit(event);
 		VanillaChestLootGen.init();
 		
-		GameRegistry.registerWorldGenerator(this.eventWorldGen, 100); // experiement with other world gen mods for balancing
+		GameRegistry.registerWorldGenerator(this.eventWorldGen, 100); // experiment with other world gen mods for balancing
 		
 		ascensionProxy.registerRenderer();
 		

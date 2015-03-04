@@ -1,14 +1,12 @@
 package com.thexfactor117.ascension.init;
 
 import net.minecraft.item.Item;
-import net.minecraftforge.oredict.OreDictionary;
 
-import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.help.RegisterHelper;
 import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.items.ItemAscensionFood;
+import com.thexfactor117.ascension.items.ItemInvisible;
 import com.thexfactor117.ascension.items.artifacts.ItemOmega;
-import com.thexfactor117.ascension.items.eggs.ItemAscensionMonsterPlacer;
 import com.thexfactor117.ascension.items.miscellaneous.ItemBlazeGem;
 import com.thexfactor117.ascension.items.miscellaneous.ItemCrystal;
 import com.thexfactor117.ascension.items.miscellaneous.ItemFlerovium;
@@ -18,8 +16,6 @@ import com.thexfactor117.ascension.items.miscellaneous.ItemSoulGem;
 import com.thexfactor117.ascension.items.miscellaneous.ItemSteel;
 import com.thexfactor117.ascension.items.miscellaneous.ItemTitanium;
 import com.thexfactor117.ascension.items.miscellaneous.ItemVexal;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModItems 
 {
@@ -53,26 +49,26 @@ public class ModItems
 	public static Item soulGem = new ItemSoulGem().setUnlocalizedName("soulGem");
 	
 	//Entities
-	public static Item smallMagic = new ItemAscension().setUnlocalizedName("smallMagic");
-	public static Item mediumMagic = new ItemAscension().setUnlocalizedName("mediumMagic");
-	public static Item smallOblivion = new ItemAscension().setUnlocalizedName("smallOblivion");
-	public static Item mediumOblivion = new ItemAscension().setUnlocalizedName("mediumOblivion");
+	public static Item smallMagic = new ItemInvisible().setUnlocalizedName("smallMagic");
+	public static Item mediumMagic = new ItemInvisible().setUnlocalizedName("mediumMagic");
+	public static Item smallOblivion = new ItemInvisible().setUnlocalizedName("smallOblivion");
+	public static Item mediumOblivion = new ItemInvisible().setUnlocalizedName("mediumOblivion");
 	
 	public static void init()
 	{
 		RegisterHelper.registerItem(omega);
 	
-		OreDictionary.registerOre("ingotTitanium", ingotTitanium);
-		OreDictionary.registerOre("ingotSteel", ingotSteel);
-		OreDictionary.registerOre("ingotVexal", ingotVexal);
-		OreDictionary.registerOre("ingotInfusedVexal", ingotInfusedVexal);
-		OreDictionary.registerOre("gemBlazeGem", gemBlazeGem);
-		OreDictionary.registerOre("gemIceGem", gemIceGem);
-		OreDictionary.registerOre("gemCrystal", gemCrystal);
-		OreDictionary.registerOre("gemCrystalShard", gemCrystalShard);
-		OreDictionary.registerOre("ingotFlerovium", ingotFlerovium);
-		OreDictionary.registerOre("gemFleroviumShard", gemFleroviumShard);
-	
+		RegisterHelper.registerItem(ingotTitanium);
+		RegisterHelper.registerItem(ingotSteel);
+		RegisterHelper.registerItem(ingotVexal);
+		RegisterHelper.registerItem(ingotInfusedVexal);
+		RegisterHelper.registerItem(gemIceGem);
+		RegisterHelper.registerItem(gemBlazeGem);
+		RegisterHelper.registerItem(gemCrystal);
+		RegisterHelper.registerItem(gemCrystalShard);
+		RegisterHelper.registerItem(ingotFlerovium);
+		RegisterHelper.registerItem(gemFleroviumShard);
+		
 		RegisterHelper.registerItem(rawVenison);
 		RegisterHelper.registerItem(cookedVenison);
 	
