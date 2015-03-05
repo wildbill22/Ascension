@@ -30,7 +30,7 @@ public class EntityMediumOblivion extends EntityThrowable
     	{
     		if (moveObjPos.entityHit != null)
     		{
-    			moveObjPos.entityHit.attackEntityFrom(DamageSource.magic, 7.0F);
+    			moveObjPos.entityHit.attackEntityFrom(DamageSource.magic, 9.0F);
     		}
     		this.setDead();
     	}

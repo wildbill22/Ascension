@@ -47,6 +47,7 @@ public class ModItems
 	//Magical Items
 	public static Item soulFragment = new ItemSoulGem().setUnlocalizedName("soulFragment");
 	public static Item soulGem = new ItemSoulGem().setUnlocalizedName("soulGem");
+	public static Item staffBase = new ItemAscension().setUnlocalizedName("staffBase");
 	
 	//Entities
 	public static Item smallMagic = new ItemInvisible().setUnlocalizedName("smallMagic");

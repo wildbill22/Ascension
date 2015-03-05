@@ -45,7 +45,7 @@ public class EntityMediumLightning extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					moveObjPos.entityHit.attackEntityFrom(DamageSource.magic, 7.0F);
+    					moveObjPos.entityHit.attackEntityFrom(DamageSource.magic, 9.0F);
     					
     					int var = this.rand.nextInt(6);
     					if (var == 0)

@@ -26,7 +26,7 @@ public class ItemWoodenStaff extends ItemAscensionStaff
 		super();
 		this.setCreativeTab(ModTabs.tabAscensionTest);
 		this.maxStackSize = 1;
-		this.setMaxDamage(96);
+		this.setMaxDamage(256);
 		this.setNoRepair();
 	}
 	
@@ -65,8 +65,7 @@ public class ItemWoodenStaff extends ItemAscensionStaff
 			y = 1.0F;
 		}
 		
-		//should the staff consume something?
-		if (player.capabilities.isCreativeMode || player.inventory.hasItem(ModItems.gemCrystalShard))
+		if (player.capabilities.isCreativeMode || player.inventory.hasItem(ModArmory.woodenStaff))
 		{
 			stack.damageItem(1, player);
 			world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
@@ -93,7 +92,6 @@ public class ItemWoodenStaff extends ItemAscensionStaff
 					Vec3 look = player.getLookVec();
 					EntityMediumMagic magic = new EntityMediumMagic(world, player);
 					magic.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
-					player.inventory.consumeInventoryItem(ModItems.gemCrystalShard);
 					world.spawnEntityInWorld(magic);
 				}
 				else
@@ -101,7 +99,6 @@ public class ItemWoodenStaff extends ItemAscensionStaff
 					Vec3 look = player.getLookVec();
 					EntitySmallMagic magic = new EntitySmallMagic(world, player);
 					magic.setPosition(player.posX + look.xCoord, player.posY + look.yCoord + 1.5, player.posZ + look.zCoord);
-					player.inventory.consumeInventoryItem(ModItems.gemCrystalShard);
 					world.spawnEntityInWorld(magic);
 				}
 			}
@@ -133,7 +130,7 @@ public class ItemWoodenStaff extends ItemAscensionStaff
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (player.inventory.hasItem(ModItems.gemCrystalShard))
+		if (player.inventory.hasItem(ModArmory.woodenStaff))
 		{
 			player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
 		}

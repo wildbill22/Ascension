@@ -38,7 +38,7 @@ public class EntitySmallLightning extends EntityThrowable
     				
     				if (enemy != null)
     				{
-    					moveObjPos.entityHit.attackEntityFrom(DamageSource.magic, 5.0F);
+    					moveObjPos.entityHit.attackEntityFrom(DamageSource.magic, 6.0F);
     					
     					int var = this.rand.nextInt(6);
     					if (var == 0)
