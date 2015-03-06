@@ -1,15 +1,15 @@
 package com.thexfactor117.ascension.entities.hostile;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
-import com.thexfactor117.ascension.help.LogHelper;
+import com.thexfactor117.ascension.handlers.ConfigHandler;
 
 public class EntitySnowBlaze extends EntityMob
 {
@@ -28,8 +28,7 @@ public class EntitySnowBlaze extends EntityMob
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		//this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(ConfigHandler.bansheeDamage);
-		//this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(ConfigHandler.bansheeHealth);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(ConfigHandler.bansheeHealth);
 	}
 	
 	@Override
@@ -37,11 +36,6 @@ public class EntitySnowBlaze extends EntityMob
 	{
 		if (!this.worldObj.isRemote)
         {
-            if (this.isWet())
-            {
-                this.attackEntityFrom(DamageSource.drown, 1.0F);
-            }
-
             --this.heightOffsetUpdateTime;
 
             if (this.heightOffsetUpdateTime <= 0)
