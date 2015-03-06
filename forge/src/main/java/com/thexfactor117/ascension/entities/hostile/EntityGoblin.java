@@ -58,10 +58,23 @@ public class EntityGoblin extends EntityMob implements IRangedAttackMob
 	public void attackEntityWithRangedAttack(EntityLivingBase entity, float f) 
 	{
 		EntitySmallMagic magic = new EntitySmallMagic(this.worldObj, this);
-		double i = entity.posX - this.posX;
-		double j = entity.posY + entity.getEyeHeight() - 1.1D - magic.posY;
-		double k = entity.posZ - this.posZ;
-		magic.setThrowableHeading(i, j, k, 1.6F, 12.0F);
+		/** 
+		 * sets the x, y, and z positions of the projectile
+		 * based on the two entities (Attacker, Enemy) positions 
+		 */
+		double x = entity.posX - this.posX;
+		double y = entity.posY + entity.getEyeHeight() - 1.1D - magic.posY;
+		double z = entity.posZ - this.posZ;
+		/**
+		 * Square root to add height to the projectile. Makes the
+		 * projectile sorta "arch". Taken from EntityArrow.
+		 */
+		double i = (double)MathHelper.sqrt_double(x * x + z * z);
+		float j = (float)i * 0.2F;
+		/**
+		 * sets the direction of the projectile, along with the speed, and spread.
+		 */
+		magic.setThrowableHeading(x, y + (double)j, z, 1.0F, 9.0F);
 		
 		this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         
