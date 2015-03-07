@@ -1,7 +1,9 @@
 package com.thexfactor117.ascension.init;
 
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
+import net.minecraft.world.biome.BiomeGenBase;
 
 import com.thexfactor117.ascension.Ascension;
 import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
@@ -15,6 +17,7 @@ import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntitySnowBlaze;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
+import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.items.ItemAscensionMonsterPlacer;
 
@@ -54,6 +57,8 @@ public class ModEntities
     	registerModEntityEgg(EntityValkyrie.class, "Valkyrie", 0xFFFDE8, 0xF0E335);
     	
     	registerModEntityEgg(EntityDoe.class, "Doe", 0x634F35, 0xF7F7F7);
+    	
+    	mobSpawns();
 	}
 	
 	public static void registerModEntity(Class entityClass, String name)
@@ -97,4 +102,184 @@ public class ModEntities
 
     	return startEntityID;
     }
+	
+	public static void mobSpawns()
+	{
+		if (ConfigHandler.shouldBansheeSpawn)
+	    {
+	        EntityRegistry.addSpawn(EntityBanshee.class, 200, 1, 2, EnumCreatureType.monster,
+	        		new BiomeGenBase[] 
+	        	        	{
+	        	        		BiomeGenBase.beach, 
+	        	        		BiomeGenBase.birchForest, 
+	        	        		BiomeGenBase.birchForestHills, 
+	        	        		BiomeGenBase.coldBeach, 
+	        	        		BiomeGenBase.coldTaiga, 
+	        	        		BiomeGenBase.coldTaigaHills, 
+	        	        		BiomeGenBase.desert, 
+	        	        		BiomeGenBase.desertHills, 
+	        	        		BiomeGenBase.extremeHills, 
+	        	        		BiomeGenBase.extremeHillsEdge, 
+	        	        		BiomeGenBase.extremeHillsPlus, 
+	        	        		BiomeGenBase.forest, 
+	        	        		BiomeGenBase.forestHills, 
+	        	        		BiomeGenBase.iceMountains, 
+	        	        		BiomeGenBase.icePlains, 
+	        	        		BiomeGenBase.jungle, 
+	        	        		BiomeGenBase.jungleHills, 
+	        	        		BiomeGenBase.jungleEdge, 
+	        	        		BiomeGenBase.megaTaiga, 
+	        	        		BiomeGenBase.megaTaigaHills, 
+	        	        		BiomeGenBase.mesa, 
+	        	        		BiomeGenBase.mesaPlateau, 
+	                			BiomeGenBase.mesaPlateau_F, 
+	                			BiomeGenBase.mushroomIsland, 
+	                			BiomeGenBase.mushroomIslandShore, 
+	                			BiomeGenBase.plains, 
+	                			BiomeGenBase.roofedForest,
+	                			BiomeGenBase.savanna,
+	                			BiomeGenBase.savannaPlateau,
+	                			BiomeGenBase.stoneBeach,
+	                			BiomeGenBase.swampland,
+	                			BiomeGenBase.taiga,
+	                			BiomeGenBase.taigaHills});
+	    }
+
+	    if (ConfigHandler.shouldBarbarianSpawn)
+	    {
+	        EntityRegistry.addSpawn(EntityBarbarian.class, 20, 1, 3, EnumCreatureType.creature,
+	        		new BiomeGenBase[] 
+	        	        	{
+	        	        		BiomeGenBase.beach, 
+	        	        		BiomeGenBase.birchForest, 
+	        	        		BiomeGenBase.birchForestHills, 
+	        	        		BiomeGenBase.coldBeach, 
+	        	        		BiomeGenBase.coldTaiga, 
+	        	        		BiomeGenBase.coldTaigaHills, 
+	        	        		BiomeGenBase.desert, 
+	        	        		BiomeGenBase.desertHills, 
+	        	        		BiomeGenBase.extremeHills, 
+	        	        		BiomeGenBase.extremeHillsEdge, 
+	        	        		BiomeGenBase.extremeHillsPlus, 
+	        	        		BiomeGenBase.forest, 
+	        	        		BiomeGenBase.forestHills, 
+	        	        		BiomeGenBase.iceMountains, 
+	        	        		BiomeGenBase.icePlains, 
+	        	        		BiomeGenBase.jungle, 
+	        	        		BiomeGenBase.jungleHills, 
+	        	        		BiomeGenBase.jungleEdge, 
+	        	        		BiomeGenBase.megaTaiga, 
+	        	        		BiomeGenBase.megaTaigaHills, 
+	        	        		BiomeGenBase.mesa, 
+	        	        		BiomeGenBase.mesaPlateau, 
+	                			BiomeGenBase.mesaPlateau_F, 
+	                			BiomeGenBase.mushroomIsland, 
+	                			BiomeGenBase.mushroomIslandShore, 
+	                			BiomeGenBase.plains, 
+	                			BiomeGenBase.roofedForest,
+	                			BiomeGenBase.savanna,
+	                			BiomeGenBase.savannaPlateau,
+	                			BiomeGenBase.stoneBeach,
+	                			BiomeGenBase.swampland,
+	                			BiomeGenBase.taiga,
+	                			BiomeGenBase.taigaHills});
+	    }
+	        	
+	    if (ConfigHandler.shouldGhostSpawn)
+	    {
+	        EntityRegistry.addSpawn(EntityGhost.class, 65, 1, 2, EnumCreatureType.monster,
+	        		new BiomeGenBase[] 
+	        	        	{
+	        	        		BiomeGenBase.beach, 
+	        	        		BiomeGenBase.coldBeach,  
+	        	        		BiomeGenBase.desert, 
+	        	        		BiomeGenBase.desertHills, 
+	        	        		BiomeGenBase.extremeHills, 
+	        	        		BiomeGenBase.extremeHillsEdge, 
+	        	        		BiomeGenBase.extremeHillsPlus, 
+	        	        		BiomeGenBase.iceMountains, 
+	        	        		BiomeGenBase.icePlains, 
+	        	        		BiomeGenBase.mesa, 
+	        	        		BiomeGenBase.mesaPlateau, 
+	                			BiomeGenBase.mesaPlateau_F, 
+	                			BiomeGenBase.mushroomIsland, 
+	                			BiomeGenBase.mushroomIslandShore, 
+	                			BiomeGenBase.plains,
+	                			BiomeGenBase.savanna,
+	                			BiomeGenBase.savannaPlateau,
+	                			BiomeGenBase.stoneBeach,
+	                			BiomeGenBase.swampland,});	
+	    }
+
+	    if (ConfigHandler.shouldGolemSpawn)
+	    {
+	        EntityRegistry.addSpawn(EntityGolem.class, 40, 1, 2, EnumCreatureType.monster,
+	        		new BiomeGenBase[] 
+	        	        	{
+	        	        		BiomeGenBase.beach,  
+	        	        		BiomeGenBase.coldBeach,  
+	        	        		BiomeGenBase.desert, 
+	        	        		BiomeGenBase.desertHills, 
+	        	        		BiomeGenBase.extremeHills, 
+	        	        		BiomeGenBase.extremeHillsEdge, 
+	        	        		BiomeGenBase.extremeHillsPlus, 
+	        	        		BiomeGenBase.iceMountains, 
+	        	        		BiomeGenBase.icePlains,  
+	        	        		BiomeGenBase.mesa, 
+	        	        		BiomeGenBase.mesaPlateau, 
+	                			BiomeGenBase.mesaPlateau_F,  
+	                			BiomeGenBase.stoneBeach,
+	                			BiomeGenBase.swampland});
+	    
+	    }
+
+	    if (ConfigHandler.shouldMummySpawn)
+	    {
+	        EntityRegistry.addSpawn(EntityMummy.class, 50, 1, 3, EnumCreatureType.monster,
+	        		new BiomeGenBase[] 
+	        	        	{
+	        	        		BiomeGenBase.desert, 
+	        	        		BiomeGenBase.desertHills});
+	    }
+
+	    if (ConfigHandler.shouldValkyrieSpawn)
+	    {
+	        EntityRegistry.addSpawn(EntityValkyrie.class, 20, 1, 3, EnumCreatureType.creature,
+	        		new BiomeGenBase[] 
+	        	        	{
+	        	        		BiomeGenBase.beach, 
+	        	        		BiomeGenBase.birchForest, 
+	        	        		BiomeGenBase.birchForestHills, 
+	        	        		BiomeGenBase.coldBeach, 
+	        	        		BiomeGenBase.coldTaiga, 
+	        	        		BiomeGenBase.coldTaigaHills, 
+	        	        		BiomeGenBase.desert, 
+	        	        		BiomeGenBase.desertHills, 
+	        	        		BiomeGenBase.extremeHills, 
+	        	        		BiomeGenBase.extremeHillsEdge, 
+	        	        		BiomeGenBase.extremeHillsPlus, 
+	        	        		BiomeGenBase.forest, 
+	        	        		BiomeGenBase.forestHills, 
+	        	        		BiomeGenBase.iceMountains, 
+	        	        		BiomeGenBase.icePlains, 
+	        	        		BiomeGenBase.jungle, 
+	        	        		BiomeGenBase.jungleHills, 
+	        	        		BiomeGenBase.jungleEdge, 
+	        	        		BiomeGenBase.megaTaiga, 
+	        	        		BiomeGenBase.megaTaigaHills, 
+	        	        		BiomeGenBase.mesa, 
+	        	        		BiomeGenBase.mesaPlateau, 
+	                			BiomeGenBase.mesaPlateau_F, 
+	                			BiomeGenBase.mushroomIsland, 
+	                			BiomeGenBase.mushroomIslandShore, 
+	                			BiomeGenBase.plains, 
+	                			BiomeGenBase.roofedForest,
+	                			BiomeGenBase.savanna,
+	                			BiomeGenBase.savannaPlateau,
+	                			BiomeGenBase.stoneBeach,
+	                			BiomeGenBase.swampland,
+	                			BiomeGenBase.taiga,
+	                			BiomeGenBase.taigaHills});
+	    }
+	}
 }
