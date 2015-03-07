@@ -31,6 +31,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModEntities 
 {
+	static int i;
 	static int startEntityID = 0;
 	
 	public static Item pharaohEgg = new ItemAscensionMonsterPlacer("Pharaoh", 0xC9C9BB, 0x182ED6).setUnlocalizedName("spawn_egg_" + "Pharaoh".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
@@ -67,22 +68,26 @@ public class ModEntities
         EntityHandler.registerProjectiles(EntityMediumMagic.class, "Medium Magic");
         EntityHandler.registerProjectiles(EntitySmallOblivion.class, "Small Oblivion");
         EntityHandler.registerProjectiles(EntityMediumOblivion.class, "Medium Oblivion");
-    	
-    	mobSpawns();
+    	        
+        mobSpawns();
 	}
 	
 	public static void registerModEntity(Class entityClass, String name)
 	{
-		int id = getUniqueEntityId();
-        EntityRegistry.registerModEntity(entityClass, name, ++id, Ascension.instance, 80, 3, false);
+        EntityRegistry.registerModEntity(entityClass, name, ++startEntityID, Ascension.instance, 80, 3, false);
       	// DEBUG
-      	LogHelper.info("Registering mod entity " + name + " with ID = " + id);
+      	LogHelper.info("Registering mod entity " + name + " with ID = " + startEntityID);
 	}
 	
 	public static void registerModEntityEgg(Class entityClass, String name, int primary, int secondary)
-	{
+	{	
 		registerModEntity(entityClass, name);
-        registerSpawnEgg(name, primary, secondary);
+		
+		if (i == 0)
+		{
+			registerSpawnEgg(name, primary, secondary);
+			++i;
+		}
 	}
 	
 	public static void registerSpawnEgg(String name, int primary, int secondary)

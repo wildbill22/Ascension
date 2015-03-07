@@ -13,6 +13,6 @@ public class EntityHandler
 	{
 		int entityId = EntityRegistry.findGlobalUniqueEntityId();
 		
-		EntityRegistry.registerModEntity(entityClass, name, entityId, Ascension.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(entityClass, name, entityId, Ascension.instance, 80, 10, true);
 	}
 }
