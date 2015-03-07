@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.init.ModArmory;
-import com.thexfactor117.ascension.init.ModBosses;
+import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
 
 public class RandomChest {
@@ -314,6 +314,6 @@ public class RandomChest {
 	// Add 1 item
 	protected void addItemsForSphinx(int m) {
 		// Spawn egg(s)
-		addRandomChestItem(ModBosses.itemSpawnEgg, 1, 1, 100);
+		addRandomChestItem(ModEntities.pharaohEgg, 1, 1, 100);
 	}
 }
