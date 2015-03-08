@@ -15,6 +15,7 @@ public class ItemInvisible extends Item
 	public ItemInvisible()
 	{
 		super();
+		setCreativeTab(ModTabs.tabAscensionTest);
 	}
 	
 	@SideOnly(Side.CLIENT)

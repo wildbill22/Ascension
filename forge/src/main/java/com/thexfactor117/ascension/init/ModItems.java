@@ -54,6 +54,8 @@ public class ModItems
 	public static Item mediumMagic = new ItemInvisible().setUnlocalizedName("mediumMagic");
 	public static Item smallOblivion = new ItemInvisible().setUnlocalizedName("smallOblivion");
 	public static Item mediumOblivion = new ItemInvisible().setUnlocalizedName("mediumOblivion");
+	public static Item smallBlizzard = new ItemInvisible().setUnlocalizedName("smallBlizzard");
+	public static Item mediumBlizzard = new ItemInvisible().setUnlocalizedName("mediumBlizzard");
 	
 	public static void init()
 	{
@@ -86,5 +88,7 @@ public class ModItems
 		RegisterHelper.registerItem(mediumMagic);
 		RegisterHelper.registerItem(smallOblivion);
 		RegisterHelper.registerItem(mediumOblivion);
+		RegisterHelper.registerItem(smallBlizzard);
+		RegisterHelper.registerItem(mediumBlizzard);
 	}
 }

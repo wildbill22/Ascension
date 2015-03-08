@@ -15,14 +15,17 @@ import com.thexfactor117.ascension.entities.hostile.EntityGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMiniGolem;
 import com.thexfactor117.ascension.entities.hostile.EntityMummy;
 import com.thexfactor117.ascension.entities.hostile.EntitySnowBlaze;
+import com.thexfactor117.ascension.entities.hostile.EntityTroll;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
+import com.thexfactor117.ascension.entities.projectiles.EntityMediumBlizzard;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumOblivion;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallInferno;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallOblivion;
 import com.thexfactor117.ascension.handlers.ConfigHandler;
-import com.thexfactor117.ascension.handlers.EntityHandler;
 import com.thexfactor117.ascension.help.LogHelper;
 import com.thexfactor117.ascension.items.ItemAscensionMonsterPlacer;
 
@@ -44,6 +47,7 @@ public class ModEntities
 	public static Item miniGolemEgg = new ItemAscensionMonsterPlacer("Mini-Golem", 0xF2961D, 0x45341E).setUnlocalizedName("spawn_egg_" + "Mini-Golem".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
 	public static Item mummyEgg = new ItemAscensionMonsterPlacer("Mummy", 0x436E59, 0x7FAD94).setUnlocalizedName("spawn_egg_" + "Mummy".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
 	public static Item snowBlazeEgg = new ItemAscensionMonsterPlacer("Snow Blaze", 0x9EF4FF, 0xE8FCFF).setUnlocalizedName("spawn_egg_" + "Snow Blaze".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
+	public static Item trollEgg = new ItemAscensionMonsterPlacer("Troll", 0x9EF4FF, 0x9EF4FF).setUnlocalizedName("spawn_egg_" + "Troll".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
 	public static Item valkyrieEgg = new ItemAscensionMonsterPlacer("Valkyrie", 0xFFFDE8, 0xF0E335).setUnlocalizedName("spawn_egg_" + "Valkyrie".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
 
 	public static Item doeEgg = new ItemAscensionMonsterPlacer("Doe", 0x634F35, 0xF7F7F7).setUnlocalizedName("spawn_egg_" + "Doe".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
@@ -60,16 +64,26 @@ public class ModEntities
     	registerModEntityEgg(EntityMiniGolem.class, "Mini-Golem", 0xF2961D, 0x45341E);
     	registerModEntityEgg(EntityMummy.class, "Mummy", 0x436E59, 0x7FAD94);
     	registerModEntityEgg(EntitySnowBlaze.class, "Snow Blaze", 0x9EF4FF, 0xE8FCFF);
+    	registerModEntityEgg(EntityTroll.class, "Troll", 0x9EF4FF, 0x9EF4FF);
     	registerModEntityEgg(EntityValkyrie.class, "Valkyrie", 0xFFFDE8, 0xF0E335);
     	
     	registerModEntityEgg(EntityDoe.class, "Doe", 0x634F35, 0xF7F7F7);
     	
-    	EntityHandler.registerProjectiles(EntitySmallMagic.class, "Small Magic");
-        EntityHandler.registerProjectiles(EntityMediumMagic.class, "Medium Magic");
-        EntityHandler.registerProjectiles(EntitySmallOblivion.class, "Small Oblivion");
-        EntityHandler.registerProjectiles(EntityMediumOblivion.class, "Medium Oblivion");
+    	registerModProjectile(EntitySmallMagic.class, "Small Magic");
+    	registerModProjectile(EntityMediumMagic.class, "Medium Magic");
+    	registerModProjectile(EntitySmallOblivion.class, "Small Oblivion");
+    	registerModProjectile(EntityMediumOblivion.class, "Medium Oblivion");
+    	registerModProjectile(EntitySmallBlizzard.class, "Small Blizzard");
+    	registerModProjectile(EntityMediumBlizzard.class, "Medium Blizzard");
+    	registerModProjectile(EntitySmallInferno.class, "Small Inferno");
     	        
         mobSpawns();
+	}
+
+	public static void registerModProjectile(Class entityClass, String name)
+	{
+		EntityRegistry.registerModEntity(entityClass, name, ++startEntityID, Ascension.instance, 64, 10, true);
+		LogHelper.info("Registering mod projectile " + name + " with ID = " + startEntityID);
 	}
 	
 	public static void registerModEntity(Class entityClass, String name)
@@ -102,6 +116,7 @@ public class ModEntities
 		GameRegistry.registerItem(miniGolemEgg, "spawnEggMiniGolem");
 		GameRegistry.registerItem(mummyEgg, "spawnEggMummy");
 		GameRegistry.registerItem(snowBlazeEgg, "spawnEggSnowBlaze");
+		GameRegistry.registerItem(trollEgg, "spawnEggTroll");
 		GameRegistry.registerItem(valkyrieEgg, "spawnEggValkyrie");
 		
 		GameRegistry.registerItem(doeEgg, "spawnEggDoe");

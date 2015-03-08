@@ -32,9 +32,12 @@ public class ConfigHandler
 	// entityspawn
 	public static boolean shouldBansheeSpawn;
 	public static boolean shouldBarbarianSpawn;
+	public static boolean shouldGoblinSpawn;
 	public static boolean shouldGhostSpawn;
 	public static boolean shouldGolemSpawn;
+	public static boolean shouldMiniGolemSpawn;
 	public static boolean shouldMummySpawn;
+	public static boolean shouldSnowBlazeSpawn;
 	public static boolean shouldValkyrieSpawn;
 	
 	public static boolean shouldDoeSpawn;
@@ -48,6 +51,9 @@ public class ConfigHandler
 	public static double barbarianDamage;
 	public static double barbarianFollowRange;
 	public static double barbarianSpeed;
+	public static double goblinHealth;
+	public static double goblinFollowRange;
+	public static double goblinSpeed;
 	public static double ghostHealth;
 	public static double ghostDamage;
 	public static double ghostFollowRange;
@@ -57,10 +63,17 @@ public class ConfigHandler
 	public static double golemFollowRange;
 	public static double golemSpeed;
 	public static double golemKnockbackResistance;
+	public static double miniGolemHealth;
+	public static double miniGolemDamage;
+	public static double miniGolemFollowRange;
+	public static double miniGolemSpeed;
+	public static double miniGolemKnockbackResistance;
 	public static double mummyHealth;
 	public static double mummyDamage;
 	public static double mummyFollowRange;
 	public static double mummySpeed;
+	public static double snowBlazeHealth;
+	public static double snowBlazeFollowRange;
 	public static double valkyrieHealth;
 	public static double valkyrieDamage;
 	public static double valkyrieFollowRange;
@@ -97,9 +110,12 @@ public class ConfigHandler
 		// entityspawn
 		shouldBansheeSpawn = config.get("entitySpawn", "shouldBansheeSpawn", true).getBoolean(true);
 		shouldBarbarianSpawn = config.get("entitySpawn", "shouldBarbarianSpawn", true).getBoolean(true);
+		shouldGoblinSpawn = config.get("entitySpawn", "shouldGoblinSpawn", true).getBoolean(true);
 		shouldGhostSpawn = config.get("entitySpawn", "shouldGhostSpawn", true).getBoolean(true);
 		shouldGolemSpawn = config.get("entitySpawn", "shouldGolemSpawn", true).getBoolean(true);
+		shouldMiniGolemSpawn = config.get("entitySpawn", "shouldMiniGolemSpawn", true).getBoolean(true);
 		shouldMummySpawn = config.get("entitySpawn", "shouldMummySpawn", true).getBoolean(true);
+		shouldSnowBlazeSpawn = config.get("entitySpawn", "shouldSnowBlazeSpawn", true).getBoolean(true);
 		shouldValkyrieSpawn = config.get("entitySpawn", "shouldValkyrieSpawn", true).getBoolean(true);
 
 		shouldDoeSpawn = config.get("entitySpawn", "shouldDoeSpawn", true).getBoolean(true);
@@ -113,6 +129,9 @@ public class ConfigHandler
 		barbarianDamage = config.get("entityProperties", "barbarianDamage", 5.0D).getDouble(5.0D);
 		barbarianFollowRange = config.get("entityProperties", "barbarianFollowRange", 32.0D).getDouble(32.0D);
 		barbarianSpeed = config.get("entityProperties", "barbarianSpeed", 0.3D).getDouble(0.3D);
+		//goblinHealth = config.get("entityProperties", "goblinHealth", 50.0D).getDouble(50.0D);
+		//goblinFollowRange = config.get("entityProperties", "goblinFollowRange", 32.0D).getDouble(32.0D);
+		//goblinSpeed = config.get("entityProperties", "goblinSpeed", 0.275D).getDouble(0.275D);
 		ghostHealth = config.get("entityProperties", "ghostHealth", 30.0D).getDouble(30.0D);
 		ghostDamage = config.get("entityProperties", "ghostDamage", 5.0D).getDouble(5.0D);
 		ghostFollowRange = config.get("entityProperties", "ghostFollowRange", 16.0D).getDouble(16.0D);
@@ -122,10 +141,17 @@ public class ConfigHandler
 		golemFollowRange = config.get("entityProperties", "golemFollowRange", 16.0D).getDouble(16.0D);
 		golemSpeed = config.get("entityProperties", "golemSpeed", 0.175D).getDouble(0.175D);
 		golemKnockbackResistance = config.get("entityproperties", "golemKnockbackResistance", 0.8D).getDouble(0.8D);
+		//miniGolemHealth = config.get("entityProperties", "miniGolemHealth", 75.0D).getDouble(75.0D);
+		//miniGolemDamage = config.get("entityProperties", "miniGolemDamage", 15.0D).getDouble(15.0D);
+		//miniGolemFollowRange = config.get("entityProperties", "miniGolemFollowRange", 16.0D).getDouble(16.0D);
+		//miniGolemSpeed = config.get("entityProperties", "miniGolemSpeed", 0.4D).getDouble(0.4D);
+		//miniGolemKnockbackResistance = config.get("entityProperties", "miniGolemKnockbackResistance", 0.8D).getDouble(0.8D);
 		mummyHealth = config.get("entityProperties", "mummyHealth", 60.0D).getDouble(60.0D);
 		mummyDamage = config.get("entityProperties", "mummyDamage", 10.0D).getDouble(10.0D);
 		mummyFollowRange = config.get("entityProperties", "mummyFollowRange", 24.0D).getDouble(24.0D);
 		mummySpeed = config.get("entityProperties", "mummySpeed", 0.2D).getDouble(0.2D);
+		//snowBlazeHealth = config.get("entityProperties", "snowBlazeHealth", 60.0D).getDouble(60.0D);
+		//snowBlazeFollowRange = config.get("entityProperties", "snowBlazeFollowRange", 16.0D).getDouble(16.0D);
 		valkyrieHealth = config.get("entityProperties", "valkyrieHealth", 30.0D).getDouble(30.0D);
 		valkyrieDamage = config.get("entityProperties", "valkyrieDamage", 5.0D).getDouble(5.0D);
 		valkyrieFollowRange = config.get("entityProperties", "valkyrieFollowRange", 32.0D).getDouble(32.0D);

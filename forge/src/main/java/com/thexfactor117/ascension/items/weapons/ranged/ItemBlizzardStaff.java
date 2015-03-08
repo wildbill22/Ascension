@@ -64,7 +64,7 @@ public class ItemBlizzardStaff extends ItemAscensionStaff
 			y = 1.0F;
 		}
 		
-		if (player.capabilities.isCreativeMode || player.inventory.hasItem(ModArmory.blizzardStaff))
+		if (player.inventory.hasItem(ModArmory.blizzardStaff))
 		{
 			stack.damageItem(1, player);
 			world.playSoundAtEntity(player, "", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));

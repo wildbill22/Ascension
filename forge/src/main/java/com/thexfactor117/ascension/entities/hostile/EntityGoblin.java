@@ -1,6 +1,7 @@
 package com.thexfactor117.ascension.entities.hostile;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,13 +14,13 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
 import com.thexfactor117.ascension.handlers.ConfigHandler;
-import com.thexfactor117.ascension.help.LogHelper;
+import com.thexfactor117.ascension.init.ModArmory;
 
 public class EntityGoblin extends EntityMob implements IRangedAttackMob
 {
@@ -115,5 +116,11 @@ public class EntityGoblin extends EntityMob implements IRangedAttackMob
     {
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, ConfigHandler.bansheeFollowRange);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
+    }
+    
+    @Override
+    public ItemStack getHeldItem()
+    {
+    	return new ItemStack(ModArmory.woodenStaff); 
     }
 }

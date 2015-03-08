@@ -41,6 +41,7 @@ item.sharkTeeth.name=Shark Teeth
 item.coldBlazeRod.name=Cold Blaze Rod
 item.smallRock.name=Small Rock
 item.golemGyro.name=Golem Gyro
+item.staffBase.name=Staff Base
 
 item.titaniumSword.name=Titanium Sword
 item.titaniumPick.name=Titanium Pickaxe
@@ -69,6 +70,12 @@ item.voidHammer.name=§eVoid Hammer§r
 item.divineRapier.name=§eDivine Rapier§r
 item.bladeOfAlacrity.name=§bBlade of Alacrity§r
 item.fleroviumSword.name=§eFlerovium Sword§r
+
+item.woodenStaff.name=Wooden Staff
+item.infernoStaff.name=Staff of the Inferno
+item.blizzardStaff.name=Staff of the Blizzard
+item.lightningStaff.name=§eLightning Staff§r
+item.oblivionStaff.name=§eOblivion Staff§r
 
 item.titaniumHelm.name=Titanium Helmet
 item.titaniumPlate.name=Titanium Chestplate
