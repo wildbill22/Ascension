@@ -67,6 +67,10 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	protected int floorLevel = 0;
 	public RandomChest randomChest;
 
+	// For underground structures:
+	public int minY;
+	public int maxY;
+
 	// Variables used when using a separate thread to generate structure
 	World threadWorld = null;
 	Random threadRandom;
@@ -154,7 +158,7 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	{
 		try           
 		{              
-			Thread.sleep(450);            
+			Thread.sleep(500);            
 		}          
 		catch (InterruptedException interruptedException)          
 		{              
@@ -294,10 +298,8 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 	private boolean spawnedAtLocation(World world, int x, int y, int z, int xMax, int zMax)
 	{
 		y = world.getHeightValue(x + doorX, z + doorZ);
-		if (y == 0 || (!world.blockExists(x, y, z) || world.blockExists(x + xMax, y, z) ||
-				 world.blockExists(x, y, z + zMax) || world.blockExists(x + xMax, y, z + zMax)))
-		if (world.blockExists(x + xMax, y, z + zMax))
-		{
+		if (y != 0 && (world.blockExists(x, y, z) && world.blockExists(x + xMax, y, z) &&
+				 world.blockExists(x, y, z + zMax) && world.blockExists(x + xMax, y, z + zMax))) {
 			if(locationIsValidSpawn(world, x, y, z) 
 					&& locationIsValidSpawn(world, x + xMax, y, z) 
 					&& locationIsValidSpawn(world, x + xMax, y, z + zMax) 
@@ -342,7 +344,53 @@ public abstract class AbandonedStructure extends WorldGenerator implements Runna
 			coords.posX = x + xMax;
 			return true;			
 		}
+		return false;
+	}
 
+	// Checks that chunk has been created and meets the spawn requirements
+	private boolean spawnedUndergroundAt(World world, int x, int y, int z, int xMax, int zMax)
+	{
+		if (world.blockExists(x, y, z) && world.blockExists(x + xMax, y, z) &&
+			 world.blockExists(x, y, z + zMax) && world.blockExists(x + xMax, y, z + zMax)) {
+			return true;
+		}
+		return false;
+	}
+	
+	// Tries 4 locations around selected spawn point to avoid placing in a chunk not yet created
+	public boolean isValidUndergroundSpawnCorners(World world, StructureCoordinates coords)
+	{
+		int x = coords.posX;
+		int z = coords.posZ;
+		int y = coords.posY;
+		
+		// Don't place if another structures is nearby
+		if (y == 0 || StructureList.findNearestStructure(x, y, z) < 64)
+			return false;
+		
+		if (spawnedUndergroundAt(world, x, y, z, xMax, zMax)) {
+			return true;			
+		}
+		// try the North
+		if (spawnedUndergroundAt(world, x, y, z - zMax, xMax, zMax)) {
+			coords.posZ = z - zMax;
+			return true;			
+		}
+		// try to the West
+		if (spawnedUndergroundAt(world, x - xMax, y, z, xMax, zMax)){
+			coords.posX = x - xMax;
+			return true;			
+		}
+		// try to the South
+		if (spawnedUndergroundAt(world, x, y, z + zMax, xMax, zMax)) {
+			coords.posZ = z + zMax;
+			return true;			
+		}
+		// try to the East
+		if (spawnedUndergroundAt(world, x + xMax, y, z, xMax, zMax)) {
+			coords.posX = x + xMax;
+			return true;			
+		}
 		return false;
 	}
 

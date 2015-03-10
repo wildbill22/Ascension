@@ -98,6 +98,7 @@ item.spawnSmallAbandonedHouse.name=Spawn Small Abandoned House
 item.spawnMediumAbandonedHouse.name=Spawn Medium Abandoned House
 item.spawnLandWatchtower.name=Spawn Land Watchtower
 item.spawnEasyMobDungeon1.name=Spawn Easy Mob Dungeon 1
+item.spawnMazeDungeon1.name=Spawn Maze Dungeon 1
 item.spawnCamp.name=Spawn Camp
 item.spawnSphinx.name=Spawn Sphinx
 item.spawnAbandonedTower.name=Spawn Abandoned Tower

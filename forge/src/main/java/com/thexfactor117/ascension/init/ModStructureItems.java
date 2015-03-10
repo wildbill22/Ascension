@@ -7,6 +7,7 @@ import com.thexfactor117.ascension.items.structures.SpawnAbandonedTower;
 import com.thexfactor117.ascension.items.structures.SpawnCamp;
 import com.thexfactor117.ascension.items.structures.SpawnEasyMobDungeon1;
 import com.thexfactor117.ascension.items.structures.SpawnLandWatchtower;
+import com.thexfactor117.ascension.items.structures.SpawnMazeDungeon1;
 import com.thexfactor117.ascension.items.structures.SpawnMediumAbandonedHouse;
 import com.thexfactor117.ascension.items.structures.SpawnSmallAbandonedHouse;
 import com.thexfactor117.ascension.items.structures.SpawnSphinx;
@@ -25,6 +26,7 @@ public class ModStructureItems {
 	public static Item spawnCamp = new SpawnCamp().setUnlocalizedName("spawnCamp");
 	public static Item spawnSphinx = new SpawnSphinx().setUnlocalizedName("spawnSphinx");
 	public static Item spawnAbandonedTower = new SpawnAbandonedTower().setUnlocalizedName("spawnAbandonedTower");
+	public static Item spawnMazeDungeon1 = new SpawnMazeDungeon1().setUnlocalizedName("spawnMazeDungeon1");
 
 	public static void init()
 	{
@@ -35,5 +37,6 @@ public class ModStructureItems {
 		RegisterHelper.registerItem(spawnCamp);
 		RegisterHelper.registerItem(spawnSphinx);
 		RegisterHelper.registerItem(spawnAbandonedTower);
+		RegisterHelper.registerItem(spawnMazeDungeon1);
 	}
 }

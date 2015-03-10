@@ -19,7 +19,7 @@ public class StructureCoordinates extends ChunkCoordinates {
 	}
 
 	public enum Structures {
-		CAMP, EASYMOBDUNGEON, SPHINX, OTHER;
+		CAMP, EASYMOBDUNGEON, SPHINX, OTHER, UNDERGROUND;
 	}
 
 	protected int toInteger(Structures type) {
@@ -30,6 +30,8 @@ public class StructureCoordinates extends ChunkCoordinates {
 				return 1;
 			case SPHINX:
 				return 2;
+			case UNDERGROUND:
+				return 4;
 			default:
 				return 3;
 		}
@@ -43,6 +45,8 @@ public class StructureCoordinates extends ChunkCoordinates {
 			return Structures.EASYMOBDUNGEON;
 		case 2:
 			return Structures.SPHINX;
+		case 4:
+			return Structures.UNDERGROUND;
 		default:
 			return Structures.OTHER;
 		}

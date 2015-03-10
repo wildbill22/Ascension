@@ -16,7 +16,9 @@ public class Reference
 	public static final int spawnChanceMediumAbandonedHouse = 8;
 	public static final int spawnChanceSmallAbandonedHouse = 8;
 	public static final int spawnChanceSphinx = 100;		
+	public static final int spawnChanceMazeDungeon = 10;		
 	public static final int spawnChanceAbandonedTower = 8;
-	public static final int minimumSpawnDistanceSphinx = 400; // TODO: Make this larger for Beta
+	public static final int minSpawnDistSphinx = 400; // TODO: Make this larger for Beta
+	public static final int minSpawnDistMazeDungeon = 400; // Too much stuff generates when spawning, this avoids crash
 	public static final int sphinxChestItemsMultiplier = 12;   // n times the normal probability for items in Sphinx chests 
 }

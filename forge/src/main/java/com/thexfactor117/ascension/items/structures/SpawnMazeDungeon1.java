@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.items.ItemAscension;
-import com.thexfactor117.ascension.structures.Sphinx_000;
+import com.thexfactor117.ascension.structures.MazeDungeon_000;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
 /**
@@ -16,9 +16,9 @@ import com.thexfactor117.ascension.tabs.ModTabs;
  * @author WILLIAM
  *
  */
-public class SpawnSphinx extends ItemAscension {
+public class SpawnMazeDungeon1 extends ItemAscension {
 
-	public SpawnSphinx() {
+	public SpawnMazeDungeon1() {
 		super();
 		this.setCreativeTab(ModTabs.tabAscensionTest);
 	}
@@ -36,9 +36,9 @@ public class SpawnSphinx extends ItemAscension {
 		z += 1;
 		
 		Random random = new Random();
-		Sphinx_000 sphinx = new Sphinx_000();
-		sphinx.generate(world, random, x, y - 1, z);
-//		camp.generateStructureBase(world, random, x, z, 31, 31, Blocks.sand);
+		MazeDungeon_000 mazeDungeon = new MazeDungeon_000();
+		mazeDungeon.generate(world, random, x, y, z);
+		mazeDungeon.generateStructureBase(world, random, x, z, 24, 24, Blocks.dirt);
 		
 		return true;
 	}

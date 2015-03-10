@@ -20,6 +20,7 @@ import com.thexfactor117.ascension.structures.AbandonedTower;
 import com.thexfactor117.ascension.structures.Camp_000;
 import com.thexfactor117.ascension.structures.EasyMobDungeon1;
 import com.thexfactor117.ascension.structures.LandWatchtowerPart1;
+import com.thexfactor117.ascension.structures.MazeDungeon_000;
 import com.thexfactor117.ascension.structures.MediumAbandonedHouse;
 import com.thexfactor117.ascension.structures.SmallAbandonedHouse;
 import com.thexfactor117.ascension.structures.Sphinx_000;
@@ -105,22 +106,24 @@ public class AscensionWorldGeneration implements IWorldGenerator
 		if (world.provider.getAverageGroundLevel() < 10)
 			return;
 
-		final int numStructures = 7;
-		int which = random.nextInt(numStructures);
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 
+		// This one gets special consideration, as it is so hard to spawn
 		if (biome == BiomeGenBase.desert && StructureList.isSphinxGenerated() == false) {
 			ChunkCoordinates spawn = world.getSpawnPoint();
 			double distanceFromSpawn = Math.sqrt(spawn.getDistanceSquared(x, 64, z));
-			if (distanceFromSpawn > Reference.minimumSpawnDistanceSphinx) {
+			if (distanceFromSpawn > Reference.minSpawnDistSphinx) {
 				LogHelper.info("Attempting to generate Sphinx at " + distanceFromSpawn + " meters from spawn"); 
 				Sphinx_000 sphinx = new Sphinx_000();
-				generateFlatStructure(sphinx, world, random, x, z, -2, false);
-				if (StructureList.isSphinxGenerated() == true)
+				if (generateFlatStructure(sphinx, world, random, x, z, -1, false) == true) {
+					StructureList.setSphinxGenerated(true);
 					return;
+				}
 			}
 		}
 		
+		final int numStructures = 8; // Set to the number case statements below
+		int which = random.nextInt(numStructures);
 		switch (which) {
 		case 0:
 		case 1:
@@ -159,6 +162,14 @@ public class AscensionWorldGeneration implements IWorldGenerator
 		case 6:
 			AbandonedTower abandonedTower = new AbandonedTower();
 			generateSmallStructure(abandonedTower, world, random, x, z, -1, Blocks.cobblestone);
+			break;
+		case 7:
+			ChunkCoordinates spawn = world.getSpawnPoint();
+			double distanceFromSpawn = Math.sqrt(spawn.getDistanceSquared(x, 64, z));
+			if (distanceFromSpawn > Reference.minSpawnDistMazeDungeon) {
+				MazeDungeon_000 mazeDungeon = new MazeDungeon_000();
+				generateUndergroundStructure(mazeDungeon, world, random, x, z);
+			}
 			break;
 		}
 	}
@@ -259,10 +270,42 @@ public class AscensionWorldGeneration implements IWorldGenerator
 			if (!structure.isValidSpawnEdges(world, coords)){
 				return false;
 			}
-			StructureList.setSphinxGenerated(true);
+//			StructureList.setSphinxGenerated(true);
 			coords.posY = coords.posY + offsetY;
 			StructureList.generatedAt(structure.structureType, coords);			
 			return structure.generateStructureInThread(world, random, coords, generateBase);		
+		}
+		return false;
+	}
+
+	/**
+	 * Create structure at x, z, check height at entrance at x + doorX, z + doorZ, set y = y + yOffset 
+	 * @param world 
+	 * @param random
+	 * @param x X coordinate in world
+	 * @param z Z coordinate in world
+	 * @param doorX Offset from x where entrance is
+	 * @param doorZ Offset from z where entrance is
+	 * @param yOffset Normally 0, but -1 if structure has floor
+	 * @return true if generated
+	 */
+	private boolean generateUndergroundStructure(AbandonedStructure structure, World world, Random random, int x, int z) {
+		// Add this line to prevent more than one being built at a time
+		if (AbandonedStructure.running) return false; 
+
+		int chance = random.nextInt(100);
+		if (chance < structure.structureSpawnChance) {
+			int posX = x + random.nextInt(16);
+			int posZ = z + random.nextInt(16);
+			int posY = structure.minY + random.nextInt(structure.maxY - structure.minY);
+			
+			StructureCoordinates coords = new StructureCoordinates(structure.structureType, posX, posY, posZ);
+			if (!structure.isValidUndergroundSpawnCorners(world, coords)){
+				return false;
+			}
+
+			StructureList.generatedAt(structure.structureType, coords);			
+			return structure.generateStructureInThread(world, random, coords, false);		
 		}
 		return false;
 	}
