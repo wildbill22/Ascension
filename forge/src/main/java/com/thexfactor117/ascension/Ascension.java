@@ -19,6 +19,7 @@ import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
+import com.thexfactor117.ascension.init.ModStructureItems;
 import com.thexfactor117.ascension.proxies.CommonProxy;
 import com.thexfactor117.ascension.structures.StructureList;
 
@@ -52,7 +53,7 @@ public class Ascension
 		ModBlocks.init();
 		ModArmory.init(); // Comment out all test items!
 		ModEntities.init();
-		//ModStructureItems.init(); // Keep this commented out when pushing.
+		ModStructureItems.init(); // Keep this commented out when pushing.
 		StructureList.preInit(event);
 		VanillaChestLootGen.init();
 		

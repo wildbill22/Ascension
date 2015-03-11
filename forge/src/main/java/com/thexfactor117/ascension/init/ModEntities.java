@@ -19,6 +19,7 @@ import com.thexfactor117.ascension.entities.hostile.EntityTroll;
 import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
 import com.thexfactor117.ascension.entities.passive.EntityDoe;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumBlizzard;
+import com.thexfactor117.ascension.entities.projectiles.EntityMediumInferno;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumOblivion;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
@@ -34,8 +35,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModEntities 
 {
-	static int i;
-	static int startEntityID = 0;
+	public static int i;
+	public static int startEntityID;
 	
 	public static Item pharaohEgg = new ItemAscensionMonsterPlacer("Pharaoh", 0xC9C9BB, 0x182ED6).setUnlocalizedName("spawn_egg_" + "Pharaoh".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
 	
@@ -76,6 +77,7 @@ public class ModEntities
     	registerModProjectile(EntitySmallBlizzard.class, "Small Blizzard");
     	registerModProjectile(EntityMediumBlizzard.class, "Medium Blizzard");
     	registerModProjectile(EntitySmallInferno.class, "Small Inferno");
+    	registerModProjectile(EntityMediumInferno.class, "Medium Inferno");
     	        
         mobSpawns();
 	}
@@ -89,7 +91,6 @@ public class ModEntities
 	public static void registerModEntity(Class entityClass, String name)
 	{
         EntityRegistry.registerModEntity(entityClass, name, ++startEntityID, Ascension.instance, 80, 3, false);
-      	// DEBUG
       	LogHelper.info("Registering mod entity " + name + " with ID = " + startEntityID);
 	}
 	

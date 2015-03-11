@@ -4,11 +4,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
+import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
 import com.thexfactor117.ascension.handlers.ConfigHandler;
 
 public class EntitySnowBlaze extends EntityMob
@@ -104,9 +103,9 @@ public class EntitySnowBlaze extends EntityMob
 
                     for (int i = 0; i < 1; ++i)
                     {
-                    	EntitySmallMagic magic = new EntitySmallMagic(this.worldObj, this);
-                    	magic.posY = this.posY + (double)(this.height / 2.0F) + 0.5D;
-                        this.worldObj.spawnEntityInWorld(magic);
+                    	EntitySmallBlizzard blizzard = new EntitySmallBlizzard(this.worldObj, this);
+                    	blizzard.posY = this.posY + (double)(this.height / 2.0F) + 0.5D;
+                        this.worldObj.spawnEntityInWorld(blizzard);
                     }
                 }
             }

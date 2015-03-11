@@ -38,6 +38,7 @@ public class ConfigHandler
 	public static boolean shouldMiniGolemSpawn;
 	public static boolean shouldMummySpawn;
 	public static boolean shouldSnowBlazeSpawn;
+	public static boolean shouldTrollSpawn;
 	public static boolean shouldValkyrieSpawn;
 	
 	public static boolean shouldDoeSpawn;
@@ -74,6 +75,11 @@ public class ConfigHandler
 	public static double mummySpeed;
 	public static double snowBlazeHealth;
 	public static double snowBlazeFollowRange;
+	public static double trollHealth;
+	public static double trollDamage;
+	public static double trollFollowRange;
+	public static double trollSpeed;
+	public static double trollKnockbackResistance;
 	public static double valkyrieHealth;
 	public static double valkyrieDamage;
 	public static double valkyrieFollowRange;
@@ -116,6 +122,7 @@ public class ConfigHandler
 		shouldMiniGolemSpawn = config.get("entitySpawn", "shouldMiniGolemSpawn", true).getBoolean(true);
 		shouldMummySpawn = config.get("entitySpawn", "shouldMummySpawn", true).getBoolean(true);
 		shouldSnowBlazeSpawn = config.get("entitySpawn", "shouldSnowBlazeSpawn", true).getBoolean(true);
+		shouldTrollSpawn = config.get("entitySpawn", "shouldTrollSpawn", true).getBoolean(true);
 		shouldValkyrieSpawn = config.get("entitySpawn", "shouldValkyrieSpawn", true).getBoolean(true);
 
 		shouldDoeSpawn = config.get("entitySpawn", "shouldDoeSpawn", true).getBoolean(true);
@@ -152,6 +159,11 @@ public class ConfigHandler
 		mummySpeed = config.get("entityProperties", "mummySpeed", 0.2D).getDouble(0.2D);
 		//snowBlazeHealth = config.get("entityProperties", "snowBlazeHealth", 60.0D).getDouble(60.0D);
 		//snowBlazeFollowRange = config.get("entityProperties", "snowBlazeFollowRange", 16.0D).getDouble(16.0D);
+		//trollHealth = config.get("entityProperties", "trollHealth", 75.0D).getDouble(75.0D);
+		//trollDamage = config.get("entityProperties", "trollDamage", 12.0D).getDouble(12.0D);
+		//trollFollowRange = config.get("entityProperties", "trollFollowRange", 32.0D).getDouble(32.0D);
+		//trollSpeed = config.get("entityProperties", "trollSpeed", 0.185D).getDouble(0.185D);
+		//trollKnockbackResistance = config.get("entityProperties", "trollKnockbackResistance", 0.5D).getDouble(0.5D);
 		valkyrieHealth = config.get("entityProperties", "valkyrieHealth", 30.0D).getDouble(30.0D);
 		valkyrieDamage = config.get("entityProperties", "valkyrieDamage", 5.0D).getDouble(5.0D);
 		valkyrieFollowRange = config.get("entityProperties", "valkyrieFollowRange", 32.0D).getDouble(32.0D);

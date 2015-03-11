@@ -117,10 +117,4 @@ public class EntityGoblin extends EntityMob implements IRangedAttackMob
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, ConfigHandler.bansheeFollowRange);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
-    
-    @Override
-    public ItemStack getHeldItem()
-    {
-    	return new ItemStack(ModArmory.woodenStaff); 
-    }
 }
