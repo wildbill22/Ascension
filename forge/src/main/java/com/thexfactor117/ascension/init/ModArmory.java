@@ -40,6 +40,9 @@ public class ModArmory
 	static Item.ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 512, 2.0F, 2.0F, 14);
 	static Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 3, 728, 3.0F, 2.0F, 5);
 	
+	//static Item.ToolMaterial VECONITE = EnumHelper.addToolMaterial("VECONITE", 2, 512, 2.5F, 2.5F, 14);
+	//static Item.ToolMaterial MIDGARDIAN = EnumHelper.addToolMaterial("MIDGARDIAN", 3, 1028, 3.5F, 3.0F, 20);
+	
 	//Weapon Materials
 	static Item.ToolMaterial VEXAL = EnumHelper.addToolMaterial("VEXAL", 3, 256, 2.0F, 1.0F, 25);
 	static Item.ToolMaterial ICE = EnumHelper.addToolMaterial("ICE", 3, 192, 2.0F, 2.0F, 15);
@@ -55,6 +58,10 @@ public class ModArmory
 	static Item.ToolMaterial DIVINERAPIER = EnumHelper.addToolMaterial("DIVINERAPIER", 3, 256, 2.0F, 6.0F, 15);
 	static Item.ToolMaterial ALACRITY = EnumHelper.addToolMaterial("ALACRITY", 3, 984, 4.0F, 10.0F, 30);
 	static Item.ToolMaterial FLEROVIUM = EnumHelper.addToolMaterial("FLEROVIUM", 3, 728, 4.0F, 8.0F, 20);
+	
+	//static Item.ToolMaterial MALICE = EnumHelper.addToolMaterial("MALICE", 3, 512, 4.0F, 5.0F, 20);
+	//static Item.ToolMaterial PESTILENCE = EnumHelper.addToolMaterial("PESTILENCE", 3, 728, 4.0F, 6.0F, 15);
+	//static Item.ToolMaterial TITANBANE = EnumHelper.addToolMaterial("TITANBANE", 3, 728, 4.0F, 8.0F, 5);
 		
 	//Armor Materials
 	static ArmorMaterial ATITANIUM = EnumHelper.addArmorMaterial("ATITANIUM", 20, new int[]{3, 7, 5, 2}, 14);
@@ -62,6 +69,9 @@ public class ModArmory
 	static ArmorMaterial AFLEROVIUM = EnumHelper.addArmorMaterial("AFLEROVIUM", 40, new int[]{5, 9, 8, 4}, 20);
 	
 	static ArmorMaterial AGYROCHESTPLATE = EnumHelper.addArmorMaterial("AGYROCHESTPLATE", 40, new int[]{3, 7, 5, 3}, 15);
+	
+	//static ArmorMaterial AVECONITE = EnumHelper.addArmorMaterial("AVECONITE", 28, new int[]{4, 7, 6, 3}, 18);
+	//static ArmorMaterial AMIDGARDIAN = EnumHelper.addArmorMaterial("AMIDGARDIAN", 35, new int[]{5, 8, 7, 4}, 25);
 	
 	
 	
@@ -74,6 +84,15 @@ public class ModArmory
 	public static Item steelPick = new ItemAscensionPickaxe(STEEL).setUnlocalizedName("steelPick");
 	public static Item steelShovel = new ItemAscensionShovel(STEEL).setUnlocalizedName("steelShovel");
 	public static Item steelAxe = new ItemAscensionAxe(STEEL).setUnlocalizedName("steelAxe");
+	
+	/*public static Item veconiteSword = new ItemAscensionSword(VECONITE).setUnlocalizedName("veconiteSword");
+	public static Item veconitePick = new ItemAscensionPickaxe(VECONITE).setUnlocalizedName("veconitePick");
+	public static Item veconiteShovel = new ItemAscensionShovel(VECONITE).setUnlocalizedName("veconiteShovel");
+	public static Item veconiteAxe = new ItemAscensionAxe(VECONITE).setUnlocalizedName("veconiteAxe");
+	public static Item midgardianSword = new ItemAscensionSword(MIDGARDIAN).setUnlocalizedName("midgardianSword");
+	public static Item midgardianPick = new ItemAscensionPick(MIDGARDIAN).setUnlocalizedName("midgardianPick");
+	public static Item midgardianShovel = new ItemAscensionShovel(MIDGARDIAN).setUnlocalizedName("midgardianShovel");
+	public static Item midgardianAxe = new ItemAscensionAxe(MIDGARDIAN).setUnlocalizedName("midgardianAxe");*/
 	
 	//Weapons
 	public static Item vexalSword = new ItemVexalSword(VEXAL).setUnlocalizedName("vexalSword");
@@ -90,6 +109,10 @@ public class ModArmory
 	public static Item divineRapier = new ItemDivineRapier(DIVINERAPIER).setUnlocalizedName("divineRapier");
 	public static Item bladeOfAlacrity = new ItemBladeOfAlacrity(ALACRITY).setUnlocalizedName("bladeOfAlacrity");
 	public static Item fleroviumSword = new ItemFleroviumSword(FLEROVIUM).setUnlocalizedName("fleroviumSword");
+	
+	/*public static Item bladeOfMalice = new ItemMaliceBlade(MALICE).setUnlocalizedName("bladeOfMalice");
+	public static Item hammerOfPestilence = new ItemPestilenceHammer(PESTILENCE).setUnlocalizedName("hammerOfPestilence");
+	public static Item titansBane = new ItemTitansBane(TITANSBANE).setUnlocalizedName("titansBane");*/
 		
 	//Armor
 	public static Item titaniumHelm = new ItemTitaniumArmor(ATITANIUM, 0, "titaniumHelm");
@@ -111,6 +134,15 @@ public class ModArmory
 	
 	public static Item gyroPlate = new ItemGyroPlate(AGYROCHESTPLATE, 1, "gyroPlate");
 	
+	/*public static Item veconiteHelm = new ItemFleroviumArmor(AVECONITE, 0, "veconiteHelm");
+	public static Item veconitePlate = new ItemFleroviumArmor(AVECONITE, 1, "veconitePlate");
+	public static Item veconitePants = new ItemFleroviumArmor(AVECONITE, 2, "veconitePants");
+	public static Item veconiteBoots = new ItemFleroviumArmor(AVECONITE, 3, "veconiteBoots");
+	public static Item midgardianHelm = new ItemFleroviumArmor(AMIDGARDIAN, 0, "midgardianHelm");
+	public static Item midgardianPlate = new ItemFleroviumArmor(AMIDGARDIAN, 1, "midgardianPlate");
+	public static Item midgardianPants = new ItemFleroviumArmor(AMIDGARDIAN, 2, "midgardianPants");
+	public static Item midgardianBoots = new ItemFleroviumArmor(AMIDGARDIAN, 3, "midgardianBoots");*/
+	
 	//Staffs
 	public static Item woodenStaff = new ItemWoodenStaff().setUnlocalizedName("woodenStaff");
 	public static Item infernoStaff = new ItemInfernoStaff().setUnlocalizedName("infernoStaff");
@@ -120,6 +152,7 @@ public class ModArmory
 
 	public static void init()
 	{
+		// Tools
 		RegisterHelper.registerItem(titaniumSword);
 		RegisterHelper.registerItem(titaniumPick);
 		RegisterHelper.registerItem(titaniumShovel);
@@ -129,6 +162,16 @@ public class ModArmory
 		RegisterHelper.registerItem(steelShovel);
 		RegisterHelper.registerItem(steelAxe);
 		
+		/*RegisterHelper.registerItem(veconiteSword);
+		RegisterHelper.registerItem(veconitePick);
+		RegisterHelper.registerItem(veconiteShovel);
+		RegisterHelper.registerItem(veconiteAxe);
+		RegisterHelper.registerItem(midgardianSword);
+		RegisterHelper.registerItem(midgardianPick);
+		RegisterHelper.registerItem(midgardianShovel);
+		RegisterHelper.registerItem(midgardianAxe);*/
+		
+		// Weapons
 		RegisterHelper.registerItem(vexalSword);
 		RegisterHelper.registerItem(iceSword);
 		RegisterHelper.registerItem(blazeSword);
@@ -144,6 +187,11 @@ public class ModArmory
 		RegisterHelper.registerItem(bladeOfAlacrity);
 		RegisterHelper.registerItem(fleroviumSword);
 		
+		/*RegisterHelper.registerItem(bladeOfMalice);
+		RegisterHelper.registerItem(hammerOfPestilence);
+		RegisterHelper.registerItem(titansBane);*/
+		
+		// Armor
 		RegisterHelper.registerItem(titaniumHelm);
 		RegisterHelper.registerItem(titaniumPlate);
 		RegisterHelper.registerItem(titaniumPants);
@@ -158,6 +206,15 @@ public class ModArmory
 		RegisterHelper.registerItem(fleroviumBoots);
 		
 		RegisterHelper.registerItem(gyroPlate);
+		
+		/*RegisterHelper.registerItem(veconiteHelm);
+		RegisterHelper.registerItem(veconitePlate);
+		RegisterHelper.registerItem(veconitePants);
+		RegisterHelper.registerItem(veconiteBoots);
+		RegisterHelper.registerItem(midgardianHelm);
+		RegisterHelper.registerItem(midgardianPlate);
+		RegisterHelper.registerItem(midgardianPants);
+		RegisterHelper.registerItem(midgardianBoots);*/
 		
 		/*
 		 * TEST ITEMS

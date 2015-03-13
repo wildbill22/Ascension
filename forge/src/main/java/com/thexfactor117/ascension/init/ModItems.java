@@ -34,6 +34,9 @@ public class ModItems
 	public static Item ingotFlerovium = new ItemFlerovium().setUnlocalizedName("ingotFlerovium");
 	public static Item gemFleroviumShard = new ItemFlerovium().setUnlocalizedName("gemFleroviumShard");
 	
+	//public static Item ingotVeconite = new ItemVeconite().setUnlocalizedName("ingotVeconite");
+	//public static Item gemMidgardian = new ItemMidgardian().setUnlocalizedName("gemMidgardian");
+	
 	//Food
 	public static Item rawVenison = new ItemAscensionFood(3, 0.5F, true).setUnlocalizedName("rawVenison");
 	public static Item cookedVenison = new ItemAscensionFood(8, 3.0F, true).setUnlocalizedName("cookedVenison");
@@ -71,6 +74,9 @@ public class ModItems
 		RegisterHelper.registerItem(gemCrystalShard);
 		RegisterHelper.registerItem(ingotFlerovium);
 		RegisterHelper.registerItem(gemFleroviumShard);
+		
+		//RegisterHelper.registerItem(ingotVeconite);
+		//RegisterHelper.registerItem(gemMidgardian);
 		
 		RegisterHelper.registerItem(rawVenison);
 		RegisterHelper.registerItem(cookedVenison);
