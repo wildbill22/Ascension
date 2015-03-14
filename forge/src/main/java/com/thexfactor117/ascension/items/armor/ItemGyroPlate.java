@@ -17,6 +17,12 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemGyroPlate extends ItemArmor
 {
 	public ItemGyroPlate(ArmorMaterial material, int ArmorType, String name) 

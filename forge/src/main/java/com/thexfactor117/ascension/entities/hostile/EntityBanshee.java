@@ -25,6 +25,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntityBanshee extends EntityMob
 {
 	public EntityBanshee(World world) 

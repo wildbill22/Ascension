@@ -17,6 +17,7 @@ import com.thexfactor117.ascension.items.structures.SpawnSphinx;
  * @author WILLIAM
  *
  */
+
 public class ModStructureItems {
 
 	public static Item spawnSmallAbandonedHouse = new SpawnSmallAbandonedHouse().setUnlocalizedName("spawnSmallAbandonedHouse");

@@ -32,6 +32,13 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+/**
+ * 
+ * @author TheXFactor117
+ * @author WILLIAM
+ *
+ */
+
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 public class Ascension
 {

@@ -22,6 +22,12 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntityBarbarian extends EntityMob
 {
 	public EntityBarbarian(World world) 

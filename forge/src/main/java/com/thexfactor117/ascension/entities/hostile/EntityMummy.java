@@ -22,6 +22,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntityMummy extends EntityMob
 {
 	public EntityMummy(World world) 

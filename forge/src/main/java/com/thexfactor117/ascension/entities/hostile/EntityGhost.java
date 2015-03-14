@@ -23,6 +23,12 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntityGhost extends EntityMob
 {
 	public EntityGhost(World world) 

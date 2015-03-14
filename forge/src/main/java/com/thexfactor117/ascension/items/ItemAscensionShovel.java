@@ -13,6 +13,12 @@ import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemAscensionShovel extends ItemSpade
 {
 	public final ToolMaterial toolMaterial;

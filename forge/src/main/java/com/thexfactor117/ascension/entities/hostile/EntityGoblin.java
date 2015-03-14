@@ -22,6 +22,12 @@ import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
 import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.init.ModArmory;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntityGoblin extends EntityMob implements IRangedAttackMob
 {
     private EntityAIArrowAttack aiArrowAttack = new EntityAIArrowAttack(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 20, 60, 15.0F);

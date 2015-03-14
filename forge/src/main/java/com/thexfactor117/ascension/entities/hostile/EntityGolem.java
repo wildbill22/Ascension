@@ -19,6 +19,12 @@ import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntityGolem extends EntityMob
 {
 	public EntityGolem(World world) 

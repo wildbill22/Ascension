@@ -20,6 +20,12 @@ import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class BlockFleroviumOre extends Block
 {
 	public BlockFleroviumOre() 

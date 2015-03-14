@@ -10,6 +10,12 @@ import net.minecraft.world.World;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
 import com.thexfactor117.ascension.handlers.ConfigHandler;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntitySnowBlaze extends EntityMob
 {
 	private float heightOffset = 0.5F;

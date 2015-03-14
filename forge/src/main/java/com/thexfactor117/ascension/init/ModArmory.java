@@ -34,6 +34,12 @@ import com.thexfactor117.ascension.items.weapons.ranged.ItemLightningStaff;
 import com.thexfactor117.ascension.items.weapons.ranged.ItemOblivionStaff;
 import com.thexfactor117.ascension.items.weapons.ranged.ItemWoodenStaff;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ModArmory 
 {
 	//Tool Materials

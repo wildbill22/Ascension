@@ -13,6 +13,12 @@ import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemAscensionAxe extends ItemAxe
 {
 	public final ToolMaterial toolMaterial;

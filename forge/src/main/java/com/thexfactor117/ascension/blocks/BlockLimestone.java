@@ -9,6 +9,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class BlockLimestone extends Block
 {
 	public BlockLimestone()

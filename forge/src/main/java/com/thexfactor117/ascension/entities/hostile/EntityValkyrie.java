@@ -21,6 +21,12 @@ import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModItems;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntityValkyrie extends EntityMob
 {
 	public EntityValkyrie(World world) 

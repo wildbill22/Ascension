@@ -6,6 +6,12 @@ import com.thexfactor117.ascension.help.LogHelper;
 
 import net.minecraftforge.common.config.Configuration;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ConfigHandler 
 {	
 	// worldgenores

@@ -16,6 +16,12 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemEtherealBlade extends ItemSword
 {
 	public final ToolMaterial toolMaterial;

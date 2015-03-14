@@ -4,6 +4,12 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class RegisterHelper 
 {
 	public static void registerBlock(Block block)

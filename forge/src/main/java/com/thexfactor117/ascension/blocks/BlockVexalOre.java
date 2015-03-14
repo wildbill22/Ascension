@@ -10,6 +10,12 @@ import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class BlockVexalOre extends Block
 {
 	public BlockVexalOre()

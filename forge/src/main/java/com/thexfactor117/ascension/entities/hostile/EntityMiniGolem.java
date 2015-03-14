@@ -19,6 +19,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntityMiniGolem extends EntityMob
 {
 	public EntityMiniGolem(World world) 

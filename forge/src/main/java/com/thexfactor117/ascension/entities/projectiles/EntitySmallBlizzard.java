@@ -16,6 +16,12 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntitySmallBlizzard extends EntityThrowable
 {
 	public EntityLivingBase shootingEntity;

@@ -33,11 +33,19 @@ import com.thexfactor117.ascension.items.ItemAscensionMonsterPlacer;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+/**
+ * 
+ * @author TheXFactor117
+ * @author WILLIAM
+ *
+ */
+
 public class ModEntities 
 {
 	public static int i;
 	public static int startEntityID;
 	
+	// Egg Items
 	public static Item pharaohEgg = new ItemAscensionMonsterPlacer("Pharaoh", 0xC9C9BB, 0x182ED6).setUnlocalizedName("spawn_egg_" + "Pharaoh".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
 	
 	public static Item bansheeEgg = new ItemAscensionMonsterPlacer("Banshee", 0x342D4A, 0xFCD80A).setUnlocalizedName("spawn_egg_" + "Banshee".toLowerCase()).setTextureName("thexfactor117_ascension:spawn_egg");
@@ -82,18 +90,27 @@ public class ModEntities
         mobSpawns();
 	}
 
+	/**
+	 * Registers an entity projectile using #registerModEntity (e.g. a spell/arrow)
+	 */
 	public static void registerModProjectile(Class entityClass, String name)
 	{
 		EntityRegistry.registerModEntity(entityClass, name, ++startEntityID, Ascension.instance, 64, 10, true);
 		LogHelper.info("Registering mod projectile " + name + " with ID = " + startEntityID);
 	}
 	
+	/**
+	 * Registers an entity using #registerModEntity (e.g. a mob without an egg)
+	 */
 	public static void registerModEntity(Class entityClass, String name)
 	{
         EntityRegistry.registerModEntity(entityClass, name, ++startEntityID, Ascension.instance, 80, 3, false);
       	LogHelper.info("Registering mod entity " + name + " with ID = " + startEntityID);
 	}
 	
+	/**
+	 * Registers an entity with a spawn egg (e.g. a mob with an egg)
+	 */
 	public static void registerModEntityEgg(Class entityClass, String name, int primary, int secondary)
 	{	
 		registerModEntity(entityClass, name);
@@ -105,6 +122,9 @@ public class ModEntities
 		}
 	}
 	
+	/**
+	 * Registers the egg items with Forge
+	 */
 	public static void registerSpawnEgg(String name, int primary, int secondary)
 	{
 		GameRegistry.registerItem(pharaohEgg, "spawnEggPharaoh");
@@ -123,6 +143,9 @@ public class ModEntities
 		GameRegistry.registerItem(doeEgg, "spawnEggDoe");
 	}
 	
+	/**
+	 * Generates a unique ID for every entity to reduce ID mismatches.
+	 */
 	public static int getUniqueEntityId()
     {
     	do
@@ -134,6 +157,9 @@ public class ModEntities
     	return startEntityID;
     }
 	
+	/**
+	 * Assigns spawn variables for mob entities
+	 */
 	public static void mobSpawns()
 	{
 		if (ConfigHandler.shouldBansheeSpawn)

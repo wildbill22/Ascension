@@ -32,6 +32,7 @@ import cpw.mods.fml.common.IWorldGenerator;
 /**
  * 
  * @author WILLIAM
+ * @author TheXFactor117
  *
  */
 public class AscensionWorldGeneration implements IWorldGenerator

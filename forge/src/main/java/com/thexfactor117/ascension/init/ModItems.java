@@ -17,6 +17,12 @@ import com.thexfactor117.ascension.items.miscellaneous.ItemSteel;
 import com.thexfactor117.ascension.items.miscellaneous.ItemTitanium;
 import com.thexfactor117.ascension.items.miscellaneous.ItemVexal;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ModItems 
 {
 	//Artifacts

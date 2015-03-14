@@ -10,6 +10,12 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemAscension extends Item
 {
 	public ItemAscension()

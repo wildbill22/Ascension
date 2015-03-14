@@ -18,6 +18,12 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemAscensionStaff extends Item
 {
 	@SideOnly(Side.CLIENT)

@@ -9,6 +9,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class AscensionTab extends CreativeTabs 
 {
 	String name;

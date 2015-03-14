@@ -14,6 +14,12 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemSteelArmor extends ItemArmor
 {
 	public ItemSteelArmor(ArmorMaterial material, int ArmorType, String name) 

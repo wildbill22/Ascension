@@ -6,6 +6,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntitySmallOblivion extends EntityThrowable
 {
 	public EntitySmallOblivion(World world)

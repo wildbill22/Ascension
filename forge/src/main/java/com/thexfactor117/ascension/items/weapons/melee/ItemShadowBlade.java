@@ -13,6 +13,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.Item.ToolMaterial;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemShadowBlade extends ItemSword
 {
 	public final ToolMaterial toolMaterial;

@@ -48,6 +48,12 @@ import com.thexfactor117.ascension.render.RenderValkyrie;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ClientProxy extends CommonProxy
 {
 	@Override

@@ -8,6 +8,12 @@ import com.thexfactor117.ascension.init.ModItems;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ModWeaponRecipes 
 {
 	public static void init()

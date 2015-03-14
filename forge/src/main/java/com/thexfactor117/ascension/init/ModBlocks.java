@@ -9,6 +9,12 @@ import com.thexfactor117.ascension.blocks.BlockTitaniumOre;
 import com.thexfactor117.ascension.blocks.BlockVexalOre;
 import com.thexfactor117.ascension.help.RegisterHelper;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ModBlocks 
 {
 	public static Block titaniumOre = new BlockTitaniumOre();

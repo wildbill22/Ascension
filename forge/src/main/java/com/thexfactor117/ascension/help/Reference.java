@@ -1,5 +1,12 @@
 package com.thexfactor117.ascension.help;
 
+/**
+ * 
+ * @author TheXFactor117
+ * @author WILLIAM
+ *
+ */
+
 public class Reference 
 {
 	public static final String MODID = "thexfactor117_ascension";

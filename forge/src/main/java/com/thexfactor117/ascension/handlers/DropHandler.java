@@ -25,6 +25,12 @@ import com.thexfactor117.ascension.init.ModItems;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class DropHandler 
 {	
 	/**

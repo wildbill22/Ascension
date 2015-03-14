@@ -9,6 +9,12 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 // Invisible as in it shouldn't appear in creative tabs
 public class ItemInvisible extends Item
 {

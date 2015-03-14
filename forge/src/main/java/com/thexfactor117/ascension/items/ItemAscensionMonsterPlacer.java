@@ -27,6 +27,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemAscensionMonsterPlacer extends ItemMonsterPlacer
 {
 	@SideOnly(Side.CLIENT)

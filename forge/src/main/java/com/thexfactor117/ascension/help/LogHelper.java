@@ -4,6 +4,11 @@ import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.FMLLog;
 
+/**
+ * 
+ * @author WILLIAM
+ *
+ */
 
 public class LogHelper
 { 

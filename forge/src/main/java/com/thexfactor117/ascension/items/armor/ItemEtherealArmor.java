@@ -9,6 +9,12 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemEtherealArmor extends ItemArmor
 {
 	public ItemEtherealArmor(ArmorMaterial material, int ArmorType, String name) 

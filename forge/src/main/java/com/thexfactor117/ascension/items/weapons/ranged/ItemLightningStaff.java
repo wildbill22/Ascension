@@ -14,6 +14,12 @@ import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.items.ItemAscensionStaff;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class ItemLightningStaff extends ItemAscensionStaff
 {
 	public ItemLightningStaff()

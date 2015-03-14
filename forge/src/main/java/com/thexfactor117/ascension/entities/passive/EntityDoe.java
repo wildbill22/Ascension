@@ -14,6 +14,12 @@ import net.minecraft.world.World;
 
 import com.thexfactor117.ascension.init.ModItems;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class EntityDoe extends EntityAnimal
 {
 	public EntityDoe(World world) 

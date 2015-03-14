@@ -6,6 +6,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+
 public class VanillaChestLootGen 
 {
 	public static void init()
