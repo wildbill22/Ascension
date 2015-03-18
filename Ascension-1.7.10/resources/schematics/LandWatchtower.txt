@@ -1,7 +1,0 @@
-Land Watchtower (by TheXFactor117)
-
-This has 2 chests, one at the base of the structure, and one in the roof as well. Both chest should be generated.
-
-A tall structure, with a 7x7 base, extending about 20 blocks in the air. A one block overhang on each side, so 9x9 overall.
-
-Entrance is at: Two, 3,1,0 and 3,1,6.
