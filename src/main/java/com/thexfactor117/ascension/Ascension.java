@@ -4,6 +4,7 @@
 
 package com.thexfactor117.ascension;
 
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.thexfactor117.ascension.crafting.ModArmorRecipes;
@@ -80,6 +81,7 @@ public class Ascension
 		ModWeaponRecipes.init();
 		ModArmorRecipes.init();
 		
+		
 		//Version Checker -- Be sure to update the file!
 		String link = "https://raw.githubusercontent.com/TheXFactor117/Ascension/master/versionchecker.json";
 		FMLInterModComms.sendRuntimeMessage(Reference.MODID, "VersionChecker", "addVersionCheck", link);
@@ -89,7 +91,11 @@ public class Ascension
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		LogHelper.info("Skipping initialization phase 3. Nothing to initialize.");
+		LogHelper.info("Beginning initialization phase 3...");
+		
+		BiomeDictionary.registerAllBiomes();
+		
+		LogHelper.info("Finished initialization phase 3.");
 		LogHelper.info("Are you up for the challenge that awaits you?");
 	}	
 }
