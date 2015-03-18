@@ -1,9 +1,13 @@
 package com.thexfactor117.ascension.init;
 
+import java.util.HashMap;
+
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 
 import com.thexfactor117.ascension.Ascension;
 import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
@@ -156,12 +160,12 @@ public class ModEntities
 
     	return startEntityID;
     }
-	
+
 	/**
 	 * Assigns spawn variables for mob entities
 	 */
 	public static void mobSpawns()
-	{
+	{	
 		if (ConfigHandler.shouldBansheeSpawn)
 	    {
 	        EntityRegistry.addSpawn(EntityBanshee.class, 200, 1, 2, EnumCreatureType.monster,
@@ -201,8 +205,8 @@ public class ModEntities
 	                			BiomeGenBase.taiga,
 	                			BiomeGenBase.taigaHills});
 	    }
-
-	    if (ConfigHandler.shouldBarbarianSpawn)
+		
+		if (ConfigHandler.shouldBarbarianSpawn)
 	    {
 	        EntityRegistry.addSpawn(EntityBarbarian.class, 20, 1, 3, EnumCreatureType.creature,
 	        		new BiomeGenBase[] 
