@@ -1,0 +1,9 @@
+Maze Dungeon by TheXFactor117
+
+Essentially a large cube (25x25x13 I think. Height may be different) with 8 rooms inside. There are 3 large rooms, and 5 “mazes”. 7 of the 8 rooms contain chests, in which all should generate. There are also a lot of mob spawners, which all need to be generated with a random mob.
+
+This structure does contain a few pressure plates which trigger redstone lamps (for lighting scaring purposes), and one which triggers 5 TNT, so these plates will need to be added last so they don’t “pop off”.
+
+As for loot generation, this structure is considered a hard mob dungeon, and will generate loot from hard mob dungeons.
+
+This structure should only spawn underground below Y-50. There doesn’t need to be a restriction on how many can spawn in an area or how close they can spawn to 0,0. Seeing that it is an underground structure, you’ll typically only find one by stumbling upon, and therefore we can’t make it “too” rare.

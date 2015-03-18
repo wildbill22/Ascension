@@ -1,0 +1,46 @@
+b1.2.3 (3/3/15)
+-----
+* [Bug] Potentially fixed a bug with Banshee's causing crashes
+* [Beta 2] Work on Goblin and Snow Blaze mobs
+
+
+
+b1.2.2 (3/1/15)
+-----
++ Added several worldgen options to the config
+* [Technical] Changed versionchecker.json location. Update alerts should work properly from here on out.
+* [Beta 2] Snow Blaze half-completed
+* [Beta 2] Projectiles finished. Complete with textures and all.
+
+b1.2.1 (2/24/15)
+-----
++ Added several options to the config
+- Removed a 'sneakpeek' which accidentally made it in
+* [Bug] Fixed bug with Version Checker. Everything should work properly (I've tested it!)
+* [Bug] Fixed Gyro Mace/Void Hammer not having the power ability half the time
+* [Technical] Re-worked how Staff's were textured to automate the process
+* [Beta 2] Finished Staff 'charging' animations/code
+
+b1.2.0 (2/23/15)
+-----
++ Added a Config file
++ Added new sounds for mobs
+* AI updates
+* Flerovium Ore lighting decreased
+
+b1.1.0 (2/20/15)
+-----
++ Added a Version Checker system (only compatible if Version Checker is installed)
++ Adds Soul Fragment drops to all vanilla mobs
+* Major tweaks to the Pharaoh
+* Nerfed Flerovium Armor a bit
+* Fixes a small issue with Creative Tabs
+
+b1.0.1 (2/19/15)
+-----
+- Removes test items that could potentially break things
+
+b1.0.0 - Ascension Public Beta Release (2/18/15)
+-----
++ Added unique ID system to prevent crashes from mixing entity ID's
+* [Bug] Fixed Golem model issues

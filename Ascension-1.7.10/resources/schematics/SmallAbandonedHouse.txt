@@ -1,0 +1,9 @@
+Small Abandoned House (by TheXFactor117)
+
+It has one chest on the only floor (1 story house).
+
+Small house; 5 x 7 at base, I believe with a 1 block overhang on longer side, and a 2 block overhang on the shorter side. So 7 x 11 overall.
+
+Entrance is at: 2, 1, 6.
+
+Fill block for base is cobblestone.

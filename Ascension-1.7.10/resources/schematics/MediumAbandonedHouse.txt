@@ -1,0 +1,7 @@
+﻿Medium Abandoned House (by TheXFactor117)
+
+It has 1 chest on the 2nd floor and 1 chest on first floor (2 story house).
+
+Decent sized house; 7x9 base, with a 2 block overhang on the longer side (9) and a 1 block overhang on the shorter side (7). This house is two stories tall, along with a staircase inside the house. So the top part is 9x13.
+
+Entrance is at: 3, 1, 0.

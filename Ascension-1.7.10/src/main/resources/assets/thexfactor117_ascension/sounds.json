@@ -1,0 +1,6 @@
+{
+    "BansheeScream": {"category": "hostile", "sounds": [{"name": "BansheeScream", "stream": false}]},
+    "GolemSay": {"category": "hostile", "sounds": [{"name": "GolemSay", "stream": false}]},
+    "MummySay": {"category": "hostile", "sounds": [{"name": "MummySay", "stream": false}]},
+    "PharoahSay": {"category": "hostile", "sounds": [{"name": "PharoahSay", "stream": false}]}
+}

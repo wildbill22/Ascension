@@ -1,0 +1,118 @@
+tile.titaniumOre.name=Titanium Ore
+tile.vexalOre.name=Vexal Ore
+tile.fleroviumOre.name=§eFlerovium Ore§r
+tile.limestone.name=Limestone
+tile.limestoneBricks.name=Limestone Bricks
+
+tile.fieryNetherrack.name=Fiery Netherrack
+
+tile.endStoneBricks.name=End Stone Bricks
+
+tile.abyssStone.name=Abyss Stone
+tile.abyssCobblestone.name=Abyss Cobblestone
+tile.abyssStoneBricks.name=Abyss Stone Bricks
+tile.abyssOre.name=Abyss Ore
+tile.ash.name=Ash
+
+item.eclipse.name=§aEclipse§r
+item.nova.name=§aNova§r
+item.mythic.name=§aMythic§r
+item.inheritance.name=§aInheritance§r
+item.omega.name=§aOmega§r
+
+item.ingotTitanium.name=Titanium Ingot
+item.ingotSteel.name=Steel Ingot
+item.ingotVexal.name=Vexal Ingot
+item.ingotInfusedVexal.name=Infused Vexal Ingot
+item.ingotFlerovium.name=§eFlerovium Ingot§r
+item.gemFleroviumShard.name=§eFlerovium Shard§r
+item.gemIceGem.name=Ice Gem
+item.gemBlazeGem.name=Blaze Gem
+item.gemCrystal.name=Crystal
+item.gemCrystalShard.name=Crystal Shard
+item.soulGem.name=Soul Gem
+item.soulFragment.name=Soul Fragment
+
+item.rawVenison.name=Raw Venison
+item.cookedVenison.name=Cooked Venison
+
+item.antlers.name=Antlers
+item.sharkTeeth.name=Shark Teeth
+item.coldBlazeRod.name=Cold Blaze Rod
+item.smallRock.name=Small Rock
+item.golemGyro.name=Golem Gyro
+item.staffBase.name=Staff Base
+
+item.titaniumSword.name=Titanium Sword
+item.titaniumPick.name=Titanium Pickaxe
+item.titaniumShovel.name=Titanium Shovel
+item.titaniumAxe.name=Titanium Axe
+item.steelSword.name=Steel Sword
+item.steelPick.name=Steel Pickaxe
+item.steelShovel.name=Steel Shovel
+item.steelAxe.name=Steel Axe
+item.veconiteSword.name=Veconite Sword
+item.veconitePick.name=Veconite Pickaxe
+item.veconiteShovel.name=Veconite Shovel
+item.veconiteAxe.name=Veconite Axe
+
+item.iceSword.name=Ice Sword
+item.blazeSword.name=Blaze Sword
+item.vexalSword.name=Vexal Sword
+item.infusedVexalSword.name=Infused Vexal Sword
+item.razorSword.name=Razor Sword
+item.crystallizedSword.name=Crystallized Sword
+item.gyroMace.name=Gyro Mace
+item.shadowBlade.name=Shadow Blade
+item.etherealBlade.name=Ethereal Blade
+item.wingedBlade.name=Winged Blade
+item.voidHammer.name=§eVoid Hammer§r
+item.divineRapier.name=§eDivine Rapier§r
+item.bladeOfAlacrity.name=§bBlade of Alacrity§r
+item.fleroviumSword.name=§eFlerovium Sword§r
+
+item.woodenStaff.name=Wooden Staff
+item.infernoStaff.name=Staff of the Inferno
+item.blizzardStaff.name=Staff of the Blizzard
+item.lightningStaff.name=§eLightning Staff§r
+item.oblivionStaff.name=§eOblivion Staff§r
+
+item.titaniumHelm.name=Titanium Helmet
+item.titaniumPlate.name=Titanium Chestplate
+item.titaniumPants.name=Titanium Leggings
+item.titaniumBoots.name=Titanium boots
+item.steelHelm.name=Steel Helmet
+item.steelPlate.name=Steel Chestplate
+item.steelPants.name=Steel Leggings
+item.steelBoots.name=Steel Boots
+item.fleroviumHelm.name=§eFlerovium Helmet§r
+item.fleroviumPlate.name=§eFlerovium Chestplate§r
+item.fleroviumPants.name=§eFlerovium Leggings§r
+item.fleroviumBoots.name=§eFlerovium Boots§r
+
+item.gyroPlate.name=Gyro Chestplate
+
+item.spawnAbandonedHouse.name=Spawn Abandoned House
+item.spawnSkyrimStyleHouse.name=Spawn Skyrim Style House
+item.spawnSmallAbandonedHouse.name=Spawn Small Abandoned House
+item.spawnMediumAbandonedHouse.name=Spawn Medium Abandoned House
+item.spawnLandWatchtower.name=Spawn Land Watchtower
+item.spawnEasyMobDungeon1.name=Spawn Easy Mob Dungeon 1
+item.spawnMazeDungeon1.name=Spawn Maze Dungeon 1
+item.spawnCamp.name=Spawn Camp
+item.spawnSphinx.name=Spawn Sphinx
+item.spawnAbandonedTower.name=Spawn Abandoned Tower
+
+entity.Mummy.name=Mummy
+entity.Valkyrie.name=Valkyrie
+entity.Golem.name=Golem
+entity.Barbarian.name=Barbarian
+entity.Ghost.name=Ghost
+entity.Banshee.name=Banshee
+
+entity.Doe.name=Doe
+
+entity.thexfactor117_ascension.Pharaoh.name=§9§lThe Pharaoh§r
+
+itemGroup.tabAscension=Ascension
+itemGroup.tabAscensionTest=Ascension Test Items

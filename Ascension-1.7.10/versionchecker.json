@@ -1,0 +1,16 @@
+{
+        "versionList": [
+                {
+                        "mcVersion":"1.7.10",
+                        "modVersion":"b1.2.3",
+                        "changeLog": [
+                        "See website for an entire changelog",
+                        "",
+                        "Potentially fixed bug with Banshees causing crashes."
+                        ],
+                        "updateURL":"http://minecraft.curseforge.com/mc-mods/227918-ascension/files/2229317/download",
+                        "isDirectLink":"true",
+                        "newFileName":""
+                }
+        ]
+}
