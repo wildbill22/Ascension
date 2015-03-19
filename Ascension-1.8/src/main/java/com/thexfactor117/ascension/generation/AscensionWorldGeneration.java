@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
@@ -52,31 +53,31 @@ public class AscensionWorldGeneration implements IWorldGenerator
 	/**
 	 * addOreSpawn(block, world, random, x, z, 16, 16, amount per vein, spawn chance, minY, maxY)
 	 */
-	private void generateSurface(World world, Random random, int x, int z)
+	private void generateSurface(World world, Random random, BlockPos pos)
 	{
 		if (ConfigHandler.generateTitaniumOre)
 		{
-			addOreSpawn(ModBlocks.titaniumOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), ConfigHandler.titaniumSpawnProbability, ConfigHandler.titaniumMinY, ConfigHandler.titaniumMaxY);
+			addOreSpawn(ModBlocks.titaniumOre, world, random, pos, 16, 16, 2 + random.nextInt(3), ConfigHandler.titaniumSpawnProbability, ConfigHandler.titaniumMinY, ConfigHandler.titaniumMaxY, BlockHelper.forBlock(Blocks.stone));
 		}
 		
 		if (ConfigHandler.generateVexalOre)
 		{
-			addOreSpawn(ModBlocks.vexalOre, world, random, x, z, 16, 16, 2 + random.nextInt(3), ConfigHandler.vexalSpawnProbability, ConfigHandler.vexalMinY, ConfigHandler.vexalMaxY);
+			addOreSpawn(ModBlocks.vexalOre, world, random, pos, 16, 16, 2 + random.nextInt(3), ConfigHandler.vexalSpawnProbability, ConfigHandler.vexalMinY, ConfigHandler.vexalMaxY, BlockHelper.forBlock(Blocks.stone));
 		}
 		
 		if (ConfigHandler.generateFleroviumOre)
 		{
-			addOreSpawn(ModBlocks.fleroviumOre, world, random, x, z, 16, 16, 1, ConfigHandler.fleroviumSpawnProbability, ConfigHandler.fleroviumMinY, ConfigHandler.fleroviumMaxY);
+			addOreSpawn(ModBlocks.fleroviumOre, world, random, pos, 16, 16, 1, ConfigHandler.fleroviumSpawnProbability, ConfigHandler.fleroviumMinY, ConfigHandler.fleroviumMaxY, BlockHelper.forBlock(Blocks.stone));
 		}
 		
 		if (ConfigHandler.generateLimestone)
 		{
-			addOreSpawn(ModBlocks.limestone, world, random, x, z, 16, 16, 20 + random.nextInt(20), ConfigHandler.limestoneSpawnProbability, ConfigHandler.limestoneMinY, ConfigHandler.limestoneMaxY);
+			addOreSpawn(ModBlocks.limestone, world, random, pos, 16, 16, 20 + random.nextInt(20), ConfigHandler.limestoneSpawnProbability, ConfigHandler.limestoneMinY, ConfigHandler.limestoneMaxY, BlockHelper.forBlock(Blocks.stone));
 		}
 		
 		if (ConfigHandler.generateStructures)
 		{
-			addStructures(world, random, x, z);
+			addStructures(world, random, pos);
 		}
 	}
 
@@ -90,31 +91,36 @@ public class AscensionWorldGeneration implements IWorldGenerator
 	
 	}
 
-	private void addOreSpawn(IBlockState block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chanceToSpawn, int minY, int maxY)
+	private void addOreSpawn(Block block, World world, Random random, BlockPos pos, int maxX, int maxZ, int maxVeinSize, int chanceToSpawn, int minY, int maxY, BlockHelper blockHelper)
 	{
+		WorldGenMinable mine = new WorldGenMinable(block.getDefaultState(), maxVeinSize);
+		
 		for (int i = 0; i < chanceToSpawn; i++)
-		{
-			int posX = blockXPos + random.nextInt(maxX);
-			int posY = minY + random.nextInt(maxY - minY);
-			int posZ = blockZPos + random.nextInt(maxZ);
-			//TODO: Switch over to BlockPos stuff...
-			//new WorldGenMinable(block, maxVeinSize).generate(world, random, posX, posY, posZ);
+		{	
+			int x = pos.getX() + random.nextInt(maxX);
+			int y = minY + random.nextInt(maxY = minY);
+			int z = pos.getZ() + random.nextInt(maxZ);
+			
+			mine.generate(world, random, new BlockPos(x, y, z));
 		}
 	}
 	
-	private void addStructures(World world, Random random, int x, int z){
+	private void addStructures(World world, Random random, BlockPos pos)
+	{
+		int x = pos.getX();
+		int y = pos.getY();
+		int z = pos.getZ();
+		
 		// Flat?
 		if (world.provider.getAverageGroundLevel() < 10)
 			return;
 
 		// The two z params are width and length. Not sure what to do for them yet.
 		// Also, BiomeGenBase is an array now, so it causes a few more errors down the road.
-		BiomeGenBase[] biome = world.getWorldChunkManager().getBiomeGenAt(biome, x, z, z, z, false);
+		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(biome, x, z, width, length, false);
 
 		// This one gets special consideration, as it is so hard to spawn
-		
-		// A few errors here as well.
-		/*if (biome == BiomeGenBase.desert && StructureList.isSphinxGenerated() == false) {
+		if (biome == BiomeGenBase.desert && StructureList.isSphinxGenerated() == false) {
 			BlockPos spawn = world.getSpawnPoint();
 			double distanceFromSpawn = Math.sqrt(spawn.getDistanceSquared(x, 64, z));
 			if (distanceFromSpawn > Reference.minSpawnDistSphinx) {
@@ -125,7 +131,7 @@ public class AscensionWorldGeneration implements IWorldGenerator
 					return;
 				}
 			}
-		}*/
+		}
 		
 		final int numStructures = 8; // Set to the number case statements below
 		int which = random.nextInt(numStructures);
