@@ -1,22 +1,17 @@
 package com.thexfactor117.ascension.items;
 
-import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
-import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
-import com.thexfactor117.ascension.help.Reference;
-import com.thexfactor117.ascension.init.ModArmory;
-import com.thexfactor117.ascension.init.ModItems;
-import com.thexfactor117.ascension.tabs.ModTabs;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import com.thexfactor117.ascension.help.Reference;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * 

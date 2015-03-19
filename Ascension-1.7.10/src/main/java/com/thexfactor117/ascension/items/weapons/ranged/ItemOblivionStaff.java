@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumOblivion;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallOblivion;
 import com.thexfactor117.ascension.init.ModArmory;
-import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.items.ItemAscensionStaff;
 import com.thexfactor117.ascension.tabs.ModTabs;
 

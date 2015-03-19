@@ -3,7 +3,6 @@ package com.thexfactor117.ascension.render;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
 import com.thexfactor117.ascension.entities.hostile.EntityGoblin;

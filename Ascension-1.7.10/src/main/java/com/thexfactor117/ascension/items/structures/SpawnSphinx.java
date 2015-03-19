@@ -7,7 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.thexfactor117.ascension.items.ItemAscension;
+import com.thexfactor117.ascension.items.ItemAscensionTooltip;
 import com.thexfactor117.ascension.structures.Sphinx_000;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
@@ -16,7 +16,7 @@ import com.thexfactor117.ascension.tabs.ModTabs;
  * @author WILLIAM
  *
  */
-public class SpawnSphinx extends ItemAscension {
+public class SpawnSphinx extends ItemAscensionTooltip {
 
 	public SpawnSphinx() {
 		super();

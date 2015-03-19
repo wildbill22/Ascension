@@ -1,14 +1,13 @@
 package com.thexfactor117.ascension.render;
 
-import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
-import com.thexfactor117.ascension.entities.hostile.EntityValkyrie;
-import com.thexfactor117.ascension.help.Reference;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.util.ResourceLocation;
+
+import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
+import com.thexfactor117.ascension.help.Reference;
 
 public class RenderPharaoh extends RenderLiving
 {

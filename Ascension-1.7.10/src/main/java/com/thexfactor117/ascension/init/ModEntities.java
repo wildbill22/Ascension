@@ -93,6 +93,7 @@ public class ModEntities
 	/**
 	 * Registers an entity projectile using #registerModEntity (e.g. a spell/arrow)
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void registerModProjectile(Class entityClass, String name)
 	{
 		EntityRegistry.registerModEntity(entityClass, name, ++startEntityID, Ascension.instance, 64, 10, true);
@@ -102,6 +103,7 @@ public class ModEntities
 	/**
 	 * Registers an entity using #registerModEntity (e.g. a mob without an egg)
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void registerModEntity(Class entityClass, String name)
 	{
         EntityRegistry.registerModEntity(entityClass, name, ++startEntityID, Ascension.instance, 80, 3, false);
@@ -111,6 +113,7 @@ public class ModEntities
 	/**
 	 * Registers an entity with a spawn egg (e.g. a mob with an egg)
 	 */
+	@SuppressWarnings("rawtypes")
 	public static void registerModEntityEgg(Class entityClass, String name, int primary, int secondary)
 	{	
 		registerModEntity(entityClass, name);

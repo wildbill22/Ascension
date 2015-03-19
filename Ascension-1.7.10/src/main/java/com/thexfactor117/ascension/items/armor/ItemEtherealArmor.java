@@ -1,13 +1,12 @@
 package com.thexfactor117.ascension.items.armor;
 
-import com.thexfactor117.ascension.help.Reference;
-import com.thexfactor117.ascension.init.ModArmory;
-import com.thexfactor117.ascension.tabs.ModTabs;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
+
+import com.thexfactor117.ascension.help.Reference;
+import com.thexfactor117.ascension.init.ModArmory;
+import com.thexfactor117.ascension.tabs.ModTabs;
 
 /**
  * 

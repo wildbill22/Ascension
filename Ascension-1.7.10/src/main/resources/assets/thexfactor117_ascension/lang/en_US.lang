@@ -116,3 +116,15 @@ entity.thexfactor117_ascension.Pharaoh.name=§9§lThe Pharaoh§r
 
 itemGroup.tabAscension=Ascension
 itemGroup.tabAscensionTest=Ascension Test Items
+
+tooltip.ascension.omega.desc.0=One of the ancient Artifacts
+tooltip.ascension.ingotTitanium.desc.0=A sweet new metal
+tooltip.ascension.ingotSteel.desc.0=Stronger than Iron
+tooltip.ascension.ingotVexal.desc.0=Mystery lies within
+tooltip.ascension.ingotInfusedVexal.desc.0=Infused with what?
+tooltip.ascension.ingotFlerovium.desc.0=An extremely strong material
+tooltip.ascension.gemCrystal.desc.0=Woah, shiny
+tooltip.ascension.gemCrystalShard.desc.0=Woah, shiny
+tooltip.ascension.gemFleroviumShard.desc.0=An extremely strong material
+tooltip.ascension.gemIceGem.desc.0=Brrr...
+tooltip.ascension.gemBlazeGem.desc.0=Don't play with fire, kids.

@@ -1,7 +1,6 @@
 package com.thexfactor117.ascension.models;
 
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelPig;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
@@ -141,7 +140,6 @@ public class ModelDoe extends ModelBase
   {
 	  super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 	  
-      float f6 = (180F / (float)Math.PI);
       this.Head.rotateAngleX = f4 / (180F / (float)Math.PI);
       this.Head.rotateAngleY = f3 / (180F / (float)Math.PI);
       this.body.rotateAngleX = ((float)Math.PI / 2F);

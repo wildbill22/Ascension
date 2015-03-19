@@ -5,17 +5,8 @@ import net.minecraft.item.Item;
 import com.thexfactor117.ascension.help.RegisterHelper;
 import com.thexfactor117.ascension.items.ItemAscension;
 import com.thexfactor117.ascension.items.ItemAscensionFood;
+import com.thexfactor117.ascension.items.ItemAscensionTooltip;
 import com.thexfactor117.ascension.items.ItemInvisible;
-import com.thexfactor117.ascension.items.artifacts.ItemOmega;
-import com.thexfactor117.ascension.items.miscellaneous.ItemBlazeGem;
-import com.thexfactor117.ascension.items.miscellaneous.ItemCrystal;
-import com.thexfactor117.ascension.items.miscellaneous.ItemFlerovium;
-import com.thexfactor117.ascension.items.miscellaneous.ItemIceGem;
-import com.thexfactor117.ascension.items.miscellaneous.ItemInfusedVexal;
-import com.thexfactor117.ascension.items.miscellaneous.ItemSoulGem;
-import com.thexfactor117.ascension.items.miscellaneous.ItemSteel;
-import com.thexfactor117.ascension.items.miscellaneous.ItemTitanium;
-import com.thexfactor117.ascension.items.miscellaneous.ItemVexal;
 
 /**
  * 
@@ -26,19 +17,19 @@ import com.thexfactor117.ascension.items.miscellaneous.ItemVexal;
 public class ModItems 
 {
 	//Artifacts
-	public static Item omega = new ItemOmega().setUnlocalizedName("omega");
+	public static Item omega = new ItemAscensionTooltip().setUnlocalizedName("omega");
 
 	//Valuables
-	public static Item ingotTitanium = new ItemTitanium().setUnlocalizedName("ingotTitanium");
-	public static Item ingotSteel = new ItemSteel().setUnlocalizedName("ingotSteel");
-	public static Item ingotVexal = new ItemVexal().setUnlocalizedName("ingotVexal");
-	public static Item ingotInfusedVexal = new ItemInfusedVexal().setUnlocalizedName("ingotInfusedVexal");
-	public static Item gemIceGem = new ItemIceGem().setUnlocalizedName("gemIceGem");
-	public static Item gemBlazeGem = new ItemBlazeGem().setUnlocalizedName("gemBlazeGem");
-	public static Item gemCrystal = new ItemCrystal().setUnlocalizedName("gemCrystal");
-	public static Item gemCrystalShard = new ItemCrystal().setUnlocalizedName("gemCrystalShard");
-	public static Item ingotFlerovium = new ItemFlerovium().setUnlocalizedName("ingotFlerovium");
-	public static Item gemFleroviumShard = new ItemFlerovium().setUnlocalizedName("gemFleroviumShard");
+	public static Item ingotTitanium = new ItemAscensionTooltip().setUnlocalizedName("ingotTitanium");
+	public static Item ingotSteel = new ItemAscensionTooltip().setUnlocalizedName("ingotSteel");
+	public static Item ingotVexal = new ItemAscensionTooltip().setUnlocalizedName("ingotVexal");
+	public static Item ingotInfusedVexal = new ItemAscensionTooltip().setUnlocalizedName("ingotInfusedVexal");
+	public static Item gemIceGem = new ItemAscensionTooltip().setUnlocalizedName("gemIceGem");
+	public static Item gemBlazeGem = new ItemAscensionTooltip().setUnlocalizedName("gemBlazeGem");
+	public static Item gemCrystal = new ItemAscensionTooltip().setUnlocalizedName("gemCrystal");
+	public static Item gemCrystalShard = new ItemAscensionTooltip().setUnlocalizedName("gemCrystalShard");
+	public static Item ingotFlerovium = new ItemAscensionTooltip().setUnlocalizedName("ingotFlerovium");
+	public static Item gemFleroviumShard = new ItemAscensionTooltip().setUnlocalizedName("gemFleroviumShard");
 	
 	//public static Item ingotVeconite = new ItemVeconite().setUnlocalizedName("ingotVeconite");
 	//public static Item gemMidgardian = new ItemMidgardian().setUnlocalizedName("gemMidgardian");
@@ -54,8 +45,8 @@ public class ModItems
 	public static Item golemGyro = new ItemAscension().setUnlocalizedName("golemGyro");
 	
 	//Magical Items
-	public static Item soulFragment = new ItemSoulGem().setUnlocalizedName("soulFragment");
-	public static Item soulGem = new ItemSoulGem().setUnlocalizedName("soulGem");
+	public static Item soulFragment = new ItemAscension().setUnlocalizedName("soulFragment");
+	public static Item soulGem = new ItemAscension().setUnlocalizedName("soulGem");
 	public static Item staffBase = new ItemAscension().setUnlocalizedName("staffBase");
 	
 	//Entities

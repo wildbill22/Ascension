@@ -1,6 +1,5 @@
 package com.thexfactor117.ascension.items.weapons.ranged;
 
-import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
@@ -10,7 +9,6 @@ import net.minecraft.world.World;
 import com.thexfactor117.ascension.entities.projectiles.EntityMediumMagic;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
 import com.thexfactor117.ascension.init.ModArmory;
-import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.items.ItemAscensionStaff;
 import com.thexfactor117.ascension.tabs.ModTabs;
 

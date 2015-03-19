@@ -176,7 +176,8 @@ public class ItemAscensionMonsterPlacer extends ItemMonsterPlacer
         return entityToSpawn;
     }
     
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs tab, List list)
     {
