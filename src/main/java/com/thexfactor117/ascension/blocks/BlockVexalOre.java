@@ -7,7 +7,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 
-import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
@@ -24,7 +23,7 @@ public class BlockVexalOre extends Block
 	public BlockVexalOre()
 	{
 		super(Material.iron);
-		setUnlocalizedName(Reference.MODID + ":" + name);
+		setUnlocalizedName(name);
 		setCreativeTab(ModTabs.tabAscension);
 		setStepSound(soundTypeStone);
 		setHardness(3.0F);

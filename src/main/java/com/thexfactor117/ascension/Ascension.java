@@ -47,7 +47,7 @@ public class Ascension
 	@Instance(Reference.MODID)
 	public static Ascension instance;
 	
-	AscensionWorldGeneration eventWorldGen = new AscensionWorldGeneration();
+	//AscensionWorldGeneration eventWorldGen = new AscensionWorldGeneration();
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -63,7 +63,7 @@ public class Ascension
 		StructureList.preInit(event);
 		VanillaChestLootGen.init();
 		
-		GameRegistry.registerWorldGenerator(this.eventWorldGen, 100); // experiment with other world gen mods for balancing
+		//GameRegistry.registerWorldGenerator(this.eventWorldGen, 100); // experiment with other world gen mods for balancing
 		
 		proxy.registerRenderer();
 		
@@ -80,7 +80,6 @@ public class Ascension
 		ModRecipes.init();
 		ModWeaponRecipes.init();
 		ModArmorRecipes.init();
-		
 		
 		//Version Checker -- Be sure to update the file!
 		String link = "https://raw.githubusercontent.com/TheXFactor117/Ascension/master/versionchecker.json";

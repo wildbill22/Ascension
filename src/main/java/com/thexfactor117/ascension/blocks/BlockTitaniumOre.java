@@ -3,7 +3,6 @@ package com.thexfactor117.ascension.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.tabs.ModTabs;
 
 /**
@@ -19,7 +18,7 @@ public class BlockTitaniumOre extends Block
 	public BlockTitaniumOre()
 	{
 		super(Material.iron);
-		setUnlocalizedName(Reference.MODID + ":" + name);
+		setUnlocalizedName(name);
 		setCreativeTab(ModTabs.tabAscension);
 		setStepSound(soundTypeStone);
 		setHardness(3.0F);
