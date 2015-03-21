@@ -69,7 +69,7 @@ public class Ascension
 		ascensionProxy.registerRenderer();
 		
 		MinecraftForge.EVENT_BUS.register(new DropHandler());
-		LogHelper.info("Finished initialization phase 1.");
+		LogHelper.info("Finished initialization phase 1 successfully.");
 	}
 	
 	@Mod.EventHandler
@@ -83,13 +83,14 @@ public class Ascension
 		//Version Checker -- Be sure to update the file!
 		String link = "https://raw.githubusercontent.com/TheXFactor117/Ascension/master/versionchecker.json";
 		FMLInterModComms.sendRuntimeMessage(Reference.MODID, "VersionChecker", "addVersionCheck", link);
-		LogHelper.info("Finished initialization phase 2.");
+		LogHelper.info("Finished initialization phase 2 successfully.");
 	}
 	
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		LogHelper.info("Skipping initialization phase 3. Nothing to initialize.");
+		LogHelper.info("Beginning initialization phase 3...");
+		LogHelper.info("Finished initialization phase 3 successfully.");
 		LogHelper.info("Are you up for the challenge that awaits you?");
 	}	
 }
