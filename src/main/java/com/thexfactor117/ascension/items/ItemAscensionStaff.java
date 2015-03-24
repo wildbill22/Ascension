@@ -33,7 +33,7 @@ public class ItemAscensionStaff extends Item
 			
 			if (ticksInUse > 19)
 			{
-				return new ModelResourceLocation(Reference.MODID + ":" + getUnlocalizedName().substring(5) + "_charging_1", "inventory");
+				return new ModelResourceLocation(Reference.MODID + ":" + getUnlocalizedName().substring(5) + "_charging_full", "inventory");
 			}
 			else if (ticksInUse > 11)
 			{
@@ -41,7 +41,7 @@ public class ItemAscensionStaff extends Item
 			}
 			else if (ticksInUse > 3)
 			{
-				return new ModelResourceLocation(Reference.MODID + ":" + getUnlocalizedName().substring(5) + "_charging_full", "inventory");
+				return new ModelResourceLocation(Reference.MODID + ":" + getUnlocalizedName().substring(5) + "_charging_1", "inventory");
 			}
 		}
 		return null;
