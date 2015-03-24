@@ -280,7 +280,7 @@ public class ModArmory
 		registerRender(flerovium_boots);
 		
 		registerRender(gyro_chestplate);
-	
+		
 		registerRender(wooden_staff);
 		registerRender(inferno_staff);
 		registerRender(blizzard_staff);

@@ -1,9 +1,14 @@
 package com.thexfactor117.ascension.items;
 
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import com.thexfactor117.ascension.help.Reference;
 
 /**
  * 
@@ -18,34 +23,29 @@ public class ItemAscensionStaff extends Item
 		super();
 	}
 	
-	/*@Override
+	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(ItemStack stack, int par2, EntityPlayer player, ItemStack item, int usesRemaining)
-	{
-		if (item == null)
+	public ModelResourceLocation getModel(ItemStack stack, EntityPlayer player, int usesRemaining)
+	{		
+		if (stack.getItem() instanceof ItemAscensionStaff && player.getItemInUse() != null)
 		{
-			return itemIcon;
+			int ticksInUse = stack.getMaxItemUseDuration() - usesRemaining;
+			
+			if (ticksInUse > 19)
+			{
+				return new ModelResourceLocation(Reference.MODID + ":" + getUnlocalizedName().substring(5) + "_charging_1", "inventory");
+			}
+			else if (ticksInUse > 11)
+			{
+				return new ModelResourceLocation(Reference.MODID + ":" + getUnlocalizedName().substring(5) + "_charging_2", "inventory");
+			}
+			else if (ticksInUse > 3)
+			{
+				return new ModelResourceLocation(Reference.MODID + ":" + getUnlocalizedName().substring(5) + "_charging_full", "inventory");
+			}
 		}
-		
-		int ticksInUse = stack.getMaxItemUseDuration() - usesRemaining;
-		
-		if (ticksInUse > 19)
-		{
-			return iconArray[2];
-		}
-		else if (ticksInUse > 11)
-		{
-			return iconArray[1];
-		}
-		else if (ticksInUse > 3)
-		{
-			return iconArray[0];
-		}
-		else
-		{
-			return itemIcon;
-		}
-	}*/
+		return null;
+	}
 	
 	/**
 	 * Once the player releases the right click button, this method is
@@ -59,15 +59,6 @@ public class ItemAscensionStaff extends Item
 	{
 		
 	}
-	
-	/**
-	 * Determines what action the item will have (e.g. eating, drawing a bow)
-	 */
-	/*@Override
-	public EnumAction getItemUseAction(ItemStack itemstack)
-	{
-		return EnumAction.none;
-	}*/
 	
 	/**
 	 * Used in finding out whether or not the staff should shoot.

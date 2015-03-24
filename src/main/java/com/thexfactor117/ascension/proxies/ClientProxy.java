@@ -3,7 +3,9 @@ package com.thexfactor117.ascension.proxies;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBlaze;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 import com.thexfactor117.ascension.entities.boss.EntityPharaoh;
@@ -25,6 +27,7 @@ import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallInferno;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallOblivion;
+import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.init.ModArmory;
 import com.thexfactor117.ascension.init.ModBlocks;
 import com.thexfactor117.ascension.init.ModEntities;
@@ -70,6 +73,11 @@ public class ClientProxy extends CommonProxy
 		ModStructureItems.registerRenders();
 		// registers the spawn eggs, not entities
 		ModEntities.registerRenders();
+		staffRendering(ModArmory.wooden_staff, "wooden_staff");
+		staffRendering(ModArmory.inferno_staff, "inferno_staff");
+		staffRendering(ModArmory.blizzard_staff, "blizzard_staff");
+		staffRendering(ModArmory.lightning_staff, "lightning_staff");
+		staffRendering(ModArmory.oblivion_staff, "oblivion_staff");
 		
 		// Mob Entities
 		RenderingRegistry.registerEntityRenderingHandler(EntityValkyrie.class, new RenderValkyrie(Minecraft.getMinecraft().getRenderManager(), new ModelValkyrie(), 0));
@@ -97,8 +105,13 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityMediumInferno.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), Items.fire_charge, Minecraft.getMinecraft().getRenderItem()));
 	}
 	
-	public void registerTileEntitySpecialRenderer() 
+	public void staffRendering(Item item, String name)
 	{
-		
+		registerModelBakery(item, new String[] { Reference.MODID + ":" + name, Reference.MODID + ":" + name + "_charging_1", Reference.MODID + ":" + name + "_charging_2", Reference.MODID + ":" + name + "_charging_full" });
+	}
+	
+	public static void registerModelBakery(Item item, String[] names)
+	{
+		ModelBakery.addVariantName(item, names);
 	}
 }
