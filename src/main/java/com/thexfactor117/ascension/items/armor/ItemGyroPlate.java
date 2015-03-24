@@ -34,7 +34,7 @@ public class ItemGyroPlate extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		if (stack.getItem() == ModArmory.gyroPlate)
+		if (stack.getItem() == ModArmory.gyro_chestplate)
 		{
 			return Reference.MODID + ":models/armor/gyro_layer1.png";
 		}
@@ -58,7 +58,7 @@ public class ItemGyroPlate extends ItemArmor
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{
-		if (stack.getItem().equals(ModArmory.gyroPlate))
+		if (stack.getItem().equals(ModArmory.gyro_chestplate))
 		{
 			player.addPotionEffect(new PotionEffect(Potion.resistance.id, 20*1));
 		}

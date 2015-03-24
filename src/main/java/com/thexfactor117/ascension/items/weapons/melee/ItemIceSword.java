@@ -16,7 +16,6 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class ItemIceSword extends ItemSword
 {
-	private final String name = this.getUnlocalizedName();
 	public final ToolMaterial toolMaterial;
 	
 	public ItemIceSword(ToolMaterial EnumToolMaterial)
@@ -32,10 +31,5 @@ public class ItemIceSword extends ItemSword
 		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20*3, 0));
 		
 		return true;
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

@@ -25,7 +25,11 @@ import com.thexfactor117.ascension.entities.projectiles.EntitySmallBlizzard;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallInferno;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallMagic;
 import com.thexfactor117.ascension.entities.projectiles.EntitySmallOblivion;
+import com.thexfactor117.ascension.init.ModArmory;
+import com.thexfactor117.ascension.init.ModBlocks;
+import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
+import com.thexfactor117.ascension.init.ModStructureItems;
 import com.thexfactor117.ascension.models.ModelBanshee;
 import com.thexfactor117.ascension.models.ModelBarbarian;
 import com.thexfactor117.ascension.models.ModelDoe;
@@ -57,9 +61,17 @@ import com.thexfactor117.ascension.render.RenderValkyrie;
 public class ClientProxy extends CommonProxy
 {	
 	@Override
-	public void registerRenderer() 
+	public void registerRenders() 
 	{ 	
-		// mob entities
+		// Blocks/Items
+		ModBlocks.registerRenders();
+		ModItems.registerRenders();
+		ModArmory.registerRenders();
+		ModStructureItems.registerRenders();
+		// registers the spawn eggs, not entities
+		ModEntities.registerRenders();
+		
+		// Mob Entities
 		RenderingRegistry.registerEntityRenderingHandler(EntityValkyrie.class, new RenderValkyrie(Minecraft.getMinecraft().getRenderManager(), new ModelValkyrie(), 0));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBarbarian.class, new RenderBarbarian(Minecraft.getMinecraft().getRenderManager(), new ModelBarbarian(), 0));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGolem.class, new RenderGolem(Minecraft.getMinecraft().getRenderManager(), new ModelGolem(), 0));
@@ -74,13 +86,13 @@ public class ClientProxy extends CommonProxy
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityPharaoh.class, new RenderPharaoh(Minecraft.getMinecraft().getRenderManager(), new ModelPharaoh(), 0));
 		
-		// projectile entities
-		RenderingRegistry.registerEntityRenderingHandler(EntitySmallMagic.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.smallMagic, Minecraft.getMinecraft().getRenderItem()));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMediumMagic.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.mediumMagic, Minecraft.getMinecraft().getRenderItem()));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySmallOblivion.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.smallOblivion, Minecraft.getMinecraft().getRenderItem()));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMediumOblivion.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.mediumOblivion, Minecraft.getMinecraft().getRenderItem()));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySmallBlizzard.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.smallBlizzard, Minecraft.getMinecraft().getRenderItem()));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMediumBlizzard.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.mediumBlizzard, Minecraft.getMinecraft().getRenderItem()));
+		// Projectile Entities
+		RenderingRegistry.registerEntityRenderingHandler(EntitySmallMagic.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.small_magic, Minecraft.getMinecraft().getRenderItem()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMediumMagic.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.medium_magic, Minecraft.getMinecraft().getRenderItem()));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySmallOblivion.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.small_oblivion, Minecraft.getMinecraft().getRenderItem()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMediumOblivion.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.medium_oblivion, Minecraft.getMinecraft().getRenderItem()));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySmallBlizzard.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.small_blizzard, Minecraft.getMinecraft().getRenderItem()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMediumBlizzard.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ModItems.medium_blizzard, Minecraft.getMinecraft().getRenderItem()));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySmallInferno.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), Items.fire_charge, Minecraft.getMinecraft().getRenderItem()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMediumInferno.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), Items.fire_charge, Minecraft.getMinecraft().getRenderItem()));
 	}

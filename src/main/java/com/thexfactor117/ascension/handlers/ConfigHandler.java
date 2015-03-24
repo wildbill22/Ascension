@@ -89,7 +89,7 @@ public class ConfigHandler
 	public static double valkyrieFollowRange;
 	public static double valkyrieSpeed;
 	
-	public static void initProps(File location)
+	public static void registerConfig(File location)
 	{
 		File mainFile = new File(location + "/Ascension.cfg");
 		

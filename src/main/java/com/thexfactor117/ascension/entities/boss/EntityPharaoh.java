@@ -163,13 +163,13 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     	int var = this.rand.nextInt(3);
     	if (var == 0)
     	{
-    		this.dropItem(ModItems.gemCrystal, 1);
+    		this.dropItem(ModItems.crystal, 1);
     	}
     	
     	int var1 = this.rand.nextInt(3);
     	if (var1 == 0)
     	{
-    		this.dropItem(ModItems.soulGem, 1);
+    		this.dropItem(ModItems.soul_gem, 1);
     	}
     	
     	int var2 = this.rand.nextInt(9);
@@ -185,25 +185,25 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     	int var3 = this.rand.nextInt(19);
     	if (var3 == 0)
     	{
-    		this.dropItem(ModItems.ingotFlerovium, 1);
+    		this.dropItem(ModItems.flerovium_ingot, 1);
     	}
     	
     	int var4 = this.rand.nextInt(19);
     	if (var4 == 0)
     	{
-    		this.dropItem(ModArmory.etherealBlade, 1);
+    		this.dropItem(ModArmory.ethereal_blade, 1);
     	}
     	
     	int var5 = this.rand.nextInt(19);
     	if (var5 == 0)
     	{
-    		this.dropItem(ModArmory.shadowBlade, 1);
+    		this.dropItem(ModArmory.shadow_blade, 1);
     	}
     	
     	int var6 = this.rand.nextInt(19);
     	if (var6 == 0)
     	{
-    		this.dropItem(ModArmory.wingedBlade, 1);
+    		this.dropItem(ModArmory.winged_blade, 1);
     	}
     	
     	int var7 = this.rand.nextInt(9);

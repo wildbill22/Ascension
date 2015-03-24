@@ -47,13 +47,13 @@ public class EntityDoe extends EntityAnimal
 		int var1 = this.rand.nextInt(2);
 		if (var1 == 0)
 		{
-			this.dropItem(ModItems.rawVenison, 1);
+			this.dropItem(ModItems.raw_venison, 1);
 		}
 		
 		int var2 = this.rand.nextInt(3);
 		if (var2 == 0)
 		{
-			this.dropItem(ModItems.rawVenison, 2);
+			this.dropItem(ModItems.raw_venison, 2);
 		}
 		
 		int var3 = this.rand.nextInt(3);

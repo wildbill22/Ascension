@@ -1,11 +1,13 @@
 package com.thexfactor117.ascension.init;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
+import com.thexfactor117.ascension.help.Reference;
 import com.thexfactor117.ascension.help.RegisterHelper;
 import com.thexfactor117.ascension.items.ItemAscensionAxe;
 import com.thexfactor117.ascension.items.ItemAscensionPickaxe;
@@ -71,7 +73,7 @@ public class ModArmory
 	public static ArmorMaterial ASTEEL = EnumHelper.addArmorMaterial("ASTEEL", "steelArmor", 30, new int[]{4, 8, 7, 3}, 5);
 	public static ArmorMaterial AFLEROVIUM = EnumHelper.addArmorMaterial("AFLEROVIUM", "fleroviumArmor", 40, new int[]{5, 9, 8, 4}, 20);
 	
-	public static ArmorMaterial AGYROCHESTPLATE = EnumHelper.addArmorMaterial("AGYROCHESTPLATE", "gyroPlateArmor", 40, new int[]{3, 7, 5, 3}, 15);
+	public static ArmorMaterial AGYROCHESTPLATE = EnumHelper.addArmorMaterial("AGYROCHESTPLATE", "gyro_chestplateArmor", 40, new int[]{3, 7, 5, 3}, 15);
 	
 	//static ArmorMaterial AVECONITE = EnumHelper.addArmorMaterial("AVECONITE", 28, new int[]{4, 7, 6, 3}, 18);
 	//static ArmorMaterial AMIDGARDIAN = EnumHelper.addArmorMaterial("AMIDGARDIAN", 35, new int[]{5, 8, 7, 4}, 25);
@@ -79,14 +81,14 @@ public class ModArmory
 	
 	
 	//Tools
-	public static Item titaniumSword = new ItemAscensionSword(TITANIUM).setUnlocalizedName("titaniumSword");
-	public static Item titaniumPick = new ItemAscensionPickaxe(TITANIUM).setUnlocalizedName("titaniumPick");
-	public static Item titaniumShovel = new ItemAscensionShovel(TITANIUM).setUnlocalizedName("titaniumShovel");
-	public static Item titaniumAxe = new ItemAscensionAxe(TITANIUM).setUnlocalizedName("titaniumAxe");
-	public static Item steelSword = new ItemAscensionSword(STEEL).setUnlocalizedName("steelSword");
-	public static Item steelPick = new ItemAscensionPickaxe(STEEL).setUnlocalizedName("steelPick");
-	public static Item steelShovel = new ItemAscensionShovel(STEEL).setUnlocalizedName("steelShovel");
-	public static Item steelAxe = new ItemAscensionAxe(STEEL).setUnlocalizedName("steelAxe");
+	public static Item titanium_sword = new ItemAscensionSword(TITANIUM).setUnlocalizedName("titanium_sword");
+	public static Item titanium_pickaxe = new ItemAscensionPickaxe(TITANIUM).setUnlocalizedName("titanium_pickaxe");
+	public static Item titanium_shovel = new ItemAscensionShovel(TITANIUM).setUnlocalizedName("titanium_shovel");
+	public static Item titanium_axe = new ItemAscensionAxe(TITANIUM).setUnlocalizedName("titanium_axe");
+	public static Item steel_sword = new ItemAscensionSword(STEEL).setUnlocalizedName("steel_sword");
+	public static Item steel_pickaxe = new ItemAscensionPickaxe(STEEL).setUnlocalizedName("steel_pickaxe");
+	public static Item steel_shovel = new ItemAscensionShovel(STEEL).setUnlocalizedName("steel_shovel");
+	public static Item steel_axe = new ItemAscensionAxe(STEEL).setUnlocalizedName("steel_axe");
 	
 	/*public static Item veconiteSword = new ItemAscensionSword(VECONITE).setUnlocalizedName("veconiteSword");
 	public static Item veconitePick = new ItemAscensionPickaxe(VECONITE).setUnlocalizedName("veconitePick");
@@ -98,44 +100,44 @@ public class ModArmory
 	public static Item midgardianAxe = new ItemAscensionAxe(MIDGARDIAN).setUnlocalizedName("midgardianAxe");*/
 	
 	//Weapons
-	public static Item vexalSword = new ItemAscensionSword(VEXAL).setUnlocalizedName("vexalSword");
-	public static Item iceSword = new ItemIceSword(ICE).setUnlocalizedName("iceSword");
-	public static Item blazeSword = new ItemBlazeSword(BLAZE).setUnlocalizedName("blazeSword");
-	public static Item infusedVexalSword = new ItemAscensionSword(INFUSEDVEXAL).setUnlocalizedName("infusedVexalSword");
-	public static Item razorSword = new ItemAscensionSword(RAZOR).setUnlocalizedName("razorSword");
-	public static Item crystallizedSword = new ItemAscensionSword(CRYSTAL).setUnlocalizedName("crystallizedSword");
-	public static Item gyroMace = new ItemGyroMace(GYRO).setUnlocalizedName("gyroMace");
-	public static Item shadowBlade = new ItemAscensionSword(SHADOW).setUnlocalizedName("shadowBlade");
-	public static Item etherealBlade = new ItemEtherealBlade(ETHEREAL).setUnlocalizedName("etherealBlade");
-	public static Item wingedBlade = new ItemAscensionSword(WINGED).setUnlocalizedName("wingedBlade");
-	public static Item voidHammer = new ItemVoidHammer(VOID).setUnlocalizedName("voidHammer");
-	public static Item divineRapier = new ItemDivineRapier(DIVINERAPIER).setUnlocalizedName("divineRapier");
-	public static Item bladeOfAlacrity = new ItemAscensionSword(ALACRITY).setUnlocalizedName("bladeOfAlacrity");
-	public static Item fleroviumSword = new ItemFleroviumSword(FLEROVIUM).setUnlocalizedName("fleroviumSword");
+	public static Item vexal_sword = new ItemAscensionSword(VEXAL).setUnlocalizedName("vexal_sword");
+	public static Item ice_sword = new ItemIceSword(ICE).setUnlocalizedName("ice_sword");
+	public static Item blaze_sword = new ItemBlazeSword(BLAZE).setUnlocalizedName("blaze_sword");
+	public static Item infused_vexal_sword = new ItemAscensionSword(INFUSEDVEXAL).setUnlocalizedName("infused_vexal_sword");
+	public static Item razor_sword = new ItemAscensionSword(RAZOR).setUnlocalizedName("razor_sword");
+	public static Item crystallized_sword = new ItemAscensionSword(CRYSTAL).setUnlocalizedName("crystallized_sword");
+	public static Item gyro_mace = new ItemGyroMace(GYRO).setUnlocalizedName("gyro_mace");
+	public static Item shadow_blade = new ItemAscensionSword(SHADOW).setUnlocalizedName("shadow_blade");
+	public static Item ethereal_blade = new ItemEtherealBlade(ETHEREAL).setUnlocalizedName("ethereal_blade");
+	public static Item winged_blade = new ItemAscensionSword(WINGED).setUnlocalizedName("winged_blade");
+	public static Item void_hammer = new ItemVoidHammer(VOID).setUnlocalizedName("void_hammer");
+	public static Item divine_rapier = new ItemDivineRapier(DIVINERAPIER).setUnlocalizedName("divine_rapier");
+	public static Item blade_of_alacrity = new ItemAscensionSword(ALACRITY).setUnlocalizedName("blade_of_alacrity");
+	public static Item flerovium_sword = new ItemFleroviumSword(FLEROVIUM).setUnlocalizedName("flerovium_sword");
 	
 	/*public static Item bladeOfMalice = new ItemMaliceBlade(MALICE).setUnlocalizedName("bladeOfMalice");
 	public static Item hammerOfPestilence = new ItemPestilenceHammer(PESTILENCE).setUnlocalizedName("hammerOfPestilence");
 	public static Item titansBane = new ItemTitansBane(TITANSBANE).setUnlocalizedName("titansBane");*/
 		
 	//Armor
-	public static Item titaniumHelm = new ItemTitaniumArmor(ATITANIUM, 0, "titaniumHelm");
-	public static Item titaniumPlate = new ItemTitaniumArmor(ATITANIUM, 1, "titaniumPlate");
-	public static Item titaniumPants = new ItemTitaniumArmor(ATITANIUM, 2, "titaniumPants");
-	public static Item titaniumBoots = new ItemTitaniumArmor(ATITANIUM, 3, "titaniumBoots");
-	public static Item steelHelm = new ItemSteelArmor(ASTEEL, 0, "steelHelm");
-	public static Item steelPlate = new ItemSteelArmor(ASTEEL, 1, "steelPlate");
-	public static Item steelPants = new ItemSteelArmor(ASTEEL, 2, "steelPants");
-	public static Item steelBoots = new ItemSteelArmor(ASTEEL, 3, "steelBoots");
-	public static Item etherealHelm = new ItemEtherealArmor(AFLEROVIUM, 0, "etherealHelm");
-	public static Item etherealPlate = new ItemEtherealArmor(AFLEROVIUM, 1, "etherealPlate");
-	public static Item etherealPants = new ItemEtherealArmor(AFLEROVIUM, 2, "etherealPants");
-	public static Item etherealBoots = new ItemEtherealArmor(AFLEROVIUM, 3, "etherealBoots");
-	public static Item fleroviumHelm = new ItemFleroviumArmor(AFLEROVIUM, 0, "fleroviumHelm");
-	public static Item fleroviumPlate = new ItemFleroviumArmor(AFLEROVIUM, 1, "fleroviumPlate");
-	public static Item fleroviumPants = new ItemFleroviumArmor(AFLEROVIUM, 2, "fleroviumPants");
-	public static Item fleroviumBoots = new ItemFleroviumArmor(AFLEROVIUM, 3, "fleroviumBoots");
+	public static Item titanium_helmet = new ItemTitaniumArmor(ATITANIUM, 0, "titanium_helmet");
+	public static Item titanium_chestplate = new ItemTitaniumArmor(ATITANIUM, 1, "titanium_chestplate");
+	public static Item titanium_leggings = new ItemTitaniumArmor(ATITANIUM, 2, "titanium_leggings");
+	public static Item titanium_boots = new ItemTitaniumArmor(ATITANIUM, 3, "titanium_boots");
+	public static Item steel_helmet = new ItemSteelArmor(ASTEEL, 0, "steel_helmet");
+	public static Item steel_chestplate = new ItemSteelArmor(ASTEEL, 1, "steel_chestplate");
+	public static Item steel_leggings = new ItemSteelArmor(ASTEEL, 2, "steel_leggings");
+	public static Item steel_boots = new ItemSteelArmor(ASTEEL, 3, "steel_boots");
+	public static Item ethereal_helmet = new ItemEtherealArmor(AFLEROVIUM, 0, "ethereal_helmet");
+	public static Item ethereal_chestplate = new ItemEtherealArmor(AFLEROVIUM, 1, "ethereal_chestplate");
+	public static Item ethereal_leggings = new ItemEtherealArmor(AFLEROVIUM, 2, "ethereal_leggings");
+	public static Item ethereal_boots = new ItemEtherealArmor(AFLEROVIUM, 3, "ethereal_boots");
+	public static Item flerovium_helmet = new ItemFleroviumArmor(AFLEROVIUM, 0, "flerovium_helmet");
+	public static Item flerovium_chestplate = new ItemFleroviumArmor(AFLEROVIUM, 1, "flerovium_chestplate");
+	public static Item flerovium_leggings = new ItemFleroviumArmor(AFLEROVIUM, 2, "flerovium_leggings");
+	public static Item flerovium_boots = new ItemFleroviumArmor(AFLEROVIUM, 3, "flerovium_boots");
 	
-	public static Item gyroPlate = new ItemGyroPlate(AGYROCHESTPLATE, 1, "gyroPlate");
+	public static Item gyro_chestplate = new ItemGyroPlate(AGYROCHESTPLATE, 1, "gyro_chestplate");
 	
 	/*public static Item veconiteHelm = new ItemFleroviumArmor(AVECONITE, 0, "veconiteHelm");
 	public static Item veconitePlate = new ItemFleroviumArmor(AVECONITE, 1, "veconitePlate");
@@ -147,23 +149,23 @@ public class ModArmory
 	public static Item midgardianBoots = new ItemFleroviumArmor(AMIDGARDIAN, 3, "midgardianBoots");*/
 	
 	//Staffs
-	public static Item woodenStaff = new ItemWoodenStaff().setUnlocalizedName("woodenStaff");
-	public static Item infernoStaff = new ItemInfernoStaff().setUnlocalizedName("infernoStaff");
-	public static Item blizzardStaff = new ItemBlizzardStaff().setUnlocalizedName("blizzardStaff");
-	public static Item lightningStaff = new ItemLightningStaff().setUnlocalizedName("lightningStaff");
-	public static Item oblivionStaff = new ItemOblivionStaff().setUnlocalizedName("oblivionStaff");
+	public static Item wooden_staff = new ItemWoodenStaff().setUnlocalizedName("wooden_staff");
+	public static Item inferno_staff = new ItemInfernoStaff().setUnlocalizedName("inferno_staff");
+	public static Item blizzard_staff = new ItemBlizzardStaff().setUnlocalizedName("blizzard_staff");
+	public static Item lightning_staff = new ItemLightningStaff().setUnlocalizedName("lightning_staff");
+	public static Item oblivion_staff = new ItemOblivionStaff().setUnlocalizedName("oblivion_staff");
 
 	public static void registerItems()
 	{
 		// Tools
-		RegisterHelper.registerItem(titaniumSword);
-		RegisterHelper.registerItem(titaniumPick);
-		RegisterHelper.registerItem(titaniumShovel);
-		RegisterHelper.registerItem(titaniumAxe);
-		RegisterHelper.registerItem(steelSword);
-		RegisterHelper.registerItem(steelPick);
-		RegisterHelper.registerItem(steelShovel);
-		RegisterHelper.registerItem(steelAxe);
+		RegisterHelper.registerItem(titanium_sword);
+		RegisterHelper.registerItem(titanium_pickaxe);
+		RegisterHelper.registerItem(titanium_shovel);
+		RegisterHelper.registerItem(titanium_axe);
+		RegisterHelper.registerItem(steel_sword);
+		RegisterHelper.registerItem(steel_pickaxe);
+		RegisterHelper.registerItem(steel_shovel);
+		RegisterHelper.registerItem(steel_axe);
 		
 		/*RegisterHelper.registerItem(veconiteSword);
 		RegisterHelper.registerItem(veconitePick);
@@ -175,40 +177,40 @@ public class ModArmory
 		RegisterHelper.registerItem(midgardianAxe);*/
 		
 		// Weapons
-		RegisterHelper.registerItem(vexalSword);
-		RegisterHelper.registerItem(iceSword);
-		RegisterHelper.registerItem(blazeSword);
-		RegisterHelper.registerItem(infusedVexalSword);
-		RegisterHelper.registerItem(razorSword);
-		RegisterHelper.registerItem(crystallizedSword);
-		RegisterHelper.registerItem(gyroMace);
-		RegisterHelper.registerItem(shadowBlade);
-		RegisterHelper.registerItem(etherealBlade);
-		RegisterHelper.registerItem(wingedBlade);
-		RegisterHelper.registerItem(voidHammer);
-		RegisterHelper.registerItem(divineRapier);
-		RegisterHelper.registerItem(bladeOfAlacrity);
-		RegisterHelper.registerItem(fleroviumSword);
+		RegisterHelper.registerItem(vexal_sword);
+		RegisterHelper.registerItem(ice_sword);
+		RegisterHelper.registerItem(blaze_sword);
+		RegisterHelper.registerItem(infused_vexal_sword);
+		RegisterHelper.registerItem(razor_sword);
+		RegisterHelper.registerItem(crystallized_sword);
+		RegisterHelper.registerItem(gyro_mace);
+		RegisterHelper.registerItem(shadow_blade);
+		RegisterHelper.registerItem(ethereal_blade);
+		RegisterHelper.registerItem(winged_blade);
+		RegisterHelper.registerItem(void_hammer);
+		RegisterHelper.registerItem(divine_rapier);
+		RegisterHelper.registerItem(blade_of_alacrity);
+		RegisterHelper.registerItem(flerovium_sword);
 		
 		/*RegisterHelper.registerItem(bladeOfMalice);
 		RegisterHelper.registerItem(hammerOfPestilence);
 		RegisterHelper.registerItem(titansBane);*/
 		
 		// Armor
-		RegisterHelper.registerItem(titaniumHelm);
-		RegisterHelper.registerItem(titaniumPlate);
-		RegisterHelper.registerItem(titaniumPants);
-		RegisterHelper.registerItem(titaniumBoots);
-		RegisterHelper.registerItem(steelHelm);
-		RegisterHelper.registerItem(steelPlate);
-		RegisterHelper.registerItem(steelPants);
-		RegisterHelper.registerItem(steelBoots);
-		RegisterHelper.registerItem(fleroviumHelm);
-		RegisterHelper.registerItem(fleroviumPlate);
-		RegisterHelper.registerItem(fleroviumPants);
-		RegisterHelper.registerItem(fleroviumBoots);
+		RegisterHelper.registerItem(titanium_helmet);
+		RegisterHelper.registerItem(titanium_chestplate);
+		RegisterHelper.registerItem(titanium_leggings);
+		RegisterHelper.registerItem(titanium_boots);
+		RegisterHelper.registerItem(steel_helmet);
+		RegisterHelper.registerItem(steel_chestplate);
+		RegisterHelper.registerItem(steel_leggings);
+		RegisterHelper.registerItem(steel_boots);
+		RegisterHelper.registerItem(flerovium_helmet);
+		RegisterHelper.registerItem(flerovium_chestplate);
+		RegisterHelper.registerItem(flerovium_leggings);
+		RegisterHelper.registerItem(flerovium_boots);
 		
-		RegisterHelper.registerItem(gyroPlate);
+		RegisterHelper.registerItem(gyro_chestplate);
 		
 		/*RegisterHelper.registerItem(veconiteHelm);
 		RegisterHelper.registerItem(veconitePlate);
@@ -227,78 +229,69 @@ public class ModArmory
 		 * BEFORE RELEASES!
 		 */
 		// Beta 2
-		RegisterHelper.registerItem(woodenStaff);
-		RegisterHelper.registerItem(infernoStaff);
-		RegisterHelper.registerItem(blizzardStaff);
-		RegisterHelper.registerItem(lightningStaff);
-		RegisterHelper.registerItem(oblivionStaff);
+		RegisterHelper.registerItem(wooden_staff);
+		RegisterHelper.registerItem(inferno_staff);
+		RegisterHelper.registerItem(blizzard_staff);
+		RegisterHelper.registerItem(lightning_staff);
+		RegisterHelper.registerItem(oblivion_staff);
 	}
 	
-	public static void renderItems(FMLInitializationEvent event)
+	public static void registerRenders()
 	{
-		if (event.getSide() == Side.CLIENT)
-		{
-			// Tools
-			RegisterHelper.itemRenderer(titaniumSword);
-			RegisterHelper.itemRenderer(titaniumPick);
-			RegisterHelper.itemRenderer(titaniumShovel);
-			RegisterHelper.itemRenderer(titaniumAxe);
-			RegisterHelper.itemRenderer(steelSword);
-			RegisterHelper.itemRenderer(steelPick);
-			RegisterHelper.itemRenderer(steelShovel);
-			RegisterHelper.itemRenderer(steelAxe);
-			
-			/*RegisterHelper.itemRenderer(veconiteSword);
-			RegisterHelper.itemRenderer(veconitePick);
-			RegisterHelper.itemRenderer(veconiteShovel);
-			RegisterHelper.itemRenderer(veconiteAxe);
-			RegisterHelper.itemRenderer(midgardianSword);
-			RegisterHelper.itemRenderer(midgardianPick);
-			RegisterHelper.itemRenderer(midgardianShovel);
-			RegisterHelper.itemRenderer(midgardianAxe);*/
-			
-			// Weapons
-			RegisterHelper.itemRenderer(vexalSword);
-			RegisterHelper.itemRenderer(iceSword);
-			RegisterHelper.itemRenderer(blazeSword);
-			RegisterHelper.itemRenderer(infusedVexalSword);
-			RegisterHelper.itemRenderer(razorSword);
-			RegisterHelper.itemRenderer(crystallizedSword);
-			RegisterHelper.itemRenderer(gyroMace);
-			RegisterHelper.itemRenderer(shadowBlade);
-			RegisterHelper.itemRenderer(etherealBlade);
-			RegisterHelper.itemRenderer(wingedBlade);
-			RegisterHelper.itemRenderer(voidHammer);
-			RegisterHelper.itemRenderer(divineRapier);
-			RegisterHelper.itemRenderer(bladeOfAlacrity);
-			RegisterHelper.itemRenderer(fleroviumSword);
-			
-			// Armor
-			RegisterHelper.itemRenderer(titaniumHelm);
-			RegisterHelper.itemRenderer(titaniumPlate);
-			RegisterHelper.itemRenderer(titaniumPants);
-			RegisterHelper.itemRenderer(titaniumBoots);
-			RegisterHelper.itemRenderer(steelHelm);
-			RegisterHelper.itemRenderer(steelPlate);
-			RegisterHelper.itemRenderer(steelPants);
-			RegisterHelper.itemRenderer(steelBoots);
-			RegisterHelper.itemRenderer(etherealHelm);
-			RegisterHelper.itemRenderer(etherealPlate);
-			RegisterHelper.itemRenderer(etherealPants);
-			RegisterHelper.itemRenderer(etherealBoots);
-			RegisterHelper.itemRenderer(fleroviumHelm);
-			RegisterHelper.itemRenderer(fleroviumPlate);
-			RegisterHelper.itemRenderer(fleroviumPants);
-			RegisterHelper.itemRenderer(fleroviumBoots);
-			
-			RegisterHelper.itemRenderer(gyroPlate);
-			
-			// Staffs
-			RegisterHelper.itemRenderer(woodenStaff);
-			RegisterHelper.itemRenderer(infernoStaff);
-			RegisterHelper.itemRenderer(blizzardStaff);
-			RegisterHelper.itemRenderer(lightningStaff);
-			RegisterHelper.itemRenderer(oblivionStaff);
-		}
+		registerRender(titanium_sword);
+		registerRender(titanium_pickaxe);
+		registerRender(titanium_shovel);
+		registerRender(titanium_axe);
+		registerRender(steel_sword);
+		registerRender(steel_pickaxe);
+		registerRender(steel_shovel);
+		registerRender(steel_axe);
+		
+		registerRender(vexal_sword);
+		registerRender(ice_sword);
+		registerRender(blaze_sword);
+		registerRender(infused_vexal_sword);
+		registerRender(crystallized_sword);
+		registerRender(razor_sword);
+		registerRender(gyro_mace);
+		registerRender(shadow_blade);
+		registerRender(ethereal_blade);
+		registerRender(winged_blade);
+		registerRender(void_hammer);
+		registerRender(divine_rapier);
+		registerRender(blade_of_alacrity);
+		registerRender(flerovium_sword);
+		
+		registerRender(titanium_helmet);
+		registerRender(titanium_chestplate);
+		registerRender(titanium_leggings);
+		registerRender(titanium_boots);
+		registerRender(steel_helmet);
+		registerRender(steel_chestplate);
+		registerRender(steel_leggings);
+		registerRender(steel_boots);
+		registerRender(ethereal_helmet);
+		registerRender(ethereal_chestplate);
+		registerRender(ethereal_leggings);
+		registerRender(ethereal_boots);
+		registerRender(flerovium_helmet);
+		registerRender(flerovium_chestplate);
+		registerRender(flerovium_leggings);
+		registerRender(flerovium_boots);
+		
+		registerRender(gyro_chestplate);
+	
+		registerRender(wooden_staff);
+		registerRender(inferno_staff);
+		registerRender(blizzard_staff);
+		registerRender(lightning_staff);
+		registerRender(oblivion_staff);
+	}
+	
+	public static void registerRender(Item item)
+	{	
+		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+		
+		renderItem.getItemModelMesher().register(item, 0, new ModelResourceLocation(Reference.MODID + ":" + item.getUnlocalizedName().substring(5), "inventory"));
 	}
 }

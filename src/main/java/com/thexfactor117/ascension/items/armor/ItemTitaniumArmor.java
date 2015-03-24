@@ -30,11 +30,11 @@ public class ItemTitaniumArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		if (stack.getItem() == ModArmory.titaniumHelm || stack.getItem() == ModArmory.titaniumPlate || stack.getItem() == ModArmory.titaniumBoots)
+		if (stack.getItem() == ModArmory.titanium_helmet || stack.getItem() == ModArmory.titanium_chestplate || stack.getItem() == ModArmory.titanium_boots)
 		{
 			return Reference.MODID + ":models/armor/titanium_layer1.png";
 		}
-		else if (stack.getItem() == ModArmory.titaniumPants)
+		else if (stack.getItem() == ModArmory.titanium_leggings)
 		{
 			return Reference.MODID + ":models/armor/titanium_layer2.png";
 		}

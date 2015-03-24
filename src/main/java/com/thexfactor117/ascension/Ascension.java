@@ -12,12 +12,10 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.thexfactor117.ascension.crafting.ModArmorRecipes;
 import com.thexfactor117.ascension.crafting.ModRecipes;
 import com.thexfactor117.ascension.crafting.ModWeaponRecipes;
-import com.thexfactor117.ascension.generation.AscensionWorldGeneration;
 import com.thexfactor117.ascension.generation.VanillaChestLootGen;
 import com.thexfactor117.ascension.handlers.ConfigHandler;
 import com.thexfactor117.ascension.handlers.DropHandler;
@@ -29,7 +27,6 @@ import com.thexfactor117.ascension.init.ModEntities;
 import com.thexfactor117.ascension.init.ModItems;
 import com.thexfactor117.ascension.init.ModStructureItems;
 import com.thexfactor117.ascension.proxies.CommonProxy;
-import com.thexfactor117.ascension.structures.StructureList;
 
 /**
  * 
@@ -53,19 +50,17 @@ public class Ascension
 	public void preInit(FMLPreInitializationEvent event)
 	{		
 		LogHelper.info("Beginning initialization phase 1...");
-		ConfigHandler.initProps(event.getModConfigurationDirectory());
+		ConfigHandler.registerConfig(event.getModConfigurationDirectory());
 
 		ModItems.registerItems();
-		ModBlocks.init();
+		ModBlocks.registerBlocks();
 		ModArmory.registerItems(); // comment test items out!
 		ModEntities.init();
-		ModStructureItems.init(); // Keep this commented out when pushing.
-		StructureList.preInit(event);
+		ModStructureItems.registerItems(); // Keep this commented out when pushing.
+		//StructureList.preInit(event);
 		VanillaChestLootGen.init();
 		
 		//GameRegistry.registerWorldGenerator(this.eventWorldGen, 100); // experiment with other world gen mods for balancing
-		
-		proxy.registerRenderer();
 		
 		MinecraftForge.EVENT_BUS.register(new DropHandler());
 		LogHelper.info("Finished initialization phase 1.");
@@ -74,9 +69,10 @@ public class Ascension
 	@Mod.EventHandler
 	public void Init(FMLInitializationEvent event)
 	{
-		LogHelper.info("Beginning initialization phase 2...");
-		ModItems.renderItems(event);
-		ModArmory.renderItems(event);
+		LogHelper.info("Beginning initialization phase 2..."); 
+		
+		proxy.registerRenders();
+		
 		ModRecipes.init();
 		ModWeaponRecipes.init();
 		ModArmorRecipes.init();

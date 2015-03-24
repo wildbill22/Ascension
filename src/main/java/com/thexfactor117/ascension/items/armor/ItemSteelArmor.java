@@ -30,11 +30,11 @@ public class ItemSteelArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		if (stack.getItem() == ModArmory.steelHelm || stack.getItem() == ModArmory.steelPlate || stack.getItem() == ModArmory.steelBoots)
+		if (stack.getItem() == ModArmory.steel_helmet || stack.getItem() == ModArmory.steel_chestplate || stack.getItem() == ModArmory.steel_boots)
 		{
 			return Reference.MODID + ":models/armor/steel_layer1.png";
 		}
-		else if (stack.getItem() == ModArmory.steelPants)
+		else if (stack.getItem() == ModArmory.steel_leggings)
 		{
 			return Reference.MODID + ":models/armor/steel_layer2.png";
 		}

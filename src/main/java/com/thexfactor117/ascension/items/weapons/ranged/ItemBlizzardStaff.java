@@ -63,7 +63,7 @@ public class ItemBlizzardStaff extends ItemAscensionStaff
 			y = 1.0F;
 		}
 		
-		if (player.inventory.hasItem(ModArmory.blizzardStaff))
+		if (player.inventory.hasItem(ModArmory.blizzard_staff))
 		{
 			stack.damageItem(1, player);
 			world.playSoundAtEntity(player, "", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
@@ -77,10 +77,10 @@ public class ItemBlizzardStaff extends ItemAscensionStaff
 				 * magic used will be bigger. If not, it will default
 				 * to the smaller magic.
 				 */
-				if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem().equals(ModArmory.etherealBoots) 
-						&& player.getCurrentArmor(1) != null && player.getCurrentArmor(1).getItem().equals(ModArmory.etherealPants) 
-						&& player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem().equals(ModArmory.etherealPlate) 
-						&& player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ModArmory.etherealHelm))
+				if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem().equals(ModArmory.ethereal_boots) 
+						&& player.getCurrentArmor(1) != null && player.getCurrentArmor(1).getItem().equals(ModArmory.ethereal_leggings) 
+						&& player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem().equals(ModArmory.ethereal_chestplate) 
+						&& player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ModArmory.ethereal_helmet))
 				{
 					/**
 					 * Vec3 is used to find the players position, as well as
@@ -128,7 +128,7 @@ public class ItemBlizzardStaff extends ItemAscensionStaff
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (player.inventory.hasItem(ModArmory.blizzardStaff))
+		if (player.inventory.hasItem(ModArmory.blizzard_staff))
 		{
 			player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
 		}

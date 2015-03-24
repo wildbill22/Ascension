@@ -33,7 +33,7 @@ public class AscensionTab extends CreativeTabs
 		} 
 		else if (this.name == "tabAscensionTest")
 		{
-			return ModArmory.bladeOfAlacrity;
+			return ModArmory.lightning_staff;
 		}
 		return null;
 	}

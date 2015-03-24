@@ -77,49 +77,49 @@ public class EntityMiniGolem extends EntityMob
 		int var1 = this.rand.nextInt(10);
 		if (var1 == 0)
 		{
-			this.dropItem(ModItems.ingotSteel, 1);
+			this.dropItem(ModItems.steel_ingot, 1);
 		}
 		
 		int var2 = this.rand.nextInt(10);
 		if (var2 == 0)
 		{
-			this.dropItem(ModItems.soulFragment, 1);
+			this.dropItem(ModItems.soul_fragment, 1);
 		}
 		
 		int var3 = this.rand.nextInt(10);
 		if (var3 == 0)
 		{
-			this.dropItem(ModItems.gemCrystalShard, 1);
+			this.dropItem(ModItems.crystal_shard, 1);
 		}
 		
 		int var4 = this.rand.nextInt(10);
 		if (var4 == 0)
 		{
-			this.dropItem(ModItems.golemGyro, 1);
+			this.dropItem(ModItems.golem_gyro, 1);
 		}
 		
 		int var5 = this.rand.nextInt(19);
 		if (var5 == 0)
 		{
-			this.dropItem(ModItems.gemFleroviumShard, 1);
+			this.dropItem(ModItems.flerovium_shard, 1);
 		}
 		
 		int var6 = this.rand.nextInt(100);
 		if (var6 == 0)
 		{
-			this.dropItem(ModArmory.gyroMace, 1);
+			this.dropItem(ModArmory.gyro_mace, 1);
 		}
 		
 		int var7 = this.rand.nextInt(100);
 		if (var7 == 0)
 		{
-			this.dropItem(ModArmory.gyroPlate, 1);
+			this.dropItem(ModArmory.gyro_chestplate, 1);
 		}
 		
 		int var8 = this.rand.nextInt(100);
 		if (var8 == 0)
 		{
-			this.dropItem(ModArmory.divineRapier, 1);
+			this.dropItem(ModArmory.divine_rapier, 1);
 		}
 	}
 	

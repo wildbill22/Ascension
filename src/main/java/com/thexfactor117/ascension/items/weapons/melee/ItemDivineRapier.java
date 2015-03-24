@@ -16,7 +16,6 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class ItemDivineRapier extends ItemSword
 {
-	private final String name = this.getUnlocalizedName();
 	public final ToolMaterial toolMaterial;
 	
 	public ItemDivineRapier(ToolMaterial EnumToolMaterial)
@@ -34,10 +33,5 @@ public class ItemDivineRapier extends ItemSword
 		par2EntityLivingBase.setFire(5);
 		
 		return true;
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

@@ -25,11 +25,11 @@ public class ItemEtherealArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		if (stack.getItem() == ModArmory.fleroviumHelm || stack.getItem() == ModArmory.fleroviumPlate || stack.getItem() == ModArmory.fleroviumBoots)
+		if (stack.getItem() == ModArmory.ethereal_helmet || stack.getItem() == ModArmory.ethereal_chestplate || stack.getItem() == ModArmory.ethereal_boots)
 		{
 			return Reference.MODID + ":models/armor/ethereal_layer1.png";
 		}
-		else if (stack.getItem() == ModArmory.fleroviumPants)
+		else if (stack.getItem() == ModArmory.ethereal_leggings)
 		{
 			return Reference.MODID + ":models/armor/ethereal_layer2.png";
 		}

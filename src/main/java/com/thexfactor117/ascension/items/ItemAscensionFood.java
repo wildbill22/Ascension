@@ -11,17 +11,10 @@ import com.thexfactor117.ascension.tabs.ModTabs;
  */
 
 public class ItemAscensionFood extends ItemFood
-{
-	private final String name = this.getUnlocalizedName();
-	
+{	
 	public ItemAscensionFood(int heal, float saturation, boolean wolfmeat) 
 	{
 		super(heal, saturation, wolfmeat);
 		setCreativeTab(ModTabs.tabAscension);
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

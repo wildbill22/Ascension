@@ -12,17 +12,10 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 // Invisible as in it shouldn't appear in creative tabs
 public class ItemInvisible extends Item
-{
-	private final String name = this.getUnlocalizedName();
-	
+{	
 	public ItemInvisible()
 	{
 		super();
 		setCreativeTab(ModTabs.tabAscensionTest);
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

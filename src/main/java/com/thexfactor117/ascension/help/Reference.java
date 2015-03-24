@@ -9,7 +9,7 @@ package com.thexfactor117.ascension.help;
 
 public class Reference 
 {
-	public static final String MODID = "Ascension";
+	public static final String MODID = "ascension";
 	public static final String NAME = "Ascension";
 	public static final String VERSION = "b1.2.3";
 	public static final String CLIENT_PROXY = "com.thexfactor117.ascension.proxies.ClientProxy";

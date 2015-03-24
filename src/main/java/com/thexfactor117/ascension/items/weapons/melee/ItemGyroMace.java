@@ -17,7 +17,6 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class ItemGyroMace extends ItemSword
 {
-	private final String name = this.getUnlocalizedName();
 	public final ToolMaterial toolMaterial;
 	
 	public ItemGyroMace(ToolMaterial EnumToolMaterial)
@@ -48,10 +47,5 @@ public class ItemGyroMace extends ItemSword
 		{
 			stack.addEnchantment(Enchantment.knockback, 1);
 		}
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

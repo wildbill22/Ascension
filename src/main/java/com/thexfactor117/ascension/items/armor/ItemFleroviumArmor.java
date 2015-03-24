@@ -33,11 +33,11 @@ public class ItemFleroviumArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		if (stack.getItem() == ModArmory.fleroviumHelm || stack.getItem() == ModArmory.fleroviumPlate || stack.getItem() == ModArmory.fleroviumBoots)
+		if (stack.getItem() == ModArmory.flerovium_helmet || stack.getItem() == ModArmory.flerovium_chestplate || stack.getItem() == ModArmory.flerovium_boots)
 		{
 			return Reference.MODID + ":models/armor/flerovium_layer1.png";
 		}
-		else if (stack.getItem() == ModArmory.fleroviumPants)
+		else if (stack.getItem() == ModArmory.flerovium_leggings)
 		{
 			return Reference.MODID + ":models/armor/flerovium_layer2.png";
 		}
@@ -60,10 +60,10 @@ public class ItemFleroviumArmor extends ItemArmor
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{
-		if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem().equals(ModArmory.fleroviumBoots) 
-				&& player.getCurrentArmor(1) != null && player.getCurrentArmor(1).getItem().equals(ModArmory.fleroviumPants) 
-				&& player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem().equals(ModArmory.fleroviumPlate) 
-				&& player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ModArmory.fleroviumHelm))
+		if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem().equals(ModArmory.flerovium_boots) 
+				&& player.getCurrentArmor(1) != null && player.getCurrentArmor(1).getItem().equals(ModArmory.flerovium_leggings) 
+				&& player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem().equals(ModArmory.flerovium_chestplate) 
+				&& player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ModArmory.flerovium_helmet))
 		{
 			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 20*1));
 		}

@@ -14,7 +14,6 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class ItemBlazeSword extends ItemSword
 {
-	private final String name = this.getUnlocalizedName();
 	public final ToolMaterial toolMaterial;
 	
 	public ItemBlazeSword(ToolMaterial EnumToolMaterial)
@@ -31,10 +30,5 @@ public class ItemBlazeSword extends ItemSword
 		par2EntityLivingBase.setFire(3);
 		
 		return true;
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

@@ -13,22 +13,14 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class BlockFleroviumOre extends Block
 {
-	private static final String name = "fleroviumOre";
-	
 	public BlockFleroviumOre() 
 	{
 		super(Material.iron);
-		setUnlocalizedName(name);
 		setCreativeTab(ModTabs.tabAscension);
 		setStepSound(soundTypeStone);
 		setHardness(2.5F);
 		setResistance(10.0F);
 		setHarvestLevel("pickaxe", 3);
 		setLightLevel(0.4F);
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

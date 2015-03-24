@@ -16,7 +16,6 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class ItemFleroviumSword extends ItemSword
 {
-	private final String name = this.getUnlocalizedName();
 	public final ToolMaterial toolMaterial;
 	
 	public ItemFleroviumSword(ToolMaterial EnumToolMaterial)
@@ -33,10 +32,5 @@ public class ItemFleroviumSword extends ItemSword
 		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.poison.id, 20*30, 1));
 		
 		return true;
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

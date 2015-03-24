@@ -16,7 +16,6 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class ItemVoidHammer extends ItemSword
 {
-	private final String name = this.getUnlocalizedName();
 	public final ToolMaterial toolMaterial;
 	
 	public ItemVoidHammer(ToolMaterial EnumToolMaterial)
@@ -38,10 +37,5 @@ public class ItemVoidHammer extends ItemSword
 		{
 			stack.addEnchantment(Enchantment.knockback, 1);
 		}
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

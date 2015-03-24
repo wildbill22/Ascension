@@ -145,6 +145,24 @@ public class ModEntities
 		GameRegistry.registerItem(doeEgg, "spawnEggDoe");
 	}
 	
+	public static void registerRenders()
+	{
+		ModItems.registerRender(pharaohEgg);
+		
+		ModItems.registerRender(bansheeEgg);
+		ModItems.registerRender(barbarianEgg);
+		ModItems.registerRender(ghostEgg);
+		ModItems.registerRender(goblinEgg);
+		ModItems.registerRender(golemEgg);
+		ModItems.registerRender(miniGolemEgg);
+		ModItems.registerRender(mummyEgg);
+		ModItems.registerRender(snowBlazeEgg);
+		ModItems.registerRender(trollEgg);
+		ModItems.registerRender(valkyrieEgg);
+		
+		ModItems.registerRender(doeEgg);
+	}
+	
 	/**
 	 * Generates a unique ID for every entity to reduce ID mismatches.
 	 */

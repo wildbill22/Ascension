@@ -18,12 +18,9 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class BlockVexalOre extends Block
 {
-	private static final String name = "vexalOre";
-	
 	public BlockVexalOre()
 	{
 		super(Material.iron);
-		setUnlocalizedName(name);
 		setCreativeTab(ModTabs.tabAscension);
 		setStepSound(soundTypeStone);
 		setHardness(3.0F);
@@ -34,11 +31,6 @@ public class BlockVexalOre extends Block
 	@Override
 	public Item getItemDropped(IBlockState state, Random random, int fortune)
 	{
-		return ModItems.ingotVexal;
-	}
-	
-	public String getName()
-	{
-		return name;
+		return ModItems.vexal_ingot;
 	}
 }

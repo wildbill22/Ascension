@@ -43,14 +43,14 @@ public class DropHandler
 			int var = rand.nextInt(9);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -61,14 +61,14 @@ public class DropHandler
 			int var = rand.nextInt(9);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -79,14 +79,14 @@ public class DropHandler
 			int var = rand.nextInt(9);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -97,14 +97,14 @@ public class DropHandler
 			int var = rand.nextInt(9);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -115,14 +115,14 @@ public class DropHandler
 			int var = rand.nextInt(6);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -133,14 +133,14 @@ public class DropHandler
 			int var = rand.nextInt(8);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -151,14 +151,14 @@ public class DropHandler
 			int var = rand.nextInt(8);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -169,14 +169,14 @@ public class DropHandler
 			int var = rand.nextInt(4);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -187,14 +187,14 @@ public class DropHandler
 			int var = rand.nextInt(5);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -205,14 +205,14 @@ public class DropHandler
 			int var = rand.nextInt(9);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -223,14 +223,14 @@ public class DropHandler
 			int var = rand.nextInt(8);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -241,14 +241,14 @@ public class DropHandler
 			int var = rand.nextInt(7);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
@@ -259,14 +259,14 @@ public class DropHandler
 			int var = rand.nextInt(8);
 			if (var == 0)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 1);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 1);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}
 			
 			if (var == 1)
 			{
-				ItemStack stack = new ItemStack(ModItems.soulFragment, 2);
+				ItemStack stack = new ItemStack(ModItems.soul_fragment, 2);
 				event.drops.add(new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, 
 						event.entity.posZ, stack));
 			}

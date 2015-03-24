@@ -12,7 +12,6 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class ItemAscensionSword extends ItemSword
 {
-	private final String name = this.getUnlocalizedName();
 	public final ToolMaterial toolMaterial;
 	
 	public ItemAscensionSword(ToolMaterial EnumToolMaterial)
@@ -20,10 +19,5 @@ public class ItemAscensionSword extends ItemSword
 		super(EnumToolMaterial);
 		toolMaterial = EnumToolMaterial;
 		setCreativeTab(ModTabs.tabAscension);
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }

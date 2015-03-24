@@ -12,7 +12,6 @@ import com.thexfactor117.ascension.tabs.ModTabs;
 
 public class ItemAscensionShovel extends ItemSpade
 {
-	private final String name = this.getUnlocalizedName();
 	public final ToolMaterial toolMaterial;
 	
 	public ItemAscensionShovel(ToolMaterial EnumToolMaterial)
@@ -20,10 +19,5 @@ public class ItemAscensionShovel extends ItemSpade
 		super(EnumToolMaterial);
 		toolMaterial = EnumToolMaterial;
 		setCreativeTab(ModTabs.tabAscension);
-	}
-	
-	public String getName()
-	{
-		return name;
 	}
 }
