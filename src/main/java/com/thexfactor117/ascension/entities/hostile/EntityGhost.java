@@ -29,6 +29,8 @@ import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityGhost extends EntityMob
 {
+	private static final String name = "Ghost";
+	
 	public EntityGhost(World world) 
 	{
 		super(world);
@@ -145,5 +147,10 @@ public class EntityGhost extends EntityMob
     protected String getDeathSound()
     {
     	return Reference.MODID + ":" + "BansheeScream";
+    }
+    
+    public String getName()
+    {
+    	return name;
     }
 }

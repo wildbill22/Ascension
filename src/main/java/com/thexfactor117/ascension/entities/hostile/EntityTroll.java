@@ -22,6 +22,8 @@ import com.thexfactor117.ascension.handlers.ConfigHandler;
 
 public class EntityTroll extends EntityMob
 {
+	private static final String name = "Troll";
+	
 	public EntityTroll(World world) 
 	{
 		super(world);
@@ -62,4 +64,9 @@ public class EntityTroll extends EntityMob
 		tasks.taskEntries.clear();
 		targetTasks.taskEntries.clear();
 	}
+	
+	public String getName()
+    {
+    	return name;
+    }
 }

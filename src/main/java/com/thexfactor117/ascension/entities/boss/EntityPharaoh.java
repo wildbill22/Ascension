@@ -31,6 +31,8 @@ import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityPharaoh extends EntityMob implements IBossDisplayData
 {
+	private static final String name = "Pharaoh";
+	
 	//used to cool down the mummy spawning
 	int coolDown = 100;
 	int count = 0;
@@ -227,5 +229,10 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData
     protected String getLivingSound()
     {
     	return Reference.MODID + ":" + "PharoahSay";
+    }
+    
+    public String getName()
+    {
+    	return name;
     }
 }

@@ -26,6 +26,8 @@ import com.thexfactor117.ascension.handlers.ConfigHandler;
 
 public class EntityGoblin extends EntityMob implements IRangedAttackMob
 {
+	private static final String name = "Goblin";
+	
 	public EntityGoblin(World world) 
 	{
 		super(world);
@@ -98,4 +100,9 @@ public class EntityGoblin extends EntityMob implements IRangedAttackMob
 		tasks.taskEntries.clear();
 		targetTasks.taskEntries.clear();
 	}
+	
+	public String getName()
+    {
+    	return name;
+    }
 }

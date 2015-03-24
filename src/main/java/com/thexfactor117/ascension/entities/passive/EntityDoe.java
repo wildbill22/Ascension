@@ -22,6 +22,8 @@ import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityDoe extends EntityAnimal
 {
+	private static final String name = "Doe";
+	
 	public EntityDoe(World world) 
 	{
 		super(world);
@@ -68,4 +70,9 @@ public class EntityDoe extends EntityAnimal
 	{
 		return null;
 	}
+	
+	public String getName()
+    {
+    	return name;
+    }
 }

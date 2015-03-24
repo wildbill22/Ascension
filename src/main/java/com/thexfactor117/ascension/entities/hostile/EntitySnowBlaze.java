@@ -26,6 +26,8 @@ import com.thexfactor117.ascension.handlers.ConfigHandler;
 
 public class EntitySnowBlaze extends EntityMob
 {	
+	private static final String name = "Snow Blaze";
+	
 	public float heightOffset = 0.5F;
 	public int heightOffsetUpdateTime;
 	
@@ -143,6 +145,11 @@ public class EntitySnowBlaze extends EntityMob
     protected String getDeathSound()
     {
         return "mob.blaze.death";
+    }
+	
+	public String getName()
+    {
+    	return name;
     }
 	
 	/**

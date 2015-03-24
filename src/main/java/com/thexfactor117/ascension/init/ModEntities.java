@@ -42,7 +42,7 @@ import com.thexfactor117.ascension.items.ItemAscensionMonsterPlacer;
 public class ModEntities 
 {
 	public static int i;
-	public static int startEntityID;
+	public static int startEntityID;	
 	
 	// Egg Items
 	public static Item pharaohEgg = new ItemAscensionMonsterPlacer("Pharaoh", 0xC9C9BB, 0x182ED6).setUnlocalizedName("spawn_egg_" + "Pharaoh".toLowerCase());

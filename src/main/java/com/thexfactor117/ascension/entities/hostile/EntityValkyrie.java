@@ -25,6 +25,8 @@ import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityValkyrie extends EntityMob
 {
+	private static final String name = "Valkyrie";
+	
 	public EntityValkyrie(World world) 
 	{
 		super(world);
@@ -130,5 +132,10 @@ public class EntityValkyrie extends EntityMob
     protected String getDeathSound()
     {
     	return "mob.zombie.death";
+    }
+    
+    public String getName()
+    {
+    	return name;
     }
 }

@@ -25,6 +25,8 @@ import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityBarbarian extends EntityMob
 {
+	private static final String name = "Barbarian";
+	
 	public EntityBarbarian(World world) 
 	{
 		super(world);
@@ -130,5 +132,10 @@ public class EntityBarbarian extends EntityMob
     protected String getDeathSound()
     {
     	return "mob.zombie.death";
+    }
+    
+    public String getName()
+    {
+    	return name;
     }
 }

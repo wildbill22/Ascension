@@ -26,6 +26,8 @@ import com.thexfactor117.ascension.init.ModItems;
 
 public class EntityGolem extends EntityMob
 {
+	private static final String name = "Golem";
+	
 	public EntityGolem(World world) 
 	{
 		super(world);
@@ -138,5 +140,10 @@ public class EntityGolem extends EntityMob
     protected String getDeathSound()
     {
     	return Reference.MODID + ":" + "GolemSay";
+    }
+    
+    public String getName()
+    {
+    	return name;
     }
 }
