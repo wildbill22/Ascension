@@ -13,7 +13,7 @@ Contributors
 ============
 TheXFactor117 -- Creator and Lead-Developer
 
-wildbill02 -- Developer (generation)
+wildbill22 -- Developer (generation)
 
 If you wish to be a contributor, please contact TheXFactor117 on Skype (thexfactor117).
 
